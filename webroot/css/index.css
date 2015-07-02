@@ -49,26 +49,26 @@ header {
   padding-bottom: 30px;
   text-align: center;
 }
-/* line 69, ../sass/index.scss */
+/* line 67, ../sass/index.scss */
 header .logo {
+  padding-top: 40px;
   width: 95%;
-  max-width: 500px;
+  max-width: 300px;
   margin: 0 auto;
   display: inline-block;
   position: relative;
 }
-/* line 76, ../sass/index.scss */
+/* line 75, ../sass/index.scss */
 header .logo h1 {
   vertical-align: bottom;
   font-family: "Cheddar";
   font-size: 6em;
   margin: 0;
-  position: absolute;
-  bottom: 25px;
-  right: 15px;
   color: #313131;
+  opacity: 0;
+  position: absolute;
 }
-/* line 88, ../sass/index.scss */
+/* line 86, ../sass/index.scss */
 header .field {
   display: inline-block;
   width: 350px;
@@ -77,9 +77,9 @@ header .field {
   vertical-align: top;
   position: relative;
   top: 100px;
-  left: -80px;
+  left: 50px;
 }
-/* line 98, ../sass/index.scss */
+/* line 96, ../sass/index.scss */
 header .field h2 {
   font-family: "Mathlete-Skinny";
   font-size: 2.5em;
@@ -88,39 +88,34 @@ header .field h2 {
 }
 
 @media screen and (max-width: 850px) {
-  /* line 110, ../sass/index.scss */
+  /* line 108, ../sass/index.scss */
   header .logo {
     display: block;
   }
-  /* line 113, ../sass/index.scss */
+  /* line 111, ../sass/index.scss */
   header .field {
     display: block;
     position: relative;
     top: 0;
     left: 0;
     margin: 0 auto;
-    width: 210px;
+    width: 315px;
+    text-align: center;
   }
 }
-@media screen and (max-width: 550px) {
-  /* line 127, ../sass/index.scss */
-  header .logo {
-    margin-left: -100px;
-  }
-}
-/* line 133, ../sass/index.scss */
+/* line 123, ../sass/index.scss */
 .wrapper {
   width: 95%;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
-/* line 141, ../sass/index.scss */
+/* line 131, ../sass/index.scss */
 .wrapper form .separator {
   width: 30px;
   display: inline-block;
 }
-/* line 146, ../sass/index.scss */
+/* line 136, ../sass/index.scss */
 .wrapper form input {
   border: solid 1px #d6d3d3;
   border-radius: 10px;
@@ -131,92 +126,99 @@ header .field h2 {
 }
 
 @media screen and (max-width: 550px) {
-  /* line 162, ../sass/index.scss */
+  /* line 151, ../sass/index.scss */
   .wrapper form input, .wrapper form button {
     display: block;
     margin: 0 auto;
     width: 250px;
   }
 }
-/* line 172, ../sass/index.scss */
-footer {
-  width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 30px;
-}
-/* line 178, ../sass/index.scss */
-footer .follow_us {
+/* line 160, ../sass/index.scss */
+.follow_us {
   font-family: "Mathlete-Skinny";
   display: inline-block;
   vertical-align: top;
   font-size: 2em;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
-/* line 185, ../sass/index.scss */
-footer .socials {
+
+/* line 169, ../sass/index.scss */
+.socials {
   display: inline-block;
   vertical-align: bottom;
   padding: 0;
   margin: 0;
 }
-/* line 191, ../sass/index.scss */
-footer .socials li {
+/* line 175, ../sass/index.scss */
+.socials li {
   display: inline-block;
 }
-/* line 194, ../sass/index.scss */
-footer .socials li a {
+/* line 178, ../sass/index.scss */
+.socials li a {
   background-repeat: no-repeat;
-  height: 27px;
-  margin-left: 20px;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
   display: inline-block;
   transition: 0.2s;
   position: relative;
   top: 0;
 }
-/* line 203, ../sass/index.scss */
-footer .socials li a.facebook {
+/* line 188, ../sass/index.scss */
+.socials li a.facebook {
   background-image: url("../img/facebook.png");
-  width: 27px;
 }
-/* line 207, ../sass/index.scss */
-footer .socials li a.twitter {
+/* line 191, ../sass/index.scss */
+.socials li a.twitter {
   background-image: url("../img/twitter.png");
-  width: 34px;
 }
-/* line 211, ../sass/index.scss */
-footer .socials li a.instagram {
+/* line 194, ../sass/index.scss */
+.socials li a.instagram {
   background-image: url("../img/instagram.png");
-  width: 26px;
 }
-/* line 215, ../sass/index.scss */
-footer .socials li a.snapchat {
+/* line 197, ../sass/index.scss */
+.socials li a.snapchat {
   background-image: url("../img/snapchat.png");
-  width: 27px;
 }
-/* line 219, ../sass/index.scss */
-footer .socials li a.pinterest {
+/* line 200, ../sass/index.scss */
+.socials li a.pinterest {
   background-image: url("../img/pinterest.png");
-  width: 27px;
 }
-/* line 224, ../sass/index.scss */
-footer .socials li a:hover {
+/* line 206, ../sass/index.scss */
+.socials li a:hover {
   top: -5px;
 }
-/* line 231, ../sass/index.scss */
+
+/* line 213, ../sass/index.scss */
+footer {
+  text-align: center;
+}
+/* line 216, ../sass/index.scss */
 footer .cgu {
   display: block;
   margin-top: 25px;
   text-decoration: none;
-  color: #949393;
+  color: #f09494;
 }
-/* line 237, ../sass/index.scss */
+/* line 222, ../sass/index.scss */
 footer .cgu:hover {
   text-decoration: underline;
 }
 
 @media screen and (max-width: 500px) {
-  /* line 245, ../sass/index.scss */
+  /* line 231, ../sass/index.scss */
+  footer {
+    text-align: center;
+  }
+  /* line 234, ../sass/index.scss */
   footer .follow_us, footer .socials {
+    text-align: center;
     display: block;
+  }
+  /* line 238, ../sass/index.scss */
+  footer .socials {
+    width: 260px;
+    margin: 0 auto;
   }
 }

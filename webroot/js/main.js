@@ -36,7 +36,7 @@ $(document).ready(function() {
   };
 
   var tmax_tl           = new TimelineMax(tmax_opts),
-      polylion_shapes   = $('svg.polylion > g polygon, path, svg.polylion > g polyline'),
+      polylion_shapes   = $('g.animation polygon, g.animation path, g.animation polyline'),
       polylion_stagger  = 0.00475,
       polylion_duration = 1;
 
@@ -52,6 +52,6 @@ $(document).ready(function() {
     ease: Elastic.easeInOut
   };
 
-  //tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
+  tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
 
 });
