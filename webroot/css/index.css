@@ -51,12 +51,13 @@ header {
 }
 /* line 69, ../sass/index.scss */
 header .logo {
-  width: 500px;
+  width: 95%;
+  max-width: 500px;
   margin: 0 auto;
   display: inline-block;
   position: relative;
 }
-/* line 75, ../sass/index.scss */
+/* line 76, ../sass/index.scss */
 header .logo h1 {
   vertical-align: bottom;
   font-family: "Cheddar";
@@ -67,7 +68,7 @@ header .logo h1 {
   right: 15px;
   color: #313131;
 }
-/* line 87, ../sass/index.scss */
+/* line 88, ../sass/index.scss */
 header .field {
   display: inline-block;
   width: 350px;
@@ -78,7 +79,7 @@ header .field {
   top: 100px;
   left: -80px;
 }
-/* line 97, ../sass/index.scss */
+/* line 98, ../sass/index.scss */
 header .field h2 {
   font-family: "Mathlete-Skinny";
   font-size: 2.5em;
@@ -86,18 +87,40 @@ header .field h2 {
   color: #313131;
 }
 
-/* line 106, ../sass/index.scss */
+@media screen and (max-width: 850px) {
+  /* line 110, ../sass/index.scss */
+  header .logo {
+    display: block;
+  }
+  /* line 113, ../sass/index.scss */
+  header .field {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 210px;
+  }
+}
+@media screen and (max-width: 550px) {
+  /* line 127, ../sass/index.scss */
+  header .logo {
+    margin-left: -100px;
+  }
+}
+/* line 133, ../sass/index.scss */
 .wrapper {
-  width: 600px;
+  width: 95%;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
-/* line 113, ../sass/index.scss */
+/* line 141, ../sass/index.scss */
 .wrapper form .separator {
   width: 30px;
   display: inline-block;
 }
-/* line 118, ../sass/index.scss */
+/* line 146, ../sass/index.scss */
 .wrapper form input {
   border: solid 1px #d6d3d3;
   border-radius: 10px;
@@ -107,32 +130,40 @@ header .field h2 {
   background-color: transparent;
 }
 
-/* line 129, ../sass/index.scss */
+@media screen and (max-width: 550px) {
+  /* line 162, ../sass/index.scss */
+  .wrapper form input, .wrapper form button {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+  }
+}
+/* line 172, ../sass/index.scss */
 footer {
   width: 400px;
   margin: 0 auto;
   text-align: center;
   padding-top: 30px;
 }
-/* line 135, ../sass/index.scss */
+/* line 178, ../sass/index.scss */
 footer .follow_us {
   font-family: "Mathlete-Skinny";
   display: inline-block;
   vertical-align: top;
   font-size: 2em;
 }
-/* line 142, ../sass/index.scss */
+/* line 185, ../sass/index.scss */
 footer .socials {
   display: inline-block;
   vertical-align: bottom;
   padding: 0;
   margin: 0;
 }
-/* line 148, ../sass/index.scss */
+/* line 191, ../sass/index.scss */
 footer .socials li {
   display: inline-block;
 }
-/* line 151, ../sass/index.scss */
+/* line 194, ../sass/index.scss */
 footer .socials li a {
   background-repeat: no-repeat;
   height: 27px;
@@ -142,43 +173,43 @@ footer .socials li a {
   position: relative;
   top: 0;
 }
-/* line 160, ../sass/index.scss */
+/* line 203, ../sass/index.scss */
 footer .socials li a.facebook {
   background-image: url("../img/facebook.png");
   width: 27px;
 }
-/* line 164, ../sass/index.scss */
+/* line 207, ../sass/index.scss */
 footer .socials li a.twitter {
   background-image: url("../img/twitter.png");
   width: 34px;
 }
-/* line 168, ../sass/index.scss */
+/* line 211, ../sass/index.scss */
 footer .socials li a.instagram {
   background-image: url("../img/instagram.png");
   width: 26px;
 }
-/* line 172, ../sass/index.scss */
+/* line 215, ../sass/index.scss */
 footer .socials li a.snapchat {
   background-image: url("../img/snapchat.png");
   width: 27px;
 }
-/* line 176, ../sass/index.scss */
+/* line 219, ../sass/index.scss */
 footer .socials li a.pinterest {
   background-image: url("../img/pinterest.png");
   width: 27px;
 }
-/* line 181, ../sass/index.scss */
+/* line 224, ../sass/index.scss */
 footer .socials li a:hover {
   top: -5px;
 }
-/* line 188, ../sass/index.scss */
+/* line 231, ../sass/index.scss */
 footer .cgu {
   display: block;
   margin-top: 25px;
   text-decoration: none;
   color: #949393;
 }
-/* line 194, ../sass/index.scss */
+/* line 237, ../sass/index.scss */
 footer .cgu:hover {
   text-decoration: underline;
 }

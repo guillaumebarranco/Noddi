@@ -67,7 +67,8 @@ header {
 	
 
 	.logo {
-		width: 500px;
+		width: 95%;
+		max-width: 500px;
 		margin: 0 auto;
 		display: inline-block;
 		position: relative;
@@ -103,8 +104,35 @@ header {
 	}
 }
 
+@media screen and (max-width:850px) {
+
+	header {
+		.logo {
+			display: block;
+		}
+		.field {
+			display: block;
+			position: relative;
+			top: 0;
+			left: 0;
+			margin: 0 auto;
+			width: 210px;
+		}
+	}
+}
+
+@media screen and (max-width:550px) {
+
+	header {
+		.logo {
+			margin-left: -100px;
+		}
+	}
+}
+
 .wrapper {
-	width: 600px;
+	width: 95%;
+	max-width: 600px;
 	margin: 0 auto;
 	text-align: center;
 
@@ -125,6 +153,21 @@ header {
 		}
 	}
 }
+
+
+@media screen and (max-width:550px) {
+
+	.wrapper {
+		form {
+			input, button {
+				display: block;
+				margin: 0 auto;
+				width: 250px;
+			}
+		}
+	}
+}
+
 
 footer {
 	width: 400px;

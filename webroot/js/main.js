@@ -52,6 +52,6 @@ $(document).ready(function() {
     ease: Elastic.easeInOut
   };
 
-  tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
+  //tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
 
 });
