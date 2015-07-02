@@ -13,17 +13,20 @@ $grey_black : #949393;
 @font-face {
 	font-family: 'Cheddar';
 	src: url('font/cheddarjack.otf');
+	font-style: lighter;
 }
 
-@font-face {
-	font-family: 'Source-Sans-Pro-Light';
-	src: url('font/sourcesansprolight.otf');
-}
+// @font-face {
+// 	font-family: 'Source-Sans-Pro-Light';
+// 	src: url('font/sourcesansprolight.otf');
+// }
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 
 html, body {
 	padding: 0;
 	margin: 0;
-	font-family: "Source-Sans-Pro-Light";
+	font-family: "Source Sans Pro";
 }
 
 .button {
@@ -51,16 +54,33 @@ header {
 	padding-bottom: 30px;
 	text-align: center;
 
+	
+
 	.logo {
-		width: 350px;
+		width: 500px;
 		margin: 0 auto;
+		display: inline-block;
+		position: relative;
+
+		h1 {
+			vertical-align: bottom;
+			font-family: "Cheddar";
+			font-size: 6em;
+			margin: 0;
+			position: absolute;
+			bottom: 25px;
+			right: 15px;
+		}
 	}
 
 	.field {
-		width: 850px;
+		display: inline-block;
+		width: 350px;
 		margin: 0 auto;
-		border: dotted 2px $grey_black;
-		padding: 10px;
+		vertical-align: top;
+		position: relative;
+		top: 100px;
+		left: -120px;
 
 		h2 {
 			font-family: "Mathlete-Skinny";
@@ -86,14 +106,15 @@ header {
 			border: solid 1px $grey;
 			border-radius: 10px;
 			color: $grey_black;
-			padding: 15px 80px 15px 15px;
+			padding: 15px;
+			width: 200px;
 			background-color: transparent;
 		}
 	}
 }
 
 footer {
-	width: 310px;
+	width: 400px;
 	margin: 0 auto;
 	text-align: center;
 	padding-top: 30px;
@@ -134,6 +155,14 @@ footer {
 				&.instagram {
 					background-image: url('../img/instagram.png');
 					width: 26px;
+				}
+				&.snapchat {
+					background-image: url('../img/snapchat.png');
+					width: 27px;
+				}
+				&.pinterest {
+					background-image: url('../img/pinterest.png');
+					width: 27px;
 				}
 
 				&:hover {

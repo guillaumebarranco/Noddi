@@ -140,6 +140,8 @@
                     </g>
                 </svg>
 
+                <h1>Noddi</h1>
+
                 <!-- <img src="img/logo.svg" alt="Logo De Noddi" /> -->
             </div>
 
@@ -148,8 +150,8 @@
                 <h2>Faites Votre Show !</h2>
 
                 <p>
-                    Rencontrez facilement de nombreuses marques et boutiques pour profiter de bons plans. <br />
-                    Avec Noddi, mettre sa notoriété à profit n’a jamais été aussi simple.
+                    Mettre sa notoriété à profit <br />
+                    n’a jamais été aussi simple.
                 </p>
 
             </div>
@@ -177,10 +179,12 @@
                     <li><a class="facebook" href="#"></a></li>
                     <li><a class="twitter" href="#"></a></li>
                     <li><a class="instagram" href="#"></a></li>
+                    <li><a class="snapchat" href="#"></a></li>
+                    <li><a class="pinterest" href="#"></a></li>
                 </ul>
             </div>
 
-            <a href="#" class="cgu">Conditions Générales D'utilisation</a>
+            <a href="mentions_legales.pdf" target="_blank" class="cgu">Conditions Générales D'utilisation</a>
 
         </footer>
 
@@ -236,7 +240,7 @@
                   ease: Elastic.easeInOut
                 };
 
-                tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
+               // tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
                 
             });
 
