@@ -213,3 +213,10 @@ footer .cgu {
 footer .cgu:hover {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 500px) {
+  /* line 245, ../sass/index.scss */
+  footer .follow_us, footer .socials {
+    display: block;
+  }
+}
