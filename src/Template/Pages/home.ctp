@@ -184,7 +184,7 @@
                 </ul>
             </div>
 
-            <a href="mentions_legales.pdf" target="_blank" class="cgu">Conditions Générales D'utilisation</a>
+            <a href="cgu.pdf" target="_blank" class="cgu">Conditions Générales D'utilisation</a>
 
         </footer>
 
@@ -209,6 +209,13 @@
                         data : data,
                         success: function(response) {
                             console.log(response);
+
+                            if(response == 'ok') {
+                                $('form').empty();
+                                $('form').append('<div class="green">Votre e-mail a bien été enregistré !</div>');
+                            } else {
+                                $('form').prepend('<div class="red">Cet e-mail a déjà été saisi !</div>');
+                            }
                         },
                         error: function(){
                             console.log('error');

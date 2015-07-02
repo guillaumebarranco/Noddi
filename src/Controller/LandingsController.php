@@ -11,6 +11,15 @@ use App\Controller\AppController;
 class LandingsController extends AppController
 {
 
+    public function initialize() {
+        parent::initialize();
+
+        // On récupère les composants pour la Pagination, le renvoi de JSON....
+        $this->loadComponent('RequestHandler');
+
+        $session = $this->request->session();
+    }
+
     /**
      * Index method
      *
@@ -45,18 +54,25 @@ class LandingsController extends AppController
      */
     public function add()
     {
+
+        $this->autoRender = false;
+        $this->layout = null;
+        $this->RequestHandler->renderAs($this, 'json');
+
         $landing = $this->Landings->newEntity();
         if ($this->request->is('post')) {
             $landing = $this->Landings->patchEntity($landing, $this->request->data);
             if ($this->Landings->save($landing)) {
                 $this->Flash->success(__('The landing has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $check = 'ok';
+                //return $this->redirect(['action' => 'index']);
             } else {
+                $check = 'ko';
                 $this->Flash->error(__('The landing could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('landing'));
-        $this->set('_serialize', ['landing']);
+
+        echo json_encode($check);
     }
 
     /**
