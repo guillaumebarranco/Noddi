@@ -35,6 +35,19 @@ class PagesController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
+
+    public function initialize() {
+        parent::initialize();
+
+        // On récupère les Model pour le reste du Controlleur
+        $this->loadModel('Landings');
+
+        // On récupère les composants pour la Pagination, le renvoi de JSON....
+        $this->loadComponent('RequestHandler');
+
+        $session = $this->request->session();
+    }
+
     public function display()
     {
         $path = func_get_args();
@@ -65,5 +78,20 @@ class PagesController extends AppController
 
     public function home() {
         $this->layout = null;
+    }
+
+
+    public function getEmail() {
+        $this->autoRender = false;
+        $this->layout = null;
+        $this->RequestHandler->renderAs($this, 'json');
+
+        // $landing = $this->Landings->patchEntity($landing, $this->request->data);
+        // $this->Landings->save($landing);
+
+        $response = array();
+        $response['status'] = 'ok';
+
+        echo json_encode($response);
     }
 }

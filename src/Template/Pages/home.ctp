@@ -140,7 +140,6 @@
                     </g>
                 </svg>
 
-        
                 <!-- <img src="img/logo.svg" alt="Logo De Noddi" /> -->
             </div>
 
@@ -166,7 +165,6 @@
                 <div class="separator"></div>
                 <button class="button">Je veux être informée !</button>
             </form>
-            
 
         </section>
 
@@ -187,12 +185,32 @@
         </footer>
 
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 
         <script type="text/javascript">
 
             $(document).ready(function() {
+
+                $('form').on('submit' ,function(e) {
+                    e.preventDefault();
+                    var email = $(this).find('input[type=email]').val();
+
+                    data = {
+                        "email": email
+                    };
+
+                    $.ajax({
+                        type : 'POST',
+                        url : 'landings/add',
+                        data : data,
+                        success: function(response) {
+                            console.log(response);
+                        },
+                        error: function(){
+                            console.log('error');
+                        }
+                    });
+                });
 
                 var tmax_opts = {
                   delay: 0.5,
@@ -217,8 +235,6 @@
                   scale: 1,
                   ease: Elastic.easeInOut
                 };
-
-                
 
                 tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
                 
