@@ -2,4 +2,7 @@
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+	RewriteCond %{HTTP_HOST} ^www.noddi.eu$
+	RewriteRule ^(.*) http://noddi.eu/$1 [QSA,L,R=301]
 </IfModule>
