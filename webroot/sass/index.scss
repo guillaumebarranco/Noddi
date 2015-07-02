@@ -1,0 +1,156 @@
+@import 'compass';
+
+$blue : #d5f1f3;
+$pink : #f09494;
+$grey : #d6d3d3;
+$grey_black : #949393;
+
+@font-face {
+	font-family: 'Mathlete-Skinny';
+	src: url('font/Mathlete-Skinny.otf');
+}
+
+@font-face {
+	font-family: 'Cheddar';
+	src: url('font/cheddarjack.otf');
+}
+
+@font-face {
+	font-family: 'Source-Sans-Pro-Light';
+	src: url('font/sourcesansprolight.otf');
+}
+
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: "Source-Sans-Pro-Light";
+}
+
+.button {
+	border: solid 1px $pink;
+	border-radius: 10px;
+	color: $pink;
+	padding: 15px 20px;
+	background-color: transparent;
+	cursor: pointer;
+	transition: 0.4s;
+
+	&:hover {
+		background-color: $pink;
+		color: white;
+	}
+}
+
+// polygon, polyline, path {
+//   opacity: 0;
+// }
+
+header {
+	background-color: $blue;
+	margin-bottom: 40px;
+	padding-bottom: 30px;
+	text-align: center;
+
+	.logo {
+		width: 350px;
+		margin: 0 auto;
+	}
+
+	.field {
+		width: 850px;
+		margin: 0 auto;
+		border: dotted 2px $grey_black;
+		padding: 10px;
+
+		h2 {
+			font-family: "Mathlete-Skinny";
+			font-size: 2.5em;
+			margin: 0;
+		}
+	}
+}
+
+.wrapper {
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+
+	form {
+
+		.separator {
+			width: 30px;
+			display: inline-block;
+		}
+
+		input {
+			border: solid 1px $grey;
+			border-radius: 10px;
+			color: $grey_black;
+			padding: 15px 80px 15px 15px;
+			background-color: transparent;
+		}
+	}
+}
+
+footer {
+	width: 310px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+
+	.follow_us {
+		font-family: "Mathlete-Skinny";
+		display: inline-block;
+		vertical-align: top;
+		font-size: 2em;
+	}
+
+	.socials {
+		display: inline-block;
+		vertical-align: bottom;
+		padding: 0;
+		margin: 0;
+		
+		li {
+			display: inline-block;
+
+			a {
+				background-repeat: no-repeat;
+				height: 27px;
+				margin-left: 20px;
+				display: inline-block;
+				transition: 0.2s;
+				position: relative;
+				top: 0;
+
+				&.facebook {
+					background-image: url('../img/facebook.png');
+					width: 27px;
+				}
+				&.twitter {
+					background-image: url('../img/twitter.png');
+					width: 34px;
+				}
+				&.instagram {
+					background-image: url('../img/instagram.png');
+					width: 26px;
+				}
+
+				&:hover {
+					top: -5px;
+				}
+			}
+		}
+	}
+
+	.cgu {
+		display: block;
+		margin-top: 15px;
+		text-decoration: none;
+		color: $grey_black;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
