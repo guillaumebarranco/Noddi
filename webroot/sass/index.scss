@@ -4,6 +4,7 @@ $blue : #d5f1f3;
 $pink : #f09494;
 $grey : #d6d3d3;
 $grey_black : #949393;
+$black : #313131;
 
 @font-face {
 	font-family: 'Mathlete-Skinny';
@@ -27,6 +28,7 @@ html, body {
 	padding: 0;
 	margin: 0;
 	font-family: "Source Sans Pro";
+	color: $black;
 }
 
 .button {
@@ -70,6 +72,7 @@ header {
 			position: absolute;
 			bottom: 25px;
 			right: 15px;
+			color: $black;
 		}
 	}
 
@@ -77,15 +80,17 @@ header {
 		display: inline-block;
 		width: 350px;
 		margin: 0 auto;
+		text-align: left;
 		vertical-align: top;
 		position: relative;
 		top: 100px;
-		left: -120px;
+		left: -80px;
 
 		h2 {
 			font-family: "Mathlete-Skinny";
 			font-size: 2.5em;
 			margin: 0;
+			color: $black;
 		}
 	}
 }
@@ -107,7 +112,7 @@ header {
 			border-radius: 10px;
 			color: $grey_black;
 			padding: 15px;
-			width: 200px;
+			width: 260px;
 			background-color: transparent;
 		}
 	}
@@ -174,7 +179,7 @@ footer {
 
 	.cgu {
 		display: block;
-		margin-top: 15px;
+		margin-top: 25px;
 		text-decoration: none;
 		color: $grey_black;
 
