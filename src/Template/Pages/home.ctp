@@ -297,10 +297,10 @@
         </header>
 
         <section class="wrapper">
-            
-            <p>Soyez informés avant tout le monde de l'ouverture de notre plateforme !</p>
 
             <form action="#">
+                <p>Soyez informés avant tout le monde de l'ouverture de notre plateforme !</p>
+                
                 <input type="email" name="email" placeholder="Votre e-mail" />
                 <div class="separator"></div>
                 <button class="button">Je veux être informé !</button>

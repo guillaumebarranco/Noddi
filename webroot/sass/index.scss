@@ -59,6 +59,16 @@ p {
 	font-size: 1.2em;
 }
 
+a {
+	text-decoration: none;
+	color: $pink;
+	font-size: 0.85em;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 input, button {
 	font-size: 1em;
 }
@@ -119,6 +129,7 @@ header {
 			font-size: 2.5em;
 			margin: 0;
 			color: $black;
+			font-weight: lighter;
 		}
 	}
 }
@@ -301,6 +312,7 @@ header {
 
 .flamingo img {
 	position: absolute;
+	right: -200px;
 	z-index: -1;
 	-webkit-animation-name: flamingo;
 	-webkit-animation-duration: 15s;
@@ -366,13 +378,6 @@ footer {
 		display: inline-block;
 		margin: 0 auto;
 		margin-top: 50px;
-		text-decoration: none;
-		color: $pink;
-		font-size: 0.85em;
-
-		&:hover {
-			text-decoration: underline;
-		}
 	}
 }
 

@@ -22,7 +22,7 @@ $(document).ready(function() {
               if(response == 'ok') {
                   $('form').empty();
                   var content = 
-                    '<p class="green">Félicitations ! Vous faites désormais partie de la grande famille <strong>Noddi</strong><br />' +
+                    '<p class="green">Félicitations ! Vous faites désormais partie de la grande famille <strong>Noddi</strong><br /><br />' +
                       '<a target="_blank" href="https://vine.co/v/euJZIBFEmbX">https://vine.co/v/euJZIBFEmbX</a>' +
                     '</p>'
                   ;
@@ -41,15 +41,17 @@ $(document).ready(function() {
   * POUR FERMER LA POPUP
   */
 
+  var popup_shown = false;
+
   $(document).on('click', '.popup_snapchat .close', function() {
     $(this).parent().hide();
   });
 
-  // $('body').on('click', ':not(.popup_snapchat)' function() {
-  //   if($('.popup_snapchat').css('display') == 'block') {
-  //     $('.popup_snapchat').hide();
-  //   }
-  // });
+  $('body').not($('.popup_snapchat')).on('click', function() {
+    if(popup_shown == true) {
+      $('.popup_snapchat').hide();
+    }
+  });
 
   /*
   * AU CLIC SUR LES RESEAUX SOCIAUX, ON ENREGISTRE LE CLIC EN BDD
@@ -61,6 +63,7 @@ $(document).ready(function() {
       if(social == 'snapchat') {
         e.preventDefault();
         $('.popup_snapchat').show();
+        setTimeout(function(){popup_shown = true;}, 100);
       }
 
       data = {
@@ -97,6 +100,7 @@ $(document).ready(function() {
   if(($(window).width() > 800)) {
 
     $('svg').hover(
+
       function() {
         $('.animation polygon, .animation path, .animation polyline').each(function() {
           $(this).css('-webkit-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
