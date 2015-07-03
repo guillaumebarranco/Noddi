@@ -299,11 +299,11 @@
         <section class="wrapper">
 
             <form action="#">
-                <p>Soyez informés avant tout le monde de l'ouverture de notre plateforme !</p>
+                <p>Soyez informé(e)s avant tout le monde de l'ouverture de notre plateforme !</p>
 
                 <input type="email" name="email" placeholder="Votre e-mail" />
                 <div class="separator"></div>
-                <button class="button">Je veux être informé !</button>
+                <button class="button">Je veux être informé(e) !</button>
             </form>
 
         </section>
