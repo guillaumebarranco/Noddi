@@ -45,11 +45,13 @@ $(document).ready(function() {
 
   $(document).on('click', '.popup_snapchat .close', function() {
     $(this).parent().hide();
+    popup_shown = false;
   });
 
   $('body').not($('.popup_snapchat')).on('click', function() {
     if(popup_shown == true) {
       $('.popup_snapchat').hide();
+      popup_shown = false;
     }
   });
 
@@ -62,8 +64,11 @@ $(document).ready(function() {
 
       if(social == 'snapchat') {
         e.preventDefault();
-        $('.popup_snapchat').show();
-        setTimeout(function(){popup_shown = true;}, 100);
+        if(popup_shown === false) {
+          $('.popup_snapchat').show();
+          setTimeout(function(){popup_shown = true;}, 100);
+        }
+        
       }
 
       data = {
