@@ -57,6 +57,9 @@ input, button {
   color: red;
 }
 
+/*
+*	HEADER
+*/
 /* line 74, ../sass/index.scss */
 header {
   background-color: #d5f1f3;
@@ -127,20 +130,27 @@ header .field h2 {
   header .logo {
     width: 50%;
   }
+  /* line 148, ../sass/index.scss */
+  header .field h2 {
+    font-size: 1.7em;
+  }
 }
-/* line 149, ../sass/index.scss */
+/*
+*	CONTENT
+*/
+/* line 159, ../sass/index.scss */
 .wrapper {
   width: 95%;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
-/* line 157, ../sass/index.scss */
+/* line 167, ../sass/index.scss */
 .wrapper form .separator {
   width: 15px;
   display: inline-block;
 }
-/* line 162, ../sass/index.scss */
+/* line 172, ../sass/index.scss */
 .wrapper form input {
   border: solid 1px #d6d3d3;
   border-radius: 10px;
@@ -151,14 +161,14 @@ header .field h2 {
 }
 
 @media screen and (max-width: 550px) {
-  /* line 177, ../sass/index.scss */
+  /* line 187, ../sass/index.scss */
   .wrapper form input, .wrapper form button {
     display: block;
     margin: 0 auto;
     width: 250px;
   }
 }
-/* line 186, ../sass/index.scss */
+/* line 196, ../sass/index.scss */
 .follow_us {
   font-family: "Mathlete-Skinny";
   display: inline-block;
@@ -168,18 +178,18 @@ header .field h2 {
   margin-top: 15px;
 }
 
-/* line 195, ../sass/index.scss */
+/* line 205, ../sass/index.scss */
 .socials {
   display: inline-block;
   vertical-align: bottom;
   padding: 0;
   margin: 0;
 }
-/* line 201, ../sass/index.scss */
+/* line 211, ../sass/index.scss */
 .socials li {
   display: inline-block;
 }
-/* line 204, ../sass/index.scss */
+/* line 214, ../sass/index.scss */
 .socials li a {
   background-repeat: no-repeat;
   height: 40px;
@@ -190,58 +200,65 @@ header .field h2 {
   position: relative;
   top: 0;
 }
-/* line 214, ../sass/index.scss */
+/* line 226, ../sass/index.scss */
 .socials li a.facebook {
   background-image: url("../img/facebook.png");
 }
-/* line 217, ../sass/index.scss */
+/* line 229, ../sass/index.scss */
 .socials li a.twitter {
   background-image: url("../img/twitter.png");
 }
-/* line 220, ../sass/index.scss */
+/* line 232, ../sass/index.scss */
 .socials li a.instagram {
   background-image: url("../img/instagram.png");
 }
-/* line 223, ../sass/index.scss */
+/* line 235, ../sass/index.scss */
 .socials li a.snapchat {
   background-image: url("../img/snapchat.png");
 }
-/* line 226, ../sass/index.scss */
+/* line 238, ../sass/index.scss */
 .socials li a.pinterest {
   background-image: url("../img/pinterest.png");
 }
+/* line 244, ../sass/index.scss */
+.socials li:last-child a {
+  margin-right: 0;
+}
 
 @media screen and (min-width: 1000px) {
-  /* line 239, ../sass/index.scss */
+  /* line 257, ../sass/index.scss */
   .socials li a.facebook:hover {
     background-image: url("../img/facebook_hover.png");
   }
-  /* line 244, ../sass/index.scss */
+  /* line 262, ../sass/index.scss */
   .socials li a.twitter:hover {
     background-image: url("../img/twitter_hover.png");
   }
-  /* line 249, ../sass/index.scss */
+  /* line 267, ../sass/index.scss */
   .socials li a.instagram:hover {
     background-image: url("../img/instagram_hover.png");
   }
-  /* line 254, ../sass/index.scss */
+  /* line 272, ../sass/index.scss */
   .socials li a.snapchat:hover {
     background-image: url("../img/snapchat_hover.png");
   }
-  /* line 259, ../sass/index.scss */
+  /* line 277, ../sass/index.scss */
   .socials li a.pinterest:hover {
     background-image: url("../img/pinterest_hover.png");
   }
-  /* line 264, ../sass/index.scss */
+  /* line 282, ../sass/index.scss */
   .socials li a:hover {
     top: -5px;
   }
 }
-/* line 274, ../sass/index.scss */
+/*
+*	FOOTER
+*/
+/* line 294, ../sass/index.scss */
 footer {
   text-align: center;
 }
-/* line 277, ../sass/index.scss */
+/* line 297, ../sass/index.scss */
 footer .cgu {
   display: block;
   margin-top: 50px;
@@ -249,28 +266,31 @@ footer .cgu {
   color: #f09494;
   font-size: 0.85em;
 }
-/* line 284, ../sass/index.scss */
+/* line 304, ../sass/index.scss */
 footer .cgu:hover {
   text-decoration: underline;
 }
 
 @media screen and (max-width: 500px) {
-  /* line 293, ../sass/index.scss */
+  /* line 311, ../sass/index.scss */
   footer {
     text-align: center;
   }
-  /* line 296, ../sass/index.scss */
+  /* line 314, ../sass/index.scss */
   footer .follow_us, footer .socials {
     text-align: center;
     display: block;
   }
-  /* line 300, ../sass/index.scss */
+  /* line 318, ../sass/index.scss */
   footer .socials {
     width: 260px;
     margin: 0 auto;
   }
 }
-/* line 310, ../sass/index.scss */
+/*
+*	POPUP
+*/
+/* line 332, ../sass/index.scss */
 .popup_snapchat {
   position: absolute;
   top: 50%;
@@ -289,13 +309,16 @@ footer .cgu:hover {
   font-size: 1.1em;
 }
 
-/* line 328, ../sass/index.scss */
+/* line 350, ../sass/index.scss */
 .close {
   text-align: right;
   cursor: pointer;
 }
 
-/* line 335, ../sass/index.scss */
+/*
+*	ANIMATION SVG
+*/
+/* line 361, ../sass/index.scss */
 svg .animation polygon, svg .animation polyline, svg .animation path {
   -webkit-transform: translateX(em-calc(0));
   -webkit-transition: 0.4s;

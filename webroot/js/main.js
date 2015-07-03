@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  /*
+  * A LA VALIDATION DU FORMULAIRE, ON ENREGISTRE L'EMAIL EN BDD
+  */
+
   $('form').on('submit' ,function(e) {
       e.preventDefault();
       var email = $(this).find('input[type=email]').val();
@@ -28,9 +32,17 @@ $(document).ready(function() {
       });
   });
 
+  /*
+  * POUR FERMER LA POPUP
+  */
+
   $(document).on('click', '.popup_snapchat .close', function() {
     $(this).parent().hide();
   });
+
+  /*
+  * AU CLIC SUR LES RESEAUX SOCIAUX, ON ENREGISTRE LE CLIC EN BDD
+  */
 
   $('.socials li a').on('click' ,function(e) {
       var social = $(this).attr('class');
@@ -57,32 +69,6 @@ $(document).ready(function() {
       });
   });
 
-  // var tmax_opts = {
-  //   delay: 0.5,
-  //   repeat: -1,
-  //   repeatDelay: 2,
-  //   yoyo: true
-  // };
-
-  // var tmax_tl           = new TimelineMax(tmax_opts),
-  //     polylion_shapes   = $('g.animation polygon, g.animation path, g.animation polyline'),
-  //     polylion_stagger  = 0.00475,
-  //     polylion_duration = 1;
-
-  // var polylion_staggerFrom = {
-  //   scale: 0,
-  //   opacity: 0,
-  //   transformOrigin: 'center center',
-  // };
-
-  // var polylion_staggerTo = {
-  //   opacity: 1,
-  //   scale: 1,
-  //   ease: Elastic.easeInOut
-  // };
-
-  // tmax_tl.staggerFromTo(polylion_shapes, polylion_duration, polylion_staggerFrom, polylion_staggerTo, polylion_stagger, 0);
-
   function rand(min, max) {
     var the_random = Math.random() * (max - min + 1) + min;
     return the_random;
@@ -93,23 +79,14 @@ $(document).ready(function() {
     return the_random;
   }
 
-  // $('g.animation polygon, g.animation path, g.animation polyline').each(function() {
-
-  //   setTimeout(function() {
-
-  //     $(this).css('position', 'relative');
-  //     $(this).css('left', rand(10,50)+'px');
-  //     $(this).css('top', rand(10,50)+'px');
-
-  //   }, 100);
-
-  // });
+  /*
+  * SI ON EST SUR ORDINATEUR (pour le hover) ON PERMET L'ANIMATION SUR LE LOGO
+  */
 
   if(($(window).width() > 800)) {
 
     $('svg').hover(
       function() {
-
         $('.animation polygon, .animation path, .animation polyline').each(function() {
           $(this).css('-webkit-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
         });
@@ -120,6 +97,5 @@ $(document).ready(function() {
 
     );
   }
-  
 
 });

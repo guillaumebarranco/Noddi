@@ -67,9 +67,9 @@ input, button {
 	color: red;
 }
 
-// polygon, polyline, path {
-//   opacity: 0;
-// }
+/*
+*	HEADER
+*/
 
 header {
 	background-color: $blue;
@@ -143,8 +143,18 @@ header {
 		.logo {
 			width: 50%;
 		}
+
+		.field {
+			h2 {
+				font-size: 1.7em;
+			}
+		}
 	}
 }
+
+/*
+*	CONTENT
+*/
 
 .wrapper {
 	width: 95%;
@@ -211,6 +221,8 @@ header {
 			position: relative;
 			top: 0;
 
+			
+
 			&.facebook {
 				background-image: url('../img/facebook.png');
 			}
@@ -225,6 +237,12 @@ header {
 			}
 			&.pinterest {
 				background-image: url('../img/pinterest.png');
+			}
+		}
+
+		&:last-child {
+			a {
+				margin-right: 0;
 			}
 		}
 	}
@@ -269,7 +287,9 @@ header {
 	}
 }
 
-
+/*
+*	FOOTER
+*/
 
 footer {
 	text-align: center;
@@ -287,8 +307,6 @@ footer {
 	}
 }
 
-
-
 @media screen and (max-width:500px) {
 	footer {
 		text-align: center;
@@ -303,6 +321,10 @@ footer {
 		}
 	}
 }
+
+/*
+*	POPUP
+*/
 
 $width_popup : 400px;
 $height_popup : 300px;
@@ -329,6 +351,10 @@ $height_popup : 300px;
 	text-align: right;
 	cursor: pointer;
 }
+
+/*
+*	ANIMATION SVG
+*/
 
 svg {
 	.animation {
