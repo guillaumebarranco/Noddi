@@ -282,40 +282,47 @@ header .field h2 {
   right: -200px;
   z-index: -1;
   -webkit-animation-name: flamingo;
-  -webkit-animation-duration: 15s;
+  -webkit-animation-duration: 30s;
   -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
   -o-animation-name: flamingo;
-  -o-animation-duration: 15s;
+  -o-animation-duration: 30s;
   -o-animation-timing-function: ease-in-out;
   -moz-animation-name: flamingo;
-  -moz-animation-duration: 15s;
+  -moz-animation-duration: 30s;
   -moz-animation-timing-function: ease-in-out;
   -ms-animation-name: flamingo;
-  -ms-animation-duration: 15s;
+  -ms-animation-duration: 30s;
   -ms-animation-timing-function: ease-in-out;
   animation-name: flamingo;
-  animation-duration: 15s;
+  animation-duration: 30s;
   animation-timing-function: ease-in-out;
 }
 
 @-webkit-keyframes flamingo {
-  from {
+  0% {
     right: -200px;
   }
-  to {
+  50% {
     right: 1800px;
+  }
+  100% {
+    right: -200px;
   }
 }
 @keyframes flamingo {
-  from {
+  0% {
     right: -200px;
   }
-  to {
+  50% {
     right: 1800px;
+  }
+  100% {
+    right: -200px;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 360, ../sass/index.scss */
+  /* line 369, ../sass/index.scss */
   .flamingo {
     display: none;
   }
@@ -323,16 +330,16 @@ header .field h2 {
 /*
 *	FOOTER
 */
-/* line 369, ../sass/index.scss */
+/* line 378, ../sass/index.scss */
 footer {
   text-align: center;
 }
-/* line 372, ../sass/index.scss */
+/* line 381, ../sass/index.scss */
 footer p {
   display: inline-block;
   font-size: 0.85em;
 }
-/* line 377, ../sass/index.scss */
+/* line 386, ../sass/index.scss */
 footer .cgu {
   display: inline-block;
   margin: 0 auto;
@@ -340,16 +347,16 @@ footer .cgu {
 }
 
 @media screen and (max-width: 500px) {
-  /* line 385, ../sass/index.scss */
+  /* line 394, ../sass/index.scss */
   footer {
     text-align: center;
   }
-  /* line 388, ../sass/index.scss */
+  /* line 397, ../sass/index.scss */
   footer .follow_us, footer .socials {
     text-align: center;
     display: block;
   }
-  /* line 392, ../sass/index.scss */
+  /* line 401, ../sass/index.scss */
   footer .socials {
     width: 260px;
     margin: 0 auto;
@@ -358,7 +365,7 @@ footer .cgu {
 /*
 *	POPUP
 */
-/* line 406, ../sass/index.scss */
+/* line 415, ../sass/index.scss */
 .popup_snapchat {
   position: absolute;
   top: 50%;
@@ -377,7 +384,7 @@ footer .cgu {
   font-size: 1.1em;
 }
 
-/* line 424, ../sass/index.scss */
+/* line 433, ../sass/index.scss */
 .close {
   text-align: right;
   cursor: pointer;
@@ -386,7 +393,7 @@ footer .cgu {
 /*
 *	ANIMATION SVG
 */
-/* line 435, ../sass/index.scss */
+/* line 444, ../sass/index.scss */
 svg .animation polygon, svg .animation polyline, svg .animation path {
   -webkit-transform: translateX(em-calc(0));
   -webkit-transition: 0.4s;

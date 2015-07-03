@@ -315,44 +315,53 @@ header {
 	right: -200px;
 	z-index: -1;
 	-webkit-animation-name: flamingo;
-	-webkit-animation-duration: 15s;
+	-webkit-animation-duration: 30s;
 	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
 
 	-o-animation-name: flamingo;
-	-o-animation-duration: 15s;
+	-o-animation-duration: 30s;
 	-o-animation-timing-function: ease-in-out;
 
 	-moz-animation-name: flamingo;
-	-moz-animation-duration: 15s;
+	-moz-animation-duration: 30s;
 	-moz-animation-timing-function: ease-in-out;
 
 	-ms-animation-name: flamingo;
-	-ms-animation-duration: 15s;
+	-ms-animation-duration: 30s;
 	-ms-animation-timing-function: ease-in-out;
 
 	animation-name: flamingo;
-	animation-duration: 15s;
+	animation-duration: 30s;
 	animation-timing-function: ease-in-out;
 
 }
 
 @-webkit-keyframes flamingo {
-	from {
+	0% {
 		right: -200px;
 	}
 
-	to {
+	50% {
 		right: 1800px;
+	}
+
+	100% {
+		right: -200px;
 	}
 }
 
 @keyframes flamingo {
-	from {
+	0% {
 		right: -200px;
 	}
 
-	to {
+	50% {
 		right: 1800px;
+	}
+
+	100% {
+		right: -200px;
 	}
 }
 
