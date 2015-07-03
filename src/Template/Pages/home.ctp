@@ -287,7 +287,7 @@
                         <li><a target="_blank" title="Page Facebook" class="facebook" href="https://www.facebook.com/noddi.eu"></a></li>
                         <li><a target="_blank" title="Page Twitter" class="twitter" href="https://twitter.com/theNoddi"></a></li>
                         <li><a target="_blank" title="Page Instagram" class="instagram" href="https://instagram.com/thenoddi"></a></li>
-                        <li><a target="_blank" title="Page Snapchat" class="snapchat" href="#"></a></li>
+                        <li><a title="Page Snapchat" class="snapchat" href="#"></a></li>
                         <li><a target="_blank" title="Page Pinterest" class="pinterest" href="https://fr.pinterest.com/noddi0434/"></a></li>
                     </ul>
                 </div>
@@ -307,6 +307,10 @@
             </form>
 
         </section>
+
+        <div class="flamingo">
+            <img src="img/flamingo.gif" alt="GIF d'un flamand rose" width="100" />
+        </div>
 
         <footer>
             <a href="cgu.pdf" target="_blank" class="cgu">Conditions Générales D'utilisation</a>

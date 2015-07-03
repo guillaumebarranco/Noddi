@@ -29,6 +29,10 @@ $black : #313131;
 
 }
 
+html {
+	overflow-x: hidden;
+}
+
 html, body {
 	padding: 0;
 	margin: 0;
@@ -288,6 +292,38 @@ header {
 }
 
 /*
+*	FLAMINGO ANIMATION
+*/
+
+.flamingo {
+	position: relative;
+}
+
+.flamingo img {
+	position: absolute;
+	z-index: -1;
+	-webkit-animation-name: flamingo;
+	-webkit-animation-duration: 15s;
+	-webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes flamingo {
+	from {
+		right: -200px;
+	}
+
+	to {
+		right: 1600px;
+	}
+}
+
+@media screen and (max-width:500px) {
+	.flamingo {
+		display: none;
+	}
+}
+
+/*
 *	FOOTER
 */
 
@@ -295,7 +331,8 @@ footer {
 	text-align: center;
 
 	.cgu {
-		display: block;
+		display: inline-block;
+		margin: 0 auto;
 		margin-top: 50px;
 		text-decoration: none;
 		color: $pink;

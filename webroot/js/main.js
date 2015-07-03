@@ -21,7 +21,14 @@ $(document).ready(function() {
 
               if(response == 'ok') {
                   $('form').empty();
-                  $('form').append('<div class="green">Votre e-mail a bien été enregistré !</div>');
+                  var content = 
+                    '<p class="green">Félicitation <br />' +
+                      'Vous faites désormais partie de la grande famille<br />' +
+                      '<strong>Noddi</strong><br />' +
+                      '<a target="_blank" href="https://vine.co/v/euJZIBFEmbX">https://vine.co/v/euJZIBFEmbX</a>' +
+                    '</p>'
+                  ;
+                  $('form').append(content);
               } else {
                   $('form').prepend('<div class="red">Cet e-mail a déjà été saisi !</div>');
               }
@@ -39,6 +46,12 @@ $(document).ready(function() {
   $(document).on('click', '.popup_snapchat .close', function() {
     $(this).parent().hide();
   });
+
+  // $('body').on('click', ':not(.popup_snapchat)' function() {
+  //   if($('.popup_snapchat').css('display') == 'block') {
+  //     $('.popup_snapchat').hide();
+  //   }
+  // });
 
   /*
   * AU CLIC SUR LES RESEAUX SOCIAUX, ON ENREGISTRE LE CLIC EN BDD
