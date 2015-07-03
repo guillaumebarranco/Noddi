@@ -271,6 +271,18 @@ header .field h2 {
   -webkit-animation-name: flamingo;
   -webkit-animation-duration: 15s;
   -webkit-animation-timing-function: ease-in-out;
+  -o-animation-name: flamingo;
+  -o-animation-duration: 15s;
+  -o-animation-timing-function: ease-in-out;
+  -moz-animation-name: flamingo;
+  -moz-animation-duration: 15s;
+  -moz-animation-timing-function: ease-in-out;
+  -ms-animation-name: flamingo;
+  -ms-animation-duration: 15s;
+  -ms-animation-timing-function: ease-in-out;
+  animation-name: flamingo;
+  animation-duration: 15s;
+  animation-timing-function: ease-in-out;
 }
 
 @-webkit-keyframes flamingo {
@@ -278,11 +290,19 @@ header .field h2 {
     right: -200px;
   }
   to {
-    right: 1600px;
+    right: 1800px;
+  }
+}
+@keyframes flamingo {
+  from {
+    right: -200px;
+  }
+  to {
+    right: 1800px;
   }
 }
 @media screen and (max-width: 500px) {
-  /* line 321, ../sass/index.scss */
+  /* line 348, ../sass/index.scss */
   .flamingo {
     display: none;
   }
@@ -290,11 +310,16 @@ header .field h2 {
 /*
 *	FOOTER
 */
-/* line 330, ../sass/index.scss */
+/* line 357, ../sass/index.scss */
 footer {
   text-align: center;
 }
-/* line 333, ../sass/index.scss */
+/* line 360, ../sass/index.scss */
+footer p {
+  display: inline-block;
+  font-size: 0.85em;
+}
+/* line 365, ../sass/index.scss */
 footer .cgu {
   display: inline-block;
   margin: 0 auto;
@@ -303,22 +328,22 @@ footer .cgu {
   color: #f09494;
   font-size: 0.85em;
 }
-/* line 341, ../sass/index.scss */
+/* line 373, ../sass/index.scss */
 footer .cgu:hover {
   text-decoration: underline;
 }
 
 @media screen and (max-width: 500px) {
-  /* line 348, ../sass/index.scss */
+  /* line 380, ../sass/index.scss */
   footer {
     text-align: center;
   }
-  /* line 351, ../sass/index.scss */
+  /* line 383, ../sass/index.scss */
   footer .follow_us, footer .socials {
     text-align: center;
     display: block;
   }
-  /* line 355, ../sass/index.scss */
+  /* line 387, ../sass/index.scss */
   footer .socials {
     width: 260px;
     margin: 0 auto;
@@ -327,7 +352,7 @@ footer .cgu:hover {
 /*
 *	POPUP
 */
-/* line 369, ../sass/index.scss */
+/* line 401, ../sass/index.scss */
 .popup_snapchat {
   position: absolute;
   top: 50%;
@@ -346,7 +371,7 @@ footer .cgu:hover {
   font-size: 1.1em;
 }
 
-/* line 387, ../sass/index.scss */
+/* line 419, ../sass/index.scss */
 .close {
   text-align: right;
   cursor: pointer;
@@ -355,8 +380,16 @@ footer .cgu:hover {
 /*
 *	ANIMATION SVG
 */
-/* line 398, ../sass/index.scss */
+/* line 430, ../sass/index.scss */
 svg .animation polygon, svg .animation polyline, svg .animation path {
   -webkit-transform: translateX(em-calc(0));
   -webkit-transition: 0.4s;
+  -ms-transform: translateX(em-calc(0));
+  -ms-transition: 0.4s;
+  -moz-transform: translateX(em-calc(0));
+  -moz-transition: 0.4s;
+  -o-transform: translateX(em-calc(0));
+  -o-transition: 0.4s;
+  transform: translateX(em-calc(0));
+  transition: 0.4s;
 }

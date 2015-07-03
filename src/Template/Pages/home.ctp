@@ -313,6 +313,9 @@
         </div>
 
         <footer>
+            <p>
+                © Noddi 2015 -
+            </p>
             <a href="cgu.pdf" target="_blank" class="cgu">Conditions Générales D'utilisation</a>
         </footer>
 

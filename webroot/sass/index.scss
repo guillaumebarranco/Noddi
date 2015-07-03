@@ -305,6 +305,23 @@ header {
 	-webkit-animation-name: flamingo;
 	-webkit-animation-duration: 15s;
 	-webkit-animation-timing-function: ease-in-out;
+
+	-o-animation-name: flamingo;
+	-o-animation-duration: 15s;
+	-o-animation-timing-function: ease-in-out;
+
+	-moz-animation-name: flamingo;
+	-moz-animation-duration: 15s;
+	-moz-animation-timing-function: ease-in-out;
+
+	-ms-animation-name: flamingo;
+	-ms-animation-duration: 15s;
+	-ms-animation-timing-function: ease-in-out;
+
+	animation-name: flamingo;
+	animation-duration: 15s;
+	animation-timing-function: ease-in-out;
+
 }
 
 @-webkit-keyframes flamingo {
@@ -313,7 +330,17 @@ header {
 	}
 
 	to {
-		right: 1600px;
+		right: 1800px;
+	}
+}
+
+@keyframes flamingo {
+	from {
+		right: -200px;
+	}
+
+	to {
+		right: 1800px;
 	}
 }
 
@@ -329,6 +356,11 @@ header {
 
 footer {
 	text-align: center;
+
+	p {
+		display: inline-block;
+		font-size: 0.85em;
+	}
 
 	.cgu {
 		display: inline-block;
@@ -398,6 +430,14 @@ svg {
 		polygon, polyline, path {
 			-webkit-transform: translateX(em-calc(0));
 			-webkit-transition: 0.4s;
+			-ms-transform: translateX(em-calc(0));
+			-ms-transition: 0.4s;
+			-moz-transform: translateX(em-calc(0));
+			-moz-transition: 0.4s;
+			-o-transform: translateX(em-calc(0));
+			-o-transition: 0.4s;
+			transform: translateX(em-calc(0));
+			transition: 0.4s;
 		}
 	}
 }

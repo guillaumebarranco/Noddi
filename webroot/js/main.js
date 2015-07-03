@@ -102,10 +102,18 @@ $(document).ready(function() {
       function() {
         $('.animation polygon, .animation path, .animation polyline').each(function() {
           $(this).css('-webkit-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
+          $(this).css('-o-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
+          $(this).css('-moz-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
+          $(this).css('-ms-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
+          $(this).css('transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
         });
 
       }, function() {
         $('.animation polygon, .animation path, .animation polyline').css('-webkit-transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
+        $('.animation polygon, .animation path, .animation polyline').css('transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
+        $('.animation polygon, .animation path, .animation polyline').css('-moz-transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
+        $('.animation polygon, .animation path, .animation polyline').css('-o-transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
+        $('.animation polygon, .animation path, .animation polyline').css('-ms-transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
       }
 
     );
