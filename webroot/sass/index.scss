@@ -46,6 +46,14 @@ html, body {
 	}
 }
 
+p {
+	font-size: 1.2em;
+}
+
+input, button {
+	font-size: 1em;
+}
+
 .green {
 	color: green;
 }
@@ -93,6 +101,10 @@ header {
 		top: 100px;
 		left: 50px;
 
+		div {
+			margin-top: 20px;
+		}
+
 		h2 {
 			font-family: "Mathlete-Skinny";
 			font-size: 2.5em;
@@ -120,6 +132,15 @@ header {
 	}
 }
 
+@media screen and (max-width:550px) {
+
+	header {
+		.logo {
+			width: 50%;
+		}
+	}
+}
+
 .wrapper {
 	width: 95%;
 	max-width: 600px;
@@ -129,7 +150,7 @@ header {
 	form {
 
 		.separator {
-			width: 30px;
+			width: 15px;
 			display: inline-block;
 		}
 
@@ -187,18 +208,33 @@ header {
 
 			&.facebook {
 				background-image: url('../img/facebook.png');
+				&:hover {
+					background-image: url('../img/facebook_hover.png');
+				}
 			}
 			&.twitter {
 				background-image: url('../img/twitter.png');
+				&:hover {
+					background-image: url('../img/twitter_hover.png');
+				}
 			}
 			&.instagram {
 				background-image: url('../img/instagram.png');
+				&:hover {
+					background-image: url('../img/instagram_hover.png');
+				}
 			}
 			&.snapchat {
 				background-image: url('../img/snapchat.png');
+				&:hover {
+					background-image: url('../img/snapchat_hover.png');
+				}
 			}
 			&.pinterest {
 				background-image: url('../img/pinterest.png');
+				&:hover {
+					background-image: url('../img/pinterest_hover.png');
+				}
 			}
 
 			
@@ -215,9 +251,10 @@ footer {
 
 	.cgu {
 		display: block;
-		margin-top: 25px;
+		margin-top: 50px;
 		text-decoration: none;
 		color: $pink;
+		font-size: 0.85em;
 
 		&:hover {
 			text-decoration: underline;
@@ -238,6 +275,15 @@ footer {
 		.socials {
 			width: 260px;
 			margin: 0 auto;
+		}
+	}
+}
+
+svg {
+	.animation {
+		polygon, polyline, path {
+			-webkit-transform: translateX(em-calc(0));
+			-webkit-transition: 0.4s;
 		}
 	}
 }
