@@ -34,7 +34,7 @@
         <meta property="og:site_name" content="Noddi" />
         <meta property="fb:admins" content="Facebook numberic ID" />
 
-        <?= $this->Html->meta('icon') ?>
+        <link rel="icon" href="img/favicon2.ico.png" type="image/x-icon" />
         <?= $this->Html->css('index') ?>
     </head>
 

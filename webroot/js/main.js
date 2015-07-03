@@ -87,10 +87,6 @@ $(document).ready(function() {
       $('.animation polygon, .animation path, .animation polyline').css('-webkit-transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
     }
 
-  );
-
-
-
-    
+  );    
 
 });
