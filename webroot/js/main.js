@@ -22,9 +22,7 @@ $(document).ready(function() {
               if(response == 'ok') {
                   $('form').empty();
                   var content = 
-                    '<p class="green">Félicitation <br />' +
-                      'Vous faites désormais partie de la grande famille<br />' +
-                      '<strong>Noddi</strong><br />' +
+                    '<p class="green">Félicitations ! Vous faites désormais partie de la grande famille <strong>Noddi</strong><br />' +
                       '<a target="_blank" href="https://vine.co/v/euJZIBFEmbX">https://vine.co/v/euJZIBFEmbX</a>' +
                     '</p>'
                   ;
