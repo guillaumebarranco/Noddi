@@ -312,9 +312,7 @@
         </section>
 
         <footer>
-
             <a href="cgu.pdf" target="_blank" class="cgu">Conditions Générales D'utilisation</a>
-
         </footer>
 
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>

@@ -28,6 +28,26 @@ $(document).ready(function() {
       });
   });
 
+  $('.socials li a').on('click' ,function() {
+      var social = $(this).attr('class');
+
+      data = {
+          "name": social
+      };
+
+      $.ajax({
+          type : 'POST',
+          url : 'clics/add',
+          data : data,
+          success: function(response) {
+              console.log(response);
+          },
+          error: function(){
+              console.log('error');
+          }
+      });
+  });
+
   // var tmax_opts = {
   //   delay: 0.5,
   //   repeat: -1,
@@ -75,18 +95,22 @@ $(document).ready(function() {
   //   }, 100);
 
   // });
-  $('svg').hover(
 
-    function() {
+  if(($(window).width() > 800)) {
 
-      $('.animation polygon, .animation path, .animation polyline').each(function() {
-        $(this).css('-webkit-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
-      });
+    $('svg').hover(
+      function() {
 
-    }, function() {
-      $('.animation polygon, .animation path, .animation polyline').css('-webkit-transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
-    }
+        $('.animation polygon, .animation path, .animation polyline').each(function() {
+          $(this).css('-webkit-transform', 'rotate('+rand_floor(-20, 20)+'deg) translate3d('+rand(-3, 3)+'em, 0em, 0)');
+        });
 
-  );    
+      }, function() {
+        $('.animation polygon, .animation path, .animation polyline').css('-webkit-transform', 'rotate(0deg) translate3d(0em, 0em, 0)');
+      }
+
+    );
+  }
+  
 
 });

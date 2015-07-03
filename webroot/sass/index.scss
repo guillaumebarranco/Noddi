@@ -24,6 +24,11 @@ $black : #313131;
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 
+*::selection {
+	background-color: $pink;
+
+}
+
 html, body {
 	padding: 0;
 	margin: 0;
@@ -208,43 +213,63 @@ header {
 
 			&.facebook {
 				background-image: url('../img/facebook.png');
-				&:hover {
-					background-image: url('../img/facebook_hover.png');
-				}
 			}
 			&.twitter {
 				background-image: url('../img/twitter.png');
-				&:hover {
-					background-image: url('../img/twitter_hover.png');
-				}
 			}
 			&.instagram {
 				background-image: url('../img/instagram.png');
-				&:hover {
-					background-image: url('../img/instagram_hover.png');
-				}
 			}
 			&.snapchat {
 				background-image: url('../img/snapchat.png');
-				&:hover {
-					background-image: url('../img/snapchat_hover.png');
-				}
 			}
 			&.pinterest {
 				background-image: url('../img/pinterest.png');
-				&:hover {
-					background-image: url('../img/pinterest_hover.png');
-				}
-			}
-
-			
-
-			&:hover {
-				top: -5px;
 			}
 		}
 	}
 }
+
+@media screen and (min-width:1000px) {
+
+	.socials {
+		li {
+			a {
+				&.facebook {
+					&:hover {
+						background-image: url('../img/facebook_hover.png');
+					}
+				}
+				&.twitter {
+					&:hover {
+						background-image: url('../img/twitter_hover.png');
+					}
+				}
+				&.instagram {
+					&:hover {
+						background-image: url('../img/instagram_hover.png');
+					}
+				}
+				&.snapchat {
+					&:hover {
+						background-image: url('../img/snapchat_hover.png');
+					}
+				}
+				&.pinterest {
+					&:hover {
+						background-image: url('../img/pinterest_hover.png');
+					}
+				}
+
+				&:hover {
+					top: -5px;
+				}
+			}
+		}
+	}
+}
+
+
 
 footer {
 	text-align: center;
