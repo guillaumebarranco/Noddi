@@ -270,7 +270,32 @@ footer .cgu:hover {
     margin: 0 auto;
   }
 }
-/* line 309, ../sass/index.scss */
+/* line 310, ../sass/index.scss */
+.popup_snapchat {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 300px;
+  margin-top: -150px;
+  margin-left: -200px;
+  border: solid 6px #f09494;
+  color: black;
+  background-color: white;
+  display: none;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* line 328, ../sass/index.scss */
+.close {
+  text-align: right;
+  cursor: pointer;
+}
+
+/* line 335, ../sass/index.scss */
 svg .animation polygon, svg .animation polyline, svg .animation path {
   -webkit-transform: translateX(em-calc(0));
   -webkit-transition: 0.4s;

@@ -28,8 +28,17 @@ $(document).ready(function() {
       });
   });
 
-  $('.socials li a').on('click' ,function() {
+  $(document).on('click', '.popup_snapchat .close', function() {
+    $(this).parent().hide();
+  });
+
+  $('.socials li a').on('click' ,function(e) {
       var social = $(this).attr('class');
+
+      if(social == 'snapchat') {
+        e.preventDefault();
+        $('.popup_snapchat').show();
+      }
 
       data = {
           "name": social

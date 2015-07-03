@@ -304,6 +304,32 @@ footer {
 	}
 }
 
+$width_popup : 400px;
+$height_popup : 300px;
+
+.popup_snapchat {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: $width_popup;
+	height: $height_popup;
+	margin-top: -($height_popup/2);
+	margin-left: -($width_popup/2);
+	border: solid 6px $pink;
+	color: black;
+	background-color: white;
+	display: none;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 1.1em;
+}
+
+.close {
+	text-align: right;
+	cursor: pointer;
+}
+
 svg {
 	.animation {
 		polygon, polyline, path {

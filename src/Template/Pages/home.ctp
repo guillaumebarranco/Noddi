@@ -18,10 +18,10 @@
 
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@publisher_handle">
+        <meta name="twitter:site" content="http://www.noddi.eu/">
         <meta name="twitter:title" content="Noddi">
         <meta name="twitter:description" content="Noddi est une plateforme de matching entre les marques et les modeuses.">
-        <meta name="twitter:creator" content="@author_handle">
+        <meta name="twitter:creator" content="@TheNoddi">
         <!-- Twitter summary card with large image must be at least 280x150px -->
         <meta name="twitter:image:src" content="http://www.example.com/image.html">
 
@@ -32,7 +32,6 @@
         <meta property="og:image" content="http://noddi.eu/img/logo.svg" />
         <meta property="og:description" content="Noddi est une plateforme de matching entre les marques et les modeuses." />
         <meta property="og:site_name" content="Noddi" />
-        <meta property="fb:admins" content="Facebook numberic ID" />
 
         <link rel="icon" href="img/favicon2.ico.png" type="image/x-icon" />
         <?= $this->Html->css('index') ?>
@@ -272,8 +271,6 @@
                 </svg>
 
                 <h1>Noddi</h1>
-
-                <!-- <img src="img/logo.svg" alt="Logo De Noddi" /> -->
             </div>
 
             <div class="field">
@@ -287,11 +284,11 @@
                     <div class="follow_us">Suivez-nous sur</div>
 
                     <ul class="socials">
-                        <li><a class="facebook" href="#"></a></li>
-                        <li><a class="twitter" href="#"></a></li>
-                        <li><a class="instagram" href="#"></a></li>
-                        <li><a class="snapchat" href="#"></a></li>
-                        <li><a class="pinterest" href="#"></a></li>
+                        <li><a target="_blank" title="Page Facebook" class="facebook" href="https://www.facebook.com/noddi.eu"></a></li>
+                        <li><a target="_blank" title="Page Twitter" class="twitter" href="https://twitter.com/theNoddi"></a></li>
+                        <li><a target="_blank" title="Page Instagram" class="instagram" href="https://instagram.com/thenoddi"></a></li>
+                        <li><a target="_blank" title="Page Snapchat" class="snapchat" href="#"></a></li>
+                        <li><a target="_blank" title="Page Pinterest" class="pinterest" href="https://fr.pinterest.com/noddi0434/"></a></li>
                     </ul>
                 </div>
 
@@ -314,6 +311,12 @@
         <footer>
             <a href="cgu.pdf" target="_blank" class="cgu">Conditions Générales D'utilisation</a>
         </footer>
+
+        <div class="popup_snapchat">
+            <div class="close">X</div>
+            <img src="img/qrcode.jpg" width="200" alt="QR Code pour nous suivre sur Snapchat" />
+            <div>the-noddi</div>
+        </div>
 
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
