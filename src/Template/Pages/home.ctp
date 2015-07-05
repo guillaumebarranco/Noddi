@@ -328,7 +328,7 @@
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 
-        <script src="js/main.js"></script>
+        <script src="js/landing.js"></script>
 
         <!--    GOOGLE ANALYTICS    -->
         <script>
