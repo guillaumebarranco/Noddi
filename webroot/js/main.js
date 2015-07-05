@@ -22,12 +22,13 @@ $(document).ready(function() {
 				console.log('error', url);
 	        }
 		});
-	}
+	};
 
-	$('.add_brand').on('click', function() {
+	$('.add_brand').on('submit', function(e) {
+		e.preventDefault();
 
 		data_user = {
-			'bio' => 'test',
+			'bio' => $(this).find('input[name=bio]').val(),
 			'website' => 'http://',
 			'picture', => ''
 			'type' => 'brand'
