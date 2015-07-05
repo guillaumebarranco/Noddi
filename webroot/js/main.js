@@ -27,12 +27,12 @@ $(document).ready(function() {
 	$('.add_brand').on('submit', function(e) {
 		e.preventDefault();
 
-		data_user = {
-			'bio' => $(this).find('input[name=bio]').val(),
-			'website' => 'http://',
-			'picture', => ''
-			'type' => 'brand'
-		};
+		// data_user = {
+		// 	'bio' => $(this).find('input[name=bio]').val(),
+		// 	'website' => 'http://',
+		// 	'picture', => ''
+		// 	'type' => 'brand'
+		// };
 
 		makeAjax('POST', "users/add", data_user, function() {
 			console.log('user_added', _this.response);
@@ -41,12 +41,12 @@ $(document).ready(function() {
 
 	$('.add_modeuse').on('click', function() {
 
-		data_user = {
-			'bio' => 'test',
-			'website' => 'http://',
-			'picture', => ''
-			'type' => 'modeuse'
-		};
+		// data_user = {
+		// 	'bio' => 'test',
+		// 	'website' => 'http://',
+		// 	'picture', => ''
+		// 	'type' => 'modeuse'
+		// };
 
 		makeAjax('POST', "users/add", data_user, function() {
 			console.log('user_added', _this.response);

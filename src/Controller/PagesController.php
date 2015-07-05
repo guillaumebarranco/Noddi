@@ -94,4 +94,8 @@ class PagesController extends AppController
 
         echo json_encode($response);
     }
+
+    public function view() {
+        $this->layout = null;
+    }
 }
