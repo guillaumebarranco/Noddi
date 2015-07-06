@@ -298,7 +298,7 @@
 
         <section class="wrapper">
 
-            <form action="#">
+            <form action="#" class="form_landing">
                 <p>Soyez informé(e)s avant tout le monde de l'ouverture de notre plateforme !</p>
 
                 <input type="email" name="email" placeholder="Votre e-mail" />

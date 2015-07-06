@@ -4,7 +4,7 @@ $(document).ready(function() {
   * A LA VALIDATION DU FORMULAIRE, ON ENREGISTRE L'EMAIL EN BDD
   */
 
-  $('form').on('submit' ,function(e) {
+  $('form.form_landing').on('submit' ,function(e) {
       e.preventDefault();
       var email = $(this).find('input[type=email]').val();
 

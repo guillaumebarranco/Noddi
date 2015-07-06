@@ -45,7 +45,7 @@
 
         <header>
 
-            <div class="logo">
+         <!--    <div class="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" class="polylion">
                     <defs>
                         <filter id="polycleaner">
@@ -273,7 +273,19 @@
                         c0.736-1.217,1.66-2.25,2.768-3.101c1.107-0.848,2.068-1.346,2.879-1.493c0.812-0.148,1.494,0.018,2.049,0.498
                         c0.555,0.479,0.979,1.104,1.273,1.883c0.295,0.772,0.461,1.643,0.498,2.602C262.929,335.643,262.835,336.495,262.614,337.23z"/> 
                 </svg>
-            </div>
+            </div> -->
+
+                <?php
+                echo $this->Form->create(null, [
+                    'url' => ['controller' => 'Users', 'action' => 'disconnect']
+                ]);
+
+                echo $this->Form->input('username', ["type" => "hidden"]);
+
+                echo $this->Form->button('Disconnect', ["class"=> "button small"]);
+
+                echo $this->Form->end(); 
+            ?>
 
         </header>
 
@@ -289,7 +301,7 @@
 
             <footer>
 
-                <div class="field">
+                <!-- <div class="field">
 
                     <div>
                         <div class="follow_us">Suivez-nous sur</div>
@@ -302,8 +314,8 @@
                             <li><a target="_blank" title="Page Pinterest" class="pinterest" href="https://fr.pinterest.com/noddi0434/"></a></li>
                         </ul>
                     </div>
-
                 </div>
+ -->                
             </footer>
         </div>
 
