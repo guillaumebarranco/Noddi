@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Utility\Security;
+use Cake\Controller\Component\CookieComponent;
+use Cake\Core\Configure;
 
 class UsersController extends AppController
 {
@@ -12,15 +14,8 @@ class UsersController extends AppController
 
         // On récupère les composants pour la Pagination, le renvoi de JSON....
         $this->loadComponent('RequestHandler');
-
-        $session = $this->request->session();
-
-        if(null != ($session->read('user')) && $session->read('user') == true) {
-
-            return $this->redirect(
-                ['controller' => 'Home', 'action' => 'index']
-            );
-        }
+        $this->loadModel('Modeuses');
+        $this->loadModel('Brands');
     }
 
     function Jsonification() {
@@ -36,6 +31,15 @@ class UsersController extends AppController
     */
 
     public function login() {
+
+        $session = $this->request->session();
+
+        if(null != ($session->read('user')) && $session->read('user') == true) {
+
+            return $this->redirect(
+                ['controller' => 'Home', 'action' => 'index']
+            );
+        }
 
         $session = $this->request->session();
 
@@ -83,9 +87,12 @@ class UsersController extends AppController
         $session = $this->request->session();
 
         $session->destroy();
-        $this->Cookie->delete('user');
-        $this->Cookie->delete('username');
-        $this->Cookie->delete('password');
+
+        if($this->Cookie && $this->Cookie->read('user')) {
+            $this->Cookie->delete('user');
+            $this->Cookie->delete('username');
+            $this->Cookie->delete('password');
+        }
 
         return $this->redirect(
             ['controller' => 'Home', 'action' => 'index']
@@ -108,61 +115,67 @@ class UsersController extends AppController
 
     public function sign_in() {
 
-        $session = $this->request->session();
-
         $user = $this->Users->newEntity();
 
         if($this->request->is('post')) {
 
             $data = $this->request->data;
 
-            // $user_admin = $this->Users->findByUsername($data['user']['username'])->toArray();
-            // $user_admin = $user_admin[0];
+            $check_user = $this->Users->findByUsername($data['username'])->toArray();
 
             // On vérifie qu'il n'existe pas déjà un user avec le même username
-            if(!$user_admin) {
+            if(!$check_user) {
 
-                $user = $this->Users->patchEntity($user, $data['user']);
+                // var_dump($data);
+                // die;
+
+                $user = $this->Users->patchEntity($user, $data);
+
+                $data['password'] = Security::hash($data['password'], 'sha1', true);
 
                 if($this->Users->save($user)) {
 
+
+                    $session = $this->request->session();
+
                     // On créé la session
                     $session->write('user', true);
-                    $session->write('username', $data['user']['username']);
-                    $session->write('password', $data['user']['password']);
+                    $session->write('username', $data['username']);
+                    $session->write('password', $data['password']);
 
                     // On créé les cookies
-                    $this->Cookie->config('path', '/');
-                    $this->Cookie->config([
-                        'expires' => '+10 days',
-                        'httpOnly' => true
-                    ]);
-                    $this->Cookie->write('user', true);
-                    $this->Cookie->write('username', $data['user']['username']);
-                    $this->Cookie->write('password', $data['user']['password']);
+                    // $this->Cookie->config('path', '/');
+                    // $this->Cookie->config([
+                    //     'expires' => '+10 days',
+                    //     'httpOnly' => true
+                    // ]);
+
+                    // $this->Cookie->write('user', true);
+                    // $this->Cookie->write('username', $data['username']);
+                    // $this->Cookie->write('password', $data['password']);
+
+                    $user = $this->Users->find()->where(['username' => $data['username']])->toArray();
+
+                    $data['user_id'] = $user[0]['id'];
+
+                    $session->write('user_id', $data['user_id']);
 
                     // On créé le type
                     if($data['type'] == 'modeuse') {
 
                         $modeuse = $this->Modeuses->newEntity();
-
-                        $modeuse = $this->Modeuses->patchEntity($modeuse, $data['modeuse']);
+                        $modeuse->user_id = $data['user_id'];
                     
-                        if ($this->Modeuses->save($modeuse)) {
-                            $this->Flash->success(__('The modeuse has been saved.'));
-                        } else {
+                        if(!$this->Modeuses->save($modeuse)) {
                             $this->Flash->error(__('The modeuse could not be saved. Please, try again.'));
                         }
 
                     } elseif($data['type'] == 'brand') {
 
                         $brand = $this->Brands->newEntity();
-
-                        $brand = $this->Brands->patchEntity($brand, $data['brand']);
+                        $brand->user_id = $data['user_id'];
                     
-                        if ($this->Brands->save($brand)) {
-                            $this->Flash->success(__('The brand has been saved.'));
-                        } else {
+                        if (!$this->Brands->save($brand)) {
                             $this->Flash->error(__('The brand could not be saved. Please, try again.'));
                         }
                     }
@@ -170,13 +183,13 @@ class UsersController extends AppController
 
             } else {
                 $this->Flash->error(__('Cet username a déjà été pris.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'sign_in']);
             }
-        }
 
-        return $this->redirect(
-            ['controller' => 'Profil', 'action' => 'index']
-        );
+            return $this->redirect(
+                ['controller' => 'Profil', 'action' => 'index']
+            );
+        }        
     }
 
     public function sendMail($email = null, $message = null) {

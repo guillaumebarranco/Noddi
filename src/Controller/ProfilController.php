@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Utility\Security;
 
-class UsersController extends AppController
+class ProfilController extends AppController
 {
 
     public function initialize() {
@@ -12,13 +12,17 @@ class UsersController extends AppController
 
         // On récupère les composants pour la Pagination, le renvoi de JSON....
         $this->loadComponent('RequestHandler');
+        $this->loadModel('Users');
+        $this->loadModel('Modeuses');
+        $this->loadModel('Brands');
 
         $session = $this->request->session();
 
         if(null != ($session->read('user')) && $session->read('user') == true) {
 
+        } else {
             return $this->redirect(
-                ['controller' => 'Home', 'action' => 'index']
+                ['controller' => 'Users', 'action' => 'login']
             );
         }
     }
@@ -33,10 +37,10 @@ class UsersController extends AppController
 
         $session = $this->request->session();
 
-        $user = $this->Users->get($session->read('user_id'));
+        $modeuse = $this->Modeuses->find()->where(['user_id', $session->read('user_id')]);
 
-        $this->set('user', $user);
-        $this->set('_serialize', ['user']);
+        $this->set('modeuse', $modeuse);
+        $this->set('_serialize', ['modeuse']);
     }
 
     public function update() {
@@ -45,5 +49,4 @@ class UsersController extends AppController
 
         $user = $this->Users->get($session->read('user_id'));
     }
-
 }
