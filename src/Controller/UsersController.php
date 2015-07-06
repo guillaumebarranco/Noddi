@@ -50,13 +50,10 @@ class UsersController extends AppController
 
             // On récupère l'admin de la base de données
             
-            // $user_admin = $this->Users->findByUsername($data['username'])->toArray();
-            // $user_admin = $user_admin[0];
-            $user_admin = array();
-            $user_admin['username'] = 'test';
-            $user_admin['password'] = Security::hash('test', 'sha1', true);
-
+            $user_admin = $this->Users->findByUsername($data['username'])->toArray();
+            
             if($user_admin) {
+                $user_admin = $user_admin[0];
 
                 $data['password'] = Security::hash($data['password'], 'sha1', true);
 
@@ -68,11 +65,13 @@ class UsersController extends AppController
                     // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
                     $session->write('user', true);
                 }
-            }           
 
-            return $this->redirect(
-                ['controller' => 'Home', 'action' => 'index']
-            );
+                return $this->redirect(
+                    ['controller' => 'Home', 'action' => 'index']
+                );
+            } else {
+                $this->Flash->error(__('Les informations rentrées ne correspondent à aucun utilisateur.'));
+            }
         }
     }
 
@@ -179,6 +178,8 @@ class UsersController extends AppController
                             $this->Flash->error(__('The brand could not be saved. Please, try again.'));
                         }
                     }
+
+                    $session->write('type', $data['type']);
                 }
 
             } else {
@@ -189,7 +190,7 @@ class UsersController extends AppController
             return $this->redirect(
                 ['controller' => 'Profil', 'action' => 'index']
             );
-        }        
+        }
     }
 
     public function sendMail($email = null, $message = null) {

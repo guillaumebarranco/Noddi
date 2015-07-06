@@ -36,8 +36,16 @@
 
         <link rel="icon" href="<?=$this->request->base?>/img/favicon2.ico.png" type="image/x-icon" />
 
+        <style>
+            .wrapper_form {
+                width: 400px;
+                margin: 0 auto;
+            }
+        </style>
+
         <?= $this->Html->css('base') ?>
         <?= $this->Html->css('cake') ?>
+        <?= $this->Html->css('sweet-alert') ?>
         <?= $this->Html->css('index') ?>
     </head>
 
@@ -281,9 +289,7 @@
                 ]);
 
                 echo $this->Form->input('username', ["type" => "hidden"]);
-
                 echo $this->Form->button('Disconnect', ["class"=> "button small"]);
-
                 echo $this->Form->end(); 
             ?>
 
@@ -320,6 +326,7 @@
         </div>
 
         <?= $this->Html->script('jquery') ?>
+        <?= $this->Html->script('sweet-alert.min') ?>
         <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>-->
 
         <?= $this->Html->script('landing') ?>

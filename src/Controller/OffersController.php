@@ -15,12 +15,12 @@ class OffersController extends AppController
 
         $session = $this->request->session();
 
-        if(null != ($session->read('type')) && $session->read('type') == 'brand') {
+        // if(null != ($session->read('type')) && $session->read('type') == 'brand') {
 
-            return $this->redirect(
-                ['controller' => 'Home', 'action' => 'index']
-            );
-        }
+        //     return $this->redirect(
+        //         ['controller' => 'Home', 'action' => 'index']
+        //     );
+        // }
     }
 
     function Jsonification() {
@@ -30,7 +30,7 @@ class OffersController extends AppController
         return 'KO';
     }
 
-    function getResponse($check == 'KO') {
+    function getResponse($check = 'KO') {
         $response = array();
         $response['check'] = $check;
         return json_encode($response);
@@ -44,6 +44,31 @@ class OffersController extends AppController
 
         $this->set('offer', $offer);
         $this->set('_serialize', ['offer']);
+    }
+
+    public function create() {
+
+        $check = $this->Jsonification();
+
+        if(isset($this->request->data)) {
+            $data = $this->request->data;
+
+            $data['date_begin'] = date_create();
+            $data['date_end'] = date_create();
+
+            $data['updated'] = date_create();
+
+            $offer = $this->Offers->newEntity();
+            $offer = $this->Offers->patchEntity($offer, $data);
+
+            //var_dump($offer);
+
+            if($this->Offers->save($offer)) {
+                $check = 'OK';
+            }
+        }
+
+        echo $this->getResponse($check);
     }
 
     public function update() {
@@ -73,7 +98,7 @@ class OffersController extends AppController
         $check = $this->Jsonification();
 
         if(isset($this->request->data)) {
-            $offer = $this->Offers->get($);
+            $offer = $this->Offers->get(12);
 
             if(!$offer->$match) {
                 $this->Offers->delete($offer);
@@ -84,4 +109,14 @@ class OffersController extends AppController
         echo $this->getResponse($check);
     }
 
+    public function view($id = null)
+    {
+        $offer = $this->Offers->get($id, [
+            'contain' => ['Brands', 'Activities']
+        ]);
+        $this->set('offer', $offer);
+        $this->set('_serialize', ['offer']);
+    }
+
 }
+?>

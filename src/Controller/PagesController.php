@@ -89,10 +89,10 @@ class PagesController extends AppController
         // $landing = $this->Landings->patchEntity($landing, $this->request->data);
         // $this->Landings->save($landing);
 
-        $response = array();
-        $response['status'] = 'ok';
+        // $response = array();
+        // $response['status'] = 'ok';
 
-        echo json_encode($response);
+        // echo json_encode($response);
     }
 
     public function view() {

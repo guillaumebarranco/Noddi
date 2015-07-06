@@ -15,6 +15,8 @@ class ProfilController extends AppController
         $this->loadModel('Users');
         $this->loadModel('Modeuses');
         $this->loadModel('Brands');
+        $this->loadModel('Activities');
+        $this->loadModel('Offers');
 
         $session = $this->request->session();
 
@@ -37,10 +39,27 @@ class ProfilController extends AppController
 
         $session = $this->request->session();
 
-        $modeuse = $this->Modeuses->find()->where(['user_id', $session->read('user_id')]);
+        if($session->read('type') == 'modeuse') {
+            $modeuse = $this->Modeuses->find()->where(['user_id', $session->read('user_id')])->contain(['Users'])->toArray()[0];
+            $this->set('modeuse', $modeuse);
+            $this->set('_serialize', ['modeuse']);
+        } else {
+            $brand = $this->Brands->find()->where(['user_id', $session->read('user_id')])->contain(['Users'])->toArray()[0];
+            $this->set('brand', $brand);
+            $this->set('_serialize', ['brand']);
 
-        $this->set('modeuse', $modeuse);
-        $this->set('_serialize', ['modeuse']);
+            $activities = $this->Brands->Activities->find('list', ['limit' => 200]);
+
+            $offers = $this->Offers->find()->where(['brand_id' => $brand->id]);
+
+            $this->set('brand', $brand);
+
+            $this->set(array(
+                compact('brand', 'activities'), 
+                'offers' => $offers
+            ));
+            $this->set('_serialize', ['brand', 'offers']);
+        }
     }
 
     public function update() {

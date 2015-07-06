@@ -52,13 +52,11 @@ class OffersTable extends Table
             
         $validator
             ->add('date_begin', 'valid', ['rule' => 'datetime'])
-            ->requirePresence('date_begin', 'create')
-            ->notEmpty('date_begin');
+            ->allowEmpty('date_begin');
             
         $validator
             ->add('date_end', 'valid', ['rule' => 'datetime'])
-            ->requirePresence('date_end', 'create')
-            ->notEmpty('date_end');
+            ->allowEmpty('date_end');
             
         $validator
             ->add('multiple_targets', 'valid', ['rule' => 'numeric'])
