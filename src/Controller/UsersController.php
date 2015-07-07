@@ -50,25 +50,32 @@ class UsersController extends AppController
 
             // On récupère l'admin de la base de données
             
-            $user_admin = $this->Users->findByUsername($data['username'])->toArray();
+            $get_user = $this->Users->findByUsername($data['username'])->toArray();
             
-            if($user_admin) {
-                $user_admin = $user_admin[0];
+            if($get_user) {
+                $get_user = $get_user[0];
 
-                $data['password'] = Security::hash($data['password'], 'sha1', true);
+                //$data['password'] = Security::hash($data['password'], 'sha1', true);
 
                 // On compare les informations rentrées dans le formulaire à celles de l'admin en base
                 
                 //if($data['username'] == $user_admin->username && $data['password'] == $user_admin->password) {
-                if($data['username'] == $user_admin['username'] && $data['password'] == $user_admin['password']) {
+                if($data['username'] == $get_user['username'] && $data['password'] == $get_user['password']) {
                         
                     // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
                     $session->write('user', true);
+                    $session->write('username', $get_user['username']);
+                    $session->write('password', $get_user['password']);
+                    $session->write('user_id', $get_user['id']);
+                    $session->write('type', $get_user['type']);
+
+                    return $this->redirect(
+                        ['controller' => 'Home', 'action' => 'index']
+                    );
                 }
 
-                return $this->redirect(
-                    ['controller' => 'Home', 'action' => 'index']
-                );
+                $this->Flash->error(__('Le mot de passe ne correspond pas.'));
+
             } else {
                 $this->Flash->error(__('Les informations rentrées ne correspondent à aucun utilisateur.'));
             }
