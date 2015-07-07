@@ -283,15 +283,49 @@
                 </svg>
             </div> -->
 
-                <?php
-                echo $this->Form->create(null, [
-                    'url' => ['controller' => 'Users', 'action' => 'disconnect']
-                ]);
+                
+<style>
+    .menu li {
+        display: inline-block;
+    }
+</style>
+            <nav id="navigation">
+                <ul class="menu">
 
-                echo $this->Form->input('username', ["type" => "hidden"]);
-                echo $this->Form->button('Disconnect', ["class"=> "button small"]);
-                echo $this->Form->end(); 
-            ?>
+                    <?php if($this->request->session()->read('user')) { ?>
+                        
+                        <li>
+                            <?= $this->Html->link('Home', ['controller' => 'Home', 'action' => 'index'], ['class' => 'button']); ?>
+                        </li>
+
+                        <li>
+                            <?= $this->Html->link('Votre profil', ['controller' => 'Profil', 'action' => 'index'], ['class' => 'button']); ?>
+                        </li>
+                        <li>
+                            <?php
+                                echo $this->Form->create(null, [
+                                    'url' => ['controller' => 'Users', 'action' => 'disconnect']
+                                ]);
+
+                                echo $this->Form->input('username', ["type" => "hidden"]);
+                                echo $this->Form->button('Disconnect', ["class"=> "button"]);
+                                echo $this->Form->end(); 
+                            ?>
+                        </li>
+
+                    <?php } else { ?>
+
+                        <li>
+                            <?= $this->Html->link(__('Connexion'), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button']) ?>
+                        </li>
+                        <li>
+                            <?= $this->Html->link(__('Inscription'), ['controller' => 'Users', 'action' => 'sign_in'], ['class' => 'button']) ?>
+                        </li>
+
+                    <?php } ?>
+                    
+                </ul>
+            </nav>
 
         </header>
 

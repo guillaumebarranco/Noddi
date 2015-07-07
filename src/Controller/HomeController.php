@@ -14,13 +14,13 @@ class HomeController extends AppController
 
         $session = $this->request->session();
 
-        if(null != ($session->read('user')) && $session->read('user') == true) {
+        // if(null != ($session->read('user')) && $session->read('user') == true) {
 
-        } else {
-            return $this->redirect(
-                ['controller' => 'Users', 'action' => 'login']
-            );
-        }
+        // } else {
+        //     return $this->redirect(
+        //         ['controller' => 'Users', 'action' => 'login']
+        //     );
+        // }
     }
 
     function Jsonification() {

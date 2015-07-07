@@ -15,7 +15,7 @@
 	    	<option value="brand">Marque</option>
 	    </select>
 
-	    <?php echo $this->Form->button('Login', ["class"=> "button small"]);
+	    <?php echo $this->Form->button('Sign In', ["class"=> "button small"]);
 
 	    echo $this->Form->end(); 
 	?>

@@ -40,13 +40,26 @@ class ProfilController extends AppController
         $session = $this->request->session();
 
         if($session->read('type') == 'modeuse') {
-            $modeuse = $this->Modeuses->find()->where(['user_id', $session->read('user_id')])->contain(['Users'])->toArray()[0];
+
+            $modeuse = $this->Modeuses->find('all', array(
+                'conditions' => array(
+                    'Modeuses.user_id' => $session->read('user_id')
+                )
+            ))->contain(['Users'])->toArray()[0];
+
+            // var_dump($modeuse['user']);
+            // die;
+
             $this->set('modeuse', $modeuse);
             $this->set('_serialize', ['modeuse']);
+
         } else {
-            $brand = $this->Brands->find()->where(['user_id', $session->read('user_id')])->contain(['Users'])->toArray()[0];
-            $this->set('brand', $brand);
-            $this->set('_serialize', ['brand']);
+
+            $brand = $this->Brands->find('all', array(
+                'conditions' => array(
+                    'Brands.user_id' => $session->read('user_id')
+                )
+            ))->contain(['Users'])->toArray()[0];
 
             $activities = $this->Brands->Activities->find('list', ['limit' => 200]);
 
