@@ -6,9 +6,12 @@
 
 	    echo $this->Form->input('username');
 	    echo $this->Form->input('password');
-	    echo $this->Form->input('bio');
-	    echo $this->Form->input('website');
-	    echo $this->Form->input('picture'); ?>
+
+	    echo '<label for="bio">Bio</label>';
+	    echo $this->Form->textarea('bio');
+
+	    echo $this->Form->input('website', ['placeholder' => 'http://monsite.fr']);
+	    echo $this->Form->input('picture', ['type' => 'hidden', 'value' => 'default.jpg']); ?>
 
 	    <select name="type" id="">
 	    	<option value="modeuse">Modeuse</option>

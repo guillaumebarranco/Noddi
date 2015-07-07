@@ -41,11 +41,20 @@
                 width: 400px;
                 margin: 0 auto;
             }
+
+            .wrapper_form textarea {
+                resize: none;
+            }
+
+            .menu li {
+                display: inline-block;
+            }
         </style>
 
         <?= $this->Html->css('base') ?>
         <?= $this->Html->css('cake') ?>
         <?= $this->Html->css('sweet-alert') ?>
+        <?= $this->Html->css('uploadify') ?>
         <?= $this->Html->css('index') ?>
     </head>
 
@@ -283,12 +292,6 @@
                 </svg>
             </div> -->
 
-                
-<style>
-    .menu li {
-        display: inline-block;
-    }
-</style>
             <nav id="navigation">
                 <ul class="menu">
 
@@ -359,8 +362,13 @@
             </footer>
         </div>
 
+        <script>
+            var WEB_URL = "<?=$this->request->base?>";
+        </script>
+
         <?= $this->Html->script('jquery') ?>
         <?= $this->Html->script('sweet-alert.min') ?>
+        <?= $this->Html->script('jquery.uploadify.min') ?>
         <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>-->
 
         <?= $this->Html->script('landing') ?>

@@ -94,6 +94,33 @@ $(document).ready(function() {
 		});
 	});
 
+	$('#upload').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify.php',
+        'method'        : 'post',
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            // alert('The file was saved to: ' + data);
+            $(".the_picture img").attr('src', WEB_URL+'/'+the_data);;
+
+            var data = {};
+            data['user_id'] = $('.user_id').val();
+            data['picture'] = WEB_URL+'/'+the_data;
+
+            console.log(data);
+
+            makeAjax('POST', "users/updatePicture", data, function() {
+            	console.log(_this.response);
+            });
+        }
+    });
+
 	function addModeuse(user) {
 		user;
 	};

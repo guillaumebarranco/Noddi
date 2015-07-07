@@ -65,13 +65,13 @@ class ProfilController extends AppController
 
             $offers = $this->Offers->find()->where(['brand_id' => $brand->id]);
 
-            $this->set('brand', $brand);
-
             $this->set(array(
-                compact('brand', 'activities'), 
+                'activities' => $activities,
+                'brand' => $brand,
                 'offers' => $offers
             ));
-            $this->set('_serialize', ['brand', 'offers']);
+            
+            $this->set('_serialize', ['brand', 'activities','offers']);
         }
     }
 

@@ -24,6 +24,12 @@ class UsersController extends AppController
         $this->RequestHandler->renderAs($this, 'json');
     }
 
+    function getResponse($check = 'KO') {
+        $response = array();
+        $response['check'] = $check;
+        return json_encode($response);
+    }
+
     /*
     *   *** CONNEXION ***
     *
@@ -198,6 +204,23 @@ class UsersController extends AppController
                 ['controller' => 'Profil', 'action' => 'index']
             );
         }
+    }
+
+    public function updatePicture() {
+
+        $check = $this->Jsonification();
+
+        if(isset($this->request->data)) {
+            $data = $this->request->data;
+
+            $user = $this->Users->get($data['user_id']);
+            $user->picture = $data['picture'];
+            $this->Users->save($user);
+
+            $check = 'OK';
+        }
+
+        echo $this->getResponse($check);
     }
 
     public function sendMail($email = null, $message = null) {
