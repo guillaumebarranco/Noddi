@@ -35,6 +35,12 @@ class ProfilController extends AppController
         $this->RequestHandler->renderAs($this, 'json');
     }
 
+    function getResponse($check = 'KO') {
+        $response = array();
+        $response['check'] = $check;
+        return json_encode($response);
+    }
+
     public function index() {
 
         $session = $this->request->session();
@@ -47,9 +53,6 @@ class ProfilController extends AppController
                 )
             ))->contain(['Users'])->toArray()[0];
 
-            // var_dump($modeuse['user']);
-            // die;
-
             $this->set('modeuse', $modeuse);
             $this->set('_serialize', ['modeuse']);
 
@@ -61,7 +64,7 @@ class ProfilController extends AppController
                 )
             ))->contain(['Users'])->toArray()[0];
 
-            $activities = $this->Brands->Activities->find('list', ['limit' => 200]);
+            $activities = $this->Brands->Activities->find('list', ['limit' => 200])->toArray();
 
             $offers = $this->Offers->find()->where(['brand_id' => $brand->id]);
 
@@ -78,7 +81,22 @@ class ProfilController extends AppController
     public function update() {
 
         $session = $this->request->session();
-
         $user = $this->Users->get($session->read('user_id'));
+
+        $check = $this->Jsonification();
+
+        if($this->request->data) {
+            $data = $this->request->data;
+
+            $brand = $this->Brands->get($data['brand_id']);
+
+            $brand = $this->Brands->patchEntity($brand, $data);
+
+            if ($this->Brands->save($brand)) {
+                $check = 'OK';
+            }
+        }
+
+        echo $this->getResponse($check);
     }
 }

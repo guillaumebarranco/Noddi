@@ -50,11 +50,13 @@
                 display: inline-block;
             }
         </style>
-
+        
+        <?= $this->Html->css('bootstrap.min'); ?>
         <?= $this->Html->css('base') ?>
         <?= $this->Html->css('cake') ?>
         <?= $this->Html->css('sweet-alert') ?>
         <?= $this->Html->css('uploadify') ?>
+        <?= $this->Html->css('datepicker') ?>
         <?= $this->Html->css('index') ?>
     </head>
 
@@ -369,6 +371,8 @@
         <?= $this->Html->script('jquery') ?>
         <?= $this->Html->script('sweet-alert.min') ?>
         <?= $this->Html->script('jquery.uploadify.min') ?>
+        <?= $this->Html->script('bootstrap.min') ?>
+        <?= $this->Html->script('bootstrap-datepicker') ?>
         <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>-->
 
         <?= $this->Html->script('landing') ?>

@@ -53,8 +53,8 @@ class OffersController extends AppController
         if(isset($this->request->data)) {
             $data = $this->request->data;
 
-            $data['date_begin'] = date_create();
-            $data['date_end'] = date_create();
+            $data['date_begin'] = date_create($data['date_begin']);
+            $data['date_end'] = date_create($data['date_end']);
 
             $data['updated'] = date_create();
 
@@ -93,20 +93,32 @@ class OffersController extends AppController
         echo $this->getResponse($check);
     }
 
-    public function delete() {
+    // public function delete() {
         
-        $check = $this->Jsonification();
+    //     $check = $this->Jsonification();
 
-        if(isset($this->request->data)) {
-            $offer = $this->Offers->get(12);
+    //     if(isset($this->request->data)) {
+    //         $offer = $this->Offers->get(12);
 
-            if(!$offer->$match) {
-                $this->Offers->delete($offer);
-                $check = 'OK';
-            }
+    //         if(!$offer->$match) {
+    //             $this->Offers->delete($offer);
+    //             $check = 'OK';
+    //         }
+    //     }
+
+    //     echo $this->getResponse($check);
+    // }
+
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $offer = $this->Offers->get($id);
+        if ($this->Offers->delete($offer)) {
+            $this->Flash->success(__('The offer has been deleted.'));
+        } else {
+            $this->Flash->error(__('The offer could not be deleted. Please, try again.'));
         }
-
-        echo $this->getResponse($check);
+        return $this->redirect(['controller' => 'profil', 'action' => 'index']);
     }
 
     public function view($id = null)

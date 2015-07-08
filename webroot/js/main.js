@@ -54,6 +54,40 @@ $(document).ready(function() {
 		});
 	});
 
+	/*
+	*	PROFIL
+	*/
+
+	$('.profile_section').hide();
+	$('.profile').show();
+
+	$('.menu_profil li a').on('click', function(e) {
+		e.preventDefault();
+
+		$('.profile_section').hide();
+		$('.'+$(this).attr('data-section')).show();
+	})
+
+	$('.update_profil form').on('submit', function(e) {
+		e.preventDefault();
+
+		var data = {};
+
+		data["brand_id"] = $(this).find('input[name=brand_id]').val();
+		data["activity_id"] = $(this).find('select[class=activities]').val();
+		data["name"] = $(this).find('input[name=name]').val();
+
+		makeAjax('POST', "profil/update", data, function() {
+			console.log('user_added', _this.response);
+		});
+	});
+
+	/*
+	*	OFFERS
+	*/
+
+	$('#date-begin, #date-end').datepicker();
+
 	$('.create_offer').hide();
 
 	$('.show_create_offer').on('click', function() {
