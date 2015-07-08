@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef2254b87b67630e4f4e3b4655ece177",
+    "hash": "44f2702d65651f8f6a7173d59c09237d",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -289,6 +289,45 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2015-06-10 10:35:13"
+        },
+        {
+            "name": "guillaumebarranco/twitter-api-php-symfony",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guillaumebarranco/twitter-api-php-symfony.git",
+                "reference": "34f3d21b2a96b9090b74f7ec14443b085283375e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guillaumebarranco/twitter-api-php-symfony/zipball/34f3d21b2a96b9090b74f7ec14443b085283375e",
+                "reference": "34f3d21b2a96b9090b74f7ec14443b085283375e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "TwitterAPIExchange.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU Public License"
+            ],
+            "authors": [
+                {
+                    "name": "Guillaume Barranco",
+                    "homepage": "https://github.com/guillaumebarranco/twitter-api-php-symfony"
+                }
+            ],
+            "description": "Twitter API Calls for Symfony, mostly based on J7mbo Package, with just few changes",
+            "homepage": "https://github.com/guillaumebarranco/twitter-api-php-symfony",
+            "keywords": [
+                "api",
+                "php",
+                "twitter"
+            ],
+            "time": "2015-02-20 12:44:53"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1145,6 +1184,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "guillaumebarranco/twitter-api-php-symfony": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,

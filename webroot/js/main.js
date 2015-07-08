@@ -71,11 +71,18 @@ $(document).ready(function() {
 	$('.update_profil form').on('submit', function(e) {
 		e.preventDefault();
 
+		var type = $(this).find('input[name=type]').val();
+
 		var data = {};
 
-		data["brand_id"] = $(this).find('input[name=brand_id]').val();
-		data["activity_id"] = $(this).find('select[class=activities]').val();
-		data["name"] = $(this).find('input[name=name]').val();
+		if(type === 'modeuse') {
+			data["modeuse_id"] = $(this).find('input[name=modeuse_id]').val();
+			data["firstname"] = $(this).find('input[name=firstname]').val();
+		} else if(type === 'brand') {
+			data["brand_id"] = $(this).find('input[name=brand_id]').val();
+			data["activity_id"] = $(this).find('select[class=activities]').val();
+			data["name"] = $(this).find('input[name=name]').val();
+		}
 
 		makeAjax('POST', "profil/update", data, function() {
 			console.log('user_added', _this.response);

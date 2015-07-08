@@ -88,12 +88,21 @@ class ProfilController extends AppController
         if($this->request->data) {
             $data = $this->request->data;
 
-            $brand = $this->Brands->get($data['brand_id']);
+            if($session->read('type') == 'modeuse') {
 
-            $brand = $this->Brands->patchEntity($brand, $data);
+                $modeuse = $this->Modeuses->get($data['modeuse_id']);
+                $modeuse = $this->Modeuses->patchEntity($modeuse, $data);
+                if ($this->Modeuses->save($modeuse)) {
+                    $check = 'OK';
+                }
 
-            if ($this->Brands->save($brand)) {
-                $check = 'OK';
+            } else if($session->read('type') == 'brand') {
+
+                $brand = $this->Brands->get($data['brand_id']);
+                $brand = $this->Brands->patchEntity($brand, $data);
+                if ($this->Brands->save($brand)) {
+                    $check = 'OK';
+                }
             }
         }
 

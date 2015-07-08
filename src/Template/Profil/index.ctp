@@ -78,6 +78,7 @@
 
 			<?= $this->Form->create($brand) ?>
 			<input type="hidden" name="brand_id" value="<?=$brand->id?>">
+			<input type="hidden" name="type" value="<?=$user->type?>">
 			<?= $this->Form->input('name'); ?>
 			<?= $this->Form->select('activities._ids', $activities, [ 'name' => 'activities[_ids][]', 'class' => 'activities']); ?>
 			
@@ -124,12 +125,43 @@
 </div>
 
 
-
 <?php } else { ?>
 
 		<div>
 			Prénom : <?= $modeuse->firstname ?>
 		</div>
+
+		<?php if($modeuse->instagram != null) { ?>
+			<h4>Instagram</h4>
+			<div>
+				Username : <?= $modeuse->instagram ?>
+			</div>
+			<div>
+				Followers : <?= $modeuse->insta_followers ?>
+			</div>
+		<?php } ?>
+
+		<?php if($modeuse->twitter != null) { ?>
+			<h4>Twitter</h4>
+			<div>
+				Username : <?= $modeuse->twitter ?>
+			</div>
+		<?php } ?>
+
+		<?php if($modeuse->facebook != null) { ?>
+			<h4>Facebook</h4>
+			<div>
+				Username : <?= $modeuse->facebook ?>
+			</div>
+		<?php } ?>
+
+		<?php if($modeuse->pinterest != null) { ?>
+			<h4>Pinterest</h4>
+			<div>
+				Username : <?= $modeuse->pinterest ?>
+			</div>
+		<?php } ?>
+		
 
 		<h3>Compléter Profil</h3>
 
@@ -141,8 +173,14 @@
 			</div>
 
 			<?= $this->Form->create($modeuse) ?>
+			<input type="hidden" name="type" value="<?=$user->type?>">
 			<input type="hidden" name="modeuse_id" value="<?=$modeuse->id?>">
 			<?= $this->Form->input('firstname'); ?>
+			<?= $this->Form->input('instagram'); ?>
+			<?= $this->Form->input('twitter'); ?>
+			<?= $this->Form->input('facebook'); ?>
+			<?= $this->Form->input('pinterest'); ?>
+			<?= $this->Form->input('city'); ?>
 			
 			<button>Valider</button>
 		    <?= $this->Form->end() ?>
