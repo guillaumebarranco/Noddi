@@ -14,13 +14,6 @@ class OffersController extends AppController
         $this->loadComponent('RequestHandler');
 
         $session = $this->request->session();
-
-        // if(null != ($session->read('type')) && $session->read('type') == 'brand') {
-
-        //     return $this->redirect(
-        //         ['controller' => 'Home', 'action' => 'index']
-        //     );
-        // }
     }
 
     function Jsonification() {
@@ -60,8 +53,6 @@ class OffersController extends AppController
 
             $offer = $this->Offers->newEntity();
             $offer = $this->Offers->patchEntity($offer, $data);
-
-            //var_dump($offer);
 
             if($this->Offers->save($offer)) {
                 $check = 'OK';

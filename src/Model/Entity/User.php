@@ -20,6 +20,7 @@ class User extends Entity
         'website' => true,
         'picture' => true,
         'type' => true,
+        'password' => true,
         'brands' => true,
         'modeuses' => true,
     ];

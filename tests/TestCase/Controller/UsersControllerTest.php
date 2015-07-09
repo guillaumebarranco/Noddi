@@ -18,6 +18,8 @@ class UsersControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.users',
         'app.brands',
+        'app.activities',
+        'app.offers',
         'app.modeuses'
     ];
 
@@ -37,6 +39,16 @@ class UsersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testJsonification()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test getResponse method
+     *
+     * @return void
+     */
+    public function testGetResponse()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
@@ -67,6 +79,16 @@ class UsersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testSignIn()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test updatePicture method
+     *
+     * @return void
+     */
+    public function testUpdatePicture()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

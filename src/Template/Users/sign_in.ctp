@@ -1,4 +1,7 @@
 <div class="wrapper_form">
+
+<button class="fb_button">Inscription avec Facebook</button>
+
 	<?php
 	    echo $this->Form->create(null, [
 	        'url' => ['controller' => 'Users', 'action' => 'sign_in']

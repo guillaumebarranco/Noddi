@@ -61,11 +61,9 @@ class UsersController extends AppController
             if($get_user) {
                 $get_user = $get_user[0];
 
-                //$data['password'] = Security::hash($data['password'], 'sha1', true);
+                $data['password'] = Security::hash($data['password'], 'sha1', true);
 
                 // On compare les informations rentrées dans le formulaire à celles de l'admin en base
-                
-                //if($data['username'] == $user_admin->username && $data['password'] == $user_admin->password) {
                 if($data['username'] == $get_user['username'] && $data['password'] == $get_user['password']) {
                         
                     // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
@@ -138,15 +136,11 @@ class UsersController extends AppController
             // On vérifie qu'il n'existe pas déjà un user avec le même username
             if(!$check_user) {
 
-                // var_dump($data);
-                // die;
-
                 $user = $this->Users->patchEntity($user, $data);
 
                 $data['password'] = Security::hash($data['password'], 'sha1', true);
 
                 if($this->Users->save($user)) {
-
 
                     $session = $this->request->session();
 

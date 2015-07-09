@@ -1,4 +1,5 @@
 <?php
+	// Get the User Session and his caractéristiques
 	$session = $this->request->session();
 
 	if($session->read('type') == 'modeuse') {
@@ -14,7 +15,7 @@
 			</li>
 		</ul>
 
-	<?php } else {
+	<?php } elseif($session->read('type') == 'brand') {
 		$user = $brand['user']; ?>
 
 		<ul class="menu_profil">
@@ -26,45 +27,31 @@
 				<a href="#" data-section="offers">Offres</a>
 			</li>
 		</ul>
-
 	<?php }
-
 ?>
 
 <div class="profile_section profile">
 
 	<h2>Profil</h2>
 
-	<div>
-		Username : <?= $user->username ?>
-	</div>
+	<div>Username : <?= $user->username ?></div>
 	
-	<div>
-		Biographie : <p><?= $user->bio ?></p>
-	</div>
+	<div>Biographie : <p><?= $user->bio ?></p></div>
 	
-	<div>
-		Website : <?= $user->website ?>
-	</div>
+	<div>Website : <?= $user->website ?></div>
 	
 	<div class="the_picture">
 		Picture : <img src="<?= $user->picture ?>" width="150" alt="Image de <?= $user->username ?>" />
 	</div>
 	
-	<div>
-		Type : <?= $user->type ?>
-	</div>
+	<div>Type : <?= $user->type ?></div>
 
 
 	<?php if($session->read('type') == 'brand') { ?>
 
-		<div>
-			Nom : <?= $brand->name ?>
-		</div>
+		<div>Nom : <?= $brand->name ?></div>
 
-		<div>
-			Secteur d'activité : <?= $activities[$brand->activity_id] ?>
-		</div>
+		<div>Secteur d'activité : <?= $activities[$brand->activity_id] ?></div>
 
 		<h3>Compléter Profil</h3>
 
@@ -84,9 +71,6 @@
 			
 			<button>Valider</button>
 		    <?= $this->Form->end() ?>
-		    
-
-
 		</div>
 </div>
 
@@ -133,33 +117,23 @@
 
 		<?php if($modeuse->instagram != null) { ?>
 			<h4>Instagram</h4>
-			<div>
-				Username : <?= $modeuse->instagram ?>
-			</div>
-			<div>
-				Followers : <?= $modeuse->insta_followers ?>
-			</div>
+			<div>Username : <?= $modeuse->instagram ?></div>
+			<div>Followers : <?= $modeuse->insta_followers ?></div>
 		<?php } ?>
 
 		<?php if($modeuse->twitter != null) { ?>
 			<h4>Twitter</h4>
-			<div>
-				Username : <?= $modeuse->twitter ?>
-			</div>
+			<div>Username : <?= $modeuse->twitter ?></div>
 		<?php } ?>
 
 		<?php if($modeuse->facebook != null) { ?>
 			<h4>Facebook</h4>
-			<div>
-				Username : <?= $modeuse->facebook ?>
-			</div>
+			<div>Username : <?= $modeuse->facebook ?></div>
 		<?php } ?>
 
 		<?php if($modeuse->pinterest != null) { ?>
 			<h4>Pinterest</h4>
-			<div>
-				Username : <?= $modeuse->pinterest ?>
-			</div>
+			<div>Username : <?= $modeuse->pinterest ?></div>
 		<?php } ?>
 		
 
@@ -186,10 +160,7 @@
 		    <?= $this->Form->end() ?>
 		    
 		</details>
-	
-</div>
-	
-	
+</div>	
 
 <div class="profile_section offers">
 	<h2>Offres</h2>

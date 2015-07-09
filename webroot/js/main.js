@@ -22,7 +22,7 @@ $(document).ready(function() {
 				console.log('error', url);
 	        }
 		});
-	};
+	}
 
 	$('.add_brand').on('submit', function(e) {
 		e.preventDefault();
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
 		$('.profile_section').hide();
 		$('.'+$(this).attr('data-section')).show();
-	})
+	});
 
 	$('.update_profil form').on('submit', function(e) {
 		e.preventDefault();
@@ -76,12 +76,12 @@ $(document).ready(function() {
 		var data = {};
 
 		if(type === 'modeuse') {
-			data["modeuse_id"] = $(this).find('input[name=modeuse_id]').val();
-			data["firstname"] = $(this).find('input[name=firstname]').val();
+			data.modeuse_id = $(this).find('input[name=modeuse_id]').val();
+			data.firstname = $(this).find('input[name=firstname]').val();
 		} else if(type === 'brand') {
-			data["brand_id"] = $(this).find('input[name=brand_id]').val();
-			data["activity_id"] = $(this).find('select[class=activities]').val();
-			data["name"] = $(this).find('input[name=name]').val();
+			data.brand_id = $(this).find('input[name=brand_id]').val();
+			data.activity_id = $(this).find('select[class=activities]').val();
+			data.name = $(this).find('input[name=name]').val();
 		}
 
 		makeAjax('POST', "profil/update", data, function() {
@@ -106,15 +106,15 @@ $(document).ready(function() {
 
 		var data = {};
 
-		data["title"] = $(this).find('input[name=title]').val();
-		data["description"] = $(this).find('input[name=description]').val();
-		data["date_begin"] = $(this).find('input[name=date_begin]').val();
-		data["date_end"] = $(this).find('input[name=date_end]').val();
-		data["multiple_targets"] = $(this).find('input[name=multiple_targets]').val();
-		data["expected_targets"] = $(this).find('input[name=expected_targets]').val();
+		data.title = $(this).find('input[name=title]').val();
+		data.description = $(this).find('input[name=description]').val();
+		data.date_begin = $(this).find('input[name=date_begin]').val();
+		data.date_end = $(this).find('input[name=date_end]').val();
+		data.multiple_targets = $(this).find('input[name=multiple_targets]').val();
+		data.expected_targets = $(this).find('input[name=expected_targets]').val();
 
-		data["activity_id"] = $(this).find('select[class=activities]').val();
-		data["brand_id"] = $(this).find('input[name=brand_id]').val();
+		data.activity_id = $(this).find('select[class=activities]').val();
+		data.brand_id = $(this).find('input[name=brand_id]').val();
 
 		makeAjax('POST', "offers/create", data, function() {
 			console.log('user_added', _this.response);
@@ -148,11 +148,11 @@ $(document).ready(function() {
         },
         'onUploadSuccess' : function(file, the_data, response) {
             // alert('The file was saved to: ' + data);
-            $(".the_picture img").attr('src', WEB_URL+'/'+the_data);;
+            $(".the_picture img").attr('src', WEB_URL+'/'+the_data);
 
             var data = {};
-            data['user_id'] = $('.user_id').val();
-            data['picture'] = WEB_URL+'/'+the_data;
+            data.user_id = $('.user_id').val();
+            data.picture = WEB_URL+'/'+the_data;
 
             console.log(data);
 
@@ -162,8 +162,82 @@ $(document).ready(function() {
         }
     });
 
-	function addModeuse(user) {
-		user;
-	};
+	function addModeuse(data_user) {
+		var data_user = {};
+
+		data_user.username = data.name;
+		data_user.password = 'facebook';
+		data_user.bio = 'facebook';
+		data_user.website = 'facebook';
+		data_user.picture = 'default.jpg';
+		data_user.type = 'modeuse';					
+
+		makeAjax('POST', "sign_in", data_user, function() {
+			window.location.href = WEB_URL+'/profil';
+		});
+	}
+
+	function addModeuseFacebook(user) {
+		var data_user = {};
+
+		data_user.username = user.name;
+		data_user.password = 'facebook';
+		data_user.bio = 'facebook';
+		data_user.website = 'facebook';
+		data_user.picture = 'default.jpg';
+		data_user.type = 'modeuse';					
+
+		makeAjax('POST', "sign_in", data_user, function() {
+			window.location.href = WEB_URL+'/profil';
+		});
+	}
+
+
+
+
+	$('.fb_button').on('click', function() {
+
+		FB.getLoginStatus(function(response) {
+
+			if(response.status === "not_authorized") {
+
+				FB.login(function(response) {
+
+					if(response.status === "not_authorized") {
+
+						swal({
+							title : 'Erreur',
+							text : 'Vous devez accepter les permissions de l\'application'
+						});
+
+					} else if(response.status === "connected") {
+						FBlogin();
+					}
+				}, {scope: 'public_profile,email'});
+
+			} else if(response.status === "connected") {
+				FBlogin();
+			}
+		});
+	});
+
+	function FBlogin() {
+		FB.api('/me/permissions', function(perms){
+			console.log(perms);
+
+			if(perms.data[0].status === 'granted' && perms.data[1].status === 'granted') {
+
+				FB.api('/me', function(data){
+					console.log(data);
+					swal({
+						title : 'Connexion réussie',
+						text : 'Vous vous appellez '+ data.name
+					});
+
+					addModeuseFacebook(data);
+				}); 
+			}
+		});
+	}
 
 });	
