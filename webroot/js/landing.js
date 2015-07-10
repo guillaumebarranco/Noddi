@@ -68,7 +68,6 @@ $(document).ready(function() {
           $('.popup_snapchat').show();
           setTimeout(function(){popup_shown = true;}, 100);
         }
-        
       }
 
       data = {
