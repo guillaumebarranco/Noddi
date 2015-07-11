@@ -12,6 +12,8 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
  * @property \Cake\ORM\Association\BelongsTo $Activities
+ * @property \Cake\ORM\Association\HasMany $Favoris
+ * @property \Cake\ORM\Association\HasMany $Messages
  * @property \Cake\ORM\Association\HasMany $Offers
  */
 class BrandsTable extends Table
@@ -33,8 +35,13 @@ class BrandsTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Activities', [
-            'foreignKey' => 'activity_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'activity_id'
+        ]);
+        $this->hasMany('Favoris', [
+            'foreignKey' => 'brand_id'
+        ]);
+        $this->hasMany('Messages', [
+            'foreignKey' => 'brand_id'
         ]);
         $this->hasMany('Offers', [
             'foreignKey' => 'brand_id'
@@ -54,13 +61,17 @@ class BrandsTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->allowEmpty('name');
             
         $validator
             ->add('offers_created', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('offers_created', 'create')
-            ->notEmpty('offers_created');
+            ->allowEmpty('offers_created');
+            
+        $validator
+            ->allowEmpty('type_commerce');
+            
+        $validator
+            ->allowEmpty('city');
 
         return $validator;
     }

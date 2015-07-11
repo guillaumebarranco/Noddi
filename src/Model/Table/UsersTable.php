@@ -48,6 +48,10 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
+            ->add('id_facebook', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('id_facebook');
+            
+        $validator
             ->requirePresence('username', 'create')
             ->notEmpty('username');
             

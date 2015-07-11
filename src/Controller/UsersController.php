@@ -16,12 +16,14 @@ class UsersController extends AppController
         $this->loadComponent('RequestHandler');
         $this->loadModel('Modeuses');
         $this->loadModel('Brands');
+        $this->loadModel('Activities');
     }
 
     function Jsonification() {
         $this->autoRender = false;
         $this->layout = null;
         $this->RequestHandler->renderAs($this, 'json');
+        return 'KO';
     }
 
     function getResponse($check = 'KO') {
@@ -54,7 +56,7 @@ class UsersController extends AppController
 
             $data = $this->request->data;
 
-            // On récupère l'admin de la base de données
+            // On récupère le user de la base de données
             
             $get_user = $this->Users->findByUsername($data['username'])->toArray();
             
@@ -84,6 +86,34 @@ class UsersController extends AppController
                 $this->Flash->error(__('Les informations rentrées ne correspondent à aucun utilisateur.'));
             }
         }
+    }
+
+    public function loginFB() {
+
+        $check = $this->Jsonification();
+
+        $session = $this->request->session();
+
+        if(isset($this->request->data) && $this->request->data) {
+
+            $data = $this->request->data;
+
+            $get_user = $this->Users->find('all')->where(['id_facebook' => $data['fb_id']])->toArray();
+
+            if($get_user) {
+                $get_user = $get_user[0];
+
+                $session->write('user', true);
+                $session->write('username', $get_user['username']);
+                $session->write('password', $get_user['password']);
+                $session->write('user_id', $get_user['id']);
+                $session->write('type', $get_user['type']);
+
+                $check = 'OK';
+            }
+        }
+
+        echo $this->getResponse($check);
     }
 
     /*
@@ -124,6 +154,10 @@ class UsersController extends AppController
     */
 
     public function sign_in() {
+
+    }
+
+    public function sign_in_modeuse() {
 
         $user = $this->Users->newEntity();
 
@@ -198,6 +232,85 @@ class UsersController extends AppController
                 ['controller' => 'Profil', 'action' => 'index']
             );
         }
+    }
+
+    public function sign_in_brand() {
+
+        $user = $this->Users->newEntity();
+
+        if($this->request->is('post')) {
+
+            $data = $this->request->data;
+            $check_user = $this->Users->findByUsername($data['username'])->toArray();
+
+            // On vérifie qu'il n'existe pas déjà un user avec le même username
+            if(!$check_user) {
+
+                $data['id_facebook'] = '';
+
+                $data['password'] = Security::hash($data['password'], 'sha1', true);
+
+                $user = $this->Users->patchEntity($user, $data);
+
+                if($this->Users->save($user)) {
+
+                    $session = $this->request->session();
+
+                    // On créé la session
+                    $session->write('user', true);
+                    $session->write('username', $data['username']);
+                    $session->write('password', $data['password']);
+
+                    // On créé les cookies
+                    // $this->Cookie->config('path', '/');
+                    // $this->Cookie->config([
+                    //     'expires' => '+10 days',
+                    //     'httpOnly' => true
+                    // ]);
+
+                    // $this->Cookie->write('user', true);
+                    // $this->Cookie->write('username', $data['username']);
+                    // $this->Cookie->write('password', $data['password']);
+
+                    $user = $this->Users->find()->where(['username' => $data['username']])->toArray();
+
+                    $data['user_id'] = $user[0]['id'];
+
+                    $session->write('user_id', $data['user_id']);
+
+                    $brand = $this->Brands->newEntity();
+                    $brand->user_id = $data['user_id'];
+                    $brand->name = $data['name'];
+                    $brand->activity_id = $data['activity_id'];
+                    $brand->type_commerce = $data['type_commerce'];
+                    $brand->city = $data['city'];
+
+
+                
+                    if (!$this->Brands->save($brand)) {
+                        $this->Flash->error(__('The brand could not be saved. Please, try again.'));
+                    }
+
+                    $session->write('type', $data['type']);
+                }
+
+            } else {
+                $this->Flash->error(__('Cet username a déjà été pris.'));
+                return $this->redirect(['action' => 'sign_in']);
+            }
+
+            return $this->redirect(
+                ['controller' => 'Profil', 'action' => 'index']
+            );
+        }
+
+        $activities = $this->Activities->find('all')->toArray();
+
+        $this->set(array(
+            'activities' => $activities
+        ));
+        
+        $this->set('_serialize', ['activities']);
     }
 
     public function updatePicture() {

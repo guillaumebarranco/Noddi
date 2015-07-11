@@ -15,6 +15,7 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id_facebook' => true,
         'username' => true,
         'bio' => true,
         'website' => true,
