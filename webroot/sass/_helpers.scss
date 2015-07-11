@@ -1,0 +1,63 @@
+@import '_variables';
+@import '_fonts';
+
+// MIXINS 
+		@mixin font-size($sizeValue: 1.6) {
+		  font-size: ($sizeValue * 10) + px;
+		  font-size: $sizeValue + rem;
+		}
+
+		@mixin hide-text(){
+			font: 0/0 serif;
+			color: transparent;
+			text-shadow: none;
+		}
+		@mixin show-text(){ 
+			font: inherit; 
+			color: inherit; 
+			text-shadow: inherit; 
+		}
+
+
+		@mixin noddifont($icon, $color, $size){
+			content: $icon;
+			color: $color;
+			@include font-size($size);
+			font-family: "noddifont";
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: normal;
+			text-decoration: none;
+			text-transform: none;
+		}
+
+		// @mixin transition($type, $length:$transitionLengthDefault, $timing:$transitionTimingDefault){
+		// 	transition: $type $length $timing;
+		// }
+
+
+// EXTENDS
+		.title{
+			@include font-size(4);
+			font-family: 'Satisfy-Regular', Arial, sans-serif;
+		}
+		.subtitle{
+			@include font-size(3.2);
+			font-family: 'Mathlete-Bulky', Arial, sans-serif;
+			text-transform: uppercase;
+			font-weight: lighter;
+		}
+		.subtitleSmall{
+			@include font-size(2.5);
+			font-family:  Helvetica, Arial, sans-serif;
+		}
+		.subtitleMini{
+			@include font-size(2.0);
+			font-family:  Helvetica, Arial, sans-serif;
+		}
+		.regularText{
+			@include font-size(1.6);
+			font-family:  'Source Sans Pro', Arial, sans-serif;
+		}

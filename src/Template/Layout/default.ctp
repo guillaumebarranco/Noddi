@@ -51,18 +51,20 @@
             }
         </style>
         
-        <?= $this->Html->css('bootstrap.min'); ?>
-        <?= $this->Html->css('base') ?>
-        <?= $this->Html->css('cake') ?>
+        <? //bootstrap.css ?>
+        <? // base.css ?>
+        <?= $this->Html->css('normalize') ?>
+        <? //cake.css ?>
         <?= $this->Html->css('sweet-alert') ?>
         <?= $this->Html->css('uploadify') ?>
         <?= $this->Html->css('datepicker') ?>
-        <?= $this->Html->css('index') ?>
+        <?//index.css ?>
+        <?= $this->Html->css('style') ?>
     </head>
 
     <body>
 
-        <header>
+        <header class="headerApp">
 
             <nav id="navigation">
                 <ul class="menu">
@@ -91,10 +93,10 @@
                     <?php } else { ?>
 
                         <li>
-                            <?= $this->Html->link(__('Connexion'), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button']) ?>
+                            <?= $this->Html->link(__('Connexion'), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button regular']) ?>
                         </li>
                         <li>
-                            <?= $this->Html->link(__('Inscription'), ['controller' => 'Users', 'action' => 'sign_in'], ['class' => 'button']) ?>
+                            <?= $this->Html->link(__('Inscription'), ['controller' => 'Users', 'action' => 'sign_in'], ['class' => 'button regular']) ?>
                         </li>
 
                     <?php } ?>

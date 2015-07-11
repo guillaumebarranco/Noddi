@@ -21,6 +21,18 @@
 
 <?php } else { ?>
 	
+	<h1>Bienvenue sur la plateforme Noddi !</h1>
 	<h2>Bienvenue sur la plateforme Noddi !</h2>
+	<h3>Bienvenue sur la plateforme Noddi !</h3>
+	<h4>Bienvenue sur la plateforme Noddi !</h4>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, mollitia porro deleniti unde deserunt illum temporibus, vitae voluptatibus dolorem ipsam est. Accusamus, alias, neque?</p>
+
+<form action="#">
+	<input type="text" placeholder="lol">
+	<input type="password" placeholder="super">
+	<div class="button regular">Valider</div>
+	<div class="button reversed">Connexion</div>
+	<div class="button regular small">Valider</div>
+</form>
 
 <?php } ?>

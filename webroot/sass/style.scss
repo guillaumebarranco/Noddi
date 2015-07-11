@@ -1,0 +1,94 @@
+@import '_helpers';
+
+
+*::selection {
+    background-color:$primary;
+    color:$white;
+}
+
+html {
+    font-size:62.5%; /* Sets up the Base 10 stuff */
+    margin:0;
+	padding: 0;
+}
+body{
+	@extend .regularText;
+    box-sizing: border-box;
+	margin:0;
+	padding: 0;
+}
+a{
+	color: inherit;
+	text-decoration: none;
+}
+
+h1 {
+    @extend .title;
+}
+h2 {
+    @extend .subtitle;
+}
+h3 {
+    @extend .subtitleSmall;
+}
+h4 {
+    @extend .subtitleMini;
+}
+p {
+    
+}
+
+form {
+	display: flex; 
+	flex-direction: column; 
+    
+    input {
+        border:solid 1px $lightGrey ;
+        border-radius: 12px;
+        padding: 15px 20px;
+        margin: 0 15px;
+        margin-bottom: 15px;
+    }
+}
+
+.button {
+	border-radius: 12px;
+	padding: 15px 20px;
+	margin: 0 15px;
+    margin-bottom: 15px;
+	text-align: center;
+  	font-weight: bold;
+  	cursor: pointer;
+	transition: background-color 0.3s ease-in-out, 
+				color 0.3s ease-in-out,
+				border 0.3s ease-in-out;
+	&.regular{
+		color: $primary;
+		border: solid 2px $primary;
+		&:hover{
+			color: $white;
+			background: $primary;
+		}
+	}
+	&.reversed{
+		border: solid 2px;
+		background: $primary;
+		color: $white;
+		&:hover{
+			background: $tertiary;
+			border: solid 2px $tertiary;
+		}
+	}
+	&.small{
+		padding: 5px 10px;
+	}
+}
+
+
+.headerApp{
+	display: flex;
+	min-height: 40px;
+	background: $lightGrey;
+	margin: 0;
+	padding: 15px;
+}

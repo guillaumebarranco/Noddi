@@ -1,0 +1,458 @@
+// @import 'compass';
+
+// $blue : #d5f1f3;
+// $pink : #f09494;
+// $grey : #d6d3d3;
+// $grey_black : #949393;
+// $black : #313131;
+
+// @font-face {
+// 	font-family: 'Mathlete-Skinny';
+// 	src: url('font/Mathlete-Skinny.otf');
+// }
+
+// @font-face {
+// 	font-family: 'Cheddar';
+// 	src: url('font/cheddarjack.otf');
+// 	font-style: lighter;
+// }
+
+// // @font-face {
+// // 	font-family: 'Source-Sans-Pro-Light';
+// // 	src: url('font/sourcesansprolight.otf');
+// // }
+
+// @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
+
+// *::selection {
+// 	background-color: $pink;
+
+// }
+
+// html {
+// 	overflow-x: hidden;
+// }
+
+// html, body {
+// 	padding: 0;
+// 	margin: 0;
+// 	font-family: "Source Sans Pro";
+// 	color: $black;
+// }
+
+// .button {
+// 	border: solid 1px $pink;
+// 	border-radius: 10px;
+// 	color: $pink;
+// 	padding: 15px 20px;
+// 	background-color: transparent;
+// 	cursor: pointer;
+// 	transition: 0.4s;
+
+// 	&:hover {
+// 		background-color: $pink;
+// 		color: white;
+// 	}
+// }
+
+// p {
+// 	font-size: 1.2em;
+// }
+
+// a {
+// 	text-decoration: none;
+// 	color: $pink;
+// 	font-size: 0.85em;
+
+// 	&:hover {
+// 		text-decoration: underline;
+// 	}
+// }
+
+// input, button {
+// 	font-size: 1em;
+// }
+
+// .green {
+// 	color: green;
+// }
+
+// .red {
+// 	color: red;
+// }
+
+// /*
+// *	HEADER
+// */
+
+// header {
+// 	background-color: $blue;
+// 	margin-bottom: 40px;
+// 	padding-bottom: 30px;
+// 	text-align: center;
+
+// 	.logo {
+// 		padding-top: 40px;
+// 		width: 95%;
+// 		max-width: 300px;
+// 		margin: 0 auto;
+// 		display: inline-block;
+// 		position: relative;
+
+// 		h1 {
+// 			vertical-align: bottom;
+// 			font-family: "Cheddar";
+// 			font-size: 6em;
+// 			margin: 0;
+// 			color: $black;
+// 			opacity: 0;
+// 			position: absolute;
+// 			visibility: hidden;
+// 		}
+// 	}
+
+// 	.field {
+// 		display: inline-block;
+// 		width: 350px;
+// 		margin: 0 auto;
+// 		text-align: left;
+// 		vertical-align: top;
+// 		position: relative;
+// 		top: 100px;
+// 		left: 50px;
+
+// 		div {
+// 			margin-top: 40px;
+// 		}
+
+// 		h2 {
+// 			font-family: "Mathlete-Skinny";
+// 			font-size: 2.5em;
+// 			margin: 0;
+// 			color: $black;
+// 			font-weight: lighter;
+// 		}
+// 	}
+// }
+
+// @media screen and (max-width:850px) {
+
+// 	header {
+// 		.logo {
+// 			display: block;
+// 		}
+// 		.field {
+// 			display: block;
+// 			position: relative;
+// 			top: 0;
+// 			left: 0;
+// 			margin: 0 auto;
+// 			width: 315px;
+// 			text-align: center;
+// 		}
+// 	}
+// }
+
+// @media screen and (max-width:550px) {
+
+// 	header {
+// 		.logo {
+// 			width: 50%;
+// 		}
+
+// 		.field {
+// 			h2 {
+// 				font-size: 1.7em;
+// 			}
+// 		}
+// 	}
+// }
+
+// /*
+// *	CONTENT
+// */
+
+// .wrapper {
+// 	width: 95%;
+// 	max-width: 600px;
+// 	margin: 0 auto;
+// 	text-align: center;
+
+// 	form {
+
+// 		.separator {
+// 			width: 15px;
+// 			display: inline-block;
+// 		}
+
+// 		input {
+// 			border: solid 1px $grey;
+// 			border-radius: 10px;
+// 			color: $grey_black;
+// 			padding: 15px;
+// 			width: 260px;
+// 			background-color: transparent;
+// 		}
+// 	}
+// }
+
+// @media screen and (max-width:550px) {
+
+// 	.wrapper {
+// 		form {
+// 			input, button {
+// 				display: block;
+// 				margin: 0 auto;
+// 				width: 250px;
+// 			}
+// 		}
+// 	}
+// }
+
+// .follow_us {
+// 	font-family: "Mathlete-Skinny";
+// 	display: inline-block;
+// 	vertical-align: top;
+// 	font-size: 2em;
+// 	margin-bottom: 15px;
+// 	margin-top: 15px;
+// }
+
+// .socials {
+// 	display: inline-block;
+// 	vertical-align: bottom;
+// 	padding: 0;
+// 	margin: 0;
+	
+// 	li {
+// 		display: inline-block;
+
+// 		a {
+// 			background-repeat: no-repeat;
+// 			height: 40px;
+// 			width: 40px;
+// 			margin-right: 20px;
+// 			display: inline-block;
+// 			transition: 0.2s;
+// 			position: relative;
+// 			top: 0;
+
+			
+
+// 			&.facebook {
+// 				background-image: url('../img/facebook.png');
+// 			}
+// 			&.twitter {
+// 				background-image: url('../img/twitter.png');
+// 			}
+// 			&.instagram {
+// 				background-image: url('../img/instagram.png');
+// 			}
+// 			&.snapchat {
+// 				background-image: url('../img/snapchat.png');
+// 			}
+// 			&.pinterest {
+// 				background-image: url('../img/pinterest.png');
+// 			}
+// 		}
+
+// 		&:last-child {
+// 			a {
+// 				margin-right: 0;
+// 			}
+// 		}
+// 	}
+// }
+
+// @media screen and (min-width:1000px) {
+
+// 	.socials {
+// 		li {
+// 			a {
+// 				&.facebook {
+// 					&:hover {
+// 						background-image: url('../img/facebook_hover.png');
+// 					}
+// 				}
+// 				&.twitter {
+// 					&:hover {
+// 						background-image: url('../img/twitter_hover.png');
+// 					}
+// 				}
+// 				&.instagram {
+// 					&:hover {
+// 						background-image: url('../img/instagram_hover.png');
+// 					}
+// 				}
+// 				&.snapchat {
+// 					&:hover {
+// 						background-image: url('../img/snapchat_hover.png');
+// 					}
+// 				}
+// 				&.pinterest {
+// 					&:hover {
+// 						background-image: url('../img/pinterest_hover.png');
+// 					}
+// 				}
+
+// 				&:hover {
+// 					top: -5px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// /*
+// *	FLAMINGO ANIMATION
+// */
+
+// .flamingo {
+// 	position: relative;
+// }
+
+// .flamingo img {
+// 	position: absolute;
+// 	right: -200px;
+// 	z-index: -1;
+// 	-webkit-animation-name: flamingo;
+// 	-webkit-animation-duration: 30s;
+// 	-webkit-animation-timing-function: ease-in-out;
+// 	-webkit-animation-iteration-count: infinite;
+
+// 	-o-animation-name: flamingo;
+// 	-o-animation-duration: 30s;
+// 	-o-animation-timing-function: ease-in-out;
+
+// 	-moz-animation-name: flamingo;
+// 	-moz-animation-duration: 30s;
+// 	-moz-animation-timing-function: ease-in-out;
+
+// 	-ms-animation-name: flamingo;
+// 	-ms-animation-duration: 30s;
+// 	-ms-animation-timing-function: ease-in-out;
+
+// 	animation-name: flamingo;
+// 	animation-duration: 30s;
+// 	animation-timing-function: ease-in-out;
+
+// }
+
+// @-webkit-keyframes flamingo {
+// 	0% {
+// 		right: -200px;
+// 	}
+
+// 	50% {
+// 		right: 1800px;
+// 	}
+
+// 	100% {
+// 		right: -200px;
+// 	}
+// }
+
+// @keyframes flamingo {
+// 	0% {
+// 		right: -200px;
+// 	}
+
+// 	50% {
+// 		right: 1800px;
+// 	}
+
+// 	100% {
+// 		right: -200px;
+// 	}
+// }
+
+// @media screen and (max-width:500px) {
+// 	.flamingo {
+// 		display: none;
+// 	}
+// }
+
+// /*
+// *	FOOTER
+// */
+
+// footer {
+// 	text-align: center;
+
+// 	p {
+// 		display: inline-block;
+// 		font-size: 0.85em;
+// 	}
+
+// 	.cgu {
+// 		display: inline-block;
+// 		margin: 0 auto;
+// 		margin-top: 50px;
+// 	}
+// }
+
+// @media screen and (max-width:500px) {
+// 	footer {
+// 		text-align: center;
+
+// 		.follow_us, .socials {
+// 			text-align: center;
+// 			display: block;
+// 		}
+// 		.socials {
+// 			width: 260px;
+// 			margin: 0 auto;
+// 		}
+// 	}
+// }
+
+// /*
+// *	POPUP
+// */
+
+// $width_popup : 400px;
+// $height_popup : 300px;
+
+// .popup_snapchat {
+// 	position: absolute;
+// 	top: 50%;
+// 	left: 50%;
+// 	width: $width_popup;
+// 	height: $height_popup;
+// 	margin-top: -($height_popup/2);
+// 	margin-left: -($width_popup/2);
+// 	border: solid 6px $pink;
+// 	color: black;
+// 	background-color: white;
+// 	display: none;
+// 	padding: 20px;
+// 	box-sizing: border-box;
+// 	text-align: center;
+// 	font-size: 1.1em;
+// }
+
+// .close {
+// 	text-align: right;
+// 	cursor: pointer;
+// }
+
+// /*
+// *	ANIMATION SVG
+// */
+
+// svg {
+// 	.animation {
+// 		polygon, polyline, path {
+// 			-webkit-transform: translateX(em-calc(0));
+// 			-webkit-transition: 0.4s;
+// 			-ms-transform: translateX(em-calc(0));
+// 			-ms-transition: 0.4s;
+// 			-moz-transform: translateX(em-calc(0));
+// 			-moz-transition: 0.4s;
+// 			-o-transform: translateX(em-calc(0));
+// 			-o-transition: 0.4s;
+// 			transform: translateX(em-calc(0));
+// 			transition: 0.4s;
+// 		}
+// 	}
+// }

@@ -1,0 +1,50 @@
+
+// FONTS
+
+	@font-face {
+	    font-family: 'Satisfy-Regular';
+	    src: url("font/Satisfy-Regular.eot");
+	    src:    url("font/Satisfy-Regular.woff") format("woff"), 
+	            url("font/Satisfy-Regular.ttf") format("truetype"), 
+	            url("font/Satisfy-Regular.svg#Satisfy-Regular") format("svg");
+	            src: url("font/Satisfy-Regular.otf");
+	}
+	@font-face {
+		font-family: 'noddifont';
+		src: url('font/noddifont.eot');
+		src: url('font/noddifont.eot?#iefix') format('eot'),
+			url('font/noddifont.woff') format('woff'),
+			url('font/noddifont.ttf') format('truetype'),
+			url('font/noddifont.svg#noddifont') format('svg');
+	}
+	// @font-face {
+	// 	font-family: 'Mathlete-Skinny';
+	// 	src: url('font/Mathlete-Skinny.otf');
+	// }
+	@font-face {
+		font-family: 'Mathlete-Bulky';
+		src: url('font/Mathlete-Bulky.eot');
+		src: url('font/Mathlete-Bulky.woff') format('woff'),
+			url('font/Mathlete-Bulky.ttf') format('truetype'),
+			url('font/Mathlete-Bulky.svg#Mathlete-Bulky') format('svg');
+
+		src: url('font/Mathlete-Bulky.otf');
+	}
+
+	// @font-face {
+	// 	font-family: 'Source-Sans-Pro-Light';
+	// 	src: url('font/sourcesansprolight.otf');
+	// }
+	
+	@font-face {
+	    font-family: 'Satisfy-Regular';
+	    src: url("font/Satisfy-Regular.eot");
+	    src:    url("font/Satisfy-Regular.woff") format("woff"), 
+	            url("font/Satisfy-Regular.ttf") format("truetype"), 
+	            url("font/Satisfy-Regular.svg#Satisfy-Regular") format("svg");
+	            src: url("font/Satisfy-Regular.otf");
+	}
+
+	@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
+	// @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
