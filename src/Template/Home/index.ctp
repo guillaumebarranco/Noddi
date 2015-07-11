@@ -20,7 +20,28 @@
 	</p>
 
 <?php } else { ?>
-	
-	<h2>Bienvenue sur la plateforme Noddi !</h2>
+
+<?= $this->Html->link(__('Inscription Marque'), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button']) ?>
+
+<button>Inscription modeuse</button>
+
+<div>
+	<button>Se connecter</button>
+</div>
+
+
+<ul>
+	<li>Explication</li>
+	<li>Explication</li>
+	<li>Explication</li>
+</ul>
+
+<section>
+	Explication
+</section>
+
+<section>
+	Explication
+</section>
 
 <?php } ?>

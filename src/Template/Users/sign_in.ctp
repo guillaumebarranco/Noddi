@@ -1,28 +1,3 @@
-<div class="wrapper_form">
+<?= $this->Html->link(__('Inscription Marque'), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button']) ?>
 
-<button class="fb_button">Inscription avec Facebook</button>
-
-	<?php
-	    echo $this->Form->create(null, [
-	        'url' => ['controller' => 'Users', 'action' => 'sign_in']
-	    ]);
-
-	    echo $this->Form->input('username');
-	    echo $this->Form->input('password');
-
-	    echo '<label for="bio">Bio</label>';
-	    echo $this->Form->textarea('bio');
-
-	    echo $this->Form->input('website', ['placeholder' => 'http://monsite.fr']);
-	    echo $this->Form->input('picture', ['type' => 'hidden', 'value' => 'default.jpg']); ?>
-
-	    <select name="type" id="">
-	    	<option value="modeuse">Modeuse</option>
-	    	<option value="brand">Marque</option>
-	    </select>
-
-	    <?php echo $this->Form->button('Sign In', ["class"=> "button small"]);
-
-	    echo $this->Form->end(); 
-	?>
-</div>
+<?= $this->Html->link(__('Inscription Modeuse'), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button']) ?>

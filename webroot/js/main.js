@@ -149,6 +149,7 @@ $(document).ready(function() {
         'onUploadSuccess' : function(file, the_data, response) {
             // alert('The file was saved to: ' + data);
             $(".the_picture img").attr('src', WEB_URL+'/'+the_data);
+            $('input[name=picture]').val(WEB_URL+'/'+the_data);
 
             var data = {};
             data.user_id = $('.user_id').val();
@@ -156,9 +157,9 @@ $(document).ready(function() {
 
             console.log(data);
 
-            makeAjax('POST', "users/updatePicture", data, function() {
-            	console.log(_this.response);
-            });
+            // makeAjax('POST', "users/updatePicture", data, function() {
+            // 	console.log(_this.response);
+            // });
         }
     });
 
@@ -211,7 +212,7 @@ $(document).ready(function() {
 						});
 
 					} else if(response.status === "connected") {
-						FBlogin();
+						FBsignin();
 					}
 				}, {scope: 'public_profile,email'});
 
@@ -221,7 +222,7 @@ $(document).ready(function() {
 		});
 	});
 
-	function FBlogin() {
+	function FBsignin() {
 		FB.api('/me/permissions', function(perms){
 			console.log(perms);
 
@@ -239,5 +240,63 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+	function FBlogin() {
+		FB.api('/me/permissions', function(perms){
+			console.log(perms);
+
+			if(perms.data[0].status === 'granted' && perms.data[1].status === 'granted') {
+
+				FB.api('/me', function(data){
+					console.log(data);
+
+					var data_user = {};
+					data_user.fb_id = data.id;
+
+					makeAjax('POST', "loginFB", data_user, function() {
+
+						if(_this.response.check === 'OK') {
+							window.location.href = WEB_URL+'/profil';
+						} else {
+							swal({
+								title : 'Erreur',
+								text : "Vous n'avez pas été trouvé dans les inscrites, veuillez vous inscrire d'abord. "
+							});
+						}
+						
+					});
+				}); 
+			}
+		});
+	}
+
+	/*
+	*	INSCRIPTION MARQUES
+	*/
+
+	$('.form_brand_two').hide();
+	$('.form_brand_three').hide();
+
+	$('.get_form_brand_two').on('click', function(e) {
+		e.preventDefault();
+		$('.form_brand_two').show();
+		$('.form_brand_one').hide();
+	});
+
+	$('.get_form_brand_three').on('click', function(e) {
+		e.preventDefault();
+		$('.form_brand_three').show();
+		$('.form_brand_two').hide();
+	});
+
+	$('.select_activities li').on('click', function() {
+		var activity = $(this).attr('data-activity');
+		$('.select_activities li').removeClass('button_selected');
+		$(this).addClass('button_selected');
+
+		$('input[name=activity_id]').val(activity);
+
+		console.log($('input[name=activity_id]').val());
+	});
 
 });	

@@ -44,7 +44,7 @@ class ProfilController extends AppController
     public function index() {
 
         $session = $this->request->session();
-
+        
         if($session->read('type') == 'modeuse') {
 
             $modeuse = $this->Modeuses->find('all', array(

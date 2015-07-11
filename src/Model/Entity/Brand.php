@@ -19,6 +19,8 @@ class Brand extends Entity
         'name' => true,
         'activity_id' => true,
         'offers_created' => true,
+        'type_commerce' => true,
+        'city' => true,
         'user' => true,
         'activity' => true,
         'offers' => true,
