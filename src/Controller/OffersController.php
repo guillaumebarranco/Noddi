@@ -39,6 +39,24 @@ class OffersController extends AppController
         $this->set('_serialize', ['offer']);
     }
 
+    public function add()
+    {
+        $offer = $this->Offers->newEntity();
+        if ($this->request->is('post')) {
+            $offer = $this->Offers->patchEntity($offer, $this->request->data);
+            if ($this->Offers->save($offer)) {
+                $this->Flash->success(__('The offer has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The offer could not be saved. Please, try again.'));
+            }
+        }
+        $brands = $this->Offers->Brands->find('list', ['limit' => 200]);
+        $activities = $this->Offers->Activities->find('list', ['limit' => 200]);
+        $this->set(compact('offer', 'brands', 'activities'));
+        $this->set('_serialize', ['offer']);
+    }
+
     public function create() {
 
         $check = $this->Jsonification();

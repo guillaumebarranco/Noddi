@@ -20,7 +20,9 @@ class UsersControllerTest extends IntegrationTestCase
         'app.brands',
         'app.activities',
         'app.offers',
-        'app.modeuses'
+        'app.favoris',
+        'app.modeuses',
+        'app.messages'
     ];
 
     /**
@@ -64,6 +66,16 @@ class UsersControllerTest extends IntegrationTestCase
     }
 
     /**
+     * Test loginFB method
+     *
+     * @return void
+     */
+    public function testLoginFB()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
      * Test disconnect method
      *
      * @return void
@@ -79,6 +91,26 @@ class UsersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testSignIn()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test sign_in_modeuse method
+     *
+     * @return void
+     */
+    public function testSignInModeuse()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test sign_in_brand method
+     *
+     * @return void
+     */
+    public function testSignInBrand()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

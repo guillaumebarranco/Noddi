@@ -27,6 +27,7 @@ class UsersTable extends Table
         $this->table('users');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->addBehavior('Timestamp');
         $this->hasMany('Brands', [
             'foreignKey' => 'user_id'
         ]);
@@ -48,7 +49,6 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->add('id_facebook', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id_facebook');
             
         $validator

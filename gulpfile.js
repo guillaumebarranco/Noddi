@@ -87,4 +87,4 @@ gulp.task('iconfont', function(){
     .pipe( gulp.dest( root + 'css/font/') )
 });
 
-gulp.task('default', ['sass,']);
+gulp.task('default', ['sass']);
