@@ -13,23 +13,7 @@ class UsersController extends AppController
         parent::initialize();
 
         // On récupère les composants pour la Pagination, le renvoi de JSON....
-        $this->loadComponent('RequestHandler');
-        $this->loadModel('Modeuses');
-        $this->loadModel('Brands');
         $this->loadModel('Activities');
-    }
-
-    function Jsonification() {
-        $this->autoRender = false;
-        $this->layout = null;
-        $this->RequestHandler->renderAs($this, 'json');
-        return 'KO';
-    }
-
-    function getResponse($check = 'KO') {
-        $response = array();
-        $response['check'] = $check;
-        return json_encode($response);
     }
 
     /*
@@ -37,6 +21,12 @@ class UsersController extends AppController
     *
     *   FONCTIONNELLE
     */
+
+    public function index() {
+        return $this->redirect(
+            ['controller' => 'Home', 'action' => 'index']
+        );
+    }
 
     public function login() {
 
@@ -74,6 +64,10 @@ class UsersController extends AppController
                     $session->write('password', $get_user['password']);
                     $session->write('user_id', $get_user['id']);
                     $session->write('type', $get_user['type']);
+
+                    $brand_id = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+
+                    $session->write('brand_id', $brand_id);
 
                     return $this->redirect(
                         ['controller' => 'Home', 'action' => 'index']
@@ -338,9 +332,29 @@ class UsersController extends AppController
 
         $this->Jsonification();
 
-        if(isset($this->request->data)) {
+        if(isset($this->request->data) && $this->request->data) {
             $data = $this->request->data;
 
+            $modeuses = $this->Modeuses->find('all')
+            ->contain(['Users']);
+
+            if($data['blog'] == 'yes') {
+                $modeuses = $modeuses ->where(['Users.website !=' => '']);
+            } elseif($data['blog'] == 'no') {
+                $modeuses = $modeuses ->where(['Users.website' => '']);
+            }
+
+            if($data['audience'][0] == 'beginner') {
+                $modeuses = $modeuses ->where(['Modeuses.noddi_rank' => 1]);
+            } elseif($data['audience'][0] == 'medium') {
+                $modeuses = $modeuses ->where(['Modeuses.noddi_rank' => 2]);
+            } elseif($data['audience'][0] == 'expert') {
+                $modeuses = $modeuses ->where(['Modeuses.noddi_rank' => 3]);
+            }
+
+            $modeuses = $modeuses->toArray();
+
+        } else {
             $modeuses = $this->Modeuses->find('all')->contain(['Users'])->toArray();
         }
 

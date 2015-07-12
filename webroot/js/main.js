@@ -20,6 +20,7 @@ $(document).ready(function() {
 						'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
 							'<img src="'+_this.response.modeuses[modeuse].user.picture+'" width="150"/>'+
 						'</a>' +
+						'<button class="button add_favori">Add Favori</button>'+
 					'</li>'
 				;
 
@@ -302,7 +303,7 @@ $(document).ready(function() {
 						text : 'Vous vous appellez '+ data.name
 					});
 
-					addModeuseFacebook(data);
+					//addModeuseFacebook(data);
 				}); 
 			}
 		});
@@ -431,18 +432,38 @@ $(document).ready(function() {
             $(".the_picture img").attr('src', WEB_URL+'/'+the_data);
             $('input[name=picture]').val(WEB_URL+'/'+the_data);
             $('.the_picture').show();
-
-            var data = {};
-            data.user_id = $('.user_id').val();
-            data.picture = WEB_URL+'/'+the_data;
-
-            console.log(data);
-
-            // makeAjax('POST', "users/updatePicture", data, function() {
-            // 	console.log(_this.response);
-            // });
         }
     });
+
+	/*
+	*	FAVORIS
+	*/
+
+	$(document).on('click', '.add_favori', function() {
+
+		var data_user = {};
+		data_user.brand_id = 6;
+		data_user.modeuse_id = 2;
+
+		makeAjax('POST', "favoris/add", data_user, function() {
+			swal({
+				title: "Added !",
+				type: "success"
+			});
+		});
+	});
+
+	$('.delete_favori').on('click', function() {
+		var favori_id = $(this).attr('data-favori');
+		
+		makeAjax('POST', "favoris/delete/"+favori_id, favori_id, function() {
+			swal({
+				title: "Removed !",
+				type: "success"
+			});
+		});
+	});
+
 
 	/*
 	*	FONCTIONS GENERIQUES

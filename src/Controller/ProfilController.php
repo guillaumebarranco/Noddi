@@ -11,12 +11,11 @@ class ProfilController extends AppController
         parent::initialize();
 
         // On récupère les composants pour la Pagination, le renvoi de JSON....
-        $this->loadComponent('RequestHandler');
-        $this->loadModel('Users');
-        $this->loadModel('Modeuses');
-        $this->loadModel('Brands');
         $this->loadModel('Activities');
         $this->loadModel('Offers');
+    }
+
+    public function index() {
 
         $session = $this->request->session();
 
@@ -27,23 +26,6 @@ class ProfilController extends AppController
                 ['controller' => 'Users', 'action' => 'login']
             );
         }
-    }
-
-    function Jsonification() {
-        $this->autoRender = false;
-        $this->layout = null;
-        $this->RequestHandler->renderAs($this, 'json');
-    }
-
-    function getResponse($check = 'KO') {
-        $response = array();
-        $response['check'] = $check;
-        return json_encode($response);
-    }
-
-    public function index() {
-
-        $session = $this->request->session();
         
         if($session->read('type') == 'modeuse') {
 

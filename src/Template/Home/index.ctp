@@ -37,7 +37,6 @@
 					<button class="button blog_selected" data-blog="whatever">Peu importe</button>
 				</div>
 				
-
 				<h3>Réseaux sociaux</h3>
 				<p>
 					Sélectionnez les réseaux sociaux sur lesquels vous souhaitez que la Noddiz soit présente
@@ -152,9 +151,6 @@
 				</div>
 			</div>
 		</section>
-	
-
-=======
 
 	<?php } ?>
 </div>
