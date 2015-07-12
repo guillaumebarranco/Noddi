@@ -354,6 +354,8 @@ $(document).ready(function() {
 			&& $('input[name=name]').val() != ''
 			&& $('input[name=picture]').val() != ''
 		) {
+			$('#step1').removeClass('active');
+			$('#step2').addClass('active');
 			$('.form_brand_two').show();
 			$('.form_brand_one').hide();
 		} else {
@@ -373,6 +375,8 @@ $(document).ready(function() {
 			&& $('textarea[name=bio]').val() != ''
 			&& $('input[name=activity_id]').val() != ''
 		) {
+			$('#step2').removeClass('active');
+			$('#step3').addClass('active');
 			$('.form_brand_three').show();
 			$('.form_brand_two').hide();
 		} else {

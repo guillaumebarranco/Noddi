@@ -1,0 +1,45 @@
+@font-face {
+	font-family: "noddifont";
+	src: url('webroot/css/font/noddifont.eot');
+	src: url('webroot/css/font/noddifont.eot?#iefix') format('eot'),
+		url('webroot/css/font/noddifont.woff') format('woff'),
+		url('webroot/css/font/noddifont.ttf') format('truetype'),
+		url('webroot/css/font/noddifont.svg#noddifont') format('svg');
+}
+
+.icon:before {
+	font-family: "noddifont";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.icon-1436747831_06-facebook:before {
+	content: "\E001";
+}
+
+.icon-1436747854_03-twitter:before {
+	content: "\E002";
+}
+
+.icon-1436747862_38-instagram:before {
+	content: "\E003";
+}
+
+.icon-1436747872_73-pinterest:before {
+	content: "\E004";
+}
+
+.icon-1436747973_snapchat:before {
+	content: "\E005";
+}
+
+.icon-1436748204_checkmark-24:before {
+	content: "\E006";
+}

@@ -35,24 +35,6 @@
         <meta property="og:site_name" content="Noddi" />
 
         <link rel="icon" href="<?=$this->request->base?>/img/favicon2.ico.png" type="image/x-icon" />
-
-        <style>
-            .wrapper_form {
-                width: 400px;
-                margin: 0 auto;
-            }
-
-            .wrapper_form textarea {
-                resize: none;
-            }
-
-            .menu li {
-                display: inline-block;
-            }
-            .button.button_selected {
-                background-color: blue;
-            }
-        </style>
         
         <? //bootstrap.css ?>
         <? // base.css ?>

@@ -41,13 +41,31 @@ form {
     flex-direction:column;
     label {
         @include hide-text();
+        &.showLabel{
+            @include show-text();
+            @extend .button;
+            position: relative;
+        }
+        & [type="radio"]:checked,
+        & [type="checkbox"]:checked{
+            background: red!important;
+        }
     }
-    input {
+    input, textarea {
+        box-sizing:border-box;
         border:solid 1px $lightGrey ;
         border-radius:$radiusDefault;
-        padding:15px 20px;
-        margin:0 15px;
+        padding:12px 20px;
+        // margin:0 15px;
         margin-bottom:15px;
+        &[type="radio"],&[type="checkbox"]{
+            position: absolute;
+            height: 100%;
+            top: 0;
+            right: 0;
+            width: 100%;
+            opacity: 0;
+        }
     }
 }
 
