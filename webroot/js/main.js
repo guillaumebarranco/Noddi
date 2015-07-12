@@ -141,35 +141,7 @@ $(document).ready(function() {
 		});
 	});
 
-	$('.add_brand').on('submit', function(e) {
-		e.preventDefault();
 
-		// data_user = {
-		// 	'bio' => $(this).find('input[name=bio]').val(),
-		// 	'website' => 'http://',
-		// 	'picture', => ''
-		// 	'type' => 'brand'
-		// };
-
-		makeAjax('POST', "users/add", data_user, function() {
-			console.log('user_added', _this.response);
-		});
-	});
-
-	$('.add_modeuse').on('click', function() {
-
-		// data_user = {
-		// 	'bio' => 'test',
-		// 	'website' => 'http://',
-		// 	'picture', => ''
-		// 	'type' => 'modeuse'
-		// };
-
-		makeAjax('POST', "users/add", data_user, function() {
-			console.log('user_added', _this.response);
-			addModeuse(_this.response);
-		});
-	});
 
 	/*
 	*	PROFIL
@@ -205,6 +177,8 @@ $(document).ready(function() {
 			console.log('user_added', _this.response);
 		});
 	});
+
+
 
 	/*
 	*	OFFERS
@@ -252,33 +226,10 @@ $(document).ready(function() {
 		});
 	});
 
-	$('#upload').uploadify({
-        'fileSizeLimit' : '2MB',
-        'fileTypeExts'  : '*.gif; *.jpg; *.png',
-        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
-        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify.php',
-        'method'        : 'post',
-        'onSelectError' : function(file, errorCode, errorMsg) {
-            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
-            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
-            else    alert('Erreur inconnue.');
-        },
-        'onUploadSuccess' : function(file, the_data, response) {
-            // alert('The file was saved to: ' + data);
-            $(".the_picture img").attr('src', WEB_URL+'/'+the_data);
-            $('input[name=picture]').val(WEB_URL+'/'+the_data);
+	/*
+	*	REGISTER AND LOGIN MODEUSE
+	*/
 
-            var data = {};
-            data.user_id = $('.user_id').val();
-            data.picture = WEB_URL+'/'+the_data;
-
-            console.log(data);
-
-            // makeAjax('POST', "users/updatePicture", data, function() {
-            // 	console.log(_this.response);
-            // });
-        }
-    });
 
 	function addModeuse(data_user) {
 		var data_user = {};
@@ -295,6 +246,7 @@ $(document).ready(function() {
 		});
 	}
 
+
 	function addModeuseFacebook(user) {
 		var data_user = {};
 
@@ -309,8 +261,6 @@ $(document).ready(function() {
 			window.location.href = WEB_URL+'/profil';
 		});
 	}
-
-
 
 
 	$('.fb_button').on('click', function() {
@@ -388,7 +338,7 @@ $(document).ready(function() {
 	}
 
 	/*
-	*	INSCRIPTION MARQUES
+	*	REGISTRER BRANDS
 	*/
 
 	$('.form_brand_two').hide();
@@ -396,14 +346,57 @@ $(document).ready(function() {
 
 	$('.get_form_brand_two').on('click', function(e) {
 		e.preventDefault();
-		$('.form_brand_two').show();
-		$('.form_brand_one').hide();
+
+		if(
+			$('input[name=username]').val() != ''
+			&& $('input[name=password]').val() != ''
+			&& $('input[name=email]').val() != ''
+			&& $('input[name=name]').val() != ''
+			&& $('input[name=picture]').val() != ''
+		) {
+			$('.form_brand_two').show();
+			$('.form_brand_one').hide();
+		} else {
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis",
+				type: 'error'
+			});
+		}		
 	});
 
 	$('.get_form_brand_three').on('click', function(e) {
 		e.preventDefault();
-		$('.form_brand_three').show();
-		$('.form_brand_two').hide();
+
+		if(
+			$('input[name=website]').val() != ''
+			&& $('textarea[name=bio]').val() != ''
+			&& $('input[name=activity_id]').val() != ''
+		) {
+			$('.form_brand_three').show();
+			$('.form_brand_two').hide();
+		} else {
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis",
+				type: 'error'
+			});
+		}
+
+	});
+
+	$('.register_brand').on('submit', function(e) {
+		if(
+			$('select[name=type_commerce]').val() == ''
+			&& $('input[name=city]').val() == ''
+		) {
+			e.preventDefault();
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis",
+				type: 'error'
+			});
+		}
 	});
 
 	$('.select_activities li').on('click', function() {
@@ -412,9 +405,40 @@ $(document).ready(function() {
 		$(this).addClass('button_selected');
 
 		$('input[name=activity_id]').val(activity);
-
-		console.log($('input[name=activity_id]').val());
 	});
+
+	$('.the_picture').hide();
+
+	$('#upload').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify.php',
+        'method'        : 'post',
+        'buttonText' : "Uploader le logo de l'entreprise",
+        'width' : 300,
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            // alert('The file was saved to: ' + data);
+            $(".the_picture img").attr('src', WEB_URL+'/'+the_data);
+            $('input[name=picture]').val(WEB_URL+'/'+the_data);
+            $('.the_picture').show();
+
+            var data = {};
+            data.user_id = $('.user_id').val();
+            data.picture = WEB_URL+'/'+the_data;
+
+            console.log(data);
+
+            // makeAjax('POST', "users/updatePicture", data, function() {
+            // 	console.log(_this.response);
+            // });
+        }
+    });
 
 	/*
 	*	FONCTIONS GENERIQUES

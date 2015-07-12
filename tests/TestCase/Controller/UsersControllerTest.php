@@ -134,4 +134,14 @@ class UsersControllerTest extends IntegrationTestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
+
+    /**
+     * Test getModeuses method
+     *
+     * @return void
+     */
+    public function testGetModeuses()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
 }

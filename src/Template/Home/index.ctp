@@ -8,9 +8,9 @@
 		
 		<?php if($can_make_offer) { ?>
 			<p>
-				Vite, vite, vive ! Votre notoriété n'attend que vous !
+				Vite, vite, votre notoriété n'attend que vous !
 			</p>
-			<?= $this->Html->link(__('Créer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button']) ?>
+			<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button']) ?>
 		<?php } else { ?>
 
 			<h2 class="h2_home">Les Noddiz</h2>
@@ -122,44 +122,42 @@
 	</div>
 
 	
-
-	<!-- 
-	<h1>Bienvenue sur la plateforme Noddi !</h1>
-	<h2>Bienvenue sur la plateforme Noddi !</h2>
-	<h3>Bienvenue sur la plateforme Noddi !</h3>
-	<h4>Bienvenue sur la plateforme Noddi !</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, mollitia porro deleniti unde deserunt illum temporibus, vitae voluptatibus dolorem ipsam est. Accusamus, alias, neque?</p>
-
-<form action="#">
-	<input type="text" placeholder="lol">
-	<input type="password" placeholder="super">
-	<div class="button regular">Valider</div>
-	<div class="button reversed">Connexion</div>
-	<div class="button regular small">Valider</div>
-</form>
-
-
-<?= $this->Html->link(__('Inscription Marque'), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button']) ?>
-
-<button>Inscription modeuse</button>
-
-<div>
-	<button>Se connecter</button>
-</div>
-
-
-<ul>
-	<li>Explication</li>
-	<li>Explication</li>
-	<li>Explication</li>
-</ul>
-
-<section>
-	Explication
-</section>
-
-<section>
-	Explication
-</section> -->
-
 <?php } ?>
+
+<footer>
+
+    <div>
+        <a href="">Nous contacter</a>
+        <a href="">Plan du site</a>
+        <a href="">Conditions Générales d'utilisation</a>
+        <a href="">Mentions légales</a>
+    </div>
+
+    <div>
+        <h3>Rejoignez notre réseau de Noddiz !</h3>
+
+        <ul id="sectionSocial">
+            <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+            <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+            <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+            <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+            <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+        </ul>
+    </div>
+
+    <!-- <div class="field">
+
+        <div>
+            <div class="follow_us">Suivez-nous sur</div>
+
+            <ul class="socials">
+                <li><a target="_blank" title="Page Facebook" class="facebook" href="https://www.facebook.com/noddi.eu"></a></li>
+                <li><a target="_blank" title="Page Twitter" class="twitter" href="https://twitter.com/theNoddi"></a></li>
+                <li><a target="_blank" title="Page Instagram" class="instagram" href="https://instagram.com/thenoddi"></a></li>
+                <li><a title="Page Snapchat" class="snapchat" href="#"></a></li>
+                <li><a target="_blank" title="Page Pinterest" class="pinterest" href="https://fr.pinterest.com/noddi0434/"></a></li>
+            </ul>
+        </div>
+    </div>
+-->                
+</footer>

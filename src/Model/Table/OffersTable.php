@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  * Offers Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Brands
- * @property \Cake\ORM\Association\BelongsTo $Activities
+ * @property \Cake\ORM\Association\BelongsTo $Types
  */
 class OffersTable extends Table
 {
@@ -32,8 +32,8 @@ class OffersTable extends Table
             'foreignKey' => 'brand_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Activities', [
-            'foreignKey' => 'activity_id',
+        $this->belongsTo('Types', [
+            'foreignKey' => 'type_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -60,21 +60,29 @@ class OffersTable extends Table
             
         $validator
             ->add('multiple_targets', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('multiple_targets', 'create')
-            ->notEmpty('multiple_targets');
+            ->allowEmpty('multiple_targets');
             
         $validator
             ->add('expected_targets', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('expected_targets', 'create')
-            ->notEmpty('expected_targets');
+            ->allowEmpty('expected_targets');
             
         $validator
-            ->requirePresence('title', 'create')
-            ->notEmpty('title');
+            ->allowEmpty('title');
             
         $validator
-            ->requirePresence('description', 'create')
-            ->notEmpty('description');
+            ->allowEmpty('description');
+            
+        $validator
+            ->requirePresence('lifestyle', 'create')
+            ->notEmpty('lifestyle');
+            
+        $validator
+            ->requirePresence('personnality', 'create')
+            ->notEmpty('personnality');
+            
+        $validator
+            ->requirePresence('exchange', 'create')
+            ->notEmpty('exchange');
 
         return $validator;
     }
@@ -89,7 +97,7 @@ class OffersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['brand_id'], 'Brands'));
-        $rules->add($rules->existsIn(['activity_id'], 'Activities'));
+        $rules->add($rules->existsIn(['type_id'], 'Types'));
         return $rules;
     }
 }

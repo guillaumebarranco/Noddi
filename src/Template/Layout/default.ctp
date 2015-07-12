@@ -49,6 +49,9 @@
             .menu li {
                 display: inline-block;
             }
+            .button.button_selected {
+                background-color: blue;
+            }
         </style>
         
         <? //bootstrap.css ?>
@@ -92,43 +95,6 @@
                     
             </div>
 
-            <footer>
-
-                <div>
-                    <a href="">Nous contacter</a>
-                    <a href="">Plan du site</a>
-                    <a href="">Conditions Générales d'utilisation</a>
-                    <a href="">Mentions légales</a>
-                </div>
-
-                <div>
-                    <h3>Rejoignez notre réseau de Noddiz !</h3>
-
-                    <ul id="sectionSocial">
-                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
-                        <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
-                        <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
-                        <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
-                        <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
-                    </ul>
-                </div>
-
-                <!-- <div class="field">
-
-                    <div>
-                        <div class="follow_us">Suivez-nous sur</div>
-
-                        <ul class="socials">
-                            <li><a target="_blank" title="Page Facebook" class="facebook" href="https://www.facebook.com/noddi.eu"></a></li>
-                            <li><a target="_blank" title="Page Twitter" class="twitter" href="https://twitter.com/theNoddi"></a></li>
-                            <li><a target="_blank" title="Page Instagram" class="instagram" href="https://instagram.com/thenoddi"></a></li>
-                            <li><a title="Page Snapchat" class="snapchat" href="#"></a></li>
-                            <li><a target="_blank" title="Page Pinterest" class="pinterest" href="https://fr.pinterest.com/noddi0434/"></a></li>
-                        </ul>
-                    </div>
-                </div>
- -->                
-            </footer>
         </div>
 
         <script>

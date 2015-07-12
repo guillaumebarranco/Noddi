@@ -20,8 +20,41 @@ class OffersControllerTest extends IntegrationTestCase
         'app.brands',
         'app.users',
         'app.modeuses',
-        'app.activities'
+        'app.activities',
+        'app.favoris',
+        'app.messages',
+        'app.types'
     ];
+
+    /**
+     * Test initialize method
+     *
+     * @return void
+     */
+    public function testInitialize()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test Jsonification method
+     *
+     * @return void
+     */
+    public function testJsonification()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test getResponse method
+     *
+     * @return void
+     */
+    public function testGetResponse()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
 
     /**
      * Test index method
@@ -29,16 +62,6 @@ class OffersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testIndex()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test view method
-     *
-     * @return void
-     */
-    public function testView()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
@@ -54,11 +77,21 @@ class OffersControllerTest extends IntegrationTestCase
     }
 
     /**
-     * Test edit method
+     * Test create method
      *
      * @return void
      */
-    public function testEdit()
+    public function testCreate()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test update method
+     *
+     * @return void
+     */
+    public function testUpdate()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
@@ -69,6 +102,16 @@ class OffersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testDelete()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test view method
+     *
+     * @return void
+     */
+    public function testView()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

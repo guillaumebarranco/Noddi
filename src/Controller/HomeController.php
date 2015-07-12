@@ -50,9 +50,8 @@ class HomeController extends AppController
             $this->set(array(
                 'can_make_offer' => $can_make_offer
             ));
+            
             $this->set('_serialize', ['can_make_offer']);
-
-           // $this->Offers->find('all')->where(['brand_id'] => $this->session->read('brand_id'))
         }
     }
 

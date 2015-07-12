@@ -16,14 +16,17 @@ class Offer extends Entity
      */
     protected $_accessible = [
         'brand_id' => true,
-        'activity_id' => true,
+        'type_id' => true,
         'date_begin' => true,
         'date_end' => true,
         'multiple_targets' => true,
         'expected_targets' => true,
         'title' => true,
         'description' => true,
+        'lifestyle' => true,
+        'personnality' => true,
+        'exchange' => true,
         'brand' => true,
-        'activity' => true,
+        'type' => true,
     ];
 }

@@ -12,6 +12,8 @@ class OffersController extends AppController
 
         // On récupère les composants pour la Pagination, le renvoi de JSON....
         $this->loadComponent('RequestHandler');
+        $this->loadModel('Types');
+        $this->loadModel('Brands');
 
         $session = $this->request->session();
     }
@@ -41,19 +43,26 @@ class OffersController extends AppController
 
     public function add()
     {
+        $session = $this->request->session();
         $offer = $this->Offers->newEntity();
         if ($this->request->is('post')) {
+
+            $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0];
+
+            $this->request->data['brand_id'] = $brand['id'];
+
             $offer = $this->Offers->patchEntity($offer, $this->request->data);
+
             if ($this->Offers->save($offer)) {
-                $this->Flash->success(__('The offer has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Home', 'action' => 'index']);
             } else {
                 $this->Flash->error(__('The offer could not be saved. Please, try again.'));
             }
         }
+
         $brands = $this->Offers->Brands->find('list', ['limit' => 200]);
-        $activities = $this->Offers->Activities->find('list', ['limit' => 200]);
-        $this->set(compact('offer', 'brands', 'activities'));
+        $types = $this->Offers->Types->find('list', ['limit' => 200]);
+        $this->set(compact('offer', 'brands', 'types'));
         $this->set('_serialize', ['offer']);
     }
 
