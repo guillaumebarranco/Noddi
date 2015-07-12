@@ -1,23 +1,87 @@
 <?php if($this->request->session()->read('user')) { ?>
-	
+	<style>
+		.blog_selected, .network_selected, .section_selected, .audience_selected {
+			background-color: blue;
+		}
+	</style>
 	<?php if($this->request->session()->read('type') == 'brand') { ?>
-		<p>
-			Vite, vite, vive ! Votre notoriété n'attend que vous !
-		</p>
-		<?= $this->Html->link(__('Créer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button']) ?>
+		
+		<?php if($can_make_offer) { ?>
+			<p>
+				Vite, vite, vive ! Votre notoriété n'attend que vous !
+			</p>
+			<?= $this->Html->link(__('Créer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button']) ?>
+		<?php } else { ?>
+
+			<h2 class="h2_home">Les Noddiz</h2>
+
+			<div class="section_home section_les_noddiz">
+				<button class="button show_socials" >Réseaux sociaux</button>
+				<button class="button show_audience">Audience</button>
+
+				<ul class="list_modeuses">				
+				</ul>
+			</div>
+
+			<div class="section_home section_socials">
+
+				<button class="button show_socials" >Réseaux sociaux</button>
+				<button class="button show_audience">Audience</button>
+
+				<h3>Blog</h3>
+
+				<div class="socials_blog">
+					<button class="button" data-blog="yes">Oui</button>
+					<button class="button" data-blog="no">Non</button>
+					<button class="button blog_selected" data-blog="whatever">Peu importe</button>
+				</div>
+				
+
+				<h3>Réseaux sociaux</h3>
+				<p>
+					Sélectionnez les réseaux sociaux sur lesquels vous souhaitez que la Noddiz soit présente
+				</p>
+
+				<ul class="socials_network">
+					<li class="button" data-network="facebook">Facebook</li>
+					<li class="button" data-network="twitter">Twitter</li>
+					<li class="button" data-network="instagram">Instagram</li>
+					<li class="button network_selected" data-network="all">TOUS</li>
+				</ul>
+
+				<button class="button filter_home">Filtrer</button>
+
+			</div>
+
+			<div class="section_home section_audience">
+
+				<button class="button show_socials" >Réseaux sociaux</button>
+				<button class="button show_audience">Audience</button>
+
+				<p>
+					Les totems représentant l'influence d'une modeuse sont calculés grâce à son nombre de followers global, le fait qu'elle ait ou non un blog et le nombre de réseaux sociaux sur lesquels elle est présente.
+				</p>
+
+				<ul class="socials_audience">
+					<li class="button" data-audience="beginner">Influençeuse débutante</li>
+					<li class="button" data-audience="medium">Influençeuse intermédiaire</li>
+					<li class="button" data-audience="expert">Influençeuse experte</li>
+					<li class="button audience_selected" data-audience="all">TOUS</li>
+				</ul>
+
+				<button class="button filter_home">Filtrer</button>
+
+			</div>
+
+		<?php } ?>
+		
 	<?php } else { ?>
 
 	<?php } ?>
 
 <?php } else { ?>
 
-<style>
-.button {
-	display: inline-block;
-	}
-	</style>
-
-	<div style="width:320px;margin: 0 auto;">
+	<div>
 
 		<div class="buttons">
 			<?= $this->Html->link(__('Inscription Marque'), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button']) ?>

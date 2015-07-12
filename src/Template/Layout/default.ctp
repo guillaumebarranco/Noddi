@@ -71,24 +71,6 @@
 
                     <?php if($this->request->session()->read('user')) { ?>
                         
-                        <li>
-                            <?= $this->Html->link('Home', ['controller' => 'Home', 'action' => 'index'], ['class' => 'button']); ?>
-                        </li>
-
-                        <li>
-                            <?= $this->Html->link('Votre profil', ['controller' => 'Profil', 'action' => 'index'], ['class' => 'button']); ?>
-                        </li>
-                        <li>
-                            <?php
-                                echo $this->Form->create(null, [
-                                    'url' => ['controller' => 'Users', 'action' => 'disconnect']
-                                ]);
-
-                                echo $this->Form->input('username', ["type" => "hidden"]);
-                                echo $this->Form->button('Disconnect', ["class"=> "button"]);
-                                echo $this->Form->end(); 
-                            ?>
-                        </li>
 
                     <?php } else { ?>
 
@@ -104,8 +86,10 @@
 
             <div id="content">
                 <?= $this->Flash->render() ?>
-
+                <div style="width:320px;margin: 0 auto;">
                     <?= $this->fetch('content') ?>
+                </div>
+                    
             </div>
 
             <footer>
