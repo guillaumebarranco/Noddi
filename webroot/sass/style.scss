@@ -68,6 +68,7 @@ form {
 	color: $primary;
 	border: solid 2px $primary;
 	background: none;
+	display: block;
 	&:hover{
 		color: $white;
 		background: $primary;
@@ -94,16 +95,26 @@ form {
 	background: $lightGrey;
 	margin: 0;
 	padding: 15px;
+	nav ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+	}
 }
 
+.page{
+	// display: flex;
+	// flex-direction: column;
+	// height: 100%;
+}
 
 
 
 
 // PAGE LOGIN
 .page_login{
-	display: flex;
-	flex-direction: column;
+	
 	max-width: 500px;
 	margin: auto;
 	.logo{
@@ -129,5 +140,15 @@ form {
 			}
 		}
 	}
-	
+}
+
+//PAGE SIGNIN
+.page_signin{
+	.inscriptionType{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		margin-top: 30px;
+	}
 }

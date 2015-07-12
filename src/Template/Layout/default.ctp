@@ -108,11 +108,9 @@
 
         <div id="container">
 
-            <div id="content">
                 <?= $this->Flash->render() ?>
 
                     <?= $this->fetch('content') ?>
-            </div>
 
             <footer>
 
