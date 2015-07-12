@@ -9,17 +9,17 @@
 html {
     font-size:62.5%; /* Sets up the Base 10 stuff */
     margin:0;
-	padding: 0;
+    padding:0;
 }
-body{
-	@extend .regularText;
-    box-sizing: border-box;
-	margin:0;
-	padding: 0;
+body {
+    @extend .regularText;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
-a{
-	color: inherit;
-	text-decoration: none;
+a {
+    color:inherit;
+    text-decoration:none;
 }
 
 h1 {
@@ -34,100 +34,93 @@ h3 {
 h4 {
     @extend .subtitleMini;
 }
-p {
-    
-}
+
 
 form {
-	display: flex; 
-	flex-direction: column; 
-    label{
-    	@include hide-text();
+    display:flex;
+    flex-direction:column;
+    label {
+        @include hide-text();
     }
     input {
         border:solid 1px $lightGrey ;
-        border-radius: $radiusDefault;
-        padding: 15px 20px;
-        margin: 0 15px;
-        margin-bottom: 15px;
+        border-radius:$radiusDefault;
+        padding:15px 20px;
+        margin:0 15px;
+        margin-bottom:15px;
     }
 }
 
 .button {
-	border-radius: $radiusDefault;
-	padding: 15px 20px;
-	margin: 0 15px;
-    margin-bottom: 15px;
-	text-align: center;
-  	font-weight: bold;
-  	cursor: pointer;
-	transition: background-color 0.3s ease-in-out, 
-				color 0.3s ease-in-out,
-				border 0.3s ease-in-out;
-	
-	color: $primary;
-	border: solid 2px $primary;
-	background: none;
-	&:hover{
-		color: $white;
-		background: $primary;
-	}
-	
-	&.reversed{ //
-		border: solid $primary 2px;
-		background: $primary;
-		color: $white;
-		&:hover{
-			background: $tertiary;
-			border: solid 2px $tertiary;
-		}
-	}
-	&.small{
-		padding: 5px 10px;
-	}
+    border-radius:$radiusDefault;
+    padding:10px 20px;
+    margin:5px 15px;
+    // margin-bottom: 15px;
+    text-align:center;
+    font-weight:bold;
+    cursor:pointer;
+    transition:background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out,
+    border 0.3s ease-in-out;
+    color:$primary;
+    border:solid $primary $borderDefault;
+    background:none;
+    display:block;
+    &:hover {
+        color:$white;
+        background:$primary;
+    }
+
+    &.reversed {
+        border:solid $primary $borderDefault;
+        background:$primary;
+        color:$white;
+        &:hover {
+        	border:solid $tertiary $borderDefault;
+            background:$tertiary;
+        }
+    }
+    &.small {
+        padding:5px 10px;
+    }
+    &.dark {
+        border-color:$tertiary;
+        background:$tertiary;
+        color:$white;
+        &:hover {
+            border-color:$primary;
+            background:none;
+            color:$white;
+        }
+    }
 }
 
 
-.headerApp{
-	display: flex;
-	min-height: 40px;
-	background: $lightGrey;
-	margin: 0;
-	padding: 15px;
+.headerApp {
+    display:flex;
+    min-height:40px;
+    background:$lightGrey;
+    margin:0;
+    padding:15px;
+    nav ul {
+        margin:0;
+        padding:0;
+        display:flex;
+        flex-direction:row;
+    }
+}
+
+.page {
+    // display: flex;
+    // flex-direction: column;
+    // height: 100%;
 }
 
 
 
+@import '_home';
+@import '_login';
+@import '_footer';
 
 
-// PAGE LOGIN
-.page_login{
-	display: flex;
-	flex-direction: column;
-	max-width: 500px;
-	margin: auto;
-	.logo{
-		margin: 10px auto;
-		max-width: 200px;
-		img{
-		max-width: 100%;
-		height: auto;
-		}
-	}
-	.connectSections{
-		max-width: 500px;
-		margin: 10px;
-		padding: 20px;
-		border: solid 1px $primary;
-		form{
-			display: flex;
-			div{
-				display: flex;
-				input{
-					flex: 1;
-				}
-			}
-		}
-	}
-	
-}
+

@@ -1,4 +1,4 @@
-<section class="page_login">
+<section class="page page_login">
 	<div class="logo">
 		<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
 	</div>

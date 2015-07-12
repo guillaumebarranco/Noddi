@@ -1,3 +1,4 @@
+<div class="page page_index">
 <?php if($this->request->session()->read('user')) { ?>
 	<style>
 		.blog_selected, .network_selected, .section_selected, .audience_selected {
@@ -79,85 +80,81 @@
 
 	<?php } ?>
 
-<?php } else { ?>
+	<?php } else { ?>
 
-	<div>
-
-		<div class="buttons">
-			<?= $this->Html->link(__('Inscription Marque'), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button']) ?>
-			<button class="button">Inscription modeuse</button>
-		</div>
-		
-		<div class="background-picture">
-			<h1>Noddi</h1>
-			<p>Mettre sa notoriété à profit n'a jamais été aussi simple</p>
-			<?= $this->Html->link(__("Se connecter"), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button']) ?>
-		</div>
-
-		<ul class="home_list">
-			<li>Une plateforme 100% gratuite pour partager des expériences inédites et exclusives</li>
-			<li>De nombreuses marques et modeuses réunies sur une seule et même plateforme</li>
-			<li>Des modeuses influentes et des marques sérieuses pour des rencontres fiables</li>
-		</ul>
-
-		<div class="background-picture background-modeuse">
-			<div>
-				<h2>Modeuse</h2>
-				<p>
-					Toi, modeuse en quête de bons plans. tu souhaites collaborer avec de jeunes créateurs et des boutiques trendy ? Ne cherche plus, Noddi est fait pour toi !
-				</p>
-				<button class="button">S'inscrire</button>
+		<header>
+			<div class="topMenu">
+				<div class="logo">
+					<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
+				</div>
+				<?= $this->Html->link(__("Se connecter"), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button']) ?>
 			</div>
-		</div>
-
-		<div class="background-picture background-brand">
-			<div>
-				<h2>Marque</h2>
-				<p>
-					Vous êtes à la recherche de visiblité ? Trouvez la modeuse qui parlera de vous auprès de sa communauté et vous fera gagner en notoriété.
-				</p>
-				<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button']) ?>
+			<div class="content">
+				<h2>mettre sa notoriété à profit n’a jamais été aussi simple.</h2>
+				<?= $this->Html->link(__("Inscription Marque"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
+				<?= $this->Html->link(__("Inscription Modeuse"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed']) ?>
 			</div>
-		</div>
-	</div>
+		</header>
 
+		<section class="servicePresentation">
+			<div class="presentation free">
+				<h3>Gratuit</h3>
+				<p>Une plateforme 100% gratuite pour partager des expériences inédites et exclusives</p>
+			</div>
+			<div class="presentation simple">
+				<h3>Simple & Rapide</h3>
+				<p>De nombreuses marques et modeuses réunies sur une seule et même plateforme</p>
+			</div>
+			<div class="presentation reliable">
+				<h3>Fiable</h3>
+				<p>Des modeuses influentes et des marques sérieuses pour des rencontres fiables</p>
+			</div>
+		</section>
+
+		<section class="memberType modeuse">
+			<div class="typeDescription">
+				<div class="illustration illu1 showLarge"></div>
+				<div class="description">
+					<h2>Modeuse</h2>
+					<p>Toi, la modeuse en quête de bons plans, tu souhaites collaborer avec de jeunes créateurs et des boutiques trendy ? Ne cherche plus, Noddi est fait pour toi !</p>
+				</div>
+			</div>
+			<div class="typeDescription details">
+				<div class="illustration illu2 showLarge"></div>
+				<div class="description">
+					<ul>
+						<li><span>1</span>Reçois des offres personnalisées</li>
+						<li><span>2</span>Choisis tes créateurs et boutiques</li>
+						<li><span>3</span>Partage ton expérience</li>
+					</ul>
+					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed']) ?>
+				</div>
+			</div>
+		</section>
+
+		<section class="memberType marque">
+			<div class="typeDescription">
+				<div class="illustration illu3 showLarge"></div>
+				<div class="description">
+					<h2>Marque</h2>
+					<p>Jeunes créateurs et boutiques trendy, vous êtes à la recherche de visibilité ? Sur Noddi, trouvez la modeuse qui parlera de vous auprès de sa communauté.</p>
+				</div>
+			</div>
+			<div class="typeDescription details">
+				<div class="illustration illu4 showLarge"></div>
+				<div class="description">
+					<ul>
+						<li><span>1</span>Choisissez votre modeuse</li>
+						<li><span>2</span>Collaborez avec elle</li>
+						<li><span>3</span>Gagnez en notoriété</li>
+					</ul>
+					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
+				</div>
+			</div>
+		</section>
 	
-<?php } ?>
 
-<footer>
+=======
 
-    <div>
-        <a href="">Nous contacter</a>
-        <a href="">Plan du site</a>
-        <a href="">Conditions Générales d'utilisation</a>
-        <a href="">Mentions légales</a>
-    </div>
-
-    <div>
-        <h3>Rejoignez notre réseau de Noddiz !</h3>
-
-        <ul id="sectionSocial">
-            <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
-            <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
-            <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
-            <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
-            <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
-        </ul>
-    </div>
-
-    <!-- <div class="field">
-
-        <div>
-            <div class="follow_us">Suivez-nous sur</div>
-
-            <ul class="socials">
-                <li><a target="_blank" title="Page Facebook" class="facebook" href="https://www.facebook.com/noddi.eu"></a></li>
-                <li><a target="_blank" title="Page Twitter" class="twitter" href="https://twitter.com/theNoddi"></a></li>
-                <li><a target="_blank" title="Page Instagram" class="instagram" href="https://instagram.com/thenoddi"></a></li>
-                <li><a title="Page Snapchat" class="snapchat" href="#"></a></li>
-                <li><a target="_blank" title="Page Pinterest" class="pinterest" href="https://fr.pinterest.com/noddi0434/"></a></li>
-            </ul>
-        </div>
-    </div>
--->                
-</footer>
+	<?php } ?>
+</div>

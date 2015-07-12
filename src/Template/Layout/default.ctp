@@ -87,13 +87,29 @@
 
         <div id="container">
 
-            <div id="content">
-                <?= $this->Flash->render() ?>
-                <div style="width:320px;margin: 0 auto;">
-                    <?= $this->fetch('content') ?>
-                </div>
-                    
-            </div>
+            <?= $this->Flash->render() ?>
+            <?= $this->fetch('content') ?>
+
+            <section class="socials">
+                <h3>rejoins vite notre réseau de noddiz :</h3>
+                <ul id="sectionSocial">
+                    <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+                    <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+                    <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+                    <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+                    <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+                </ul>
+            </section>
+
+            <footer>
+                <ul>
+                    <li><a href="#">Nous contacter</a></li>
+                    <li><a href="#">Plan du site</a></li>
+                    <li><a href="#">Conditions générales d'utilisation</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+                <small>© 2015 Noddi  - Tous droits réservés</small>
+            </footer>
 
         </div>
 

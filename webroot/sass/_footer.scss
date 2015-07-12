@@ -1,0 +1,112 @@
+
+//FOOTER
+.socials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 0 10px;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    @media (min-width: $tablet) {
+        flex-direction: row;
+        max-width: 800px;
+    }
+    h3{
+        @extend .subtitle;
+        @include font-size(4);
+    }
+    ul{ 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+        width: 320px;
+        margin: auto;
+        li{
+            @include hide-text();
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            width: 40px;
+            height: 40px;
+            background: $primary;
+            border-radius: 20px;
+            transition: background-color $transitionLengthDefault $transitionTimingDefault,
+                        font-size $transitionLengthDefault $transitionTimingDefault;
+
+            & a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin: auto;
+            }
+                
+
+            
+
+            &.facebook {
+                &:hover{
+                    background: #3b5998;
+                }
+                a:before{
+                    @include noddifont($facebook, white, 2);
+                }
+            }
+            &.twitter {
+                &:hover{
+                    background: #55acee;
+                }
+                a:before{
+                    @include noddifont($twitter, white, 2);
+                }
+            }
+            &.instagram {
+                &:hover{
+                    background: #3f729b;
+                }
+                a:before{
+                    @include noddifont($instagram, white, 2);
+                }
+            }
+            &.snapchat {
+                &:hover{
+                    background: #fffc00;
+                }
+                a:before{
+                    @include noddifont($snapchat, white, 2);
+                }
+            }
+            &.pinterest {
+                &:hover{
+                    background: #cc2127;
+                }
+                a:before{
+                    @include noddifont($pinterest, white, 2);
+                }
+            }
+        }
+        
+    }
+}
+
+footer{
+    text-align: center;
+    ul>li{
+        display: inline-block;
+        &:nth-child(n+2){
+            &:before{
+                content:" | ";
+            }
+        }
+        a{
+            color: $primary;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
