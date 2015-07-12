@@ -188,62 +188,6 @@ form input {
 	flex-direction: row;
 }
 
-.page_login {
-	max-width: 500px;
-	margin: auto;
-}
-
-.page_login .logo {
-	margin: 10px auto;
-	max-width: 200px;
-}
-
-.page_login .logo img {
-	max-width: 100%;
-	height: auto;
-}
-
-.page_login .connectSections {
-	max-width: 500px;
-	margin: 10px;
-	padding: 20px;
-	border: solid 1px #ef8f7a;
-}
-
-.page_login .connectSections form {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-}
-
-.page_login .connectSections form div {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-}
-
-.page_login .connectSections form div input {
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-}
-
-.page_signin .inscriptionType {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	margin-top: 30px;
-}
-
 .page_index header {
 	background: url("../img/pictures/cible.jpg") center center;
 	background-size: cover;
@@ -489,6 +433,62 @@ form input {
 
 .page_index section.memberType.marque ul > li > span {
 	color: #585858 !important;
+}
+
+.page_login {
+	max-width: 500px;
+	margin: auto;
+}
+
+.page_login .logo {
+	margin: 10px auto;
+	max-width: 200px;
+}
+
+.page_login .logo img {
+	max-width: 100%;
+	height: auto;
+}
+
+.page_login .connectSections {
+	max-width: 500px;
+	margin: 10px;
+	padding: 20px;
+	border: solid 1px #ef8f7a;
+}
+
+.page_login .connectSections form {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_login .connectSections form div {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_login .connectSections form div input {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.page_signin .inscriptionType {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	margin-top: 30px;
 }
 
 .socials {
