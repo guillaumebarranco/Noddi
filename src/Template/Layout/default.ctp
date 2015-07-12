@@ -93,10 +93,10 @@
                     <?php } else { ?>
 
                         <li>
-                            <?= $this->Html->link(__('Connexion'), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button regular']) ?>
+                            <?= $this->Html->link(__('Connexion'), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button reversed']) ?>
                         </li>
                         <li>
-                            <?= $this->Html->link(__('Inscription'), ['controller' => 'Users', 'action' => 'sign_in'], ['class' => 'button regular']) ?>
+                            <?= $this->Html->link(__('Inscription'), ['controller' => 'Users', 'action' => 'sign_in'], ['class' => 'button reversed']) ?>
                         </li>
 
                     <?php } ?>
@@ -111,9 +111,7 @@
             <div id="content">
                 <?= $this->Flash->render() ?>
 
-                <div class="row">
                     <?= $this->fetch('content') ?>
-                </div>
             </div>
 
             <footer>

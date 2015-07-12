@@ -100,6 +100,12 @@ form {
 	flex-direction: column;
 }
 
+form label {
+	font: 0/0 serif;
+	color: transparent;
+	text-shadow: none;
+}
+
 form input {
 	border: solid 1px #c1c1c1;
 	border-radius: 12px;
@@ -117,20 +123,18 @@ form input {
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out,  color 0.3s ease-in-out, border 0.3s ease-in-out;
-}
-
-.button.regular {
 	color: #ef8f7a;
 	border: solid 2px #ef8f7a;
+	background: none;
 }
 
-.button.regular:hover {
+.button:hover {
 	color: #ffffff;
 	background: #ef8f7a;
 }
 
 .button.reversed {
-	border: solid 2px;
+	border: solid #ef8f7a 2px;
 	background: #ef8f7a;
 	color: #ffffff;
 }
@@ -152,5 +156,51 @@ form input {
 	background: #c1c1c1;
 	margin: 0;
 	padding: 15px;
+}
+
+.page_login {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	max-width: 500px;
+	margin: auto;
+}
+
+.page_login .logo {
+	margin: 10px auto;
+	max-width: 200px;
+}
+
+.page_login .logo img {
+	max-width: 100%;
+	height: auto;
+}
+
+.page_login .connectSections {
+	max-width: 500px;
+	margin: 10px;
+	padding: 20px;
+	border: solid 1px #ef8f7a;
+}
+
+.page_login .connectSections form {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_login .connectSections form div {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_login .connectSections form div input {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 }
 

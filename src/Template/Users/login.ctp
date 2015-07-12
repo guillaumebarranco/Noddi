@@ -1,15 +1,15 @@
-<section class="page_login" style="width: 500px; margin: 0 auto;">
-
-	<div style="border:solid 1px black; padding: 10px;">
+<section class="page_login">
+	<div class="logo">
+		<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
+	</div>
+	<div class="connectSections">
 		<h2>Modeuses</h2>
-
 		<button class="button fb_button">Se connecter via Facebook</button>
 	</div>
 
-	<br>
 
-	<div style="border:solid 1px black; padding: 10px;">
-		<h2>Marques</h2>
+	<div class="connectSections">
+		<h2>Professionnel</h2>
 
 		<?php
 		    echo $this->Form->create(null, [
@@ -19,7 +19,7 @@
 		    echo $this->Form->input('username');
 		    echo $this->Form->input('password');
 
-		    echo $this->Form->button('Se connecter', ["class"=> "button small"]);
+		    echo $this->Form->button('Se connecter', ["class"=> "button small reversed"]);
 
 		    echo $this->Form->end(); 
 		?>

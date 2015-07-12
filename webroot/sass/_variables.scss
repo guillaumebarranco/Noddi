@@ -9,8 +9,9 @@
 		$lightGrey: 	#c1c1c1;
 
 		//SIZES
-		$tablet:	500px;
-		$desktop:	1000px;
+		$tablet:			500px;
+		$desktop:			1000px;
+		$radiusDefault : 	12px;
 
 		// ICOFONT
 		$facebook: 	'\E001';
@@ -19,6 +20,8 @@
 		$snapchat:	'\E004';
 		$twitter:	'\E005';
 
-
+		
+		
+		//TRANSITIONS
 		$transitionLengthDefault: 0.2s;
 		$transitionTimingDefault: ease-in-out;

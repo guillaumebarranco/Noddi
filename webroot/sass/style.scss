@@ -41,10 +41,12 @@ p {
 form {
 	display: flex; 
 	flex-direction: column; 
-    
+    label{
+    	@include hide-text();
+    }
     input {
         border:solid 1px $lightGrey ;
-        border-radius: 12px;
+        border-radius: $radiusDefault;
         padding: 15px 20px;
         margin: 0 15px;
         margin-bottom: 15px;
@@ -52,7 +54,7 @@ form {
 }
 
 .button {
-	border-radius: 12px;
+	border-radius: $radiusDefault;
 	padding: 15px 20px;
 	margin: 0 15px;
     margin-bottom: 15px;
@@ -62,16 +64,17 @@ form {
 	transition: background-color 0.3s ease-in-out, 
 				color 0.3s ease-in-out,
 				border 0.3s ease-in-out;
-	&.regular{
-		color: $primary;
-		border: solid 2px $primary;
-		&:hover{
-			color: $white;
-			background: $primary;
-		}
+	
+	color: $primary;
+	border: solid 2px $primary;
+	background: none;
+	&:hover{
+		color: $white;
+		background: $primary;
 	}
-	&.reversed{
-		border: solid 2px;
+	
+	&.reversed{ //
+		border: solid $primary 2px;
 		background: $primary;
 		color: $white;
 		&:hover{
@@ -91,4 +94,40 @@ form {
 	background: $lightGrey;
 	margin: 0;
 	padding: 15px;
+}
+
+
+
+
+
+// PAGE LOGIN
+.page_login{
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
+	margin: auto;
+	.logo{
+		margin: 10px auto;
+		max-width: 200px;
+		img{
+		max-width: 100%;
+		height: auto;
+		}
+	}
+	.connectSections{
+		max-width: 500px;
+		margin: 10px;
+		padding: 20px;
+		border: solid 1px $primary;
+		form{
+			display: flex;
+			div{
+				display: flex;
+				input{
+					flex: 1;
+				}
+			}
+		}
+	}
+	
 }
