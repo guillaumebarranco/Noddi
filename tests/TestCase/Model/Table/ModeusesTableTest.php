@@ -19,7 +19,11 @@ class ModeusesTableTest extends TestCase
     public $fixtures = [
         'app.modeuses',
         'app.users',
-        'app.brands'
+        'app.brands',
+        'app.activities',
+        'app.offers',
+        'app.favoris',
+        'app.messages'
     ];
 
     /**

@@ -11,15 +11,22 @@ $(document).ready(function() {
 		makeAjax('POST', "users/getModeuses", data_search, function() {
 			console.log('get_modeuses', _this.response.modeuses);
 
+			$('.list_modeuses').empty();
+
 			for(modeuse in _this.response.modeuses) {
 
 				var new_li = 
 					'<li>'+
-						'<img src="'+_this.response.modeuses[modeuse].user.picture+'" width="150"/>'+
+						'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
+							'<img src="'+_this.response.modeuses[modeuse].user.picture+'" width="150"/>'+
+						'</a>' +
 					'</li>'
 				;
 
 				$('.list_modeuses').append(new_li);
+
+				$('.section_home').hide();
+				$('.section_les_noddiz').show();
 			}
 		});
 	}
@@ -107,7 +114,31 @@ $(document).ready(function() {
 
 		console.log(data_search);
 
-		//getModeuses(data_search);
+		getModeuses(data_search);
+	});
+
+	/*
+	*	PAGE MODEUSE
+	*/
+
+	$('.page_modeuse').hide();
+	$('.modeuse_infos').show();
+
+	$('.show_modeuse_infos').on('click', function() {
+		$('.page_modeuse').hide();
+		$('.modeuse_infos').show();
+	});
+
+	$('.show_modeuse_socials').on('click', function() {
+		$('.page_modeuse').hide();
+		$('.modeuse_socials').show();
+	});
+
+	$('.send_offer').on('click', function() {
+		swal({
+			title: "Confirmation",
+			text: "Votre demande a bien été envoyée."
+		});
 	});
 
 	$('.add_brand').on('submit', function(e) {

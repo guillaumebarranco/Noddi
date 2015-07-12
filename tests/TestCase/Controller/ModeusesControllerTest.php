@@ -18,7 +18,11 @@ class ModeusesControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.modeuses',
         'app.users',
-        'app.brands'
+        'app.brands',
+        'app.activities',
+        'app.offers',
+        'app.favoris',
+        'app.messages'
     ];
 
     /**
