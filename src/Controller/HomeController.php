@@ -9,11 +9,7 @@ class HomeController extends AppController
     public function initialize() {
         parent::initialize();
 
-        // On récupère les composants pour la Pagination, le renvoi de JSON....
-        $this->loadComponent('RequestHandler');
-        $this->loadModel('Brands');
         $this->loadModel('Offers');
-        $this->loadModel('Users');
 
         $session = $this->request->session();
 
@@ -24,12 +20,6 @@ class HomeController extends AppController
         //         ['controller' => 'Users', 'action' => 'login']
         //     );
         // }
-    }
-
-    function Jsonification() {
-        $this->autoRender = false;
-        $this->layout = null;
-        $this->RequestHandler->renderAs($this, 'json');
     }
 
     public function index() {
@@ -50,7 +40,7 @@ class HomeController extends AppController
             $this->set(array(
                 'can_make_offer' => $can_make_offer
             ));
-            
+
             $this->set('_serialize', ['can_make_offer']);
         }
     }
