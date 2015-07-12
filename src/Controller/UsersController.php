@@ -334,4 +334,19 @@ class UsersController extends AppController
 
     }
 
+    public function getModeuses() {
+
+        $this->Jsonification();
+
+        if(isset($this->request->data)) {
+            $data = $this->request->data;
+
+            $modeuses = $this->Modeuses->find('all')->contain(['Users'])->toArray();
+        }
+
+        $response = array();
+        $response['modeuses'] = $modeuses;
+        echo json_encode($response);
+    }
+
 }

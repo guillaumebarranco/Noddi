@@ -45,42 +45,37 @@ class ModeusesTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->requirePresence('firstname', 'create')
-            ->notEmpty('firstname');
+            ->allowEmpty('firstname');
             
         $validator
-            ->requirePresence('lastname', 'create')
-            ->notEmpty('lastname');
+            ->allowEmpty('lastname');
             
         $validator
-            ->requirePresence('instagram', 'create')
-            ->notEmpty('instagram');
+            ->allowEmpty('instagram');
             
         $validator
-            ->requirePresence('twitter', 'create')
-            ->notEmpty('twitter');
+            ->allowEmpty('twitter');
             
         $validator
-            ->requirePresence('facebook', 'create')
-            ->notEmpty('facebook');
+            ->allowEmpty('facebook');
             
         $validator
-            ->requirePresence('pinterest', 'create')
-            ->notEmpty('pinterest');
+            ->allowEmpty('pinterest');
             
         $validator
-            ->requirePresence('activity_searched', 'create')
-            ->notEmpty('activity_searched');
+            ->allowEmpty('activity_searched');
             
         $validator
             ->add('insta_followers', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('insta_followers', 'create')
-            ->notEmpty('insta_followers');
+            ->allowEmpty('insta_followers');
+            
+        $validator
+            ->add('twitter_followers', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('twitter_followers');
             
         $validator
             ->add('noddi_rank', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('noddi_rank', 'create')
-            ->notEmpty('noddi_rank');
+            ->allowEmpty('noddi_rank');
             
         $validator
             ->add('offers_attempted', 'valid', ['rule' => 'numeric'])
@@ -93,17 +88,14 @@ class ModeusesTable extends Table
             ->notEmpty('offers_accepted');
             
         $validator
-            ->requirePresence('hobbies', 'create')
-            ->notEmpty('hobbies');
+            ->allowEmpty('hobbies');
             
         $validator
-            ->requirePresence('city', 'create')
-            ->notEmpty('city');
+            ->allowEmpty('city');
             
         $validator
             ->add('age', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('age', 'create')
-            ->notEmpty('age');
+            ->allowEmpty('age');
 
         return $validator;
     }

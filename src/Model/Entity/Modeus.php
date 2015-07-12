@@ -24,6 +24,7 @@ class Modeus extends Entity
         'pinterest' => true,
         'activity_searched' => true,
         'insta_followers' => true,
+        'twitter_followers' => true,
         'noddi_rank' => true,
         'offers_attempted' => true,
         'offers_accepted' => true,
