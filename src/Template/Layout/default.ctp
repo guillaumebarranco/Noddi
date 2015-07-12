@@ -92,12 +92,6 @@
 
                     <?php } else { ?>
 
-                        <li>
-                            <?= $this->Html->link(__('Connexion'), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button reversed']) ?>
-                        </li>
-                        <li>
-                            <?= $this->Html->link(__('Inscription'), ['controller' => 'Users', 'action' => 'sign_in'], ['class' => 'button reversed']) ?>
-                        </li>
 
                     <?php } ?>
                     
@@ -113,6 +107,25 @@
                     <?= $this->fetch('content') ?>
 
             <footer>
+
+                <div>
+                    <a href="">Nous contacter</a>
+                    <a href="">Plan du site</a>
+                    <a href="">Conditions Générales d'utilisation</a>
+                    <a href="">Mentions légales</a>
+                </div>
+
+                <div>
+                    <h3>Rejoignez notre réseau de Noddiz !</h3>
+
+                    <ul id="sectionSocial">
+                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+                        <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+                        <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+                        <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+                        <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+                    </ul>
+                </div>
 
                 <!-- <div class="field">
 

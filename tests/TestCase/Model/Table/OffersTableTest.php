@@ -21,7 +21,9 @@ class OffersTableTest extends TestCase
         'app.brands',
         'app.users',
         'app.modeuses',
-        'app.activities'
+        'app.activities',
+        'app.favoris',
+        'app.messages'
     ];
 
     /**

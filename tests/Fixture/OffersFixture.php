@@ -48,14 +48,14 @@ class OffersFixture extends TestFixture
             'id' => 1,
             'brand_id' => 1,
             'activity_id' => 1,
-            'date_begin' => '2015-07-06 22:01:46',
-            'date_end' => '2015-07-06 22:01:46',
+            'date_begin' => '2015-07-12 11:08:09',
+            'date_end' => '2015-07-12 11:08:09',
             'multiple_targets' => 1,
             'expected_targets' => 1,
             'title' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-            'created' => '2015-07-06 22:01:46',
-            'updated' => '2015-07-06 22:01:46'
+            'created' => '2015-07-12 11:08:09',
+            'updated' => '2015-07-12 11:08:09'
         ],
     ];
 }
