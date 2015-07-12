@@ -28,18 +28,21 @@
 }
 
 .title,
-h1 {
+h1,
+.page_index section.servicePresentation .presentation h3,
+.page_index section.memberType .typeDescription .description h2,
+.page_index section.memberType .typeDescription.details .description ul li span {
 	font-size: 40px;
 	font-size: 4rem;
 	font-family: 'Satisfy-Regular', Arial, sans-serif;
 }
 
 .subtitle,
-h2 {
+h2,
+.socials h3 {
 	font-size: 32px;
 	font-size: 3.2rem;
 	font-family: 'Mathlete-Bulky', Arial, sans-serif;
-	text-transform: uppercase;
 	font-weight: lighter;
 }
 
@@ -62,6 +65,10 @@ body {
 	font-size: 16px;
 	font-size: 1.6rem;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+
+.showLarge {
+	display: none;
 }
 
 *::-moz-selection {
@@ -116,15 +123,14 @@ form input {
 
 .button {
 	border-radius: 12px;
-	padding: 15px 20px;
-	margin: 0 15px;
-	margin-bottom: 15px;
+	padding: 10px 20px;
+	margin: 5px 15px;
 	text-align: center;
 	font-weight: bold;
 	cursor: pointer;
-	transition: background-color 0.3s ease-in-out,  color 0.3s ease-in-out, border 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
 	color: #ef8f7a;
-	border: solid 2px #ef8f7a;
+	border: solid #ef8f7a 3px;
 	background: none;
 	display: block;
 }
@@ -135,18 +141,30 @@ form input {
 }
 
 .button.reversed {
-	border: solid #ef8f7a 2px;
+	border: solid #ef8f7a 3px;
 	background: #ef8f7a;
 	color: #ffffff;
 }
 
 .button.reversed:hover {
+	border: solid #585858 3px;
 	background: #585858;
-	border: solid 2px #585858;
 }
 
 .button.small {
 	padding: 5px 10px;
+}
+
+.button.dark {
+	border-color: #585858;
+	background: #585858;
+	color: #ffffff;
+}
+
+.button.dark:hover {
+	border-color: #ef8f7a;
+	background: none;
+	color: #ffffff;
 }
 
 .headerApp {
@@ -224,5 +242,497 @@ form input {
 	-ms-flex-pack: center;
 	justify-content: center;
 	margin-top: 30px;
+}
+
+.page_index header {
+	background: url("../img/pictures/cible.jpg") center center;
+	background-size: cover;
+	padding: 40px;
+}
+
+.page_index header .topMenu {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.page_index header .topMenu .logo {
+	max-width: 200px;
+}
+
+.page_index header .topMenu .logo img {
+	max-width: 100%;
+	height: auto;
+}
+
+.page_index header .topMenu .button {
+	border-color: #ffffff;
+	color: #ffffff;
+}
+
+.page_index header .content {
+	text-align: center;
+}
+
+.page_index header .content h2 {
+	font-size: 35px;
+	font-size: 3.5rem;
+	color: #ffffff;
+}
+
+.page_index header .content .button {
+	display: inline-block;
+}
+
+.page_index section.servicePresentation {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	max-width: 1000px;
+	margin: auto;
+	text-align: center;
+	padding: 0 20px;
+}
+
+.page_index section.servicePresentation .presentation {
+	position: relative;
+}
+
+.page_index section.servicePresentation .presentation:before {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	background: #ef8f7a;
+	color: #ffffff;
+	position: absolute;
+	margin-left: 45%;
+	margin-top: 10px;
+	z-index: -5;
+}
+
+.page_index section.servicePresentation .presentation.free:before {
+	content: "";
+	color: #ffffff;
+	font-size: 30px;
+	font-size: 3rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.servicePresentation .presentation.simple:before {
+	content: "";
+	color: #ffffff;
+	font-size: 30px;
+	font-size: 3rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.servicePresentation .presentation.reliable:before {
+	content: "";
+	color: #ffffff;
+	font-size: 30px;
+	font-size: 3rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.memberType .typeDescription {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	max-width: 1000px;
+	margin: auto;
+	padding: 10px;
+}
+
+.page_index section.memberType .typeDescription .illustration {
+	background: url("../img/pictures/friends.jpg") center center;
+	background-size: cover;
+	margin-right: 20px;
+	-webkit-flex: 10;
+	-ms-flex: 10;
+	flex: 10;
+	min-height: 530px;
+}
+
+.page_index section.memberType .typeDescription .illustration.illu1 {
+	background: url("../img/pictures/friends.jpg") center center;
+}
+
+.page_index section.memberType .typeDescription .illustration.illu2 {
+	background: url("../img/pictures/intro.jpg") center center;
+}
+
+.page_index section.memberType .typeDescription .illustration.illu3 {
+	background: url("../img/pictures/takeAPic.jpg") center center;
+}
+
+.page_index section.memberType .typeDescription .illustration.illu4 {
+	background: url("../img/pictures/echange.jpg") center center;
+}
+
+.page_index section.memberType .typeDescription .description {
+	-webkit-flex: 7;
+	-ms-flex: 7;
+	flex: 7;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	position: relative;
+	font-size: 20px;
+	font-size: 2rem;
+}
+
+.page_index section.memberType .typeDescription .description h2 {
+	color: #ef8f7a;
+	text-align: center;
+	margin: 0;
+}
+
+.page_index section.memberType .typeDescription.details {
+	-webkit-flex-direction: row-reverse;
+	-ms-flex-direction: row-reverse;
+	flex-direction: row-reverse;
+}
+
+.page_index section.memberType .typeDescription.details .illustration {
+	border: solid 20px #ffffff;
+}
+
+.page_index section.memberType .typeDescription.details .description {
+	-webkit-flex-direction: column !important;
+	-ms-flex-direction: column !important;
+	flex-direction: column !important;
+	-webkit-align-items: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.page_index section.memberType .typeDescription.details .description ul {
+	list-style: none;
+}
+
+.page_index section.memberType .typeDescription.details .description ul li span {
+	font-size: 50px;
+	font-size: 5rem;
+	color: #ef8f7a;
+	margin-right: 25px;
+}
+
+.page_index section.memberType .typeDescription.details .description .button {
+	-webkit-align-self: center;
+	-ms-flex-item-align: center;
+	align-self: center;
+}
+
+.page_index section.memberType.marque h2 {
+	color: #585858 !important;
+}
+
+.page_index section.memberType.marque ul > li > span {
+	color: #585858 !important;
+}
+
+.socials {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-align-items: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	padding: 0 10px;
+	max-width: 400px;
+	margin: auto;
+	text-align: center;
+}
+
+.socials h3 {
+	font-size: 40px;
+	font-size: 4rem;
+}
+
+.socials ul {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	padding: 0;
+	width: 320px;
+	margin: auto;
+}
+
+.socials ul li {
+	font: 0/0 serif;
+	color: transparent;
+	text-shadow: none;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	list-style: none;
+	width: 40px;
+	height: 40px;
+	background: #ef8f7a;
+	border-radius: 20px;
+	transition: background-color 0.2s ease-in-out, font-size 0.2s ease-in-out;
+}
+
+.socials ul li a {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height: 100%;
+	margin: auto;
+}
+
+.socials ul li.facebook:hover {
+	background: #3b5998;
+}
+
+.socials ul li.facebook a:before {
+	content: "";
+	color: white;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.socials ul li.twitter:hover {
+	background: #55acee;
+}
+
+.socials ul li.twitter a:before {
+	content: "";
+	color: white;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.socials ul li.instagram:hover {
+	background: #3f729b;
+}
+
+.socials ul li.instagram a:before {
+	content: "";
+	color: white;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.socials ul li.snapchat:hover {
+	background: #fffc00;
+}
+
+.socials ul li.snapchat a:before {
+	content: "";
+	color: white;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.socials ul li.pinterest:hover {
+	background: #cc2127;
+}
+
+.socials ul li.pinterest a:before {
+	content: "";
+	color: white;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+footer {
+	text-align: center;
+}
+
+footer ul > li {
+	display: inline-block;
+}
+
+footer ul > li:nth-child(n+2):before {
+	content: " | ";
+}
+
+footer ul > li a {
+	color: #ef8f7a;
+}
+
+footer ul > li a:hover {
+	text-decoration: underline;
+}
+
+@media (min-width: 500px) {
+
+.showLarge {
+	display: inherit;
+}
+
+.page_index section.servicePresentation {
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.page_index section.servicePresentation .presentation:before {
+	z-index: 5;
+	margin-top: -20px;
+}
+
+.page_index section.memberType .typeDescription .description {
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.page_index section.memberType .typeDescription .description h2 {
+	position: absolute;
+	font-size: 80px;
+	font-size: 8rem;
+	margin-left: -50px;
+}
+
+.page_index section.memberType .typeDescription .description h2:first-letter {
+	font-size: 150px;
+	font-size: 15rem;
+}
+
+.page_index section.memberType .typeDescription .description p {
+	-webkit-align-self: flex-end;
+	-ms-flex-item-align: end;
+	align-self: flex-end;
+	margin-left: 80px;
+	margin-bottom: 160px;
+}
+
+.page_index section.memberType .typeDescription.details {
+	margin-top: -170px;
+}
+
+.socials {
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	max-width: 800px;
+}
+
 }
 

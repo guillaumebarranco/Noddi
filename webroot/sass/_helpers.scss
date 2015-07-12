@@ -46,7 +46,7 @@
 		.subtitle{
 			@include font-size(3.2);
 			font-family: 'Mathlete-Bulky', Arial, sans-serif;
-			text-transform: uppercase;
+			// text-transform: uppercase;
 			font-weight: lighter;
 		}
 		.subtitleSmall{
@@ -60,4 +60,11 @@
 		.regularText{
 			@include font-size(1.6);
 			font-family:  'Source Sans Pro', Arial, sans-serif;
+		}
+
+		.showLarge{
+			display: none;
+			@media (min-width: $tablet) {
+				display: inherit;
+			}
 		}
