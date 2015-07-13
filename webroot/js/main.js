@@ -20,7 +20,7 @@ $(document).ready(function() {
 						'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
 							'<img src="'+_this.response.modeuses[modeuse].user.picture+'" width="150"/>'+
 						'</a>' +
-						'<button class="button add_favori">Add Favori</button>'+
+						'<button class="button add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'">Add Favori</button>'+
 					'</li>'
 				;
 
@@ -355,17 +355,27 @@ $(document).ready(function() {
 			&& $('input[name=name]').val() != ''
 			&& $('input[name=picture]').val() != ''
 		) {
-			$('#step1').removeClass('active');
-			$('#step2').addClass('active');
-			$('.form_brand_two').show();
-			$('.form_brand_one').hide();
+			if(validateEmail($('input[name=email]').val())) {
+				$('#step1').removeClass('active');
+				$('#step2').addClass('active');
+				$('.form_brand_two').show();
+				$('.form_brand_one').hide();
+
+			} else {
+				swal({
+					title: "Erreur",
+					text: "L'email n'est pas correct",
+					type: 'error'
+				});
+			}
+			
 		} else {
 			swal({
 				title: "Erreur",
 				text: "Certains champs ne sont pas remplis",
 				type: 'error'
 			});
-		}		
+		}
 	});
 
 	$('.get_form_brand_three').on('click', function(e) {
@@ -376,10 +386,19 @@ $(document).ready(function() {
 			&& $('textarea[name=bio]').val() != ''
 			&& $('input[name=activity_id]').val() != ''
 		) {
-			$('#step2').removeClass('active');
-			$('#step3').addClass('active');
-			$('.form_brand_three').show();
-			$('.form_brand_two').hide();
+			if(validateWebsite($('input[name=website]').val())) {
+				$('#step2').removeClass('active');
+				$('#step3').addClass('active');
+				$('.form_brand_three').show();
+				$('.form_brand_two').hide();
+			} else {
+				swal({
+					title: "Erreur",
+					text: "Le site web entré n'est pas correct",
+					type: 'error'
+				});
+			}
+			
 		} else {
 			swal({
 				title: "Erreur",
@@ -388,6 +407,28 @@ $(document).ready(function() {
 			});
 		}
 
+	});
+
+	$('#step1').on('click', function() {
+		if($('#step2').hasClass('active') || $('#step3').hasClass('active')) {
+			$('.form_brand_two').hide();
+			$('.form_brand_three').hide();
+			$('.form_brand_one').show();
+
+			$('#step2').removeClass('active');
+			$('#step3').removeClass('active');
+			$('#step1').addClass('active');
+		}
+	});
+
+	$('#step2').on('click', function() {
+		if($('#step3').hasClass('active')) {
+			$('.form_brand_two').show();
+			$('.form_brand_three').hide();
+
+			$('#step2').addClass('active');
+			$('#step3').removeClass('active');
+		}
 	});
 
 	$('.register_brand').on('submit', function(e) {
@@ -442,8 +483,8 @@ $(document).ready(function() {
 	$(document).on('click', '.add_favori', function() {
 
 		var data_user = {};
-		data_user.brand_id = 6;
-		data_user.modeuse_id = 2;
+		data_user.brand_id = $('.get_brand_id').val();
+		data_user.modeuse_id = $(this).attr('data-modeuse');
 
 		makeAjax('POST', "favoris/add", data_user, function() {
 			swal({
@@ -455,12 +496,10 @@ $(document).ready(function() {
 
 	$('.delete_favori').on('click', function() {
 		var favori_id = $(this).attr('data-favori');
+		var that = $(this);
 		
 		makeAjax('POST', "favoris/delete/"+favori_id, favori_id, function() {
-			swal({
-				title: "Removed !",
-				type: "success"
-			});
+			that.parent().remove();
 		});
 	});
 
@@ -484,6 +523,16 @@ $(document).ready(function() {
 				console.log('error', url);
 	        }
 		});
+	}
+
+	function validateEmail(email) {
+	    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	    return re.test(email);
+	}
+
+	function validateWebsite(website) {
+	    var re = /^http(s)?:\/\/(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+	    return re.test(website);
 	}
 
 });	

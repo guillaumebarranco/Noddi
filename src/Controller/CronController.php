@@ -26,6 +26,12 @@ class CronController extends AppController
         $this->RequestHandler->renderAs($this, 'json');
     }
 
+    function launch() {
+        $this->getInstaDatas();
+        $this->getTwitterDatas();
+        die;
+    }
+
 
     /*
     *   RETOURNE UN TABLEAU DE PHOTOS PAR MODEUSE POUR CHAQUE MODEUSE AYANT UN COMPTE INSTAGRAM
@@ -115,8 +121,6 @@ class CronController extends AppController
         //return $datas;
 
         var_dump($datas);
-
-        die;
     }
 
     function getFacebookDatas() {
@@ -159,6 +163,12 @@ class CronController extends AppController
                     $datas['twitter'][$modeuse->twitter] = array();
                     $datas['twitter'][$modeuse->twitter]['nb_followers'] = $twitter_datas[0]['user']['followers_count'];
                     $datas['twitter'][$modeuse->twitter]['username'] = $twitter_datas[0]['user']['screen_name'];
+
+
+                    $the_modeuse = $this->Modeuses->get($modeuse->id);
+                    $the_modeuse->twitter_followers = $datas['twitter'][$modeuse->twitter]['nb_followers'];
+                    $this->Modeuses->save($the_modeuse);
+
                     $t = 1;
 
                     foreach ($twitter_datas as $key => $status) {
@@ -179,7 +189,6 @@ class CronController extends AppController
         }
 
         var_dump($datas);
-        die;
     }
 
     function matching() {

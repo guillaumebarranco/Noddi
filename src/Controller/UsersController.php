@@ -285,6 +285,9 @@ class UsersController extends AppController
                         $this->Flash->error(__('The brand could not be saved. Please, try again.'));
                     }
 
+                    $brand_id = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+
+                    $session->write('brand_id', $brand_id);
                     $session->write('type', $data['type']);
                 }
 
