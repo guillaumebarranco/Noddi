@@ -45,6 +45,9 @@
         <?= $this->Html->css('datepicker') ?>
         <?//index.css ?>
         <?= $this->Html->css('style') ?>
+
+        <?= $this->Html->script('jquery') ?>
+        <?= $this->Html->script('functions') ?>
     </head>
 
     <body>
@@ -123,7 +126,6 @@
             console.log(FB_APP_SECRET);
         </script>
 
-        <?= $this->Html->script('jquery') ?>
         <?= $this->Html->script('sweet-alert.min') ?>
         <?= $this->Html->script('jquery.uploadify.min') ?>
         <?= $this->Html->script('bootstrap.min') ?>

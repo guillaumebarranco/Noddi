@@ -7,7 +7,6 @@
 		<li id="step4" >4</li>
 	</ul>
 </div>
-    <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_modeuse']) ?>
 	<div class="formBrand">
 		<div class="form_brand_one">
 			<h2>Création de compte</h2>
@@ -20,11 +19,15 @@
 				200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.
 			</p>
 
-			<button class="button fb_button get_form_brand_two">S'inscrire avec Facebook</button>
+			<button class="button fb_button">S'inscrire avec Facebook</button>
 		</div>
 
-	
-<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_modeuse']) ?>
+<style>
+	.register_modeuse {
+		width: 400px;
+	}
+</style>
+<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_modeuse'], 'class' => 'register_modeuse']) ?>
 
 		<div class="form_brand_two">
 
@@ -174,3 +177,5 @@
 		</div>
 	</div>
 </div>
+
+<?= $this->Html->script('register') ?>
