@@ -5,9 +5,71 @@ $(document).ready(function() {
 	*	REGISTRER MODEUSE
 	*/
 
-	// $('.form_brand_two').hide();
-	// $('.form_brand_three').hide();
-	// $('.form_brand_four').hide();
+	$('.form_brand_two').hide();
+	$('.form_brand_three').hide();
+	$('.form_brand_four').hide();
+
+	$('.form_brand_one .fb_button').on('click', function() {
+		$('.form_brand_one').hide();
+		$('.form_brand_two').show();
+		$('#step2').addClass('active');
+		$('#step1').removeClass('active');
+	});
+
+	$('.formModeuse .get_form_brand_three').on('click', function(e) {
+		e.preventDefault();
+
+		if(
+			$('input[name=firstname]').val() != ''
+			&& $('input[name=lastname]').val() != ''
+			&& $('input[name=email]').val() != ''
+			&& $('input[name=city]').val() != ''
+			&& $('input[name=instagram]').val() != ''
+			&& $('input[name=twitter]').val() != ''
+		) {
+			if(validateEmail($('input[name=email]').val())) {
+				$('#step2').removeClass('active');
+				$('#step3').addClass('active');
+				$('.form_brand_three').show();
+				$('.form_brand_two').hide();
+			} else {
+				swal({
+					title: "Erreur",
+					text: "Le mail entré n'est pas correct",
+					type: 'error'
+				});
+			}
+			
+		} else {
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis",
+				type: 'error'
+			});
+		}
+
+	});
+
+	$('.formModeuse .get_form_brand_four').on('click', function(e) {
+		e.preventDefault();
+
+		if(
+			$('textarea[name=myDescription]').val() != ''
+		) {
+			$('#step3').removeClass('active');
+			$('#step4').addClass('active');
+			$('.form_brand_three').hide();
+			$('.form_brand_four').show();
+			
+		} else {
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis",
+				type: 'error'
+			});
+		}
+
+	});
 
 	$('.register_modeuse').on('submit', function(e) {
 
@@ -147,8 +209,6 @@ $(document).ready(function() {
 		});
 	});
 
-	
-
 	function FBsignin() {
 		FB.api('/me/permissions', function(perms){
 			console.log(perms);
@@ -157,10 +217,9 @@ $(document).ready(function() {
 
 				FB.api('/me', {fields: fields_fb}, function(data){
 					console.log(data);
-					swal({
-						title : 'Connexion réussie',
-						text : 'Vous vous appellez '+ data.name
-					});
+					$('input[name=firstname]').val(data.first_name);
+					$('input[name=lastname]').val(data.last_name);
+					$('input[name=email]').val(data.email);
 
 					//addModeuseFacebook(data);
 				}); 
@@ -175,7 +234,7 @@ $(document).ready(function() {
 			if(perms.data[0].status === 'granted' && perms.data[1].status === 'granted') {
 
 				FB.api('/me', {fields: fields_fb}, function(data){
-					console.log(data);
+					console.log('me', data);
 
 					var data_user = {};
 					data_user.fb_id = data.id;
@@ -201,7 +260,7 @@ $(document).ready(function() {
 	*	REGISTRER BRANDS
 	*/
 
-	$('.get_form_brand_two').on('click', function(e) {
+	$('.formBrand .get_form_brand_two').on('click', function(e) {
 		e.preventDefault();
 
 		if(
@@ -211,10 +270,21 @@ $(document).ready(function() {
 			&& $('input[name=name]').val() != ''
 			&& $('input[name=picture]').val() != ''
 		) {
-			$('#step1').removeClass('active');
-			$('#step2').addClass('active');
-			$('.form_brand_two').show();
-			$('.form_brand_one').hide();
+
+			if(validateEmail($('input[name=email]').val())) {
+				$('#step1').removeClass('active');
+				$('#step2').addClass('active');
+				$('.form_brand_two').show();
+				$('.form_brand_one').hide();
+			} else {
+				swal({
+					title: "Erreur",
+					text: "Le mail entré n'est pas correct",
+					type: 'error'
+				});
+			}
+
+			
 		} else {
 			swal({
 				title: "Erreur",
@@ -224,7 +294,7 @@ $(document).ready(function() {
 		}		
 	});
 
-	$('.get_form_brand_three').on('click', function(e) {
+	$('.formBrand .get_form_brand_three').on('click', function(e) {
 		e.preventDefault();
 
 		if(
@@ -255,7 +325,7 @@ $(document).ready(function() {
 
 	});
 
-	$('#step1').on('click', function() {
+	$('.brand #step1').on('click', function() {
 		if($('#step2').hasClass('active') || $('#step3').hasClass('active')) {
 			$('.form_brand_two').hide();
 			$('.form_brand_three').hide();
@@ -267,7 +337,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#step2').on('click', function() {
+	$('.brand #step2').on('click', function() {
 		if($('#step3').hasClass('active')) {
 			$('.form_brand_two').show();
 			$('.form_brand_three').hide();
