@@ -254,14 +254,19 @@ $(document).ready(function() {
 		data_user.username = user.name;
 		data_user.password = 'facebook';
 		data_user.bio = 'facebook';
+		data_user.email = 'email@email.fr';
 		data_user.website = 'facebook';
 		data_user.picture = 'default.jpg';
-		data_user.type = 'modeuse';					
+		data_user.type = 'modeuse';
+		data_user.id_facebook = user.id;
 
-		makeAjax('POST', "sign_in", data_user, function() {
-			window.location.href = WEB_URL+'/profil';
+		makeAjax('POST', "sign_in_modeuse", data_user, function() {
+			//window.location.href = WEB_URL+'/profil';
 		});
 	}
+
+	var fields_fb = 'last_name, name, email, first_name, bio, birthday';
+	var perms_fb = 'public_profile,email, user_birthday';
 
 
 	$('.fb_button').on('click', function() {
@@ -282,7 +287,7 @@ $(document).ready(function() {
 					} else if(response.status === "connected") {
 						FBsignin();
 					}
-				}, {scope: 'public_profile,email'});
+				}, {scope: perms_fb});
 
 			} else if(response.status === "connected") {
 				FBlogin();
@@ -290,13 +295,15 @@ $(document).ready(function() {
 		});
 	});
 
+	
+
 	function FBsignin() {
 		FB.api('/me/permissions', function(perms){
 			console.log(perms);
 
 			if(perms.data[0].status === 'granted' && perms.data[1].status === 'granted') {
 
-				FB.api('/me', function(data){
+				FB.api('/me', {fields: fields_fb}, function(data){
 					console.log(data);
 					swal({
 						title : 'Connexion réussie',
@@ -315,7 +322,7 @@ $(document).ready(function() {
 
 			if(perms.data[0].status === 'granted' && perms.data[1].status === 'granted') {
 
-				FB.api('/me', function(data){
+				FB.api('/me', {fields: fields_fb}, function(data){
 					console.log(data);
 
 					var data_user = {};
@@ -324,14 +331,13 @@ $(document).ready(function() {
 					makeAjax('POST', "loginFB", data_user, function() {
 
 						if(_this.response.check === 'OK') {
-							window.location.href = WEB_URL+'/profil';
+							//window.location.href = WEB_URL+'/profil';
 						} else {
 							swal({
 								title : 'Erreur',
 								text : "Vous n'avez pas été trouvé dans les inscrites, veuillez vous inscrire d'abord. "
 							});
 						}
-						
 					});
 				}); 
 			}
