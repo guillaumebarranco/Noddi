@@ -1,5 +1,7 @@
 <div class="page page_index">
-<?php if($this->request->session()->read('user')) { ?>
+<?php 
+	$session = $this->request->session();
+if($session->read('user')) { ?>
 	<style>
 		.blog_selected, .network_selected, .section_selected, .audience_selected {
 			background-color: blue;
@@ -22,6 +24,7 @@
 
 				<ul class="list_modeuses">				
 				</ul>
+				<input type="hidden" value="<?=$session->read('brand_id')?>" class="get_brand_id">
 			</div>
 
 			<div class="section_home section_socials">

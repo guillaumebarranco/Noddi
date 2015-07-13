@@ -194,26 +194,18 @@ class UsersController extends AppController
 
                     $session->write('user_id', $data['user_id']);
 
-                    // On créé le type
-                    if($data['type'] == 'modeuse') {
-
-                        $modeuse = $this->Modeuses->newEntity();
-                        $modeuse->user_id = $data['user_id'];
-                    
-                        if(!$this->Modeuses->save($modeuse)) {
-                            $this->Flash->error(__('The modeuse could not be saved. Please, try again.'));
-                        }
-
-                    } elseif($data['type'] == 'brand') {
-
-                        $brand = $this->Brands->newEntity();
-                        $brand->user_id = $data['user_id'];
-                    
-                        if (!$this->Brands->save($brand)) {
-                            $this->Flash->error(__('The brand could not be saved. Please, try again.'));
-                        }
+                    $modeuse = $this->Modeuses->newEntity();
+                    $modeuse->user_id = $data['user_id'];
+                
+                    if(!$this->Modeuses->save($modeuse)) {
+                        $this->Flash->error(__('The modeuse could not be saved. Please, try again.'));
                     }
 
+                    $session->write('type', $data['type']);
+
+                    $modeuse_id = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+
+                    $session->write('modeuse_id', $modeuse_id);
                     $session->write('type', $data['type']);
                 }
 
@@ -285,6 +277,9 @@ class UsersController extends AppController
                         $this->Flash->error(__('The brand could not be saved. Please, try again.'));
                     }
 
+                    $brand_id = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+
+                    $session->write('brand_id', $brand_id);
                     $session->write('type', $data['type']);
                 }
 

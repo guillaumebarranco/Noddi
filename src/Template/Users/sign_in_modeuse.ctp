@@ -23,6 +23,9 @@
 			<button class="button fb_button get_form_brand_two">S'inscrire avec Facebook</button>
 		</div>
 
+		<button class="button fb_button">S'inscrire avec Facebook</button>
+	</div>
+<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_brand']) ?>
 
 		<div class="form_brand_two">
 
@@ -172,4 +175,5 @@
 	    	<?= $this->Form->end() ?>
 		</div>
 	</div>
+	   
 </div>
