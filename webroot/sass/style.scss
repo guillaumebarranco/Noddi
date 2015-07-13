@@ -22,6 +22,11 @@ a {
     text-decoration:none;
 }
 
+ul{
+    padding: 0;
+    margin: 0;
+}
+
 h1 {
     @extend .title;
 }
@@ -43,12 +48,19 @@ form {
         @include hide-text();
         &.showLabel{
             @include show-text();
-            @extend .button;
             position: relative;
-        }
-        & [type="radio"]:checked,
-        & [type="checkbox"]:checked{
-            background: red!important;
+            display: flex;
+            flex-grow: 1;
+            // flex: 1;
+            justify-content: center;
+            align-items: center;
+            padding:10px 20px;
+            margin:5px;
+            border: solid $borderDefault $primary;
+            background: none;
+            color:$primary;
+            // @extend .button;
+            font-weight:bold;
         }
     }
     input, textarea {
@@ -60,13 +72,28 @@ form {
         margin-bottom:15px;
         &[type="radio"],&[type="checkbox"]{
             position: absolute;
-            height: 100%;
             top: 0;
             right: 0;
             width: 100%;
             opacity: 0;
+            &:checked + label{
+                background: $primary;
+                color: $white;
+                &:before{
+                    padding-right: 5px;
+                    width: 10px;
+                    height: 10px;
+                    @include noddifont($check, $white, 1);
+                }
+            }
         }
     }
+}
+
+.checklist, .radiolist{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
 }
 
 .button {

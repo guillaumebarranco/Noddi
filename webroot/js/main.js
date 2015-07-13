@@ -344,6 +344,7 @@ $(document).ready(function() {
 
 	$('.form_brand_two').hide();
 	$('.form_brand_three').hide();
+	$('.form_brand_four').hide();
 
 	$('.get_form_brand_two').on('click', function(e) {
 		e.preventDefault();
@@ -380,6 +381,29 @@ $(document).ready(function() {
 			$('#step3').addClass('active');
 			$('.form_brand_three').show();
 			$('.form_brand_two').hide();
+		} else {
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis",
+				type: 'error'
+			});
+		}
+
+	});
+
+	$('.get_form_brand_four').on('click', function(e) {
+		e.preventDefault();
+
+		if(
+			// CHECK ETAPE 3
+			// $('input[name=blog]').val() != ''
+			// && $('input[name=brandExperience]').val() != ''
+			// && $('input[name=social_presence]').val() != ''
+		) {
+			$('#step3').removeClass('active');
+			$('#step4').addClass('active');
+			$('.form_brand_four').show();
+			$('.form_brand_three').hide();
 		} else {
 			swal({
 				title: "Erreur",

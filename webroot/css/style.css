@@ -98,6 +98,11 @@ a {
 	text-decoration: none;
 }
 
+ul {
+	padding: 0;
+	margin: 0;
+}
+
 form {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -118,11 +123,24 @@ form label.showLabel {
 	color: inherit;
 	text-shadow: inherit;
 	position: relative;
-}
-
-form label [type="radio"]:checked,
-form label [type="checkbox"]:checked {
-	background: red !important;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 10px 20px;
+	margin: 5px;
+	border: solid 3px #ef8f7a;
+	background: none;
+	color: #ef8f7a;
+	font-weight: bold;
 }
 
 form input,
@@ -139,15 +157,53 @@ form input[type="checkbox"],
 form textarea[type="radio"],
 form textarea[type="checkbox"] {
 	position: absolute;
-	height: 100%;
 	top: 0;
 	right: 0;
 	width: 100%;
 	opacity: 0;
 }
 
-.button,
-form label.showLabel {
+form input[type="radio"]:checked + label,
+form input[type="checkbox"]:checked + label,
+form textarea[type="radio"]:checked + label,
+form textarea[type="checkbox"]:checked + label {
+	background: #ef8f7a;
+	color: #ffffff;
+}
+
+form input[type="radio"]:checked + label:before,
+form input[type="checkbox"]:checked + label:before,
+form textarea[type="radio"]:checked + label:before,
+form textarea[type="checkbox"]:checked + label:before {
+	padding-right: 5px;
+	width: 10px;
+	height: 10px;
+	content: "";
+	color: #ffffff;
+	font-size: 10px;
+	font-size: 1rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.checklist,
+.radiolist {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+.button {
 	border-radius: 12px;
 	padding: 10px 20px;
 	margin: 5px 15px;
@@ -161,39 +217,33 @@ form label.showLabel {
 	display: block;
 }
 
-.button:hover,
-form label.showLabel:hover {
+.button:hover {
 	color: #ffffff;
 	background: #ef8f7a;
 }
 
-.button.reversed,
-form label.reversed.showLabel {
+.button.reversed {
 	border: solid #ef8f7a 3px;
 	background: #ef8f7a;
 	color: #ffffff;
 }
 
-.button.reversed:hover,
-form label.reversed.showLabel:hover {
+.button.reversed:hover {
 	border: solid #585858 3px;
 	background: #585858;
 }
 
-.button.small,
-form label.small.showLabel {
+.button.small {
 	padding: 5px 10px;
 }
 
-.button.dark,
-form label.dark.showLabel {
+.button.dark {
 	border-color: #585858;
 	background: #585858;
 	color: #ffffff;
 }
 
-.button.dark:hover,
-form label.dark.showLabel:hover {
+.button.dark:hover {
 	border-color: #ef8f7a;
 	background: none;
 	color: #ffffff;
@@ -247,9 +297,7 @@ form label.dark.showLabel:hover {
 	height: auto;
 }
 
-.page_index header .topMenu .button,
-.page_index header .topMenu form label.showLabel,
-form .page_index header .topMenu label.showLabel {
+.page_index header .topMenu .button {
 	border-color: #ffffff;
 	color: #ffffff;
 }
@@ -264,9 +312,7 @@ form .page_index header .topMenu label.showLabel {
 	color: #ffffff;
 }
 
-.page_index header .content .button,
-.page_index header .content form label.showLabel,
-form .page_index header .content label.showLabel {
+.page_index header .content .button {
 	display: inline-block;
 }
 
@@ -457,9 +503,7 @@ form .page_index header .content label.showLabel {
 	margin-right: 25px;
 }
 
-.page_index section.memberType .typeDescription.details .description .button,
-.page_index section.memberType .typeDescription.details .description form label.showLabel,
-form .page_index section.memberType .typeDescription.details .description label.showLabel {
+.page_index section.memberType .typeDescription.details .description .button {
 	-webkit-align-self: center;
 	-ms-flex-item-align: center;
 	align-self: center;
@@ -534,7 +578,7 @@ form .page_index section.memberType .typeDescription.details .description label.
 	border-bottom: solid 1px;
 	height: 15px;
 	margin: auto;
-	width: 300px;
+	max-width: 300px;
 }
 
 .page_signin .stepsSignIn ul {
@@ -592,6 +636,9 @@ form .page_index section.memberType .typeDescription.details .description label.
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
 .page_signin .formBrand > div {
@@ -603,6 +650,7 @@ form .page_index section.memberType .typeDescription.details .description label.
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
+	margin-top: 20px;
 }
 
 .page_signin .formBrand input,
@@ -632,6 +680,50 @@ form .page_index section.memberType .typeDescription.details .description label.
 
 .page_signin .formBrand ul.select_activities li.button_selected {
 	background: #ef8f7a;
+}
+
+.page_signin .formBrand .sentenceSelect {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-align-items: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 20px 0px;
+}
+
+.page_signin .formBrand .sentenceSelect p {
+	margin: 3px 5px;
+}
+
+.page_signin .formBrand .sentenceSelect select {
+	-webkit-flex: flex-grow;
+	-ms-flex: flex-grow;
+	flex: flex-grow;
+	border: none;
+	color: #ef8f7a;
+	font-weight: bold;
+	font-size: 20px;
+	font-size: 2rem;
+	margin: 0 5px;
+	outline: none;
+}
+
+.page_signin .formBrand .sentenceSelect select option {
+	border: none;
+}
+
+.page_signin .formBrand .checklist {
+	margin: 10px 0 20px 0;
 }
 
 .socials {
@@ -671,9 +763,12 @@ form .page_index section.memberType .typeDescription.details .description label.
 	-webkit-justify-content: space-around;
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	padding: 0;
-	width: 320px;
-	margin: auto;
+	max-width: 320px;
+	width: 100%;
 }
 
 .socials ul li {

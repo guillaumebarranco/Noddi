@@ -45,7 +45,7 @@
         border-bottom:solid 1px;
         height:15px;
         margin:auto;
-        width:300px;
+        max-width:300px;
         ul {
             width:100%;
             position:absolute;
@@ -82,13 +82,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        flex-direction: column;
         & > div {
             //form_brand_one,two,three
             width: 100%;
             max-width: 500px;
             display:flex;
             flex-direction:column;
+            margin-top: 20px;
         }
         input,
         textarea {
@@ -108,6 +109,32 @@
                     background:$primary;
                 }
             }
+        }
+        .sentenceSelect{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: center;
+            padding: 20px 0px;
+            p{
+                margin: 3px 5px;
+            }
+            select{
+                flex:flex-grow;
+                border: none;
+                color: $primary;
+                font-weight: bold;
+                @include font-size(2);
+                margin: 0 5px;
+                outline: none;
+                option{
+                    border: none;
+                }
+            }
+        }
+        .checklist{
+            margin: 10px 0 20px 0;
         }
     }
 }
