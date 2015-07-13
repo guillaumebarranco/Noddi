@@ -345,13 +345,97 @@ $(document).ready(function() {
 		});
 	}
 
+	// $('.form_brand_two').hide();
+	// $('.form_brand_three').hide();
+	// $('.form_brand_four').hide();
+
+
+	/*
+	*	REGISTRER MODEUSE
+	*/
+
+	$('.register_modeuse').on('submit', function(e) {
+
+		var instagramName = 	$('input[name=instagram]').val(),
+			twitterName = 		$('input[name=twitter]').val(),
+			email = 			$('input[name=email]').val(),
+			firstname = 		$('input[name=firstname]').val(),
+			lastname = 			$('input[name=lastname]').val(),
+			city = 				$('input[name=city]').val(),
+			hobbieOne = 		$('select[name=hobbie-one]').val(),
+			hobbieTwo = 		$('select[name=hobbie-two]').val(),
+			iAmOne = 			$('select[name=iAmOne]').val(),
+			iAmTwo = 			$('select[name=iAmTwo]').val(),
+			myDescription =		$('textarea[name=myDescription]').val(),
+			blogAdmin = 		$('input[type=radio][name=blogAdmin]:checked').val(),
+			brandExperience = 	$('input[type=radio][name=brandExperience]:checked').val(),
+
+			hobbies = 			[hobbieOne,hobbieTwo],
+			iAm = 				[iAmOne,iAmTwo],
+			styleWear = 		[],
+			socialPresence = 	[];
+
+			// push selected styles to stylewear[]
+			$('input[type=checkbox][name=styleWear]:checked').each(function() {
+				styleWear.push($(this).attr('value'));
+			});
+
+			// push selected social networks to social_presence[]
+			$('input[type=checkbox][name=social_presence]:checked').each(function() {
+				socialPresence.push($(this).attr('value'));
+			});
+
+		if(
+			//Check for empty inputs
+			instagramName != ''
+			// && twitterName != '' ...
+		) {
+			e.preventDefault();
+			var request = $.ajax({
+				url: "/sign_in_modeuse/",
+				method: "POST",
+				data: { 
+					instagramName : 	instagramName,
+					twitterName : 		twitterName,
+					email : 			email,
+					firstname : 		firstname,
+					lastname : 			lastname,
+					city : 				city,
+					hobbies : 			hobbies,
+					iAm : 				iAm,
+					styleWear : 		styleWear,
+					myDescription : 	myDescription,
+					blogAdmin : 		blogAdmin,
+					brandExperience : 	brandExperience,
+					socialPresence : 	socialPresence
+				},
+				dataType: "json"
+			});
+			 
+			request.done(function( msg ) {
+			  $( "#log" ).html( msg );
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			console.log(jqXHR);
+			// console.log(data);
+			  alert( "Request failed: " + textStatus );
+			});
+
+		} else {
+			e.preventDefault();
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis " + $('input[name=instagram]').val() + ' ' + $('input[name=twitter]').val(),
+				type: 'error'
+			});
+		}
+	});
+
+
 	/*
 	*	REGISTRER BRANDS
 	*/
-
-	$('.form_brand_two').hide();
-	$('.form_brand_three').hide();
-	$('.form_brand_four').hide();
 
 	$('.get_form_brand_two').on('click', function(e) {
 		e.preventDefault();

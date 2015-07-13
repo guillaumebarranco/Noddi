@@ -29,28 +29,6 @@
 				<img src="" width="150" />
 			</div>
 
-			
-			<!-- <label class="showLabel">
-				<input type="radio" name="type" id="cool" value="cool">
-				cool
-			</label>
-			<label class="showLabel">
-				<input type="radio" name="type" id="hype" value="hype">
-				hype
-			</label>
-
-			<label class="showLabel">
-				<input type="checkbox" name="check" id="super" value="super">
-				super
-			</label>
-			<label class="showLabel">
-				<input type="checkbox" name="check" id="nice" value="nice">
-				nice
-			</label> -->
-
-
-
-
 			<a class="button get_form_brand_two">Etape Suivante</a>
 		</div>
 

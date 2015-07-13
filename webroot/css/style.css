@@ -215,6 +215,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	border: solid #ef8f7a 3px;
 	background: none;
 	display: block;
+	outline: none;
 }
 
 .button:hover {
@@ -745,12 +746,15 @@ form textarea[type="checkbox"]:checked + label:before {
 	padding: 0 10px;
 	max-width: 400px;
 	margin: auto;
-	text-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 }
 
 .socials h3 {
 	font-size: 40px;
 	font-size: 4rem;
+	margin: 10px 0;
 }
 
 .socials ul {
@@ -769,6 +773,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	padding: 0;
 	max-width: 320px;
 	width: 100%;
+	padding: 20px;
 }
 
 .socials ul li {

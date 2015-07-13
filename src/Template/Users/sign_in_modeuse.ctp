@@ -7,7 +7,7 @@
 		<li id="step4" >4</li>
 	</ul>
 </div>
-    <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_brand']) ?>
+    <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_modeuse']) ?>
 	<div class="formBrand">
 		<div class="form_brand_one">
 			<h2>Création de compte</h2>
@@ -23,9 +23,8 @@
 			<button class="button fb_button get_form_brand_two">S'inscrire avec Facebook</button>
 		</div>
 
-		<button class="button fb_button">S'inscrire avec Facebook</button>
-	</div>
-<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_brand']) ?>
+	
+<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_modeuse']) ?>
 
 		<div class="form_brand_two">
 
@@ -52,27 +51,27 @@
 				<p>
 					J'aime principalement 
 				</p>
-				<select name="select">
+				<select name="hobbie-one">
 					<option value="value1">Valeur 1</option> 
-					<option value="value2" selected>Valeur 2</option>
+					<option value="value2">Valeur 2</option>
 					<option value="value3">Valeur 3</option>
 				</select>
 				<p>et</p>
-				<select name="select">
+				<select name="hobbie-two">
 					<option value="value1">Valeur 1</option> 
-					<option value="value2" selected>Valeur 2</option>
+					<option value="value2">Valeur 2</option>
 					<option value="value3">Valeur 3</option>
 				</select>
 				<p>Les gens disent de moi que je suis</p>
-				<select name="select">
+				<select name="iAmOne">
 					<option value="value1">Valeur 1</option> 
-					<option value="value2" selected>Valeur 2</option>
+					<option value="value2">Valeur 2</option>
 					<option value="value3">Valeur 3</option>
 				</select>
 				<p> et </p>
-				<select name="select">
+				<select name="iAmTwo">
 					<option value="value1">Valeur 1</option> 
-					<option value="value2" selected>Valeur 2</option>
+					<option value="value2">Valeur 2</option>
 					<option value="value3">Valeur 3</option>
 				</select>
 			</div>
@@ -101,25 +100,25 @@
 				</label>
 			</div>
 
-			<textarea name="description" id="description">Votre description</textarea>
+			<textarea name="myDescription" id="description">Votre description</textarea>
 			<p>Photo profil TODO</p>
 			
 			<a class="button get_form_brand_four">Etape Suivante</a>
 		</div>
 
-			<div class="form_brand_four">
+		<div class="form_brand_four">
 			<p>As-tu un blog ?</p>
 			 <div class="radiolist">
-				<input type="radio" name="blog" id="blog_yes" value="blog_yes">
+				<input type="radio" name="blogAdmin" id="blog_yes" value="blog_yes">
 				<label for="blog_yes" class="showLabel">
 					Oui
 				</label>
-				<input type="radio" name="blog" id="blog_no" value="blog_no">
+				<input type="radio" name="blogAdmin" id="blog_no" value="blog_no">
 				<label for="blog_no" class="showLabel">
 					Non
 				</label>
 			</div>
-			<p>As-tu déjà collaboré avec une marque ?</p>
+			<p>As-tu déjà travaillé avec une marque ?</p>
 			 <div class="radiolist">
 				<input type="radio" name="brandExperience" id="brand_exp_yes" value="brand_exp_yes">
 				<label for="brand_exp_yes" class="showLabel">
@@ -169,11 +168,9 @@
 					Youtube
 				</label>
 			</div>
-
-			<?= $this->Form->button('Sign In', ["class"=> "button small"]); ?>
+			<?= $this->Form->button('Valider l\'inscription', ["class"=> "button small"]); ?>
 
 	    	<?= $this->Form->end() ?>
 		</div>
 	</div>
-	   
 </div>

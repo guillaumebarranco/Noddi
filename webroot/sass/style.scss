@@ -111,6 +111,7 @@ form {
     border:solid $primary $borderDefault;
     background:none;
     display:block;
+    outline: none;
     &:hover {
         color:$white;
         background:$primary;
