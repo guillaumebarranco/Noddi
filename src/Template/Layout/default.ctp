@@ -58,20 +58,43 @@
                     <?php 
                         if($this->request->session()->read('user')) { 
                             if($this->request->session()->read('type') == 'modeuse') { ?>
+
                                 <!-- Menu Modeuse -->
-                                <li class="home active"><a href="">Accueil</a></li>
-                                <li class="offers"><a href="">Mes Offres</a></li>
-                                <li class="messages"><a href="">Messages</a></li>
+                                <li>
+                                    <?= $this->Html->link(__("Accueil"), ['controller' => 'Home', 'action' => 'index'], ['class' => 'home']) ?>
+                                </li>
+
+                                <li>
+                                    <?= $this->Html->link(__("Mes Offres"), ['controller' => 'Offers', 'action' => 'index'], ['class' => 'offers']) ?>
+                                </li>
+
+                                <li>
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Home', 'action' => 'index'], ['class' => 'messages']) ?>
+                                </li>
                                 
-                           <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
-                                <!-- Menu Marque -->
-                                <li class="home active"><a href="">Accueil</a></li>
-                                <li class="offers"><a href="">Mes Offres</a></li>
-                                <li class="favs"><a href="">Favoris</a></li>
-                                <li class="messages"><a href="">Messages</a></li>
+                                
                                 
 
-                    <?php } ?>
+                           <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
+                                <!-- Menu Marque -->
+
+                                <li class="home active">
+                                    <?= $this->Html->link(__("Accueil"), ['controller' => 'Home', 'action' => 'index']) ?>
+                                </li>
+
+                                <li class="offers">
+                                    <?= $this->Html->link(__("Mes Offres"), ['controller' => 'Offers', 'action' => 'index']) ?>
+                                </li>
+
+                                <li class="favs">
+                                    <?= $this->Html->link(__("Favoris"), ['controller' => 'Favoris', 'action' => 'index']) ?>
+                                </li>
+
+                                <li class="messages">
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Home', 'action' => 'index']) ?>
+                                </li>                          
+                                
+                            <?php } ?>
                         
 
                     <?php } else { ?>

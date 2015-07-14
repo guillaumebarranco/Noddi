@@ -26,6 +26,7 @@ class Offer extends Entity
         'lifestyle' => true,
         'personnality' => true,
         'exchange' => true,
+        'finished' => true,
         'brand' => true,
         'type' => true,
     ];

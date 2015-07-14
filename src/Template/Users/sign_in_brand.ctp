@@ -46,7 +46,7 @@
 			
 			<div class="select_activities radiolist">
 				<?php foreach ($activities as $key => $activity) {
-					echo "<input type=\"radio\" name=\"activity_id\" id=".$activity['id']." data-activity=".$activity['id']."><label for=".$activity['id']." class=\"showLabel\">".$activity['name']."</label>";
+					echo "<input type=\"radio\" name=\"activity_id\" id=".$activity['id']." value=".$activity['id']."><label for=".$activity['id']." class=\"showLabel\">".$activity['name']."</label>";
 				} ?>
 				<input type="radio" name="activity_id" id="other" data-activity="other"/>
 				<label for="other" class="showLabel">Autre</label>
@@ -79,3 +79,5 @@
 	</div>
 	   
 </section>
+
+<?=$this->Html->script('register')?>

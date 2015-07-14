@@ -35,10 +35,19 @@ class OffersController extends AppController
 
         $session = $this->request->session();
 
-        $offer = $this->Offers->get(1);
+        $current_offer = $this->Offers
+            ->find('all')
+            ->where(['brand_id' => $session->read('brand_id'), 'finished' => 0])
+            ->contain(['Types'])
+            ->toArray()[0];
 
-        $this->set('offer', $offer);
-        $this->set('_serialize', ['offer']);
+        $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'finished' => 1]);
+
+        $this->set(array(
+            'current_offer' => $current_offer,
+            'finished_offers' => $finished_offers
+        ));
+        $this->set('_serialize', ['current_offer, finished_offers']);
     }
 
     public function add()

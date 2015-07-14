@@ -330,14 +330,6 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.select_activities input[type=radio]').on('click', function() {
-		var activity = $('input[type=radio][name=activity_id]:checked').val()
-		// $('.select_activities li').removeClass('button_selected');
-		// $(this).addClass('button_selected');
-
-		$('input[type=radio][name=activity_id]:checked').val();
-	});
-
 	$('.the_picture').hide();
 
 	$('#upload').uploadify({

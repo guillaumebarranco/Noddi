@@ -83,6 +83,11 @@ class OffersTable extends Table
         $validator
             ->requirePresence('exchange', 'create')
             ->notEmpty('exchange');
+            
+        $validator
+            ->add('finished', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('finished', 'create')
+            ->notEmpty('finished');
 
         return $validator;
     }
