@@ -18,6 +18,8 @@ class Message extends Entity
         'brand_id' => true,
         'modeuse_id' => true,
         'content' => true,
+        'from' => true,
+        'viewed' => true,
         'brand' => true,
         'modeus' => true,
     ];

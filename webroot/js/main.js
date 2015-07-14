@@ -203,4 +203,47 @@ $(document).ready(function() {
 			that.parent().remove();
 		});
 	});
+
+
+	/*
+	*	MESSAGES
+	*/
+
+	$('.answer_message').hide();
+
+	$('.answerMessage').on('click', function() {
+
+		var parent = $(this).parent();
+		
+		if($('input[name=viewed]').length != 0) {
+
+			var data_message = {};
+
+			data_message['message_id'] = $('input[name=viewed]').val();
+
+			makeAjax('POST', "messages/updateView/", data_message, function() {
+
+				$('.all_messages').hide();
+
+				$('.answer_message .answer_name').text(parent.find('.message_sender').text());
+				$('.answer_message .answer_content').text(parent.find('.message_content').text());
+				$('.answer_message .answer_time').text(parent.find('.message_time').text());
+
+				$('.answer_message').show();
+			});
+		} else {
+			$('.all_messages').hide();
+
+			$('.answer_message .answer_name').text(parent.find('.message_sender').text());
+			$('.answer_message .answer_content').text(parent.find('.message_content').text());
+			$('.answer_message .answer_time').text(parent.find('.message_time').text());
+
+			$('.answer_message').show();
+		}
+	});
+
+	$('.sendMessage').on('click', function() {
+
+		data = {};
+	});
 });	

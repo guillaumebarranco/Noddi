@@ -53,6 +53,15 @@ class MessagesTable extends Table
         $validator
             ->requirePresence('content', 'create')
             ->notEmpty('content');
+            
+        $validator
+            ->requirePresence('from', 'create')
+            ->notEmpty('from');
+            
+        $validator
+            ->add('viewed', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('viewed', 'create')
+            ->notEmpty('viewed');
 
         return $validator;
     }

@@ -22,6 +22,7 @@ class MessagesControllerTest extends IntegrationTestCase
         'app.modeuses',
         'app.activities',
         'app.offers',
+        'app.types',
         'app.favoris'
     ];
 

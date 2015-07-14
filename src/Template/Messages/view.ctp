@@ -21,10 +21,14 @@
             <p><?= $message->has('modeus') ? $this->Html->link($message->modeus->id, ['controller' => 'Modeuses', 'action' => 'view', $message->modeus->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Content') ?></h6>
             <p><?= h($message->content) ?></p>
+            <h6 class="subheader"><?= __('From') ?></h6>
+            <p><?= h($message->from) ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($message->id) ?></p>
+            <h6 class="subheader"><?= __('Viewed') ?></h6>
+            <p><?= $this->Number->format($message->viewed) ?></p>
         </div>
         <div class="large-2 columns dates end">
             <h6 class="subheader"><?= __('Created') ?></h6>

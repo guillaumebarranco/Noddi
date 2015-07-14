@@ -69,7 +69,7 @@
                                 </li>
 
                                 <li class="messages">
-                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Home', 'action' => 'index']) ?>
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
                                 </li>
 
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
@@ -88,7 +88,7 @@
                                 </li>
 
                                 <li class="messages">
-                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Home', 'action' => 'index']) ?>
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
                                 </li>                          
                                 
                             <?php } ?>
