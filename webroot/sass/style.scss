@@ -16,6 +16,11 @@ body {
     box-sizing:border-box;
     margin:0;
     padding:0;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $tablet) {
+        flex-direction:row;
+    }
 }
 a {
     color:inherit;
@@ -140,19 +145,73 @@ form {
         }
     }
 }
-
+.container{
+    flex:1;
+}
 
 .headerApp {
     display:flex;
     min-height:40px;
     background:$lightGrey;
     margin:0;
-    padding:15px;
-    nav ul {
-        margin:0;
-        padding:0;
-        display:flex;
-        flex-direction:row;
+    nav#navigation{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 30;
+        @media (min-width: $tablet) {
+            position: relative;
+        }
+        ul.menu {
+            list-style: none;
+            margin:0;
+            padding:0;
+            display:flex;
+            flex-direction:row;
+            @media (min-width: $tablet) {
+                flex-direction:column;
+            }
+            li{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                flex:1;
+                background: $lightGrey;
+                color: $white;
+                padding: 10px 0;
+                @media (min-width: $tablet) {
+                    height: auto;
+                    padding: 20px;
+                    padding-top: 40px;
+                    text-align: center;
+                }
+                &+li{
+                    border-left: solid 1px #000;
+                    @media (min-width: $tablet) {
+                        border-top: solid 1px #000;
+                    }
+                }
+                &.active{
+                    background: $primary;
+                }
+                // &:before{position: absolute;}
+                &.home:before{
+                    @include noddifont($home, $white, 2.5);
+                }
+                &.offers:before{
+                    @include noddifont($tag, $white, 2.5);
+                }
+                &.favs:before{
+                    @include noddifont($fav, $white, 2.5);
+                }
+                &.messages:before{
+                    @include noddifont($message, $white, 2.5);
+                }
+                
+            }
+        }
+        
     }
 }
 

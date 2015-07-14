@@ -56,8 +56,23 @@
 
             <nav id="navigation">
                 <ul class="menu">
+                    <?php 
+                        if($this->request->session()->read('user')) { 
+                            if($this->request->session()->read('type') == 'modeuse') { ?>
+                                <!-- Menu Modeuse -->
+                                <li class="home active"><a href="">Accueil</a></li>
+                                <li class="offers"><a href="">Mes Offres</a></li>
+                                <li class="messages"><a href="">Messages</a></li>
+                                
+                           <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
+                                <!-- Menu Marque -->
+                                <li class="home active"><a href="">Accueil</a></li>
+                                <li class="offers"><a href="">Mes Offres</a></li>
+                                <li class="favs"><a href="">Favoris</a></li>
+                                <li class="messages"><a href="">Messages</a></li>
+                                
 
-                    <?php if($this->request->session()->read('user')) { ?>
+                    <?php } ?>
                         
 
                     <?php } else { ?>

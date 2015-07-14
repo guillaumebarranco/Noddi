@@ -91,6 +91,12 @@ body {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
 a {
@@ -250,6 +256,12 @@ form textarea[type="checkbox"]:checked + label:before {
 	color: #ffffff;
 }
 
+.container {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
 .headerApp {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -257,10 +269,17 @@ form textarea[type="checkbox"]:checked + label:before {
 	min-height: 40px;
 	background: #c1c1c1;
 	margin: 0;
-	padding: 15px;
 }
 
-.headerApp nav ul {
+.headerApp nav#navigation {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 30;
+}
+
+.headerApp nav#navigation ul.menu {
+	list-style: none;
 	margin: 0;
 	padding: 0;
 	display: -webkit-flex;
@@ -269,6 +288,95 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
+}
+
+.headerApp nav#navigation ul.menu li {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	background: #c1c1c1;
+	color: #ffffff;
+	padding: 10px 0;
+}
+
+.headerApp nav#navigation ul.menu li + li {
+	border-left: solid 1px #000;
+}
+
+.headerApp nav#navigation ul.menu li.active {
+	background: #ef8f7a;
+}
+
+.headerApp nav#navigation ul.menu li.home:before {
+	content: "";
+	color: #ffffff;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li.offers:before {
+	content: "";
+	color: #ffffff;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li.favs:before {
+	content: "";
+	color: #ffffff;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li.messages:before {
+	content: "";
+	color: #ffffff;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
 }
 
 .page_index header {
@@ -927,6 +1035,33 @@ footer ul > li a:hover {
 
 .showLarge {
 	display: inherit;
+}
+
+body {
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.headerApp nav#navigation {
+	position: relative;
+}
+
+.headerApp nav#navigation ul.menu {
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.headerApp nav#navigation ul.menu li {
+	height: auto;
+	padding: 20px;
+	padding-top: 40px;
+	text-align: center;
+}
+
+.headerApp nav#navigation ul.menu li + li {
+	border-top: solid 1px #000;
 }
 
 .page_index section.servicePresentation {
