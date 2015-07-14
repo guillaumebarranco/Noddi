@@ -42,15 +42,17 @@
 			<p>
 				Sélectionnez le type d'activité de votre entreprise : 
 			</p>
-
-			<ul class="select_activities">
+			
+			
+			<div class="select_activities radiolist">
 				<?php foreach ($activities as $key => $activity) {
-					echo "<li class='button' data-activity=".$activity['id'].">".$activity['name']."</li>";
+					echo "<input type=\"radio\" name=\"activity_id\" id=".$activity['id']." data-activity=".$activity['id']."><label for=".$activity['id']." class=\"showLabel\">".$activity['name']."</label>";
 				} ?>
-				<li class="button" data-activity="other">Autre</li>
-			</ul>
+				<input type="radio" name="activity_id" id="other" data-activity="other"/>
+				<label for="other" class="showLabel">Autre</label>
+			</div>
 
-			<input type="hidden" name="activity_id" />
+			
 
 			<a class="button get_form_brand_three">Etape Suivante</a>
 		</div>

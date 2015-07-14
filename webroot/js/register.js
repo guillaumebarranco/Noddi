@@ -271,7 +271,6 @@ $(document).ready(function() {
 				});
 			}
 
-			
 		} else {
 			swal({
 				title: "Erreur",
@@ -287,7 +286,7 @@ $(document).ready(function() {
 		if(
 			$('input[name=website]').val() != ''
 			&& $('textarea[name=bio]').val() != ''
-			&& $('input[name=activity_id]').val() != ''
+			&& $('input[name=activity_id]:checked').val() != ''
 		) {
 			if(validateWebsite($('input[name=website]').val())) {
 				$('#step2').removeClass('active');
@@ -326,12 +325,12 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.select_activities li').on('click', function() {
-		var activity = $(this).attr('data-activity');
-		$('.select_activities li').removeClass('button_selected');
-		$(this).addClass('button_selected');
+	$('.select_activities input[type=radio]').on('click', function() {
+		var activity = $('input[type=radio][name=activity_id]:checked').val()
+		// $('.select_activities li').removeClass('button_selected');
+		// $(this).addClass('button_selected');
 
-		$('input[name=activity_id]').val(activity);
+		$('input[type=radio][name=activity_id]:checked').val();
 	});
 
 	$('.the_picture').hide();
