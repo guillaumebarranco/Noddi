@@ -31,12 +31,8 @@ function validateWebsite(website) {
     return re.test(website);
 }
 
-function calculateAge(birthday) { // birthday is a date
-	var re = "/";
-	var birthdayArray = birthday.split(re);
-	console.log(birthdayArray[0] + birthdayArray[1] + birthdayArray[2]);
-
-    var ageDifMs = Date.now() - birthday.getTime();
+function calculateAge(date) { // birthday is a timestamp
+    var ageDifMs = Date.now() - date;
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
     return Math.abs(ageDate.getUTCFullYear() - 1970);
 }

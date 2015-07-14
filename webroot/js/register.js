@@ -35,10 +35,13 @@ $(document).ready(function() {
 				$('#step3').addClass('active');
 				$('.form_brand_three').show();
 				$('.form_brand_two').hide();
-				var birthday = $('input[name=birthday]').val();
-				if(calculateAge(birthday)){
-					console.log("YES");
-				}
+				{
+				swal({
+					title: "Erreur",
+					text: "erreur AGE",
+					type: 'error'
+				});
+			}
 			} else {
 				swal({
 					title: "Erreur",
@@ -79,7 +82,7 @@ $(document).ready(function() {
 	});
 
 	$('.register_modeuse').on('submit', function(e) {
-		e.preventDefault();
+
 		var instagramName = 	$('input[name=instagram]').val(),
 			twitterName = 		$('input[name=twitter]').val(),
 			email = 			$('input[name=email]').val(),
@@ -215,6 +218,11 @@ $(document).ready(function() {
 					$('input[name=lastname]').val(data.last_name);
 					$('input[name=email]').val(data.email);
 
+					// Get modeuse age (Birthday to Age)
+					var birthdayTimestamp = new Date(data.birthday).getTime(),
+						myAge = calculateAge(birthdayTimestamp);
+					$('input[name=birthday]').val(myAge);
+
 					//addModeuseFacebook(data);
 				}); 
 			}
@@ -237,6 +245,7 @@ $(document).ready(function() {
 
 						if(_this.response.check === 'OK') {
 							//window.location.href = WEB_URL+'/profil';
+						
 						} else {
 							swal({
 								title : 'Erreur',
@@ -330,6 +339,14 @@ $(document).ready(function() {
 				type: 'error'
 			});
 		}
+	});
+
+	$('.select_activities input[type=radio]').on('click', function() {
+		var activity = $('input[type=radio][name=activity_id]:checked').val()
+		// $('.select_activities li').removeClass('button_selected');
+		// $(this).addClass('button_selected');
+
+		$('input[type=radio][name=activity_id]:checked').val();
 	});
 
 	$('.the_picture').hide();
