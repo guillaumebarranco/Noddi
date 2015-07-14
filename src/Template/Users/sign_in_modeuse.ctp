@@ -9,7 +9,6 @@
 		</ul>
 	</div>
 
-
 	<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_modeuse'], 'class' => 'register_modeuse']) ?>
 
 		<div class="formModeuse">
