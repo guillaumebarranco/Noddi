@@ -155,6 +155,7 @@ form textarea {
 	border: solid 1px #c1c1c1;
 	border-radius: 12px;
 	padding: 12px 20px;
+	outline: none;
 	margin-bottom: 15px;
 }
 

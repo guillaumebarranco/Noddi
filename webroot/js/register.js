@@ -7,9 +7,9 @@ $(document).ready(function() {
 	*	REGISTRER MODEUSE
 	*/
 
-	$('.form_brand_two').hide();
-	$('.form_brand_three').hide();
-	$('.form_brand_four').hide();
+	// $('.form_brand_two').hide();
+	// $('.form_brand_three').hide();
+	// $('.form_brand_four').hide();
 
 	$('.form_brand_one .fb_button').on('click', function() {
 		$('.form_brand_one').hide();
@@ -28,12 +28,17 @@ $(document).ready(function() {
 			&& $('input[name=city]').val() != ''
 			&& $('input[name=instagram]').val() != ''
 			&& $('input[name=twitter]').val() != ''
+			// && $('input[name=birthday]').val() != ''
 		) {
 			if(validateEmail($('input[name=email]').val())) {
 				$('#step2').removeClass('active');
 				$('#step3').addClass('active');
 				$('.form_brand_three').show();
 				$('.form_brand_two').hide();
+				var birthday = $('input[name=birthday]').val();
+				if(calculateAge(birthday)){
+					console.log("YES");
+				}
 			} else {
 				swal({
 					title: "Erreur",
@@ -74,7 +79,7 @@ $(document).ready(function() {
 	});
 
 	$('.register_modeuse').on('submit', function(e) {
-
+		e.preventDefault();
 		var instagramName = 	$('input[name=instagram]').val(),
 			twitterName = 		$('input[name=twitter]').val(),
 			email = 			$('input[name=email]').val(),

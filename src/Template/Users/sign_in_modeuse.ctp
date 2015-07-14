@@ -1,3 +1,117 @@
+<?php
+    $tab_lifestyle = array();
+    $tab_lifestyle[] = "Bohème";
+    $tab_lifestyle[] = "Hippie Chic";
+    $tab_lifestyle[] = "Chic";
+    $tab_lifestyle[] = "Casual";
+    $tab_lifestyle[] = "Street fashion";
+    $tab_lifestyle[] = "Excentrique";
+    $tab_lifestyle[] = "Pinup";
+    $tab_lifestyle[] = "Rétro vintage";
+    $tab_lifestyle[] = "Glam rock";
+    $tab_lifestyle[] = "Baroque";
+    $tab_lifestyle[] = "Flashy";
+    $tab_lifestyle[] = "Old School";
+    $tab_lifestyle[] = "Romantique";
+
+    function getValue($text) {
+        $text = str_replace(" ", "_", $text);
+        return $text;
+    }
+
+
+    $i = 0;
+    foreach ($tab_lifestyle as $key => $lifestyle) {
+        $tab_lifestyle[$i] = array();
+        $tab_lifestyle[$i]['name'] = $lifestyle;
+        $tab_lifestyle[$i]['value'] = getValue($lifestyle);
+        $i++;
+    }
+
+    $tab_personnality = array();
+    $tab_personnality[] = "Amusante";
+    $tab_personnality[] = "Bavarde";
+    $tab_personnality[] = "Curieuse";
+    $tab_personnality[] = "Sincère";
+    $tab_personnality[] = "Gourmande";
+    $tab_personnality[] = "Joueuse";
+    $tab_personnality[] = "optimiste";
+    $tab_personnality[] = "Patiente";
+    $tab_personnality[] = "Sensible";
+    $tab_personnality[] = "Réfléchie";
+    $tab_personnality[] = "Sociable";
+    $tab_personnality[] = "Spontanée";
+    $tab_personnality[] = "Rêveuse";
+
+    $i = 0;
+    foreach ($tab_personnality as $key => $personnality) {
+        $tab_personnality[$i] = array();
+        $tab_personnality[$i]['name'] = $personnality;
+        $tab_personnality[$i]['value'] = getValue($personnality);
+        $i++;
+    }
+
+    $tab_echange = array();
+    $tab_echange[] = "Don";
+    $tab_echange[] = "Prêt";
+    $tab_echange[] = "Invitation";
+    $tab_echange[] = "Dégustation offerte";
+    $tab_echange[] = "Boisson offerte";
+
+    $i = 0;
+    foreach ($tab_echange as $key => $echange) {
+        $tab_echange[$i] = array();
+        $tab_echange[$i]['name'] = $echange;
+        $tab_echange[$i]['value'] = getValue($echange);
+        $i++;
+    }
+
+    $tab_interest = array();
+    $tab_interest[] = "le cinéma";
+    $tab_interest[] = "la culture";
+    $tab_interest[] = "la littérature";
+    $tab_interest[] = "la mode";
+    $tab_interest[] = "le voyages";
+    $tab_interest[] = "le sport";
+    $tab_interest[] = "la culture geek";
+    $tab_interest[] = "les langues";
+    $tab_interest[] = "la nature";
+    $tab_interest[] = "la cuisine";
+    $tab_interest[] = "les animaux";
+    $tab_interest[] = "les Spectacles";
+    $tab_interest[] = "l'architecture";
+    $tab_interest[] = "les cosmétiques";
+
+    $i = 0;
+    foreach ($tab_interest as $key => $echange) {
+        $tab_interest[$i] = array();
+        $tab_interest[$i]['name'] = $echange;
+        $tab_interest[$i]['value'] = getValue($echange);
+        $i++;
+    }
+
+    $tab_socials = array();
+    $tab_socials[] = "facebook";
+    $tab_socials[] = "twitter";
+    $tab_socials[] = "instagram";
+    $tab_socials[] = "vine";
+    $tab_socials[] = "snapchat";
+    $tab_socials[] = "pinterest";
+    $tab_socials[] = "tumblr";
+    $tab_socials[] = "Flickr";
+    $tab_socials[] = "youtube";
+
+    $i = 0;
+    foreach ($tab_socials as $key => $echange) {
+        $tab_socials[$i] = array();
+        $tab_socials[$i]['name'] = $echange;
+        $tab_socials[$i]['value'] = getValue($echange);
+        $i++;
+    }
+?>
+
+
+
 <section class="page page_signin modeuse">
 
 	<div class="stepsSignIn">
@@ -42,6 +156,7 @@
 				<?= $this->Form->input('lastname', ['placeholder' => "Nom"]) ?>
 
 				<label for="birthday">Date de Naissance</label>
+				<input type="hidden" name="birthday" value="20/12/1990">
 
 				<?= $this->Form->input('city', ['placeholder' => "Ville"]) ?>
 
@@ -54,55 +169,42 @@
 						J'aime principalement 
 					</p>
 					<select name="hobbie-one">
-						<option value="value1">Valeur 1</option> 
-						<option value="value2">Valeur 2</option>
-						<option value="value3">Valeur 3</option>
+						<?php  foreach ($tab_interest as $interest) {   
+							echo"<option value=".$interest['value']." >" .$interest['name']. "</option> ";
+						} ?>
 					</select>
 					<p>et</p>
 					<select name="hobbie-two">
-						<option value="value1">Valeur 1</option> 
-						<option value="value2">Valeur 2</option>
-						<option value="value3">Valeur 3</option>
+						<?php  foreach ($tab_interest as $interest) {   
+							echo"<option value=".$interest['value']." >" .$interest['name']. "</option> ";
+						} ?>
 					</select>
 					<p>Les gens disent de moi que je suis</p>
 					<select name="iAmOne">
-						<option value="value1">Valeur 1</option> 
-						<option value="value2">Valeur 2</option>
-						<option value="value3">Valeur 3</option>
+						<?php  foreach ($tab_personnality as $personnality) {   
+							echo"<option value=".$personnality['value']." >" .$personnality['name']. "</option> ";
+						 } ?>
 					</select>
 					<p> et </p>
 					<select name="iAmTwo">
-						<option value="value1">Valeur 1</option> 
-						<option value="value2">Valeur 2</option>
-						<option value="value3">Valeur 3</option>
+						<?php  foreach ($tab_personnality as $personnality) {   
+							echo"<option value=".$personnality['value']." >" .$personnality['name']. "</option> ";
+						 } ?>
 					</select>
 				</div>
 				
 				<p>Choisis deux styles vestimentaires que tu portes au quotidien:</p>
 				<div class="checklist">
-					<input type="checkbox" name="styleWear" id="boheme" value="boheme">
-					<label for="boheme" class="showLabel">
-						boheme
-					</label>
-					<input type="checkbox" name="styleWear" id="romantique" value="romantique">
-					<label for="romantique" class="showLabel">
-						romantique
-					</label>
-					<input type="checkbox" name="styleWear" id="thug" value="thug">
-					<label for="thug" class="showLabel">
-						thug
-					</label>
-					<input type="checkbox" name="styleWear" id="lascars" value="lascars">
-					<label for="lascars" class="showLabel">
-						lascars
-					</label>
-					<input type="checkbox" name="styleWear" id="test" value="test">
-					<label for="test" class="showLabel">
-						test
-					</label>
+				<?php  foreach ($tab_lifestyle as $lifestyle) {  
+					echo"<input type=\"checkbox\" name=".$lifestyle['value']." id=".$lifestyle['value']." value=".$lifestyle['value'].">
+					<label for=".$lifestyle['value']." class=\"showLabel\">
+						".$lifestyle['name']."
+					</label>";
+				} ?>
+
 				</div>
 
-				<textarea name="myDescription" id="description">Votre description</textarea>
+				<textarea name="myDescription" id="description" placehoder="Votre description"></textarea>
 				<p>Photo profil TODO</p>
 				
 				<a class="button get_form_brand_four">Etape Suivante</a>
@@ -133,42 +235,12 @@
 				</div>
 				<p>Sélectionne les réseaux sociaux sur lesquels tu es présente:</p>
 				<div class="checklist">
-					<input type="checkbox" name="social_presence" id="facebook" value="facebook">
-					<label for="facebook" class="showLabel">
-						Facebook
-					</label>
-					<input type="checkbox" name="social_presence" id="twitter_check" value="twitter">
-					<label for="twitter_check" class="showLabel">
-						Twitter
-					</label>
-					<input type="checkbox" name="social_presence" id="instagram_check" value="instagram">
-					<label for="instagram_check" class="showLabel">
-						Instagram
-					</label>
-					<input type="checkbox" name="social_presence" id="pinterest" value="pinterest">
-					<label for="pinterest" class="showLabel">
-						Pinterest
-					</label>
-					<input type="checkbox" name="social_presence" id="snapchat" value="snapchat">
-					<label for="snapchat" class="showLabel">
-						Snapchat
-					</label>
-					<input type="checkbox" name="social_presence" id="vine" value="vine">
-					<label for="vine" class="showLabel">
-						Vine
-					</label>
-					<input type="checkbox" name="social_presence" id="tumblr" value="tumblr">
-					<label for="tumblr" class="showLabel">
-						Tumblr
-					</label>
-					<input type="checkbox" name="social_presence" id="flickr" value="flickr">
-					<label for="flickr" class="showLabel">
-						Flickr
-					</label>
-					<input type="checkbox" name="social_presence" id="youtube" value="youtube">
-					<label for="youtube" class="showLabel">
-						Youtube
-					</label>
+					<?php  foreach ($tab_socials as $socials) {  
+						echo"<input type=\"checkbox\" name=".$socials['value']." id=".$socials['value']." value=".$socials['value'].">
+						<label for=".$socials['value']." class=\"showLabel\">
+							".$socials['name']."
+						</label>";
+					} ?>
 				</div>
 				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button small"]); ?>
 

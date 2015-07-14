@@ -30,3 +30,13 @@ function validateWebsite(website) {
     var re = /^http(s)?:\/\/(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
     return re.test(website);
 }
+
+function calculateAge(birthday) { // birthday is a date
+	var re = "/";
+	var birthdayArray = birthday.split(re);
+	console.log(birthdayArray[0] + birthdayArray[1] + birthdayArray[2]);
+
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
