@@ -361,7 +361,14 @@ class UsersController extends AppController
 
         $response = array();
         $response['modeuses'] = $modeuses;
-        echo json_encode($response);
+
+        // $this->set(array(
+        //     'modeuses' => $modeuses,
+        //     '_serialize' => array('modeuses')
+        // ));
+
+        $this->response->body(json_encode($response));
+        return $this->response;
     }
 
 }

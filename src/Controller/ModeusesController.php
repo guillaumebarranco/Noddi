@@ -11,6 +11,13 @@ use App\Controller\AppController;
 class ModeusesController extends AppController
 {
 
+    public function initialize() {
+        parent::initialize();
+
+        // On récupère les composants pour la Pagination, le renvoi de JSON....
+        $this->loadModel('Posts');
+    }
+
     /**
      * Index method
      *
@@ -34,11 +41,17 @@ class ModeusesController extends AppController
      */
     public function view($id = null)
     {
-        $modeus = $this->Modeuses->get($id, [
+        $posts = $this->Posts->find('all')->where(['modeuse_id' => $id]);
+
+        $modeuse = $this->Modeuses->get($id, [
             'contain' => ['Users']
         ]);
-        $this->set('modeus', $modeus);
-        $this->set('_serialize', ['modeus']);
+
+        $this->set(array(
+            'modeuse'=> $modeuse,
+            'posts' => $posts
+        ));
+        $this->set('_serialize', ['modeuse, posts']);
     }
 
     /**
