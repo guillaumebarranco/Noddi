@@ -58,9 +58,25 @@ class PostsTable extends Table
             ->allowEmpty('picture');
             
         $validator
+            ->add('likes', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('likes');
+            
+        $validator
             ->add('number', 'valid', ['rule' => 'numeric'])
             ->requirePresence('number', 'create')
             ->notEmpty('number');
+            
+        $validator
+            ->add('shares', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('shares');
+            
+        $validator
+            ->add('comments', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('comments');
+            
+        $validator
+            ->add('nb_tweets', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('nb_tweets');
 
         return $validator;
     }

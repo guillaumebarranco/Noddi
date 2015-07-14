@@ -21,6 +21,7 @@ class ModeusesControllerTest extends IntegrationTestCase
         'app.brands',
         'app.activities',
         'app.offers',
+        'app.types',
         'app.favoris',
         'app.messages'
     ];

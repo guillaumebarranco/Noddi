@@ -174,7 +174,7 @@ $(document).ready(function() {
 	});
 
 	var fields_fb = 'last_name, name, email, first_name, bio, birthday';
-	var perms_fb = 'public_profile,email, user_birthday';
+	var perms_fb = 'public_profile,email, user_birthday, user_posts, user_friends';
 
 
 	$('.fb_button').on('click', function() {
@@ -184,6 +184,7 @@ $(document).ready(function() {
 			if(response.status === "not_authorized") {
 
 				FB.login(function(response) {
+					console.log(response.authResponse);
 
 					if(response.status === "not_authorized") {
 
@@ -198,6 +199,7 @@ $(document).ready(function() {
 				}, {scope: perms_fb});
 
 			} else if(response.status === "connected") {
+				console.log(response.authResponse);
 				FBlogin();
 			}
 		});

@@ -20,7 +20,11 @@ class Post extends Entity
         'title' => true,
         'content' => true,
         'picture' => true,
+        'likes' => true,
         'number' => true,
+        'shares' => true,
+        'comments' => true,
+        'nb_tweets' => true,
         'modeus' => true,
     ];
 }

@@ -27,8 +27,16 @@
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($post->id) ?></p>
+            <h6 class="subheader"><?= __('Likes') ?></h6>
+            <p><?= $this->Number->format($post->likes) ?></p>
             <h6 class="subheader"><?= __('Number') ?></h6>
             <p><?= $this->Number->format($post->number) ?></p>
+            <h6 class="subheader"><?= __('Shares') ?></h6>
+            <p><?= $this->Number->format($post->shares) ?></p>
+            <h6 class="subheader"><?= __('Comments') ?></h6>
+            <p><?= $this->Number->format($post->comments) ?></p>
+            <h6 class="subheader"><?= __('Nb Tweets') ?></h6>
+            <p><?= $this->Number->format($post->nb_tweets) ?></p>
         </div>
     </div>
 </div>

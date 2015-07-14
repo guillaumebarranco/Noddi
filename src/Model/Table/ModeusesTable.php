@@ -60,9 +60,6 @@ class ModeusesTable extends Table
             ->allowEmpty('facebook');
             
         $validator
-            ->allowEmpty('pinterest');
-            
-        $validator
             ->allowEmpty('activity_searched');
             
         $validator
@@ -72,6 +69,11 @@ class ModeusesTable extends Table
         $validator
             ->add('twitter_followers', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('twitter_followers');
+            
+        $validator
+            ->add('facebook_followers', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('facebook_followers', 'create')
+            ->notEmpty('facebook_followers');
             
         $validator
             ->add('noddi_rank', 'valid', ['rule' => 'numeric'])
@@ -96,6 +98,32 @@ class ModeusesTable extends Table
         $validator
             ->add('age', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('age');
+            
+        $validator
+            ->requirePresence('personnality', 'create')
+            ->notEmpty('personnality');
+            
+        $validator
+            ->requirePresence('lifestyle', 'create')
+            ->notEmpty('lifestyle');
+            
+        $validator
+            ->add('has_blog', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('has_blog', 'create')
+            ->notEmpty('has_blog');
+            
+        $validator
+            ->add('brandExperience', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('brandExperience', 'create')
+            ->notEmpty('brandExperience');
+            
+        $validator
+            ->requirePresence('socialPresence', 'create')
+            ->notEmpty('socialPresence');
+            
+        $validator
+            ->requirePresence('fb_token', 'create')
+            ->notEmpty('fb_token');
 
         return $validator;
     }

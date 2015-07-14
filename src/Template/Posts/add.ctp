@@ -16,7 +16,11 @@
             echo $this->Form->input('title');
             echo $this->Form->input('content');
             echo $this->Form->input('picture');
+            echo $this->Form->input('likes');
             echo $this->Form->input('number');
+            echo $this->Form->input('shares');
+            echo $this->Form->input('comments');
+            echo $this->Form->input('nb_tweets');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

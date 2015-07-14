@@ -22,6 +22,7 @@ class ModeusesTableTest extends TestCase
         'app.brands',
         'app.activities',
         'app.offers',
+        'app.types',
         'app.favoris',
         'app.messages'
     ];
