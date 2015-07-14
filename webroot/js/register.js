@@ -108,14 +108,13 @@ $(document).ready(function() {
 		if(
 			//Check for empty inputs
 			instagramName != ''
-			// && twitterName != '' ...
 		) {
 			e.preventDefault();
 
 			var datas_modeuse = {};
-			datas_modeuse['instagram'] 		= 		instagramName;
+			datas_modeuse['instagram'] 			= 		instagramName;
 			datas_modeuse['id_facebook'] 		= 		fb_id;
-			datas_modeuse['twitter'] 		= 		twitterName;
+			datas_modeuse['twitter'] 			= 		twitterName;
 			datas_modeuse['email'] 				= 		email;
 			datas_modeuse['firstname'] 			= 		firstname;
 			datas_modeuse['username'] 			= 		firstname;
@@ -123,10 +122,10 @@ $(document).ready(function() {
 			datas_modeuse['city'] 				= 		city;
 			datas_modeuse['hobbies'] 			= 		hobbies;
 
-			datas_modeuse['iAm'] 				= 		iAm;
-			datas_modeuse['styleWear'] 			= 		styleWear;
-			datas_modeuse['bio'] 		= 		myDescription;
-			datas_modeuse['blogAdmin'] 			= 		blogAdmin;
+			datas_modeuse['personnality'] 		= 		iAm;
+			datas_modeuse['lifestyle'] 			= 		styleWear;
+			datas_modeuse['bio'] 				= 		myDescription;
+			datas_modeuse['has_blog'] 			= 		blogAdmin;
 			datas_modeuse['brandExperience'] 	= 		brandExperience;
 			datas_modeuse['socialPresence'] 	= 		socialPresence;
 
@@ -139,22 +138,21 @@ $(document).ready(function() {
 
 			console.log(datas_modeuse);
 
+			// makeAjax('POST', "sign_in_modeuse", datas_modeuse, function(response) {
 
-			makeAjax('POST', "sign_in_modeuse", datas_modeuse, function(response) {
-
-				if(response.check === 'OK') {
-					swal({
-						title: "Added !",
-						type: "success"
-					});
-				} else {
-					swal({
-						title: "Error",
-						type: "error"
-					});
-				}
+			// 	if(response.check === 'OK') {
+			// 		swal({
+			// 			title: "Added !",
+			// 			type: "success"
+			// 		});
+			// 	} else {
+			// 		swal({
+			// 			title: "Error",
+			// 			type: "error"
+			// 		});
+			// 	}
 				
-			});
+			// });
 
 
 		} else {
