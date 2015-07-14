@@ -219,7 +219,7 @@ $(document).ready(function() {
 
 			var data_message = {};
 
-			data_message['message_id'] = $('input[name=viewed]').val();
+			data_message.message_id = $('input[name=viewed]').val();
 
 			makeAjax('POST', "messages/updateView/", data_message, function() {
 
@@ -235,7 +235,6 @@ $(document).ready(function() {
 			$('.all_messages').hide();
 
 			$('.answer_message .answer_name').text(parent.find('.message_sender').text());
-			$('.answer_message .answer_content').text(parent.find('.message_content').text());
 			$('.answer_message .answer_time').text(parent.find('.message_time').text());
 
 			$('.answer_message').show();
@@ -245,5 +244,23 @@ $(document).ready(function() {
 	$('.sendMessage').on('click', function() {
 
 		data = {};
+		data.brand_id = $('input[name=brand_id]').val();
+		data.modeuse_id = $('input[name=modeuse_id]').val();
+		data.content = $('textarea').val();
+		data.from_who = 'brand';
+		data.viewed = 0;
+
+		makeAjax('POST', "messages/add", data, function() {
+
+			var data_message = {};
+			data_message.message_id = $('input[name=viewed]').val();
+			
+			makeAjax('POST', "messages/updateAnswer/", data_message, function() {
+				swal({
+					type: "success",
+					title: 'success'
+				});
+			});
+		});
 	});
 });	
