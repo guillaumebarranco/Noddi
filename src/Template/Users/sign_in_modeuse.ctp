@@ -8,12 +8,7 @@
 	</ul>
 </div>
 
-<style>
-	.register_modeuse {
-		width: 400px;
-	}
-</style>
-
+<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_modeuse'], 'class' => 'register_modeuse']) ?>
 <div class="formModeuse">
 
 	<div class="form_brand_one">
@@ -29,9 +24,6 @@
 
 		<button class="button fb_button">S'inscrire avec Facebook</button>
 	</div>
-
-
-<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_modeuse'], 'class' => 'register_modeuse']) ?>
 
 		<div class="form_brand_two">
 
@@ -180,6 +172,5 @@
 	    	<?= $this->Form->end() ?>
 		</div>
 	</div>
-</div>
-
+</section>
 <?= $this->Html->script('register') ?>
