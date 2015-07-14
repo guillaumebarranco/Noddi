@@ -155,7 +155,7 @@
 				<?= $this->Form->input('lastname', ['placeholder' => "Nom"]) ?>
 
 				<label for="birthday">Date de Naissance</label>
-				<input type="hidden" name="birthday" value="20/12/1990">
+				<input type="text" name="birthday">
 
 				<?= $this->Form->input('city', ['placeholder' => "Ville"]) ?>
 
