@@ -8,14 +8,13 @@ use Twitter\twitter\TwitterAPIExchange;
 class CronController extends AppController
 {
 
-    
-
     public function initialize() {
         parent::initialize();
 
         $this->loadModel('Users');
         $this->loadModel('Modeuses');
         $this->loadModel('Brands');
+        $this->loadModel('Posts');
 
         $this->loadComponent('RequestHandler');
     }
@@ -103,11 +102,41 @@ class CronController extends AppController
                         foreach ($insta_datas as $key => $insta) {
                             foreach ($insta as $key => $the_data) {
                                 if(isset($the_data['images']['standard_resolution']) && $the_data['images']['standard_resolution'] != null) {
-                                    $datas['instagram'][$modeuse->instagram][$k] = array();
-                                    $datas['instagram'][$modeuse->instagram][$k]['picture'] = $the_data['images']['standard_resolution']['url'];
-                                    $datas['instagram'][$modeuse->instagram][$k]['link'] = $the_data['link'];
-                                    $datas['instagram'][$modeuse->instagram][$k]['title'] = $the_data['caption']['text'];
-                                    $k++;
+
+                                    if($k < 4) {
+                                        $search_post = $this->Posts
+                                            ->find('all')
+                                            ->where(['modeuse_id' => $modeuse->id, 'number' => $k, 'social' => 'instagram'])
+                                            ->toArray();
+
+                                        if(!empty($search_post)) {
+                                            $search_post = $search_post[0];
+
+                                            $this->Posts->id = $search_post['id'];
+                                            $search_post->social = 'instagram';
+                                            $search_post->title = $the_data['link'];
+                                            $search_post->content = $the_data['caption']['text'];
+                                            $search_post->picture = $the_data['images']['standard_resolution']['url'];
+
+                                            $this->Posts->save($search_post);
+                                        } else {
+                                            $post = $this->Posts->newEntity();
+                                            $post->modeuse_id = $modeuse->id;
+                                            $post->social = 'instagram';
+                                            $post->title = $the_data['link'];
+                                            $post->content = $the_data['caption']['text'];
+                                            $post->picture = $the_data['images']['standard_resolution']['url'];
+                                            $post->number = $k;
+
+                                            if($this->Posts->save($post)) {
+                                                $search_post = $this->Posts
+                                                    ->find('all')
+                                                    ->where(['modeuse_id' => $modeuse->id, 'number' => $k, 'social' => 'instagram'])
+                                                    ->toArray();
+                                            }
+                                        }
+                                        $k++;
+                                    }
                                 }
                             }
                         }
@@ -117,10 +146,6 @@ class CronController extends AppController
 
             
         }
-
-        //return $datas;
-
-        var_dump($datas);
     }
 
     function getFacebookDatas() {
@@ -174,12 +199,38 @@ class CronController extends AppController
                     foreach ($twitter_datas as $key => $status) {
                         if(empty($status['retweeted_status']) && $status['in_reply_to_status_id'] === null) {
 
-                            if('ok' == 'ok') { 
-                                // Filter by posts saved
+                            if($t < 4) {
+                                $search_post = $this->Posts
+                                    ->find('all')
+                                    ->where(['modeuse_id' => $modeuse->id, 'number' => $t, 'social' => 'twitter'])
+                                    ->toArray();
 
-                                $datas['twitter'][$modeuse->twitter][$t] = array();
-                                $datas['twitter'][$modeuse->twitter][$t]['text'] = $status['text'];
-                                $datas['twitter'][$modeuse->twitter][$t]['link'] = 'https://twitter.com/'.$modeuse->twitter.'/status/'.$status['id_str'];
+                                if(!empty($search_post)) {
+                                    $search_post = $search_post[0];
+
+                                    $this->Posts->id = $search_post['id'];
+                                    $search_post->social = 'twitter';
+                                    $search_post->title = 'https://twitter.com/'.$modeuse->twitter.'/status/'.$status['id_str'];
+                                    $search_post->content = $status['text'];
+                                    $search_post->picture = $status['text'];
+
+                                    $this->Posts->save($search_post);
+                                } else {
+                                    $post = $this->Posts->newEntity();
+                                    $post->modeuse_id = $modeuse->id;
+                                    $post->social = 'twitter';
+                                    $post->title = 'https://twitter.com/'.$modeuse->twitter.'/status/'.$status['id_str'];
+                                    $post->content = $status['text'];
+                                    $post->picture = $status['text'];
+                                    $post->number = $t;
+
+                                    if($this->Posts->save($post)) {
+                                        $search_post = $this->Posts
+                                            ->find('all')
+                                            ->where(['modeuse_id' => $modeuse->id, 'number' => $t, 'social' => 'instagram'])
+                                            ->toArray();
+                                    }
+                                }
                                 $t++;
                             }
                         }
@@ -187,8 +238,6 @@ class CronController extends AppController
                 }
             }
         }
-
-        var_dump($datas);
     }
 
     function matching() {

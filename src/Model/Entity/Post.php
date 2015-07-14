@@ -20,6 +20,7 @@ class Post extends Entity
         'title' => true,
         'content' => true,
         'picture' => true,
+        'number' => true,
         'modeus' => true,
     ];
 }

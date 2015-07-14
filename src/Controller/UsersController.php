@@ -274,8 +274,6 @@ class UsersController extends AppController
 
                     $session->write('user_id', $data['user_id']);
 
-                    
-
                     $brand = $this->Brands->newEntity();
 
                     $brand = $this->Users->patchEntity($brand, $data);

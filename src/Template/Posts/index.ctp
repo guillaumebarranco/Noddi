@@ -16,6 +16,7 @@
             <th><?= $this->Paginator->sort('title') ?></th>
             <th><?= $this->Paginator->sort('content') ?></th>
             <th><?= $this->Paginator->sort('picture') ?></th>
+            <th><?= $this->Paginator->sort('number') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -26,10 +27,11 @@
             <td>
                 <?= $post->has('modeus') ? $this->Html->link($post->modeus->id, ['controller' => 'Modeuses', 'action' => 'view', $post->modeus->id]) : '' ?>
             </td>
-            <td><?= $this->Number->format($post->social) ?></td>
-            <td><?= $this->Number->format($post->title) ?></td>
-            <td><?= $this->Number->format($post->content) ?></td>
-            <td><?= $this->Number->format($post->picture) ?></td>
+            <td><?= h($post->social) ?></td>
+            <td><?= h($post->title) ?></td>
+            <td><?= h($post->content) ?></td>
+            <td><?= h($post->picture) ?></td>
+            <td><?= $this->Number->format($post->number) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $post->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $post->id]) ?>

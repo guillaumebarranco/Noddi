@@ -15,18 +15,20 @@
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Modeus') ?></h6>
             <p><?= $post->has('modeus') ? $this->Html->link($post->modeus->id, ['controller' => 'Modeuses', 'action' => 'view', $post->modeus->id]) : '' ?></p>
+            <h6 class="subheader"><?= __('Social') ?></h6>
+            <p><?= h($post->social) ?></p>
+            <h6 class="subheader"><?= __('Title') ?></h6>
+            <p><?= h($post->title) ?></p>
+            <h6 class="subheader"><?= __('Content') ?></h6>
+            <p><?= h($post->content) ?></p>
+            <h6 class="subheader"><?= __('Picture') ?></h6>
+            <p><?= h($post->picture) ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($post->id) ?></p>
-            <h6 class="subheader"><?= __('Social') ?></h6>
-            <p><?= $this->Number->format($post->social) ?></p>
-            <h6 class="subheader"><?= __('Title') ?></h6>
-            <p><?= $this->Number->format($post->title) ?></p>
-            <h6 class="subheader"><?= __('Content') ?></h6>
-            <p><?= $this->Number->format($post->content) ?></p>
-            <h6 class="subheader"><?= __('Picture') ?></h6>
-            <p><?= $this->Number->format($post->picture) ?></p>
+            <h6 class="subheader"><?= __('Number') ?></h6>
+            <p><?= $this->Number->format($post->number) ?></p>
         </div>
     </div>
 </div>

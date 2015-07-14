@@ -22,6 +22,7 @@
             echo $this->Form->input('title');
             echo $this->Form->input('content');
             echo $this->Form->input('picture');
+            echo $this->Form->input('number');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

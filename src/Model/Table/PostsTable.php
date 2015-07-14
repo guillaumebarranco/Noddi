@@ -45,21 +45,22 @@ class PostsTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->add('social', 'valid', ['rule' => 'numeric'])
             ->requirePresence('social', 'create')
             ->notEmpty('social');
             
         $validator
-            ->add('title', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('title');
             
         $validator
-            ->add('content', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('content');
             
         $validator
-            ->add('picture', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('picture');
+            
+        $validator
+            ->add('number', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('number', 'create')
+            ->notEmpty('number');
 
         return $validator;
     }
