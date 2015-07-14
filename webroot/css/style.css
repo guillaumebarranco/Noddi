@@ -256,10 +256,11 @@ form textarea[type="checkbox"]:checked + label:before {
 	color: #ffffff;
 }
 
-.container {
+#container {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
+	width: 100%;
 }
 
 .headerApp {
@@ -734,7 +735,8 @@ form textarea[type="checkbox"]:checked + label:before {
 	display: block;
 }
 
-.page_signin .formBrand {
+.page_signin .formBrand,
+.page_signin .formModeuse {
 	padding: 15px;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -750,7 +752,8 @@ form textarea[type="checkbox"]:checked + label:before {
 	flex-direction: column;
 }
 
-.page_signin .formBrand > div {
+.page_signin .formBrand > div,
+.page_signin .formModeuse > div {
 	width: 100%;
 	max-width: 500px;
 	display: -webkit-flex;
@@ -763,12 +766,15 @@ form textarea[type="checkbox"]:checked + label:before {
 }
 
 .page_signin .formBrand input,
-.page_signin .formBrand textarea {
+.page_signin .formBrand textarea,
+.page_signin .formModeuse input,
+.page_signin .formModeuse textarea {
 	width: 100%;
 	resize: none;
 }
 
-.page_signin .formBrand ul.select_activities {
+.page_signin .formBrand ul.select_activities,
+.page_signin .formModeuse ul.select_activities {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -779,7 +785,8 @@ form textarea[type="checkbox"]:checked + label:before {
 	padding: 0;
 }
 
-.page_signin .formBrand ul.select_activities li {
+.page_signin .formBrand ul.select_activities li,
+.page_signin .formModeuse ul.select_activities li {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
@@ -787,11 +794,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	border-radius: 0;
 }
 
-.page_signin .formBrand ul.select_activities li.button_selected {
+.page_signin .formBrand ul.select_activities li.button_selected,
+.page_signin .formModeuse ul.select_activities li.button_selected {
 	background: #ef8f7a;
 }
 
-.page_signin .formBrand .sentenceSelect {
+.page_signin .formBrand .sentenceSelect,
+.page_signin .formModeuse .sentenceSelect {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -810,11 +819,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	padding: 20px 0px;
 }
 
-.page_signin .formBrand .sentenceSelect p {
+.page_signin .formBrand .sentenceSelect p,
+.page_signin .formModeuse .sentenceSelect p {
 	margin: 3px 5px;
 }
 
-.page_signin .formBrand .sentenceSelect select {
+.page_signin .formBrand .sentenceSelect select,
+.page_signin .formModeuse .sentenceSelect select {
 	-webkit-flex: flex-grow;
 	-ms-flex: flex-grow;
 	flex: flex-grow;
@@ -827,11 +838,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	outline: none;
 }
 
-.page_signin .formBrand .sentenceSelect select option {
+.page_signin .formBrand .sentenceSelect select option,
+.page_signin .formModeuse .sentenceSelect select option {
 	border: none;
 }
 
-.page_signin .formBrand .checklist {
+.page_signin .formBrand .checklist,
+.page_signin .formModeuse .checklist {
 	margin: 10px 0 20px 0;
 }
 

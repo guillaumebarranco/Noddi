@@ -9,24 +9,24 @@
 		</ul>
 	</div>
 
-	<div class="formModeuse">
 
-		<div class="form_brand_one">
-			<h2>Création de compte</h2>
+	<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_modeuse'], 'class' => 'register_modeuse']) ?>
 
-			<p>
-				Tu dois disposer de comptes Facebook et Instagram pour t'inscrire.
-			</p>
+		<div class="formModeuse">
 
-			<p>
-				200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.
-			</p>
+			<div class="form_brand_one">
+				<h2>Création de compte</h2>
 
-			<button class="button fb_button">S'inscrire avec Facebook</button>
-		</div>
+				<p>
+					Tu dois disposer de comptes Facebook et Instagram pour t'inscrire.
+				</p>
 
+				<p>
+					200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.
+				</p>
 
-		<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_modeuse'], 'class' => 'register_modeuse']) ?>
+				<div class="button fb_button">S'inscrire avec Facebook</div>
+			</div>
 
 			<div class="form_brand_two">
 
@@ -172,9 +172,11 @@
 				</div>
 				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button small"]); ?>
 
-		    	<?= $this->Form->end() ?>
+		    	
 			</div>
 		</div>
-	</section>
-	
+
+	<?= $this->Form->end() ?>
+</section>
+
 <?= $this->Html->script('register') ?>
