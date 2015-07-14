@@ -194,8 +194,12 @@ class UsersController extends AppController
 
                     $session->write('user_id', $data['user_id']);
 
+                    $data['offers_attempted'] = 0;
+                    $data['offers_accepted'] = 0;
+
                     $modeuse = $this->Modeuses->newEntity();
-                    $modeuse->user_id = $data['user_id'];
+                    $modeuse = $this->Modeuses->patchEntity($modeuse, $data);
+
                 
                     if(!$this->Modeuses->save($modeuse)) {
                         $this->Flash->error(__('The modeuse could not be saved. Please, try again.'));
@@ -203,7 +207,7 @@ class UsersController extends AppController
 
                     $session->write('type', $data['type']);
 
-                    $modeuse_id = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+                    $modeuse_id = $this->Modeuses->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
 
                     $session->write('modeuse_id', $modeuse_id);
                     $session->write('type', $data['type']);

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	var fb_id;
+
 
 	/*
 	*	REGISTRER MODEUSE
@@ -111,29 +113,48 @@ $(document).ready(function() {
 			e.preventDefault();
 
 			var datas_modeuse = {};
-			datas_modeuse['instagramName'] 		= 		instagramName;
-			datas_modeuse['twitterName'] 		= 		twitterName;
+			datas_modeuse['instagram'] 		= 		instagramName;
+			datas_modeuse['id_facebook'] 		= 		fb_id;
+			datas_modeuse['twitter'] 		= 		twitterName;
 			datas_modeuse['email'] 				= 		email;
 			datas_modeuse['firstname'] 			= 		firstname;
+			datas_modeuse['username'] 			= 		firstname;
 			datas_modeuse['lastname'] 			= 		lastname;
 			datas_modeuse['city'] 				= 		city;
 			datas_modeuse['hobbies'] 			= 		hobbies;
+
 			datas_modeuse['iAm'] 				= 		iAm;
 			datas_modeuse['styleWear'] 			= 		styleWear;
-			datas_modeuse['myDescription'] 		= 		myDescription;
+			datas_modeuse['bio'] 		= 		myDescription;
 			datas_modeuse['blogAdmin'] 			= 		blogAdmin;
 			datas_modeuse['brandExperience'] 	= 		brandExperience;
 			datas_modeuse['socialPresence'] 	= 		socialPresence;
 
+			datas_modeuse['website'] = 'http://';
+			datas_modeuse['password'] = 'modeuse';
+
+			datas_modeuse['picture'] = 'modeuse';
+
+			datas_modeuse['type'] = 'modeuse';
+
 			console.log(datas_modeuse);
 
 
-			// makeAjax('POST', "users/sign_in_modeuse", data_user, function() {
-			// 	swal({
-			// 		title: "Added !",
-			// 		type: "success"
-			// 	});
-			// });
+			makeAjax('POST', "sign_in_modeuse", datas_modeuse, function(response) {
+
+				if(response.check === 'OK') {
+					swal({
+						title: "Added !",
+						type: "success"
+					});
+				} else {
+					swal({
+						title: "Error",
+						type: "error"
+					});
+				}
+				
+			});
 
 
 		} else {
@@ -145,39 +166,6 @@ $(document).ready(function() {
 			});
 		}
 	});
-
-	function addModeuse(data_user) {
-		var data_user = {};
-
-		data_user.username = data.name;
-		data_user.password = 'facebook';
-		data_user.bio = 'facebook';
-		data_user.website = 'facebook';
-		data_user.picture = 'default.jpg';
-		data_user.type = 'modeuse';					
-
-		makeAjax('POST', "sign_in", data_user, function() {
-			window.location.href = WEB_URL+'/profil';
-		});
-	}
-
-
-	function addModeuseFacebook(user) {
-		var data_user = {};
-
-		data_user.username = user.name;
-		data_user.password = 'facebook';
-		data_user.bio = 'facebook';
-		data_user.email = 'email@email.fr';
-		data_user.website = 'facebook';
-		data_user.picture = 'default.jpg';
-		data_user.type = 'modeuse';
-		data_user.id_facebook = user.id;
-
-		makeAjax('POST', "sign_in_modeuse", data_user, function() {
-			//window.location.href = WEB_URL+'/profil';
-		});
-	}
 
 	var fields_fb = 'last_name, name, email, first_name, bio, birthday';
 	var perms_fb = 'public_profile,email, user_birthday';
@@ -217,6 +205,7 @@ $(document).ready(function() {
 
 				FB.api('/me', {fields: fields_fb}, function(data){
 					console.log(data);
+					fb_id = data.id;
 					$('input[name=firstname]').val(data.first_name);
 					$('input[name=lastname]').val(data.last_name);
 					$('input[name=email]').val(data.email);
@@ -325,29 +314,6 @@ $(document).ready(function() {
 
 	});
 
-	$('.brand #step1').on('click', function() {
-		if($('#step2').hasClass('active') || $('#step3').hasClass('active')) {
-			$('.form_brand_two').hide();
-			$('.form_brand_three').hide();
-			$('.form_brand_one').show();
-
-			$('#step2').removeClass('active');
-			$('#step3').removeClass('active');
-			$('#step1').addClass('active');
-		}
-	});
-
-	$('.brand #step2').on('click', function() {
-		if($('#step3').hasClass('active')) {
-			$('.form_brand_two').show();
-			$('.form_brand_three').hide();
-
-			$('#step2').addClass('active');
-			$('#step3').removeClass('active');
-		}
-
-	});
-
 	$('.register_brand').on('submit', function(e) {
 		if(
 			$('select[name=type_commerce]').val() == ''
@@ -392,4 +358,44 @@ $(document).ready(function() {
             $('.the_picture').show();
         }
     });
+
+    /*
+    *	 GERER LES STEP
+    */
+
+    $('.brand #step1').on('click', function() {
+		if($('#step2').hasClass('active') || $('#step3').hasClass('active')) {
+			$('.form_brand_two').hide();
+			$('.form_brand_three').hide();
+			$('.form_brand_one').show();
+
+			$('#step2').removeClass('active');
+			$('#step3').removeClass('active');
+			$('#step1').addClass('active');
+		}
+	});
+
+	$('#step2').on('click', function() {
+		if($('#step3').hasClass('active') || $('#step4').hasClass('active')) {
+			$('.form_brand_two').show();
+			$('.form_brand_three').hide();
+			$('.form_brand_four').hide();
+
+			$('#step2').addClass('active');
+			$('#step3').removeClass('active');
+			$('#step4').removeClass('active');
+		}
+
+	});
+
+	$('.modeuse #step3').on('click', function() {
+		if($('#step4').hasClass('active')) {
+			$('.form_brand_three').show();
+			$('.form_brand_four').hide();
+
+			$('#step3').addClass('active');
+			$('#step4').removeClass('active');
+		}
+
+	});
 });
