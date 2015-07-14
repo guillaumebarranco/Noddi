@@ -51,7 +51,9 @@
                     
                     <div class="post">
                         <div class="post_picture">
-                            <img src="<?=$post->picture?>" alt="" />
+                        <?php if($post->picture != '' && $post->picture != null) { ?>
+                            <img src="<?=$post->picture?>" alt="" width="100" />
+                        <?php } ?>
                         </div>
 
                         <div class="post_content">
