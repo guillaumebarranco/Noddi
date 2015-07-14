@@ -16,7 +16,7 @@
             <th><?= $this->Paginator->sort('title') ?></th>
             <th><?= $this->Paginator->sort('content') ?></th>
             <th><?= $this->Paginator->sort('picture') ?></th>
-            <th><?= $this->Paginator->sort('number') ?></th>
+            <th><?= $this->Paginator->sort('likes') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -31,7 +31,7 @@
             <td><?= h($post->title) ?></td>
             <td><?= h($post->content) ?></td>
             <td><?= h($post->picture) ?></td>
-            <td><?= $this->Number->format($post->number) ?></td>
+            <td><?= $this->Number->format($post->likes) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $post->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $post->id]) ?>

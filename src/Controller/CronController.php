@@ -104,6 +104,7 @@ class CronController extends AppController
                                 if(isset($the_data['images']['standard_resolution']) && $the_data['images']['standard_resolution'] != null) {
 
                                     if($k < 4) {
+
                                         $search_post = $this->Posts
                                             ->find('all')
                                             ->where(['modeuse_id' => $modeuse->id, 'number' => $k, 'social' => 'instagram'])
@@ -117,6 +118,9 @@ class CronController extends AppController
                                             $search_post->title = $the_data['link'];
                                             $search_post->content = $the_data['caption']['text'];
                                             $search_post->picture = $the_data['images']['standard_resolution']['url'];
+                                            $search_post->likes = $the_data['likes']['count'];
+                                            $search_post->comments = $the_data['comments']['count'];
+                                            $search_post->shares = '';
 
                                             $this->Posts->save($search_post);
                                         } else {
@@ -127,6 +131,9 @@ class CronController extends AppController
                                             $post->content = $the_data['caption']['text'];
                                             $post->picture = $the_data['images']['standard_resolution']['url'];
                                             $post->number = $k;
+                                            $post->likes = $the_data['likes']['count'];
+                                            $post->comments = $the_data['comments']['count'];
+                                            $post->shares = '';
 
                                             if($this->Posts->save($post)) {
                                                 $search_post = $this->Posts
@@ -143,13 +150,8 @@ class CronController extends AppController
                     }
                 }
             }
-
-            
         }
-    }
-
-    function getFacebookDatas() {
-        
+        die;
     }
 
     function getTwitterDatas() {
@@ -189,7 +191,6 @@ class CronController extends AppController
                     $datas['twitter'][$modeuse->twitter]['nb_followers'] = $twitter_datas[0]['user']['followers_count'];
                     $datas['twitter'][$modeuse->twitter]['username'] = $twitter_datas[0]['user']['screen_name'];
 
-
                     $the_modeuse = $this->Modeuses->get($modeuse->id);
                     $the_modeuse->twitter_followers = $datas['twitter'][$modeuse->twitter]['nb_followers'];
                     $this->Modeuses->save($the_modeuse);
@@ -200,6 +201,7 @@ class CronController extends AppController
                         if(empty($status['retweeted_status']) && $status['in_reply_to_status_id'] === null) {
 
                             if($t < 4) {
+
                                 $search_post = $this->Posts
                                     ->find('all')
                                     ->where(['modeuse_id' => $modeuse->id, 'number' => $t, 'social' => 'twitter'])
@@ -213,6 +215,10 @@ class CronController extends AppController
                                     $search_post->title = 'https://twitter.com/'.$modeuse->twitter.'/status/'.$status['id_str'];
                                     $search_post->content = $status['text'];
                                     $search_post->picture = $status['text'];
+                                    $search_post->likes = $status['favorite_count'];
+                                    $search_post->comments = $status['retweet_count'];
+                                    $search_post->shares = '';
+                                    $search_post->nb_tweets = $status['user']['statuses_count'];
 
                                     $this->Posts->save($search_post);
                                 } else {
@@ -223,6 +229,10 @@ class CronController extends AppController
                                     $post->content = $status['text'];
                                     $post->picture = $status['text'];
                                     $post->number = $t;
+                                    $post->likes = $status['favorite_count'];
+                                    $post->comments = $status['retweet_count'];
+                                    $post->shares = '';
+                                    $post->nb_tweets = $status['user']['statuses_count'];
 
                                     if($this->Posts->save($post)) {
                                         $search_post = $this->Posts
@@ -240,8 +250,148 @@ class CronController extends AppController
         }
     }
 
+    function getFacebookDatas() {
+
+        $this->Jsonification();
+
+        $modeuses = $this->Modeuses->find('all')->contain(['Users']);
+
+        $datas = array();
+        $datas['facebook'] = array();
+        
+        foreach ($modeuses as $key => $modeuse) {
+
+            if($modeuse->user->id_facebook != null && $modeuse->user->id_facebook != '') {
+
+                $myFBToken="CAAMx2YHhMr8BAGKCyUiZAthgOO9A0OXv1lcuZAw2ZAuGc2pO3Q02KZC3qKxX8N8FdFmHetu1Gc1oyN5tcwugeMwCyZA71tePFZAVWQnhVaFFO1nu3ZCXlZAiZCq9jnVBLYozLLFSlxZB1XZCljUklkL6X3HZAS5q7tu3hoVho7cMq1SaUfOrGz7hbZARKPcXpclpLWptLs3ybFabCXsDktcOT6IwSIlV0CZCr0osZD";
+
+                $url="https://graph.facebook.com/".$modeuse->user->id_facebook."/friends?access_token=".$modeuse->fb_token."&limit=3";
+                $c = curl_init($url);
+                curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($c, CURLOPT_SSL_VERIFYHOST, false);
+                $page = json_decode(curl_exec($c), true);
+                curl_close($c);
+
+                if($page) {
+                    if(isset($page['summary'])) {
+                        $the_modeuse = $this->Modeuses->get($modeuse->id);
+                        $the_modeuse->facebook_followers = $page['summary']['total_count'];
+                        $this->Modeuses->save($the_modeuse);
+                    }
+                }
+
+                $url="https://graph.facebook.com/".$modeuse->user->id_facebook."/posts?limit=3&fields=object_id,likes.summary(true),comments.summary(true),message&access_token=".$modeuse->fb_token."&limit=3";
+                $c = curl_init($url);
+                curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($c, CURLOPT_SSL_VERIFYHOST, false);
+                $page = json_decode(curl_exec($c), true);
+                curl_close($c);
+
+                if($page) {
+
+                    $t = 1;
+                    foreach ($page['data'] as $key => $the_post) {
+
+                        if(!isset($the_post['message'])) {
+                            $the_post['message'] = '';
+                        }
+
+                        $search_post = $this->Posts
+                            ->find('all')
+                            ->where(['modeuse_id' => $modeuse->id, 'number' => $t, 'social' => 'facebook'])
+                            ->toArray();
+
+                        if(!empty($search_post)) {
+                            $search_post = $search_post[0];
+
+                            $this->Posts->id = $search_post['id'];
+                            $search_post->social = 'facebook';
+                            $search_post->title = $the_post['message'];
+                            $search_post->content = $the_post['message'];
+                            $search_post->picture = $the_post['message'];
+                            $search_post->likes = $the_post['likes']['summary']['total_count'];
+                            $search_post->comments = $the_post['likes']['summary']['total_count'];
+                            $search_post->shares = '';
+
+                            $this->Posts->save($search_post);
+                        } else {
+                            $post = $this->Posts->newEntity();
+                            $post->modeuse_id = $modeuse->id;
+                            $post->social = 'facebook';
+                            $post->title = $the_post['message'];
+                            $post->content = $the_post['message'];
+                            $post->picture = $the_post['message'];
+                            $post->number = $t;
+                            $post->likes = $the_post['likes']['summary']['total_count'];
+                            $post->comments = $the_post['likes']['summary']['total_count'];
+                            $post->shares = '';
+
+                            $this->Posts->save($post);
+                        }
+
+                        $t++;
+                    }
+                }
+            }
+        }
+
+        die;
+    }
+
     function matching() {
         
+    }
+
+    // Fonction pour calculer la portée
+    function calculReach() {
+
+        $this->Jsonification();
+
+        $modeuses = $this->Modeuses->find('all');
+
+        foreach ($modeuses as $key => $modeuse) {
+
+            $posts = $this->Posts->find('all')->where(['modeuse_id' => $modeuse->id]);
+
+            $reach = 0;
+            $reach_likes = 0;
+            $reach_comments = 0;
+
+            if($modeuse->insta_followers == 0) {
+                $modeuse->insta_followers = 1;
+            }
+
+            foreach ($posts as $key => $post) {
+
+                if($post['social'] == 'facebook') {
+
+                    $reach_likes += ($post->likes / $modeuse->facebook_followers);
+                    $reach_comments += ($post->comments / $modeuse->facebook_followers);
+
+                } elseif($post['social'] == 'twitter') {
+
+                    $reach_likes += ($post->likes / $modeuse->twitter_followers);
+                    $reach_comments += ($post->comments / $modeuse->twitter_followers);
+
+                } elseif($post['social'] == 'instagram') {
+
+                    $reach_likes += ($post->likes / $modeuse->insta_followers);
+                    $reach_comments += ($post->comments / $modeuse->insta_followers);
+                }
+
+                $reach = (($reach_likes/40)*100) + (($reach_comments/60)*100);
+
+                $reach = $reach * 10;
+            }
+
+            $the_modeuse = $this->Modeuses->get($modeuse->id);
+            $the_modeuse->noddi_rank = $reach;
+            $this->Modeuses->save($the_modeuse);
+        }
+
+        die;
     }
 
 }
