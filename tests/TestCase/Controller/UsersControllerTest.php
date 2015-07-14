@@ -20,6 +20,7 @@ class UsersControllerTest extends IntegrationTestCase
         'app.brands',
         'app.activities',
         'app.offers',
+        'app.types',
         'app.favoris',
         'app.modeuses',
         'app.messages'
@@ -36,21 +37,11 @@ class UsersControllerTest extends IntegrationTestCase
     }
 
     /**
-     * Test Jsonification method
+     * Test index method
      *
      * @return void
      */
-    public function testJsonification()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test getResponse method
-     *
-     * @return void
-     */
-    public function testGetResponse()
+    public function testIndex()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

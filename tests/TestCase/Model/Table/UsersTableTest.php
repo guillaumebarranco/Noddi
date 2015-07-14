@@ -21,6 +21,7 @@ class UsersTableTest extends TestCase
         'app.brands',
         'app.activities',
         'app.offers',
+        'app.types',
         'app.favoris',
         'app.modeuses',
         'app.messages'

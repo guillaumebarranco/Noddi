@@ -240,7 +240,13 @@ class UsersController extends AppController
 
                 $data['password'] = Security::hash($data['password'], 'sha1', true);
 
+                // var_dump($data);
+                // die;
+
                 $user = $this->Users->patchEntity($user, $data);
+
+                // var_dump($user->beforeSave());
+                // die;
 
                 if($this->Users->save($user)) {
 
@@ -268,15 +274,12 @@ class UsersController extends AppController
 
                     $session->write('user_id', $data['user_id']);
 
+                    
+
                     $brand = $this->Brands->newEntity();
-                    $brand->user_id = $data['user_id'];
-                    $brand->name = $data['name'];
-                    $brand->activity_id = $data['activity_id'];
-                    $brand->type_commerce = $data['type_commerce'];
-                    $brand->city = $data['city'];
 
+                    $brand = $this->Users->patchEntity($brand, $data);
 
-                
                     if (!$this->Brands->save($brand)) {
                         $this->Flash->error(__('The brand could not be saved. Please, try again.'));
                     }
@@ -285,6 +288,7 @@ class UsersController extends AppController
 
                     $session->write('brand_id', $brand_id);
                     $session->write('type', $data['type']);
+                
                 }
 
             } else {
