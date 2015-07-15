@@ -8,14 +8,13 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\MessagesTable $Messages
  */
-class MessagesController extends AppController
-{
+class MessagesController extends AppController {
 
-    /**
-     * Index method
-     *
-     * @return void
-     */
+
+
+    /*
+    *   On affiche les Messages en fonction de l'utilisateur connecté
+    */
     public function index() {
 
         $session = $this->request->session();
@@ -30,15 +29,13 @@ class MessagesController extends AppController
         $this->set('_serialize', ['messages']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Message id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
+
+
+
+
+
+
+    public function view($id = null) {
         $message = $this->Messages->get($id, [
             'contain' => ['Brands', 'Modeuses']
         ]);

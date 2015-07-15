@@ -4,13 +4,11 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Utility\Security;
 
-class ProfilController extends AppController
-{
+class ProfilController extends AppController{
 
     public function initialize() {
         parent::initialize();
 
-        // On récupère les composants pour la Pagination, le renvoi de JSON....
         $this->loadModel('Activities');
         $this->loadModel('Offers');
     }

@@ -123,6 +123,10 @@ class ModeusesTable extends Table
         $validator
             ->requirePresence('fb_token', 'create')
             ->notEmpty('fb_token');
+            
+        $validator
+            ->add('boost', 'valid', ['rule' => 'numeric'])
+            ->allowEmpty('boost');
 
         return $validator;
     }
