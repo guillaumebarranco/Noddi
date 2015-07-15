@@ -274,29 +274,104 @@ form {
           text-decoration: none;
           text-transform: none; }
 
-.page_index header {
+header.headerPage {
+  display: flex;
+  flex-direction: row-reverse; }
+  header.headerPage h2.titlePage {
+    flex: 7;
+    background: #acdce0;
+    text-align: center;
+    padding: 5px 0;
+    margin: 0;
+    color: #ffffff; }
+    @media (min-width: 500px) {
+      header.headerPage h2.titlePage {
+        color: #000000;
+        background: none; } }
+  header.headerPage .previousStepMenu {
+    font: 0/0 serif;
+    color: transparent;
+    text-shadow: none; }
+    header.headerPage .previousStepMenu:before {
+      content: ' < ';
+      font: inherit;
+      color: inherit;
+      text-shadow: inherit;
+      flex: 1; }
+
+/*
+*   PROPOSITIONS
+*/
+.proposition {
+  border: solid 1px black;
+  padding: 10px;
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto; }
+  .proposition .proposition_picture, .proposition .proposition_content, .proposition .proposition_buttons {
+    display: inline-block;
+    vertical-align: top; }
+
+.center {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 20px; }
+
+.proposition_sent {
+  width: 150px;
+  display: inline-block;
+  border: solid 1px black;
+  padding: 10px; }
+  .proposition_sent div {
+    display: inline-block;
+    vertical-align: top;
+    width: 70px; }
+
+.proposition_received {
+  border: solid 1px black;
+  padding: 10px;
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto; }
+  .proposition_received .buttons .button {
+    display: inline-block;
+    vertical-align: top; }
+
+/*
+*   MESSAGES
+*/
+.message {
+  width: 300px;
+  margin: 0 auto;
+  border: solid 1px black;
+  padding: 10px; }
+  .message .message_sender, .message .message_time {
+    display: inline-block;
+    vertical-align: top; }
+
+.page_index header.homepage {
   background: url("../img/pictures/cible.jpg") center center;
   background-size: cover;
   padding: 40px; }
-  .page_index header .topMenu {
+  .page_index header.homepage .topMenu {
     display: flex;
     justify-content: space-between;
     align-items: center; }
-    .page_index header .topMenu .logo {
+    .page_index header.homepage .topMenu .logo {
       max-width: 200px; }
-      .page_index header .topMenu .logo img {
+      .page_index header.homepage .topMenu .logo img {
         max-width: 100%;
         height: auto; }
-    .page_index header .topMenu .button {
+    .page_index header.homepage .topMenu .button {
       border-color: #ffffff;
       color: #ffffff; }
-  .page_index header .content {
+  .page_index header.homepage .content {
     text-align: center; }
-    .page_index header .content h2 {
+    .page_index header.homepage .content h2 {
       font-size: 35px;
       font-size: 3.5rem;
       color: #ffffff; }
-    .page_index header .content .button {
+    .page_index header.homepage .content .button {
       display: inline-block; }
 .page_index section.servicePresentation {
   display: flex;
@@ -472,6 +547,10 @@ form {
           font-weight: normal;
           text-decoration: none;
           text-transform: none; }
+        .page_index section.section_home .myDemandReminder ul li.edit {
+          background: #ef8f7a; }
+          .page_index section.section_home .myDemandReminder ul li.edit:before {
+            content: none; }
   .page_index section.section_home ul.list_modeuses, .page_index section.section_home ul.all_favoris {
     display: flex;
     flex-wrap: wrap;
@@ -799,54 +878,7 @@ footer {
       footer ul > li a:hover {
         text-decoration: underline; }
 
-/*
-*   PROPOSITIONS
-*/
-.proposition {
-  border: solid 1px black;
-  padding: 10px;
-  width: 90%;
-  max-width: 300px;
-  margin: 0 auto; }
-  .proposition .proposition_picture, .proposition .proposition_content, .proposition .proposition_buttons {
-    display: inline-block;
-    vertical-align: top; }
-
-.center {
-  width: 350px;
-  margin: 0 auto;
-  margin-top: 20px; }
-
-.proposition_sent {
-  width: 150px;
-  display: inline-block;
-  border: solid 1px black;
-  padding: 10px; }
-  .proposition_sent div {
-    display: inline-block;
-    vertical-align: top;
-    width: 70px; }
-
-.proposition_received {
-  border: solid 1px black;
-  padding: 10px;
-  width: 90%;
-  max-width: 300px;
-  margin: 0 auto; }
-  .proposition_received .buttons .button {
-    display: inline-block;
-    vertical-align: top; }
-
-/*
-*   MESSAGES
-*/
-.message {
-  width: 300px;
-  margin: 0 auto;
-  border: solid 1px black;
-  padding: 10px; }
-  .message .message_sender, .message .message_time {
-    display: inline-block;
-    vertical-align: top; }
+.page_profile .infoUser {
+  display: flex; }
 
 /*# sourceMappingURL=style.css.map */

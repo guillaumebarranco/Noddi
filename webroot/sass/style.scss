@@ -223,10 +223,31 @@ form {
     // height: 100%;
 }
 
+header.headerPage{
+    display: flex;
+    flex-direction: row-reverse;
+    h2.titlePage{
+        flex:7;
+        background: $secondary;
+        text-align: center;
+        padding: 5px 0;
+        margin: 0;
+        color: $white;
+        @media (min-width: $tablet) {
+            color: $black;
+            background: none;
 
-@import '_home';
-@import '_login';
-@import '_footer';
+        }
+    }
+    .previousStepMenu{
+        @include hide-text();
+        &:before{
+        content: ' < ';
+        @include show-text();
+        flex:1;
+        }
+    }
+}
 
 
 
@@ -302,3 +323,12 @@ form {
         vertical-align: top;
     }
 }
+
+
+
+
+
+@import '_home';
+@import '_login';
+@import '_footer';
+@import '_profile';
