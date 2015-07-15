@@ -1,6 +1,8 @@
 <section class="page page_login">
 	<div class="logo">
-		<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
+		<a href="<?=$this->request->base?>">
+			<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
+		</a>
 	</div>
 	<div class="connectSections">
 		<h2>Modeuses</h2>

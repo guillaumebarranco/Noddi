@@ -21,7 +21,7 @@
 		    <?= $this->Form->input('name', ['label' => '', 'placeholder' => "Nom de l'entreprise"]) ?>	    
 
 		    <div>
-				<input type="file" id="upload" />
+				<input type="file" id="upload" class="button reversed" />
 				<input type="hidden" name="picture" />
 			</div>
 
