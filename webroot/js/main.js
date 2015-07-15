@@ -146,13 +146,15 @@ $(document).ready(function() {
 	*/
 
 	$('.profile_section').hide();
-	$('.profile').show();
 
 	$('.menu_profil li a').on('click', function(e) {
-		e.preventDefault();
 
-		$('.profile_section').hide();
-		$('.'+$(this).attr('data-section')).show();
+		if(!$(this).hasClass('disconnect')) {
+			e.preventDefault();
+			$('.profile_section').hide();
+			$('.'+$(this).attr('data-section')).show();
+		}
+		
 	});
 
 	$('.update_profil form').on('submit', function(e) {

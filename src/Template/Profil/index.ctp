@@ -1,3 +1,5 @@
+<h1>Mon Compte</h1>
+
 <?php
 	// Get the User Session and his caractéristiques
 	$session = $this->request->session();
@@ -7,12 +9,43 @@
 
 		<ul class="menu_profil">
 			<li>
-				<a href="#" data-section="profile">Profil</a>
+				<a href="#" data-section="profile">Modifier mon profil</a>
 			</li>
 
 			<li>
-				<a href="#" data-section="offers">Offres Postulées</a>
+				<a href="#" data-section="notifications">Notifications par email</a>
 			</li>
+
+			<li>
+				<a href="#" data-section="preferences">Préférences</a>
+			</li>
+
+			<li>
+				<a href="#" data-section="conditions">Conditions d'utilisation</a>
+			</li>
+
+			<li>
+				<a href="#" data-section="mentions">Mentions légales</a>
+			</li>
+
+			<li>
+				<a href="#" data-section="notifications">FAQ</a>
+			</li>
+
+			<li>
+				<?= $this->Html->link(__('Déconnexion'), ['controller' => 'Users', 'action' => 'disconnect'], ['class' => 'disconnect']) ?>
+			</li>
+
+			<br><br>
+
+			<li>
+				<a href="#" data-section="maj">Mise à jour 1.0</a>
+			</li>
+
+			<li>
+				<a href="#" data-section="contact">Nous contacter</a>
+			</li>
+
 		</ul>
 
 	<?php } elseif($session->read('type') == 'brand') {
@@ -29,6 +62,8 @@
 		</ul>
 	<?php }
 ?>
+
+
 
 <div class="profile_section profile">
 
