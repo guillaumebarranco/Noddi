@@ -76,11 +76,11 @@
                                 <!-- Menu Marque -->
 
                                 <li class="home active">
-                                    <?= $this->Html->link(__("Accueil"), ['controller' => 'Home', 'action' => 'index']) ?>
+                                    <?= $this->Html->link(__("Dashboard"), ['controller' => 'Dashboard', 'action' => 'index']) ?>
                                 </li>
 
-                                <li class="offers">
-                                    <?= $this->Html->link(__("Mes Offres"), ['controller' => 'Offers', 'action' => 'index']) ?>
+                                <li class="home">
+                                    <?= $this->Html->link(__("Noddiz"), ['controller' => 'Home', 'action' => 'index']) ?>
                                 </li>
 
                                 <li class="favs">
@@ -89,7 +89,11 @@
 
                                 <li class="messages">
                                     <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
-                                </li>                          
+                                </li>
+
+                                <li class="offers">
+                                    <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
+                                </li>
                                 
                             <?php } ?>
                         
