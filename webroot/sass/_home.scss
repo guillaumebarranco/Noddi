@@ -1,7 +1,7 @@
 
 //PAGE INDEX
 .page_index {
-    header {
+    header.homepage { // Not connected
         background:url('../img/pictures/cible.jpg') center center;
         background-size:cover;
         padding:40px;
@@ -193,6 +193,10 @@
                     &:before{
                         margin-right: 5px;
                         @include noddifont($tag, $white, 1.5);
+                    }
+                    &.edit{
+                        background: $primary;
+                        &:before{content: none;}
                     }
                 }
             }

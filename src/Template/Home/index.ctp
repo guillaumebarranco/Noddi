@@ -15,8 +15,10 @@ if($session->read('user')) { ?>
 			</p>
 			<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button']) ?>
 		<?php } else { ?>
-
-			<h2 class="h2_home">Les Noddiz</h2>
+			<header class="headerPage">
+				<h2 class="titlePage">Les Noddiz</h2>
+				<!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
+			</header>
 
 			<section class="section_home section_les_noddiz">
 				<div class="myDemandReminder showLarge">
@@ -27,8 +29,8 @@ if($session->read('user')) { ?>
 						<li class="reminder myType">Sociable</li>
 						<li class="reminder whereilive">Paris</li>
 						<li class="reminder age">20</li>
+						<li class="reminder edit"><a href="#">Modifier mes critères</a></li>
 					</ul>
-					<div class="button">Modifier mes critères</div>
 				</div>
 				<ul class="list_modeuses">	
 				</ul>
@@ -44,7 +46,7 @@ if($session->read('user')) { ?>
 
 	<?php } else { ?>
 
-		<header>
+		<header class="homepage">
 			<div class="topMenu">
 				<div class="logo">
 					<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>

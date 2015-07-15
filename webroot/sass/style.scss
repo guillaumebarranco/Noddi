@@ -152,7 +152,7 @@ form {
     width: 100%;
 }
 
-.headerApp {
+.headerApp {   // MENU
     display:flex;
     background:$lightGrey;
     margin:0;
@@ -179,7 +179,7 @@ form {
                 justify-content: center;
                 flex-direction: column;
                 flex:1;
-                background: $lightGrey;
+                background: $secondary;
                 color: $white;
                 padding: 10px 0;
                 @media (min-width: $tablet) {
@@ -223,11 +223,36 @@ form {
     // height: 100%;
 }
 
+header.headerPage{
+    display: flex;
+    flex-direction: row-reverse;
+    h2.titlePage{
+        flex:7;
+        background: $secondary;
+        text-align: center;
+        padding: 5px 0;
+        margin: 0;
+        color: $white;
+        @media (min-width: $tablet) {
+            color: $black;
+            background: none;
 
+        }
+    }
+    .previousStepMenu{
+        @include hide-text();
+        &:before{
+        content: ' < ';
+        @include show-text();
+        flex:1;
+        }
+    }
+}
 
 @import '_home';
 @import '_login';
 @import '_footer';
+@import '_profile';
 
 
 
