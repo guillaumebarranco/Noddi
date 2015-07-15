@@ -30,3 +30,5 @@
 	</div>
 
 </section>
+
+<?= $this->Html->script('register') ?>

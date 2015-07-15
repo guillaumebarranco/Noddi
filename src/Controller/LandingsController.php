@@ -14,9 +14,6 @@ class LandingsController extends AppController
     public function initialize() {
         parent::initialize();
 
-        // On récupère les composants pour la Pagination, le renvoi de JSON....
-        $this->loadComponent('RequestHandler');
-
         $session = $this->request->session();
     }
 

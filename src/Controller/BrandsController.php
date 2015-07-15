@@ -8,16 +8,10 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\BrandsTable $Brands
  */
-class BrandsController extends AppController
-{
+class BrandsController extends AppController {
 
-    /**
-     * Index method
-     *
-     * @return void
-     */
-    public function index()
-    {
+    public function index() {
+        
         $this->paginate = [
             'contain' => ['Users', 'Activities']
         ];
@@ -25,15 +19,8 @@ class BrandsController extends AppController
         $this->set('_serialize', ['brands']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Brand id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
+    public function view($id = null) {
+
         $brand = $this->Brands->get($id, [
             'contain' => ['Users', 'Activities', 'Offers']
         ]);

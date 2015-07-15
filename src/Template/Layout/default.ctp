@@ -60,17 +60,19 @@
                             if($this->request->session()->read('type') == 'modeuse') { ?>
 
                                 <!-- Menu Modeuse -->
-                                <li class="home active">
-                                    <?= $this->Html->link(__("Accueil"), ['controller' => 'Home', 'action' => 'index']) ?>
-                                </li>
-
-                                <li class="offers">
-                                    <?= $this->Html->link(__("Mes Offres"), ['controller' => 'Offers', 'action' => 'index']) ?>
+                                <li class="messages">
+                                    <?= $this->Html->link(__("Propositions"), ['controller' => 'Offers', 'action' => 'index']) ?>
                                 </li>
 
                                 <li class="messages">
                                     <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
                                 </li>
+
+                                <li class="home active">
+                                    <?= $this->Html->link(__("Mon Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
+                                </li>
+
+                                
 
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
                                 <!-- Menu Marque -->

@@ -1,15 +1,15 @@
 $(document).ready(function() {
 
 	var fb_id;
-
+	var fb_token;
 
 	/*
 	*	REGISTRER MODEUSE
 	*/
 
-	// $('.form_brand_two').hide();
-	// $('.form_brand_three').hide();
-	// $('.form_brand_four').hide();
+	$('.form_brand_two').hide();
+	$('.form_brand_three').hide();
+	$('.form_brand_four').hide();
 
 	$('.form_brand_one .fb_button').on('click', function() {
 		$('.form_brand_one').hide();
@@ -35,13 +35,6 @@ $(document).ready(function() {
 				$('#step3').addClass('active');
 				$('.form_brand_three').show();
 				$('.form_brand_two').hide();
-				{
-				swal({
-					title: "Erreur",
-					text: "erreur AGE",
-					type: 'error'
-				});
-			}
 			} else {
 				swal({
 					title: "Erreur",
@@ -96,6 +89,7 @@ $(document).ready(function() {
 			myDescription =		$('textarea[name=myDescription]').val(),
 			blogAdmin = 		$('input[type=radio][name=blogAdmin]:checked').val(),
 			brandExperience = 	$('input[type=radio][name=brandExperience]:checked').val(),
+			age = 				$('input[name=birthday]').val(),
 
 			hobbies = 			[hobbieOne,hobbieTwo],
 			iAm = 				[iAmOne,iAmTwo],
@@ -120,47 +114,61 @@ $(document).ready(function() {
 			e.preventDefault();
 
 			var datas_modeuse = {};
-			datas_modeuse['instagram'] 			= 		instagramName;
-			datas_modeuse['id_facebook'] 		= 		fb_id;
-			datas_modeuse['twitter'] 			= 		twitterName;
-			datas_modeuse['email'] 				= 		email;
-			datas_modeuse['firstname'] 			= 		firstname;
-			datas_modeuse['username'] 			= 		firstname;
-			datas_modeuse['lastname'] 			= 		lastname;
-			datas_modeuse['city'] 				= 		city;
-			datas_modeuse['hobbies'] 			= 		hobbies;
+			datas_modeuse.instagram 			= 		instagramName;
+			datas_modeuse.id_facebook 			= 		fb_id;
+			datas_modeuse.twitter 				= 		twitterName;
+			datas_modeuse.email 				= 		email;
+			datas_modeuse.firstname 			= 		firstname;
+			datas_modeuse.username 				= 		firstname;
+			datas_modeuse.lastname 				= 		lastname;
+			datas_modeuse.city 					= 		city;
+			datas_modeuse.hobbies 				= 		hobbies;
 
-			datas_modeuse['personnality'] 		= 		iAm;
-			datas_modeuse['lifestyle'] 			= 		styleWear;
-			datas_modeuse['bio'] 				= 		myDescription;
-			datas_modeuse['has_blog'] 			= 		blogAdmin;
-			datas_modeuse['brandExperience'] 	= 		brandExperience;
-			datas_modeuse['socialPresence'] 	= 		socialPresence;
+			datas_modeuse.personnality 			= 		iAm;
+			datas_modeuse.lifestyle 			= 		styleWear;
+			datas_modeuse.bio 					= 		myDescription;
+			datas_modeuse.has_blog 				= 		blogAdmin;
+			datas_modeuse.brandExperience 		= 		brandExperience;
+			datas_modeuse.age 					= 		age;
+			datas_modeuse.fb_token 				= 		fb_token;
 
-			datas_modeuse['website'] = 'http://';
-			datas_modeuse['password'] = 'modeuse';
 
-			datas_modeuse['picture'] = 'modeuse';
+			if(datas_modeuse.brandExperience == "brand_exp_no") {
+				datas_modeuse.brandExperience = 0;
+			} else {
+				datas_modeuse.brandExperience = 1;
+			}
 
-			datas_modeuse['type'] = 'modeuse';
+			if(datas_modeuse.has_blog == "blog_no") {
+				datas_modeuse.has_blog = 0;
+			} else {
+				datas_modeuse.has_blog = 1;
+			}
+
+
+			datas_modeuse.socialPresence 	= socialPresence;
+			datas_modeuse.website 			= 'http://';
+			datas_modeuse.password 			= 'modeuse';
+			datas_modeuse.picture 			= 'http://graph.facebook.com/'+fb_id+'/picture?type=large';
+			datas_modeuse.type 				= 'modeuse';
 
 			console.log(datas_modeuse);
 
-			// makeAjax('POST', "sign_in_modeuse", datas_modeuse, function(response) {
+			makeAjax('POST', "sign_in_modeuse", datas_modeuse, function() {
 
-			// 	if(response.check === 'OK') {
-			// 		swal({
-			// 			title: "Added !",
-			// 			type: "success"
-			// 		});
-			// 	} else {
-			// 		swal({
-			// 			title: "Error",
-			// 			type: "error"
-			// 		});
-			// 	}
+				if(_this.response.check === 'OK') {
+					swal({
+						title: "Added !",
+						type: "success"
+					});
+				} else {
+					swal({
+						title: "Error",
+						type: "error"
+					});
+				}
 				
-			// });
+			});
 
 
 		} else {
@@ -184,7 +192,8 @@ $(document).ready(function() {
 			if(response.status === "not_authorized") {
 
 				FB.login(function(response) {
-					console.log(response.authResponse);
+					console.log(response.authResponse.accessToken);
+					fb_token = response.authResponse.accessToken;
 
 					if(response.status === "not_authorized") {
 
@@ -200,6 +209,7 @@ $(document).ready(function() {
 
 			} else if(response.status === "connected") {
 				console.log(response.authResponse);
+				fb_token = response.authResponse.accessToken;
 				FBlogin();
 			}
 		});
@@ -212,6 +222,7 @@ $(document).ready(function() {
 			if(perms.data[0].status === 'granted' && perms.data[1].status === 'granted') {
 
 				FB.api('/me', {fields: fields_fb}, function(data){
+
 					console.log(data);
 					fb_id = data.id;
 					$('input[name=firstname]').val(data.first_name);
@@ -243,8 +254,10 @@ $(document).ready(function() {
 
 					makeAjax('POST', "loginFB", data_user, function() {
 
+						console.log(_this.response);
+
 						if(_this.response.check === 'OK') {
-							//window.location.href = WEB_URL+'/profil';
+							window.location.href = WEB_URL+'/profil';
 						
 						} else {
 							swal({
@@ -257,6 +270,23 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	/*
@@ -342,7 +372,7 @@ $(document).ready(function() {
 	});
 
 	$('.select_activities input[type=radio]').on('click', function() {
-		var activity = $('input[type=radio][name=activity_id]:checked').val()
+		var activity = $('input[type=radio][name=activity_id]:checked').val();
 		// $('.select_activities li').removeClass('button_selected');
 		// $(this).addClass('button_selected');
 

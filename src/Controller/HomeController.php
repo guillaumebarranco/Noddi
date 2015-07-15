@@ -3,23 +3,12 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-class HomeController extends AppController
-{
+class HomeController extends AppController {
 
     public function initialize() {
         parent::initialize();
 
         $this->loadModel('Offers');
-
-        $session = $this->request->session();
-
-        // if(null != ($session->read('user')) && $session->read('user') == true) {
-
-        // } else {
-        //     return $this->redirect(
-        //         ['controller' => 'Users', 'action' => 'login']
-        //     );
-        // }
     }
 
     public function index() {
@@ -29,8 +18,9 @@ class HomeController extends AppController
         if($session->read('type') == 'brand') {
 
             $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray();
-
             $offers = $this->Offers->find('all')->where(['brand_id' => $brand[0]['id']])->toArray();
+
+            // On voit si la marque a déjà une offre en cours ou non
 
             $can_make_offer = false;
             if(empty($offers)) {
@@ -43,9 +33,5 @@ class HomeController extends AppController
 
             $this->set('_serialize', ['can_make_offer']);
         }
-    }
-
-    public function display() {
-
     }
 }

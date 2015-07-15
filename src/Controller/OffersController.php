@@ -10,44 +10,47 @@ class OffersController extends AppController
     public function initialize() {
         parent::initialize();
 
-        // On récupère les composants pour la Pagination, le renvoi de JSON....
-        $this->loadComponent('RequestHandler');
         $this->loadModel('Types');
-        $this->loadModel('Brands');
-
         $session = $this->request->session();
     }
 
-    function Jsonification() {
-        $this->autoRender = false;
-        $this->layout = null;
-        $this->RequestHandler->renderAs($this, 'json');
-        return 'KO';
-    }
-
-    function getResponse($check = 'KO') {
-        $response = array();
-        $response['check'] = $check;
-        return json_encode($response);
-    }
+    /*
+    *   On récupère pour une marque les offres en cours et terminées avec les détails, et pour une modeuses ses propositions et son boost
+    */
 
     public function index() {
 
         $session = $this->request->session();
 
-        $current_offer = $this->Offers
-            ->find('all')
-            ->where(['brand_id' => $session->read('brand_id'), 'finished' => 0])
-            ->contain(['Types'])
-            ->toArray()[0];
+        if($session->read('type') == 'brand') {
 
-        $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'finished' => 1]);
+            $current_offer = $this->Offers
+                ->find('all')
+                ->where(['brand_id' => $session->read('brand_id'), 'finished' => 0])
+                ->contain(['Types'])
+                ->toArray()[0];
 
-        $this->set(array(
-            'current_offer' => $current_offer,
-            'finished_offers' => $finished_offers
-        ));
-        $this->set('_serialize', ['current_offer, finished_offers']);
+            $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'finished' => 1]);
+
+            $this->set(array(
+                'current_offer' => $current_offer,
+                'finished_offers' => $finished_offers
+            ));
+
+            $this->set('_serialize', ['current_offer, finished_offers']);
+
+        } else {
+
+            $modeuse = $this->Modeuses->get($session->read('modeuse_id'));
+
+            $this->set(array(
+                'modeuse' => $modeuse
+            ));
+
+            $this->set('_serialize', ['modeuse']);
+        }
+
+        
     }
 
     public function add()
@@ -74,6 +77,10 @@ class OffersController extends AppController
         $this->set(compact('offer', 'brands', 'types'));
         $this->set('_serialize', ['offer']);
     }
+
+    /*
+    *   On va créer une Offre en AJAX
+    */
 
     public function create() {
 
@@ -136,17 +143,6 @@ class OffersController extends AppController
     //     echo $this->getResponse($check);
     // }
 
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $offer = $this->Offers->get($id);
-        if ($this->Offers->delete($offer)) {
-            $this->Flash->success(__('The offer has been deleted.'));
-        } else {
-            $this->Flash->error(__('The offer could not be deleted. Please, try again.'));
-        }
-        return $this->redirect(['controller' => 'profil', 'action' => 'index']);
-    }
 
     public function view($id = null)
     {

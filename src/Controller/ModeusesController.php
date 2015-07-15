@@ -7,18 +7,12 @@ class ModeusesController extends AppController {
 
     public function initialize() {
         parent::initialize();
-
-        // On récupère les composants pour la Pagination, le renvoi de JSON....
+        
         $this->loadModel('Posts');
     }
 
-    /**
-     * Index method
-     *
-     * @return void
-     */
-    public function index()
-    {
+    public function index() {
+
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -27,6 +21,7 @@ class ModeusesController extends AppController {
     }
 
     public function view($id = null) {
+
         $posts = $this->Posts->find('all')->where(['modeuse_id' => $id]);
 
         $modeuse = $this->Modeuses->get($id, [

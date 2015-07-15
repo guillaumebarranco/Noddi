@@ -11,26 +11,23 @@ class CronController extends AppController
     public function initialize() {
         parent::initialize();
 
-        $this->loadModel('Users');
-        $this->loadModel('Modeuses');
-        $this->loadModel('Brands');
         $this->loadModel('Posts');
-
-        $this->loadComponent('RequestHandler');
         $this->Jsonification();
     }
 
-    function Jsonification() {
-        $this->autoRender = false;
-        $this->layout = null;
-        $this->RequestHandler->renderAs($this, 'json');
-    }
+    /*
+    *   Fonction qui va servir à renvoyer un JSON depuis une URL donnée
+    */
 
     function getJsonUrl($url) {
         $get = file_get_contents($url);
         $json = json_decode($get);
         return $json;
     }
+
+    /*
+    *   IDEM qu'au-dessus, avec cependant plus de spécifications
+    */
 
     function getEndpoint($endpoint) {
         $curl = curl_init($endpoint);
@@ -42,9 +39,12 @@ class CronController extends AppController
         $json = curl_exec($curl);
 
         $insta_datas = json_decode($json, true);
-
         return $insta_datas;
     }
+
+    /*
+    *   Fonction qui prépare la requête à Twitter et retourne les statuses pour un user
+    */
 
     function requestTwitter($modeuse_twitter) {
 
@@ -73,7 +73,7 @@ class CronController extends AppController
 
 
     /*
-    *   FONCTION PRINCIPALE
+    *   FONCTION PRINCIPALE QUI LANCE TOUTES LES FONCTIONS DU CRON
     */
 
     function launch() {
@@ -86,7 +86,9 @@ class CronController extends AppController
 
 
 
-
+    /*
+    *   Fonction pour récupérer les followers, posts et KPI's par modeuse pour INSTAGRAM
+    */
 
     function getInstaDatas() {
 
@@ -183,6 +185,12 @@ class CronController extends AppController
         echo '----------------- END INSTAGRAM ----------------<br /><br />';
     }
 
+
+
+    /*
+    *   Fonction pour récupérer les followers, posts et KPI's par modeuse pour TWITTER
+    */
+
     function getTwitterDatas() {
 
         echo '----------------- BEGIN TWITTER ----------------<br />';
@@ -249,6 +257,11 @@ class CronController extends AppController
 
         echo '----------------- END TWITTER ----------------<br /><br />';
     }
+
+
+    /*
+    *   Fonction pour récupérer les followers, posts et KPI's par modeuse pour FACEBOOK
+    */
 
     function getFacebookDatas() {
 
@@ -326,7 +339,10 @@ class CronController extends AppController
         echo '----------------- END FACEBOOK ----------------<br /><br />';
     }
 
-    // Fonction pour calculer la portée
+    /*
+    *   Fonction pour calculer la portée d'une modeuse par rapport à ses posts et likes/comments
+    */
+
     function calculReach() {
 
         echo '----------------- BEGIN CALCUL REACH ----------------<br />';
