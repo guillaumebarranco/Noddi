@@ -39,7 +39,7 @@ h1,
 
 .subtitle,
 h2,
-.socials h3 {
+footer .socials h3 {
 	font-size: 32px;
 	font-size: 3.2rem;
 	font-family: 'Mathlete-Bulky', Arial, sans-serif;
@@ -54,7 +54,8 @@ h3 {
 }
 
 .subtitleMini,
-h4 {
+h4,
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName {
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: Helvetica, Arial, sans-serif;
@@ -107,6 +108,7 @@ a {
 ul {
 	padding: 0;
 	margin: 0;
+	list-style: none;
 }
 
 form {
@@ -152,7 +154,7 @@ form label.showLabel {
 form input,
 form textarea {
 	box-sizing: border-box;
-	border: solid 1px #c1c1c1;
+	border: solid 1px #f6f6f6;
 	border-radius: 12px;
 	padding: 12px 20px;
 	outline: none;
@@ -237,8 +239,8 @@ form textarea[type="checkbox"]:checked + label:before {
 }
 
 .button.reversed:hover {
-	border: solid #585858 3px;
-	background: #585858;
+	border: solid #aaaaaa 3px;
+	background: #aaaaaa;
 }
 
 .button.small {
@@ -246,8 +248,8 @@ form textarea[type="checkbox"]:checked + label:before {
 }
 
 .button.dark {
-	border-color: #585858;
-	background: #585858;
+	border-color: #aaaaaa;
+	background: #aaaaaa;
 	color: #ffffff;
 }
 
@@ -268,8 +270,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	min-height: 40px;
-	background: #c1c1c1;
+	background: #f6f6f6;
 	margin: 0;
 }
 
@@ -308,7 +309,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-	background: #c1c1c1;
+	background: #f6f6f6;
 	color: #ffffff;
 	padding: 10px 0;
 }
@@ -621,11 +622,175 @@ form textarea[type="checkbox"]:checked + label:before {
 }
 
 .page_index section.memberType.marque h2 {
-	color: #585858 !important;
+	color: #aaaaaa !important;
 }
 
 .page_index section.memberType.marque ul > li > span {
-	color: #585858 !important;
+	color: #aaaaaa !important;
+}
+
+.page_index section.section_home {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.page_index section.section_home .myDemandReminder {
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.page_index section.section_home .myDemandReminder ul {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.page_index section.section_home .myDemandReminder ul li {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: flex-end;
+	-ms-flex-align: end;
+	align-items: flex-end;
+	padding: 5px 10px;
+	margin: 5px;
+	background: #acdce0;
+}
+
+.page_index section.section_home .myDemandReminder ul li:before {
+	margin-right: 5px;
+	content: "";
+	color: #ffffff;
+	font-size: 15px;
+	font-size: 1.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.section_home ul.list_modeuses {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	list-style: none;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse {
+	min-width: 150px;
+	min-height: 150px;
+	max-width: 300px;
+	margin: 10px;
+	background: #f6f6f6;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse img.modeusePic {
+	width: 100%;
+	background: #acdce0;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats {
+	list-style: none;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	text-align: center;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat:before {
+	position: absolute;
+	margin-top: -15px;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before {
+	content: "";
+	color: #acdce0;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before {
+	content: "";
+	color: #acdce0;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before {
+	content: "";
+	color: #acdce0;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before {
+	position: absolute;
+	content: "";
+	color: red;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
 }
 
 .page_login {
@@ -722,7 +887,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 	color: #ffffff;
-	background: #585858;
+	background: #aaaaaa;
 }
 
 .page_signin .stepsSignIn ul li.active {
@@ -732,7 +897,7 @@ form textarea[type="checkbox"]:checked + label:before {
 .page_signin .stepsSignIn ul li:after {
 	width: 50px;
 	height: 1px;
-	background: #585858;
+	background: #aaaaaa;
 	display: block;
 }
 
@@ -849,7 +1014,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	margin: 10px 0 20px 0;
 }
 
-.socials {
+footer {
+	background: #acdce0;
+	text-align: center;
+	padding-bottom: 90px;
+}
+
+footer .socials {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -871,15 +1042,16 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+	background: #acdce0;
 }
 
-.socials h3 {
+footer .socials h3 {
 	font-size: 40px;
 	font-size: 4rem;
 	margin: 10px 0;
 }
 
-.socials ul {
+footer .socials ul {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -896,9 +1068,10 @@ form textarea[type="checkbox"]:checked + label:before {
 	max-width: 320px;
 	width: 100%;
 	padding: 20px;
+	box-sizing: border-box;
 }
 
-.socials ul li {
+footer .socials ul li {
 	font: 0/0 serif;
 	color: transparent;
 	text-shadow: none;
@@ -911,12 +1084,12 @@ form textarea[type="checkbox"]:checked + label:before {
 	list-style: none;
 	width: 40px;
 	height: 40px;
-	background: #ef8f7a;
+	background: #ffffff;
 	border-radius: 20px;
 	transition: background-color 0.2s ease-in-out, font-size 0.2s ease-in-out;
 }
 
-.socials ul li a {
+footer .socials ul li a {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -930,13 +1103,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	margin: auto;
 }
 
-.socials ul li.facebook:hover {
+footer .socials ul li.facebook:hover {
 	background: #3b5998;
 }
 
-.socials ul li.facebook a:before {
+footer .socials ul li.facebook a:before {
 	content: "";
-	color: white;
+	color: #acdce0;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -949,13 +1122,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	text-transform: none;
 }
 
-.socials ul li.twitter:hover {
+footer .socials ul li.twitter:hover {
 	background: #55acee;
 }
 
-.socials ul li.twitter a:before {
+footer .socials ul li.twitter a:before {
 	content: "";
-	color: white;
+	color: #acdce0;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -968,13 +1141,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	text-transform: none;
 }
 
-.socials ul li.instagram:hover {
+footer .socials ul li.instagram:hover {
 	background: #3f729b;
 }
 
-.socials ul li.instagram a:before {
+footer .socials ul li.instagram a:before {
 	content: "";
-	color: white;
+	color: #acdce0;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -987,13 +1160,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	text-transform: none;
 }
 
-.socials ul li.snapchat:hover {
+footer .socials ul li.snapchat:hover {
 	background: #fffc00;
 }
 
-.socials ul li.snapchat a:before {
+footer .socials ul li.snapchat a:before {
 	content: "";
-	color: white;
+	color: #acdce0;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1006,13 +1179,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	text-transform: none;
 }
 
-.socials ul li.pinterest:hover {
+footer .socials ul li.pinterest:hover {
 	background: #cc2127;
 }
 
-.socials ul li.pinterest a:before {
+footer .socials ul li.pinterest a:before {
 	content: "";
-	color: white;
+	color: #acdce0;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1023,10 +1196,6 @@ form textarea[type="checkbox"]:checked + label:before {
 	font-weight: normal;
 	text-decoration: none;
 	text-transform: none;
-}
-
-footer {
-	text-align: center;
 }
 
 footer ul > li {
@@ -1038,7 +1207,7 @@ footer ul > li:nth-child(n+2):before {
 }
 
 footer ul > li a {
-	color: #ef8f7a;
+	color: #ffffff;
 }
 
 footer ul > li a:hover {
@@ -1119,7 +1288,17 @@ body {
 	margin-top: -170px;
 }
 
-.socials {
+.page_index section.section_home ul.list_modeuses li.modeuse {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+footer {
+	padding-bottom: 0;
+}
+
+footer .socials {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;

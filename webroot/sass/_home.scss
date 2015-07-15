@@ -173,4 +173,72 @@
         }
     }
 
+    // When logged in
+    section.section_home{
+        display: flex;
+        flex-direction: column;
+        .myDemandReminder{
+            flex-direction: column;
+            ul{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+                li{
+                    display: flex;
+                    align-items: flex-end;
+                    padding: 5px 10px;
+                    margin: 5px;
+                    background: $secondary;
+                    &:before{
+                        margin-right: 5px;
+                        @include noddifont($tag, $white, 1.5);
+                    }
+                }
+            }
+        }
+        ul.list_modeuses{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            li.modeuse{
+                min-width: 150px;
+                min-height: 150px;
+                max-width: 300px;
+                margin: 10px;
+                background: $lightGrey;
+                @media (min-width: $tablet) {
+                    flex:1;
+                }
+                img.modeusePic{
+                    width: 100%;
+                    background: $secondary;
+                }
+                .infoModeuse{
+                    .modeuseName{
+                        @extend .subtitleMini;
+                    }
+                    ul.modeuseStats{
+                        list-style: none;
+                        display: flex;
+                        li.stat{
+                            flex:1;
+                            text-align: center;
+                            &:before{position: absolute; margin-top: -15px;}
+                            &.facebook:before{ @include noddifont($facebook, $secondary, 2);}
+                            &.twitter:before{@include noddifont($twitter, $secondary, 2);}
+                            &.instagram:before{@include noddifont($instagram, $secondary, 2);}
+                        }
+
+                    }
+                    .add_favori:before{
+                        position: absolute;
+                        @include noddifont($fav, red, 2);
+                    }
+                }
+            }
+        }
+    }
+
 }

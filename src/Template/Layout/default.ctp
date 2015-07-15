@@ -113,18 +113,18 @@
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
 
-            <section class="socials">
-                <h3>rejoins vite notre réseau de noddiz :</h3>
-                <ul id="sectionSocial">
-                    <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
-                    <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
-                    <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
-                    <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
-                    <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
-                </ul>
-            </section>
 
             <footer>
+                <section class="socials">
+                    <h3 class="showLarge">rejoins vite notre réseau de noddiz :</h3>
+                    <ul id="sectionSocial">
+                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+                        <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+                        <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+                        <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+                        <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+                    </ul>
+                </section>
                 <ul>
                     <li><a href="#">Nous contacter</a></li>
                     <li><a href="#">Plan du site</a></li>

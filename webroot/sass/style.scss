@@ -30,6 +30,7 @@ a {
 ul{
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
 h1 {
@@ -153,7 +154,6 @@ form {
 
 .headerApp {
     display:flex;
-    min-height:40px;
     background:$lightGrey;
     margin:0;
     nav#navigation{

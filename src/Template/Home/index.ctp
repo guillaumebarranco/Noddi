@@ -18,63 +18,23 @@ if($session->read('user')) { ?>
 
 			<h2 class="h2_home">Les Noddiz</h2>
 
-			<div class="section_home section_les_noddiz">
-				<button class="button show_socials" >Réseaux sociaux</button>
-				<button class="button show_audience">Audience</button>
-
-				<ul class="list_modeuses">				
-				</ul>
-				<input type="hidden" value="<?=$session->read('brand_id')?>" class="get_brand_id">
-			</div>
-
-			<div class="section_home section_socials">
-
-				<button class="button show_socials" >Réseaux sociaux</button>
-				<button class="button show_audience">Audience</button>
-
-				<h3>Blog</h3>
-
-				<div class="socials_blog">
-					<button class="button" data-blog="yes">Oui</button>
-					<button class="button" data-blog="no">Non</button>
-					<button class="button blog_selected" data-blog="whatever">Peu importe</button>
+			<section class="section_home section_les_noddiz">
+				<div class="myDemandReminder showLarge">
+					<h3>Ma demande</h3>
+					<ul>
+						<li class="reminder style">Bohème</li>
+						<li class="reminder whatilike">Maquillage</li>
+						<li class="reminder myType">Sociable</li>
+						<li class="reminder whereilive">Paris</li>
+						<li class="reminder age">20</li>
+					</ul>
+					<div class="button">Modifier mes critères</div>
 				</div>
-				
-				<h3>Réseaux sociaux</h3>
-				<p>
-					Sélectionnez les réseaux sociaux sur lesquels vous souhaitez que la Noddiz soit présente
-				</p>
-
-				<ul class="socials_network">
-					<li class="button" data-network="facebook">Facebook</li>
-					<li class="button" data-network="twitter">Twitter</li>
-					<li class="button" data-network="instagram">Instagram</li>
-					<li class="button network_selected" data-network="all">TOUS</li>
+				<ul class="list_modeuses">	
 				</ul>
 
-				<button class="button filter_home">Filtrer</button>
-
-			</div>
-
-			<div class="section_home section_audience">
-
-				<button class="button show_socials" >Réseaux sociaux</button>
-				<button class="button show_audience">Audience</button>
-
-				<p>
-					Les totems représentant l'influence d'une modeuse sont calculés grâce à son nombre de followers global, le fait qu'elle ait ou non un blog et le nombre de réseaux sociaux sur lesquels elle est présente.
-				</p>
-
-				<ul class="socials_audience">
-					<li class="button" data-audience="beginner">Influençeuse débutante</li>
-					<li class="button" data-audience="medium">Influençeuse intermédiaire</li>
-					<li class="button" data-audience="expert">Influençeuse experte</li>
-					<li class="button audience_selected" data-audience="all">TOUS</li>
-				</ul>
-
-				<button class="button filter_home">Filtrer</button>
-
-			</div>
+				<input type="hidden" value="<?=$session->read('brand_id')?>" class="get_brand_id">
+			</section>
 
 		<?php } ?>
 		

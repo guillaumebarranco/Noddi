@@ -13,11 +13,19 @@ $(document).ready(function() {
 			for(modeuse in _this.response.modeuses) {
 
 				var new_li = 
-					'<li>'+
+					'<li class="modeuse">'+
 						'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
-							'<img src="'+_this.response.modeuses[modeuse].user.picture+'" width="150"/>'+
+							'<img class="modeusePic" src="'+_this.response.modeuses[modeuse].user.picture+'" />'+
 						'</a>' +
-						'<button class="button add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'">Add Favori</button>'+
+						'<div class="infoModeuse">' +
+						'<p class="modeuseName">NONO J.</p>' +
+						'<ul class="modeuseStats">' +
+							'<li class="stat facebook">222</li>' +
+							'<li class="stat twitter">124</li>' +
+							'<li class="stat instagram">541</li>' +
+						'</ul>' +
+						'<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>'+
+						'</div>' +
 					'</li>'
 				;
 
@@ -34,86 +42,86 @@ $(document).ready(function() {
 		getModeuses(data_search);		
 	}
 
-	$('.section_home').hide();
-	$('.section_les_noddiz').show();
+	// $('.section_home').hide();
+	// $('.section_les_noddiz').show();
 
-	$('.show_socials').on('click', function() {
-		$('.section_home').hide();
-		$('.section_socials').show();
-		$('.show_socials').addClass('section_selected');
-		$('.h2_home').text("Filtres");
-	});
+	// $('.show_socials').on('click', function() {
+	// 	$('.section_home').hide();
+	// 	$('.section_socials').show();
+	// 	$('.show_socials').addClass('section_selected');
+	// 	$('.h2_home').text("Filtres");
+	// });
 
-	$('.show_audience').on('click', function() {
-		$('.section_home').hide();
-		$('.section_audience').show();
-		$('.show_audience').addClass('section_selected');
-		$('.h2_home').text("Filtres");
-	});
+	// $('.show_audience').on('click', function() {
+	// 	$('.section_home').hide();
+	// 	$('.section_audience').show();
+	// 	$('.show_audience').addClass('section_selected');
+	// 	$('.h2_home').text("Filtres");
+	// });
 
-	$('.socials_blog button').on('click', function() {
-		$('.socials_blog button').removeClass('blog_selected');
-		$(this).addClass('blog_selected');
-	});
+	// $('.socials_blog button').on('click', function() {
+	// 	$('.socials_blog button').removeClass('blog_selected');
+	// 	$(this).addClass('blog_selected');
+	// });
 
-	$('.socials_network .button').on('click', function() {
+	// $('.socials_network .button').on('click', function() {
 
-		if($(this).hasClass('network_selected')) {
-			$(this).removeClass('network_selected');
+	// 	if($(this).hasClass('network_selected')) {
+	// 		$(this).removeClass('network_selected');
 
-		} else {
+	// 	} else {
 
-			if($(this).attr('data-network') === 'all') {
-				$('.socials_network .button').removeClass('network_selected');
-				$(this).addClass('network_selected');
-			} else {
-				$('.socials_network .button[data-network=all]').removeClass('network_selected');
-				$(this).addClass('network_selected');
-			}
-		}
-	});
+	// 		if($(this).attr('data-network') === 'all') {
+	// 			$('.socials_network .button').removeClass('network_selected');
+	// 			$(this).addClass('network_selected');
+	// 		} else {
+	// 			$('.socials_network .button[data-network=all]').removeClass('network_selected');
+	// 			$(this).addClass('network_selected');
+	// 		}
+	// 	}
+	// });
 
-	$('.socials_audience .button').on('click', function() {
+	// $('.socials_audience .button').on('click', function() {
 
-		if($(this).hasClass('audience_selected')) {
-			$(this).removeClass('audience_selected');
+	// 	if($(this).hasClass('audience_selected')) {
+	// 		$(this).removeClass('audience_selected');
 
-		} else {
+	// 	} else {
 
-			if($(this).attr('data-network') === 'all') {
-				$('.socials_audience .button').removeClass('audience_selected');
-				$(this).addClass('audience_selected');
-			} else {
-				$('.socials_audience .button[data-network=all]').removeClass('audience_selected');
-				$(this).addClass('audience_selected');
-			}
-		}
-	});
+	// 		if($(this).attr('data-network') === 'all') {
+	// 			$('.socials_audience .button').removeClass('audience_selected');
+	// 			$(this).addClass('audience_selected');
+	// 		} else {
+	// 			$('.socials_audience .button[data-network=all]').removeClass('audience_selected');
+	// 			$(this).addClass('audience_selected');
+	// 		}
+	// 	}
+	// });
 
-	$('.filter_home').on('click', function() {
+	// $('.filter_home').on('click', function() {
 
-		data_search = {};
-		data_search.blog = $('.socials_blog .blog_selected').attr('data-blog');
+	// 	data_search = {};
+	// 	data_search.blog = $('.socials_blog .blog_selected').attr('data-blog');
 
-		data_search.socials = {};
-		data_search.audience = {};
+	// 	data_search.socials = {};
+	// 	data_search.audience = {};
 
-		var i = 0;
-		$('.network_selected').each(function() {
-			data_search.socials[i] = $(this).attr('data-network');
-			i++;
-		});
+	// 	var i = 0;
+	// 	$('.network_selected').each(function() {
+	// 		data_search.socials[i] = $(this).attr('data-network');
+	// 		i++;
+	// 	});
 
-		var j = 0;
-		$('.audience_selected').each(function() {
-			data_search.audience[j] = $(this).attr('data-audience');
-			j++;
-		});
+	// 	var j = 0;
+	// 	$('.audience_selected').each(function() {
+	// 		data_search.audience[j] = $(this).attr('data-audience');
+	// 		j++;
+	// 	});
 
-		console.log(data_search);
+	// 	console.log(data_search);
 
-		getModeuses(data_search);
-	});
+	// 	getModeuses(data_search);
+	// });
 
 	/*
 	*	PAGE MODEUSE
