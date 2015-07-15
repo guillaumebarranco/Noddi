@@ -59,6 +59,10 @@
 			<li>
 				<a href="#" data-section="offers">Offres</a>
 			</li>
+
+			<li>
+				<?= $this->Html->link(__('Déconnexion'), ['controller' => 'Users', 'action' => 'disconnect'], ['class' => 'disconnect']) ?>
+			</li>
 		</ul>
 	<?php }
 ?>
