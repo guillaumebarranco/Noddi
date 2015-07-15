@@ -1,4 +1,4 @@
-<ul>
+<ul class="all_favoris">
     <?php foreach ($favoris as $key => $favori) { 
         ?>
         <li>

@@ -1,6 +1,25 @@
 $(document).ready(function() {
 
 	/*
+	*	MENU
+	*/
+
+
+	if($('.page_index').length != 0) {
+		$('.menu li.home').addClass('active');
+	} else if($('.proposition').length != 0) {
+		$('.menu li.dashboard').addClass('active');
+	} else if($('.all_favoris').length != 0) {
+		$('.menu li.favs').addClass('active');
+	} else if($('.all_messages').length != 0) {
+		$('.menu li.messages').addClass('active');
+	} else if($('.page_offers').length != 0) {
+		$('.menu li.propositions').addClass('active');
+	} else if($('.menu_profil').length != 0) {
+		$('.menu li.profil').addClass('active');
+	}
+
+	/*
 	*	HOME
 	*/
 

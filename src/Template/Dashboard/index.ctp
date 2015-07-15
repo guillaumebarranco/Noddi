@@ -5,7 +5,7 @@
 <div class="proposition">
 	<h2>Ma Proposition</h2>
 	<div class="proposition_picture">
-		<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="150" alt="" />
+		<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="100" alt="" />
 	</div>
 
 	<div class="proposition_content">
@@ -13,28 +13,38 @@
 		<p>
 			Don
 		</p>
+	</div>
 
+	<div class="proposition_buttons">
 		<button class="button">Editer</button>
 		<button class="button">Supprimer</button>
 	</div>
+
 </div>
 
-<div class="proposition_sent">
-	<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="150" alt="" />
-	<div>Demande envoyée à Anna G.</div>
-	<div>EN ATTENTE</div>
+<div class="center">
+	<div class="proposition_sent">
+		<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="150" alt="" />
+		<div>Demande envoyée à Anna G.</div>
+		<div>EN ATTENTE</div>
+	</div>
+
+	<div class="proposition_sent">
+		<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="150" alt="" />
+		<div>Demande envoyée à Anna G.</div>
+		<div>EN ATTENTE</div>
+	</div>
 </div>
 
-<div class="proposition_sent">
-	<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="150" alt="" />
-	<div>Demande envoyée à Anna G.</div>
-	<div>EN ATTENTE</div>
-</div>
 
 <div class="proposition_received">
-	<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="100" alt="">
-	<button class="button">Accepter</button>
-	<button class="button">Supprimer</button>
+	<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="50" alt="">
+	
+	<div class="buttons">
+		<button class="button">Accepter</button>
+		<button class="button">Supprimer</button>
+	</div>
+	
 </div>
 
-<button class="button">Continuer la recherche de Noddiz</button>
+<?= $this->Html->link(__('Continuer la recherche de Noddiz'), ['controller' => 'Home', 'action' => 'index'], ['class' => 'button']) ?>
