@@ -164,6 +164,8 @@ class UsersController extends AppController
             // On vérifie qu'il n'existe pas déjà un user avec le même username
             if(!$check_user) {
 
+                $check = $this->Jsonification();
+
                 $user = $this->Users->patchEntity($user, $data);
 
                 $data['password'] = Security::hash($data['password'], 'sha1', true);
@@ -197,6 +199,21 @@ class UsersController extends AppController
                     $data['offers_attempted'] = 0;
                     $data['offers_accepted'] = 0;
 
+                    $tabs_implode = array();
+                    $tabs_implode[] = "lifestyle";
+                    $tabs_implode[] = "personnality";
+                    $tabs_implode[] = "hobbies";
+                    $tabs_implode[] = "socialPresence";
+
+                    for ($i=0; $i < count($tabs_implode); $i++) { 
+                        $data[$tabs_implode[$i]] = implode(",", $data[$tabs_implode[$i]]);
+                        str_replace("_", " ", $data[$tabs_implode[$i]]);
+                    }
+
+
+                    // var_dump($data);
+                    // die;
+
                     $modeuse = $this->Modeuses->newEntity();
                     $modeuse = $this->Modeuses->patchEntity($modeuse, $data);
 
@@ -211,16 +228,16 @@ class UsersController extends AppController
 
                     $session->write('modeuse_id', $modeuse_id);
                     $session->write('type', $data['type']);
+
+                    $check = 'OK';
+
+                    echo $this->getResponse($check);
                 }
 
             } else {
                 $this->Flash->error(__('Cet username a déjà été pris.'));
                 return $this->redirect(['action' => 'sign_in']);
             }
-
-            return $this->redirect(
-                ['controller' => 'Profil', 'action' => 'index']
-            );
         }
     }
 

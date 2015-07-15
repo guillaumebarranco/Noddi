@@ -72,8 +72,7 @@ class ModeusesTable extends Table
             
         $validator
             ->add('facebook_followers', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('facebook_followers', 'create')
-            ->notEmpty('facebook_followers');
+            ->allowEmpty('facebook_followers');
             
         $validator
             ->add('noddi_rank', 'valid', ['rule' => 'numeric'])
