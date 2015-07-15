@@ -152,7 +152,7 @@ form {
     width: 100%;
 }
 
-.headerApp {   // MENU
+.headerApp {
     display:flex;
     background:$lightGrey;
     margin:0;
@@ -179,7 +179,7 @@ form {
                 justify-content: center;
                 flex-direction: column;
                 flex:1;
-                background: $secondary;
+                background: $lightGrey;
                 color: $white;
                 padding: 10px 0;
                 @media (min-width: $tablet) {
@@ -249,10 +249,62 @@ header.headerPage{
     }
 }
 
+
+.proposition {
+    border: solid 1px black;
+    padding: 10px;
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+
+    .proposition_picture, .proposition_content, .proposition_buttons {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+.center {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.proposition_sent {
+    width: 150px;
+    display: inline-block;
+    border: solid 1px black;
+    padding: 10px;
+
+    div {
+        display: inline-block;
+        vertical-align: top;
+        width: 70px;
+    }
+}
+
+.proposition_received {
+    border: solid 1px black;
+    padding: 10px;
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+
+    .buttons {
+        .button {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+
+
+
+
+
+
+
 @import '_home';
 @import '_login';
 @import '_footer';
 @import '_profile';
-
-
-

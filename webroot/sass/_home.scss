@@ -201,7 +201,7 @@
                 }
             }
         }
-        ul.list_modeuses{
+        ul.list_modeuses, ul.all_favoris {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -236,7 +236,7 @@
                         }
 
                     }
-                    .add_favori:before{
+                    .add_favori:before, .delete_favori:before{
                         position: absolute;
                         @include noddifont($fav, red, 2);
                     }

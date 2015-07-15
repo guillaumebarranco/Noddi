@@ -1,3 +1,5 @@
+<div class="page_offers"></div>
+
 <?php if($this->request->session()->read('type') == 'brand') { ?>
     <button class="buttons_offers button get_current_offer">Offre en cours</button>
     <button class="buttons_offers button get_finished_offers">Offres terminées</button>

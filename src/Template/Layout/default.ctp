@@ -60,7 +60,7 @@
                             if($this->request->session()->read('type') == 'modeuse') { ?>
 
                                 <!-- Menu Modeuse -->
-                                <li class="messages">
+                                <li class="propositions">
                                     <?= $this->Html->link(__("Propositions"), ['controller' => 'Offers', 'action' => 'index']) ?>
                                 </li>
 
@@ -68,7 +68,7 @@
                                     <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
                                 </li>
 
-                                <li class="home active">
+                                <li class="profil">
                                     <?= $this->Html->link(__("Mon Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
                                 </li>
 
@@ -77,7 +77,7 @@
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
                                 <!-- Menu Marque -->
 
-                                <li class="home active">
+                                <li class="dashboard">
                                     <?= $this->Html->link(__("Dashboard"), ['controller' => 'Dashboard', 'action' => 'index']) ?>
                                 </li>
 
@@ -93,7 +93,7 @@
                                     <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
                                 </li>
 
-                                <li class="offers">
+                                <li class="profil">
                                     <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
                                 </li>
                                 

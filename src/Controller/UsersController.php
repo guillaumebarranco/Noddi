@@ -235,6 +235,10 @@ class UsersController extends AppController
         }
     }
 
+    /*
+    *   INSCRIPTION BRAND
+    */
+
     public function sign_in_brand() {
 
         $user = $this->Users->newEntity();
@@ -247,17 +251,12 @@ class UsersController extends AppController
             // On vérifie qu'il n'existe pas déjà un user avec le même username
             if(!$check_user) {
 
-                $data['id_facebook'] = '';
+                // On prépare l'insertion du User en BDD
 
+                $data['id_facebook'] = '';
                 $data['password'] = Security::hash($data['password'], 'sha1', true);
 
-                // var_dump($data);
-                // die;
-
                 $user = $this->Users->patchEntity($user, $data);
-
-                // var_dump($user->beforeSave());
-                // die;
 
                 if($this->Users->save($user)) {
 
@@ -287,7 +286,7 @@ class UsersController extends AppController
 
                     $brand = $this->Brands->newEntity();
 
-                    $brand = $this->Users->patchEntity($brand, $data);
+                    $brand = $this->Brands->patchEntity($brand, $data);
 
                     if (!$this->Brands->save($brand)) {
                         $this->Flash->error(__('The brand could not be saved. Please, try again.'));
@@ -297,7 +296,6 @@ class UsersController extends AppController
 
                     $session->write('brand_id', $brand_id);
                     $session->write('type', $data['type']);
-                
                 }
 
             } else {
@@ -339,6 +337,10 @@ class UsersController extends AppController
     public function sendMail($email = null, $message = null) {
 
     }
+
+    /*
+    *   FONCTION POUR RECUPERER LES MODEUSES SUR LA PAGE NODDIZ
+    */
 
     public function getModeuses() {
 
