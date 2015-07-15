@@ -23,6 +23,7 @@ class MessagesTableTest extends TestCase
         'app.modeuses',
         'app.activities',
         'app.offers',
+        'app.types',
         'app.favoris'
     ];
 

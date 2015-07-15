@@ -8,16 +8,10 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\PostsTable $Posts
  */
-class PostsController extends AppController
-{
+class PostsController extends AppController {
 
-    /**
-     * Index method
-     *
-     * @return void
-     */
-    public function index()
-    {
+    public function index() {
+        
         $this->paginate = [
             'contain' => ['Modeuses']
         ];
@@ -25,15 +19,8 @@ class PostsController extends AppController
         $this->set('_serialize', ['posts']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Post id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
+    public function view($id = null) {
+
         $post = $this->Posts->get($id, [
             'contain' => ['Modeuses']
         ]);

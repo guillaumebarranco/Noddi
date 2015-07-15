@@ -1,6 +1,25 @@
 $(document).ready(function() {
 
 	/*
+	*	MENU
+	*/
+
+
+	if($('.page_index').length != 0) {
+		$('.menu li.home').addClass('active');
+	} else if($('.proposition').length != 0) {
+		$('.menu li.dashboard').addClass('active');
+	} else if($('.all_favoris').length != 0) {
+		$('.menu li.favs').addClass('active');
+	} else if($('.all_messages').length != 0) {
+		$('.menu li.messages').addClass('active');
+	} else if($('.page_offers').length != 0) {
+		$('.menu li.propositions').addClass('active');
+	} else if($('.menu_profil').length != 0) {
+		$('.menu li.profil').addClass('active');
+	}
+
+	/*
 	*	HOME
 	*/
 
@@ -13,11 +32,19 @@ $(document).ready(function() {
 			for(modeuse in _this.response.modeuses) {
 
 				var new_li = 
-					'<li>'+
+					'<li class="modeuse">'+
 						'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
-							'<img src="'+_this.response.modeuses[modeuse].user.picture+'" width="150"/>'+
+							'<img class="modeusePic" src="'+_this.response.modeuses[modeuse].user.picture+'" />'+
 						'</a>' +
-						'<button class="button add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'">Add Favori</button>'+
+						'<div class="infoModeuse">' +
+						'<p class="modeuseName">NONO J.</p>' +
+						'<ul class="modeuseStats">' +
+							'<li class="stat facebook">222</li>' +
+							'<li class="stat twitter">124</li>' +
+							'<li class="stat instagram">541</li>' +
+						'</ul>' +
+						'<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>'+
+						'</div>' +
 					'</li>'
 				;
 
@@ -34,86 +61,86 @@ $(document).ready(function() {
 		getModeuses(data_search);		
 	}
 
-	$('.section_home').hide();
-	$('.section_les_noddiz').show();
+	// $('.section_home').hide();
+	// $('.section_les_noddiz').show();
 
-	$('.show_socials').on('click', function() {
-		$('.section_home').hide();
-		$('.section_socials').show();
-		$('.show_socials').addClass('section_selected');
-		$('.h2_home').text("Filtres");
-	});
+	// $('.show_socials').on('click', function() {
+	// 	$('.section_home').hide();
+	// 	$('.section_socials').show();
+	// 	$('.show_socials').addClass('section_selected');
+	// 	$('.h2_home').text("Filtres");
+	// });
 
-	$('.show_audience').on('click', function() {
-		$('.section_home').hide();
-		$('.section_audience').show();
-		$('.show_audience').addClass('section_selected');
-		$('.h2_home').text("Filtres");
-	});
+	// $('.show_audience').on('click', function() {
+	// 	$('.section_home').hide();
+	// 	$('.section_audience').show();
+	// 	$('.show_audience').addClass('section_selected');
+	// 	$('.h2_home').text("Filtres");
+	// });
 
-	$('.socials_blog button').on('click', function() {
-		$('.socials_blog button').removeClass('blog_selected');
-		$(this).addClass('blog_selected');
-	});
+	// $('.socials_blog button').on('click', function() {
+	// 	$('.socials_blog button').removeClass('blog_selected');
+	// 	$(this).addClass('blog_selected');
+	// });
 
-	$('.socials_network .button').on('click', function() {
+	// $('.socials_network .button').on('click', function() {
 
-		if($(this).hasClass('network_selected')) {
-			$(this).removeClass('network_selected');
+	// 	if($(this).hasClass('network_selected')) {
+	// 		$(this).removeClass('network_selected');
 
-		} else {
+	// 	} else {
 
-			if($(this).attr('data-network') === 'all') {
-				$('.socials_network .button').removeClass('network_selected');
-				$(this).addClass('network_selected');
-			} else {
-				$('.socials_network .button[data-network=all]').removeClass('network_selected');
-				$(this).addClass('network_selected');
-			}
-		}
-	});
+	// 		if($(this).attr('data-network') === 'all') {
+	// 			$('.socials_network .button').removeClass('network_selected');
+	// 			$(this).addClass('network_selected');
+	// 		} else {
+	// 			$('.socials_network .button[data-network=all]').removeClass('network_selected');
+	// 			$(this).addClass('network_selected');
+	// 		}
+	// 	}
+	// });
 
-	$('.socials_audience .button').on('click', function() {
+	// $('.socials_audience .button').on('click', function() {
 
-		if($(this).hasClass('audience_selected')) {
-			$(this).removeClass('audience_selected');
+	// 	if($(this).hasClass('audience_selected')) {
+	// 		$(this).removeClass('audience_selected');
 
-		} else {
+	// 	} else {
 
-			if($(this).attr('data-network') === 'all') {
-				$('.socials_audience .button').removeClass('audience_selected');
-				$(this).addClass('audience_selected');
-			} else {
-				$('.socials_audience .button[data-network=all]').removeClass('audience_selected');
-				$(this).addClass('audience_selected');
-			}
-		}
-	});
+	// 		if($(this).attr('data-network') === 'all') {
+	// 			$('.socials_audience .button').removeClass('audience_selected');
+	// 			$(this).addClass('audience_selected');
+	// 		} else {
+	// 			$('.socials_audience .button[data-network=all]').removeClass('audience_selected');
+	// 			$(this).addClass('audience_selected');
+	// 		}
+	// 	}
+	// });
 
-	$('.filter_home').on('click', function() {
+	// $('.filter_home').on('click', function() {
 
-		data_search = {};
-		data_search.blog = $('.socials_blog .blog_selected').attr('data-blog');
+	// 	data_search = {};
+	// 	data_search.blog = $('.socials_blog .blog_selected').attr('data-blog');
 
-		data_search.socials = {};
-		data_search.audience = {};
+	// 	data_search.socials = {};
+	// 	data_search.audience = {};
 
-		var i = 0;
-		$('.network_selected').each(function() {
-			data_search.socials[i] = $(this).attr('data-network');
-			i++;
-		});
+	// 	var i = 0;
+	// 	$('.network_selected').each(function() {
+	// 		data_search.socials[i] = $(this).attr('data-network');
+	// 		i++;
+	// 	});
 
-		var j = 0;
-		$('.audience_selected').each(function() {
-			data_search.audience[j] = $(this).attr('data-audience');
-			j++;
-		});
+	// 	var j = 0;
+	// 	$('.audience_selected').each(function() {
+	// 		data_search.audience[j] = $(this).attr('data-audience');
+	// 		j++;
+	// 	});
 
-		console.log(data_search);
+	// 	console.log(data_search);
 
-		getModeuses(data_search);
-	});
+	// 	getModeuses(data_search);
+	// });
 
 	/*
 	*	PAGE MODEUSE
@@ -146,13 +173,15 @@ $(document).ready(function() {
 	*/
 
 	$('.profile_section').hide();
-	$('.profile').show();
 
 	$('.menu_profil li a').on('click', function(e) {
-		e.preventDefault();
 
-		$('.profile_section').hide();
-		$('.'+$(this).attr('data-section')).show();
+		if(!$(this).hasClass('disconnect')) {
+			e.preventDefault();
+			$('.profile_section').hide();
+			$('.'+$(this).attr('data-section')).show();
+		}
+		
 	});
 
 	$('.update_profil form').on('submit', function(e) {
@@ -200,7 +229,67 @@ $(document).ready(function() {
 		var that = $(this);
 		
 		makeAjax('POST', "favoris/delete/"+favori_id, favori_id, function() {
-			that.parent().remove();
+			that.parents('li').remove();
+		});
+	});
+
+
+	/*
+	*	MESSAGES
+	*/
+
+	$('.answer_message').hide();
+
+	$('.answerMessage').on('click', function() {
+
+		var parent = $(this).parent();
+		
+		if($('input[name=viewed]').length != 0) {
+
+			var data_message = {};
+
+			data_message.message_id = $('input[name=viewed]').val();
+
+			makeAjax('POST', "messages/updateView/", data_message, function() {
+
+				$('.all_messages').hide();
+
+				$('.answer_message .answer_name').text(parent.find('.message_sender').text());
+				$('.answer_message .answer_content').text(parent.find('.message_content').text());
+				$('.answer_message .answer_time').text(parent.find('.message_time').text());
+
+				$('.answer_message').show();
+			});
+		} else {
+			$('.all_messages').hide();
+
+			$('.answer_message .answer_name').text(parent.find('.message_sender').text());
+			$('.answer_message .answer_time').text(parent.find('.message_time').text());
+
+			$('.answer_message').show();
+		}
+	});
+
+	$('.sendMessage').on('click', function() {
+
+		data = {};
+		data.brand_id = $('input[name=brand_id]').val();
+		data.modeuse_id = $('input[name=modeuse_id]').val();
+		data.content = $('textarea').val();
+		data.from_who = 'brand';
+		data.viewed = 0;
+
+		makeAjax('POST', "messages/add", data, function() {
+
+			var data_message = {};
+			data_message.message_id = $('input[name=viewed]').val();
+			
+			makeAjax('POST', "messages/updateAnswer/", data_message, function() {
+				swal({
+					type: "success",
+					title: 'success'
+				});
+			});
 		});
 	});
 });	

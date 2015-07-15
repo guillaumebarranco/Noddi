@@ -30,6 +30,7 @@ a {
 ul{
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
 h1 {
@@ -153,7 +154,6 @@ form {
 
 .headerApp {
     display:flex;
-    min-height:40px;
     background:$lightGrey;
     margin:0;
     nav#navigation{
@@ -223,11 +223,112 @@ form {
     // height: 100%;
 }
 
+header.headerPage{
+    display: flex;
+    flex-direction: row-reverse;
+    h2.titlePage{
+        flex:7;
+        background: $secondary;
+        text-align: center;
+        padding: 5px 0;
+        margin: 0;
+        color: $white;
+        @media (min-width: $tablet) {
+            color: $black;
+            background: none;
+
+        }
+    }
+    .previousStepMenu{
+        @include hide-text();
+        &:before{
+        content: ' < ';
+        @include show-text();
+        flex:1;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
+*   PROPOSITIONS
+*/
+
+.proposition {
+    border: solid 1px black;
+    padding: 10px;
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+
+    .proposition_picture, .proposition_content, .proposition_buttons {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+.center {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.proposition_sent {
+    width: 150px;
+    display: inline-block;
+    border: solid 1px black;
+    padding: 10px;
+
+    div {
+        display: inline-block;
+        vertical-align: top;
+        width: 70px;
+    }
+}
+
+.proposition_received {
+    border: solid 1px black;
+    padding: 10px;
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+
+    .buttons {
+        .button {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+/*
+*   MESSAGES
+*/
+
+.message {
+    width: 300px;
+    margin: 0 auto;
+    border: solid 1px black;
+    padding: 10px;
+
+    .message_sender, .message_time {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+
+
 
 
 @import '_home';
 @import '_login';
 @import '_footer';
-
-
-
+@import '_profile';

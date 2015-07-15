@@ -195,7 +195,7 @@
 				<p>Choisis deux styles vestimentaires que tu portes au quotidien:</p>
 				<div class="checklist">
 				<?php  foreach ($tab_lifestyle as $lifestyle) {  
-					echo"<input type=\"checkbox\" name=".$lifestyle['value']." id=".$lifestyle['value']." value=".$lifestyle['value'].">
+					echo"<input type=\"checkbox\" name='styleWear' id=".$lifestyle['value']." value=".$lifestyle['value'].">
 					<label for=".$lifestyle['value']." class=\"showLabel\">
 						".$lifestyle['name']."
 					</label>";
@@ -203,8 +203,7 @@
 
 				</div>
 
-				<textarea name="myDescription" id="description" placehoder="Votre description"></textarea>
-				<p>Photo profil TODO</p>
+				<textarea name="myDescription" id="description" placeholder="Votre description"></textarea>
 				
 				<a class="button get_form_brand_four">Etape Suivante</a>
 			</div>
@@ -235,7 +234,7 @@
 				<p>Sélectionne les réseaux sociaux sur lesquels tu es présente:</p>
 				<div class="checklist">
 					<?php  foreach ($tab_socials as $socials) {  
-						echo"<input type=\"checkbox\" name=".$socials['value']." id=".$socials['value']." value=".$socials['value'].">
+						echo"<input type=\"checkbox\" name='social_presence' id=".$socials['value']." value=".$socials['value'].">
 						<label for=".$socials['value']." class=\"showLabel\">
 							".$socials['name']."
 						</label>";

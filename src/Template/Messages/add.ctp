@@ -16,6 +16,8 @@
             echo $this->Form->input('brand_id', ['options' => $brands]);
             echo $this->Form->input('modeuse_id', ['options' => $modeuses]);
             echo $this->Form->input('content');
+            echo $this->Form->input('from');
+            echo $this->Form->input('viewed');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

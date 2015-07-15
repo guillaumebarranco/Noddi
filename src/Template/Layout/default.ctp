@@ -60,30 +60,29 @@
                             if($this->request->session()->read('type') == 'modeuse') { ?>
 
                                 <!-- Menu Modeuse -->
-                                <li>
-                                    <?= $this->Html->link(__("Accueil"), ['controller' => 'Home', 'action' => 'index'], ['class' => 'home']) ?>
+                                <li class="propositions">
+                                    <?= $this->Html->link(__("Propositions"), ['controller' => 'Offers', 'action' => 'index']) ?>
                                 </li>
 
-                                <li>
-                                    <?= $this->Html->link(__("Mes Offres"), ['controller' => 'Offers', 'action' => 'index'], ['class' => 'offers']) ?>
+                                <li class="messages">
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
                                 </li>
 
-                                <li>
-                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Home', 'action' => 'index'], ['class' => 'messages']) ?>
+                                <li class="profil">
+                                    <?= $this->Html->link(__("Mon Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
                                 </li>
-                                
-                                
+
                                 
 
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
                                 <!-- Menu Marque -->
 
-                                <li class="home active">
-                                    <?= $this->Html->link(__("Accueil"), ['controller' => 'Home', 'action' => 'index']) ?>
+                                <li class="dashboard">
+                                    <?= $this->Html->link(__("Dashboard"), ['controller' => 'Dashboard', 'action' => 'index']) ?>
                                 </li>
 
-                                <li class="offers">
-                                    <?= $this->Html->link(__("Mes Offres"), ['controller' => 'Offers', 'action' => 'index']) ?>
+                                <li class="home">
+                                    <?= $this->Html->link(__("Noddiz"), ['controller' => 'Home', 'action' => 'index']) ?>
                                 </li>
 
                                 <li class="favs">
@@ -91,8 +90,12 @@
                                 </li>
 
                                 <li class="messages">
-                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Home', 'action' => 'index']) ?>
-                                </li>                          
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
+                                </li>
+
+                                <li class="profil">
+                                    <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
+                                </li>
                                 
                             <?php } ?>
                         
@@ -112,18 +115,18 @@
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
 
-            <section class="socials">
-                <h3>rejoins vite notre réseau de noddiz :</h3>
-                <ul id="sectionSocial">
-                    <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
-                    <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
-                    <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
-                    <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
-                    <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
-                </ul>
-            </section>
 
             <footer>
+                <section class="socials">
+                    <h3 class="showLarge">rejoins vite notre réseau de noddiz :</h3>
+                    <ul id="sectionSocial">
+                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+                        <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+                        <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+                        <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+                        <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+                    </ul>
+                </section>
                 <ul>
                     <li><a href="#">Nous contacter</a></li>
                     <li><a href="#">Plan du site</a></li>

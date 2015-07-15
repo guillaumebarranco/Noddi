@@ -22,6 +22,7 @@ class MessagesControllerTest extends IntegrationTestCase
         'app.modeuses',
         'app.activities',
         'app.offers',
+        'app.types',
         'app.favoris'
     ];
 
@@ -56,21 +57,21 @@ class MessagesControllerTest extends IntegrationTestCase
     }
 
     /**
-     * Test edit method
-     *
-     * @return void
-     */
-    public function testEdit()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
      * Test delete method
      *
      * @return void
      */
     public function testDelete()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test updateView method
+     *
+     * @return void
+     */
+    public function testUpdateView()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -37,6 +37,7 @@ class Modeus extends Entity
         'brandExperience' => true,
         'socialPresence' => true,
         'fb_token' => true,
+        'boost' => true,
         'user' => true,
     ];
 }

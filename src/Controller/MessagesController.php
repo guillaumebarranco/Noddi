@@ -8,32 +8,34 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\MessagesTable $Messages
  */
-class MessagesController extends AppController
-{
+class MessagesController extends AppController {
 
-    /**
-     * Index method
-     *
-     * @return void
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Brands', 'Modeuses']
-        ];
-        $this->set('messages', $this->paginate($this->Messages));
+
+
+    /*
+    *   On affiche les Messages en fonction de l'utilisateur connecté
+    */
+    public function index() {
+
+        $session = $this->request->session();
+
+        if($session->read('type') === 'brand') {
+            $messages = $this->Messages->find('all')->where(['brand_id' => $session->read('brand_id')])->contain(['Brands', 'Modeuses']);
+        } else {
+            $messages = $this->Messages->find('all')->where(['modeuse_id' => $session->read('modeuse_id')])->contain(['Brands', 'Modeuses']);
+        }
+        
+        $this->set('messages', $messages);
         $this->set('_serialize', ['messages']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Message id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
+
+
+
+
+
+
+    public function view($id = null) {
         $message = $this->Messages->get($id, [
             'contain' => ['Brands', 'Modeuses']
         ]);
@@ -48,47 +50,21 @@ class MessagesController extends AppController
      */
     public function add()
     {
+        $check = $this->Jsonification();
         $message = $this->Messages->newEntity();
-        if ($this->request->is('post')) {
-            $message = $this->Messages->patchEntity($message, $this->request->data);
-            if ($this->Messages->save($message)) {
-                $this->Flash->success(__('The message has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The message could not be saved. Please, try again.'));
-            }
-        }
-        $brands = $this->Messages->Brands->find('list', ['limit' => 200]);
-        $modeuses = $this->Messages->Modeuses->find('list', ['limit' => 200]);
-        $this->set(compact('message', 'brands', 'modeuses'));
-        $this->set('_serialize', ['message']);
-    }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Message id.
-     * @return void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $message = $this->Messages->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        if ($this->request->is('post')) {
+
             $message = $this->Messages->patchEntity($message, $this->request->data);
+
             if ($this->Messages->save($message)) {
-                $this->Flash->success(__('The message has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                $check = 'OK';
             } else {
                 $this->Flash->error(__('The message could not be saved. Please, try again.'));
             }
         }
-        $brands = $this->Messages->Brands->find('list', ['limit' => 200]);
-        $modeuses = $this->Messages->Modeuses->find('list', ['limit' => 200]);
-        $this->set(compact('message', 'brands', 'modeuses'));
-        $this->set('_serialize', ['message']);
+
+        echo $this->getResponse($check);
     }
 
     /**
@@ -108,5 +84,29 @@ class MessagesController extends AppController
             $this->Flash->error(__('The message could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function updateView() {
+        $check = $this->Jsonification();
+
+        $message = $this->Messages->get($this->request->data['message_id']);
+        $message->viewed = 1;
+        if($this->Messages->save($message)) {
+            $check = 'OK';
+        }
+
+        echo $this->getResponse($check);
+    }
+
+    public function updateAnswer() {
+        $check = $this->Jsonification();
+
+        $message = $this->Messages->get($this->request->data['message_id']);
+        $message->answered = 1;
+        if($this->Messages->save($message)) {
+            $check = 'OK';
+        }
+
+        echo $this->getResponse($check);
     }
 }

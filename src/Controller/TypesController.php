@@ -8,16 +8,9 @@ use App\Controller\AppController;
  *
  * @property \App\Model\Table\TypesTable $Types
  */
-class TypesController extends AppController
-{
+class TypesController extends AppController {
 
-    /**
-     * Index method
-     *
-     * @return void
-     */
-    public function index()
-    {
+    public function index() {
         $this->set('types', $this->paginate($this->Types));
         $this->set('_serialize', ['types']);
     }
