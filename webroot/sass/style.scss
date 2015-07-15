@@ -229,6 +229,17 @@ form {
 @import '_footer';
 
 
+
+
+
+
+
+
+
+/*
+*   PROPOSITIONS
+*/
+
 .proposition {
     border: solid 1px black;
     padding: 10px;
@@ -273,5 +284,21 @@ form {
             display: inline-block;
             vertical-align: top;
         }
+    }
+}
+
+/*
+*   MESSAGES
+*/
+
+.message {
+    width: 300px;
+    margin: 0 auto;
+    border: solid 1px black;
+    padding: 10px;
+
+    .message_sender, .message_time {
+        display: inline-block;
+        vertical-align: top;
     }
 }

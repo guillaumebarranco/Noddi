@@ -17,7 +17,7 @@
 						<ul class="modeuseStats">
 							<li class="stat facebook"><?=$favori->modeus->facebook_followers?></li>
 							<li class="stat twitter"><?=$favori->modeus->twitter_followers?></li>
-							<li class="stat instagram"><?=$favori->modeus->instagram_followers?></li>
+							<li class="stat instagram"><?=$favori->modeus->insta_followers?></li>
 						</ul>
 
 						<div class="delete_favori" data-favori="<?=$favori->id?>"></div>

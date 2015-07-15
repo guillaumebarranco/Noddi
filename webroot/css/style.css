@@ -799,6 +799,9 @@ footer {
       footer ul > li a:hover {
         text-decoration: underline; }
 
+/*
+*   PROPOSITIONS
+*/
 .proposition {
   border: solid 1px black;
   padding: 10px;
@@ -831,6 +834,18 @@ footer {
   max-width: 300px;
   margin: 0 auto; }
   .proposition_received .buttons .button {
+    display: inline-block;
+    vertical-align: top; }
+
+/*
+*   MESSAGES
+*/
+.message {
+  width: 300px;
+  margin: 0 auto;
+  border: solid 1px black;
+  padding: 10px; }
+  .message .message_sender, .message .message_time {
     display: inline-block;
     vertical-align: top; }
 
