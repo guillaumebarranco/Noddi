@@ -35,7 +35,7 @@
   font-size: 2.5rem;
   font-family: Helvetica, Arial, sans-serif; }
 
-.subtitleMini, h4, .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName {
+.subtitleMini, h4, .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName {
   font-size: 20px;
   font-size: 2rem;
   font-family: Helvetica, Arial, sans-serif; }
@@ -472,33 +472,33 @@ form {
           font-weight: normal;
           text-decoration: none;
           text-transform: none; }
-  .page_index section.section_home ul.list_modeuses {
+  .page_index section.section_home ul.list_modeuses, .page_index section.section_home ul.all_favoris {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     list-style: none; }
-    .page_index section.section_home ul.list_modeuses li.modeuse {
+    .page_index section.section_home ul.list_modeuses li.modeuse, .page_index section.section_home ul.all_favoris li.modeuse {
       min-width: 150px;
       min-height: 150px;
       max-width: 300px;
       margin: 10px;
       background: #f6f6f6; }
       @media (min-width: 500px) {
-        .page_index section.section_home ul.list_modeuses li.modeuse {
+        .page_index section.section_home ul.list_modeuses li.modeuse, .page_index section.section_home ul.all_favoris li.modeuse {
           flex: 1; } }
-      .page_index section.section_home ul.list_modeuses li.modeuse img.modeusePic {
+      .page_index section.section_home ul.list_modeuses li.modeuse img.modeusePic, .page_index section.section_home ul.all_favoris li.modeuse img.modeusePic {
         width: 100%;
         background: #acdce0; }
-      .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats {
+      .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats {
         list-style: none;
         display: flex; }
-        .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat {
+        .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat {
           flex: 1;
           text-align: center; }
-          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat:before {
+          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat:before, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat:before {
             position: absolute;
             margin-top: -15px; }
-          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before {
+          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before {
             content: "";
             color: #acdce0;
             font-size: 20px;
@@ -511,7 +511,7 @@ form {
             font-weight: normal;
             text-decoration: none;
             text-transform: none; }
-          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before {
+          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before {
             content: "";
             color: #acdce0;
             font-size: 20px;
@@ -524,7 +524,7 @@ form {
             font-weight: normal;
             text-decoration: none;
             text-transform: none; }
-          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before {
+          .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before {
             content: "";
             color: #acdce0;
             font-size: 20px;
@@ -537,7 +537,7 @@ form {
             font-weight: normal;
             text-decoration: none;
             text-transform: none; }
-      .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before {
+      .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before, .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .delete_favori:before, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before, .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before {
         position: absolute;
         content: "";
         color: red;

@@ -229,7 +229,7 @@ $(document).ready(function() {
 		var that = $(this);
 		
 		makeAjax('POST', "favoris/delete/"+favori_id, favori_id, function() {
-			that.parent().remove();
+			that.parents('li').remove();
 		});
 	});
 
