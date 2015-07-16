@@ -117,7 +117,7 @@
             <?= $this->fetch('content') ?>
 
 
-            <footer>
+            <!-- <footer>
                 <section class="socials">
                     <h3 class="showLarge">rejoins vite notre réseau de noddiz :</h3>
                     <ul id="sectionSocial">
@@ -135,7 +135,7 @@
                     <li><a href="#">Mentions légales</a></li>
                 </ul>
                 <small>© 2015 Noddi  - Tous droits réservés</small>
-            </footer>
+            </footer> -->
 
         </div>
 

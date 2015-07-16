@@ -6,9 +6,10 @@ if($session->read('user')) { ?>
 	<?php if($this->request->session()->read('type') == 'brand') { ?>
 		
 		<?php if($can_make_offer) { ?>
+		<h1>Trouvez votre Noddiz</h1>
 		<div class="letsStart">
 			<p>Vite, vite, votre notoriété n'attend que vous !</p>
-			<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button']) ?>
+			<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button dark']) ?>
 		</div>
 		<?php } else { ?>
 			<header class="headerPage">
