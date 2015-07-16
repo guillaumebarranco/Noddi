@@ -19,7 +19,6 @@
         return $text;
     }
 
-
     $i = 0;
     foreach ($tab_lifestyle as $key => $lifestyle) {
         $tab_lifestyle[$i] = array();
@@ -63,6 +62,49 @@
         $tab_echange[$i] = array();
         $tab_echange[$i]['name'] = $echange;
         $tab_echange[$i]['value'] = getValue($echange);
+        $i++;
+    }
+
+    $tab_interest = array();
+    $tab_interest[] = "le cinéma";
+    $tab_interest[] = "la culture";
+    $tab_interest[] = "la littérature";
+    $tab_interest[] = "la mode";
+    $tab_interest[] = "le voyages";
+    $tab_interest[] = "le sport";
+    $tab_interest[] = "la culture geek";
+    $tab_interest[] = "les langues";
+    $tab_interest[] = "la nature";
+    $tab_interest[] = "la cuisine";
+    $tab_interest[] = "les animaux";
+    $tab_interest[] = "les Spectacles";
+    $tab_interest[] = "l'architecture";
+    $tab_interest[] = "les cosmétiques";
+
+    $i = 0;
+    foreach ($tab_interest as $key => $echange) {
+        $tab_interest[$i] = array();
+        $tab_interest[$i]['name'] = $echange;
+        $tab_interest[$i]['value'] = getValue($echange);
+        $i++;
+    }
+
+    $tab_socials = array();
+    $tab_socials[] = "facebook";
+    $tab_socials[] = "twitter";
+    $tab_socials[] = "instagram";
+    $tab_socials[] = "vine";
+    $tab_socials[] = "snapchat";
+    $tab_socials[] = "pinterest";
+    $tab_socials[] = "tumblr";
+    $tab_socials[] = "Flickr";
+    $tab_socials[] = "youtube";
+
+    $i = 0;
+    foreach ($tab_socials as $key => $echange) {
+        $tab_socials[$i] = array();
+        $tab_socials[$i]['name'] = $echange;
+        $tab_socials[$i]['value'] = getValue($echange);
         $i++;
     }
 ?>

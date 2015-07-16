@@ -15,6 +15,7 @@ class Offer extends Entity
      * @var array
      */
     protected $_accessible = [
+        'uniquid' => true,
         'brand_id' => true,
         'type_id' => true,
         'date_begin' => true,
@@ -28,5 +29,8 @@ class Offer extends Entity
         'modeuse_id' => true,
         'brand' => true,
         'type' => true,
+        'modeus' => true,
+        'applies' => true,
+        'messages' => true,
     ];
 }
