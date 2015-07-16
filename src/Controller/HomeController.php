@@ -27,6 +27,8 @@ class HomeController extends AppController {
                 $can_make_offer = true;
             }
 
+            
+
             $this->set(array(
                 'can_make_offer' => $can_make_offer
             ));

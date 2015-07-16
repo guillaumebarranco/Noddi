@@ -8,8 +8,15 @@
         <?php foreach ($tab_offers as $message) { ?>
 
             <div class="message">
-
-                <h3 class="message_sender"><?=$message['firstname']?> <?=$message['lastname']?></h3>
+                
+                <?php if($this->request->session()->read('type') == 'modeuse') { ?>
+                    <h3 class="message_sender"><?=$message['name']?></h3>
+                <?php } else { ?>
+                    <h3 class="message_sender"><?=$message['firstname']?> <?=$message['lastname']?></h3>
+                <?php } ?>
+    
+                <input type="hidden" class="get_the_type" value="<?=$this->request->session()->read('type')?>">
+                
                 <div class="message_time"><?=$message['created'] ?></div>
                 <p class="message_content"><?=$message['message']?></p>
 

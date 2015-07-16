@@ -4,7 +4,6 @@ $(document).ready(function() {
 	*	MENU
 	*/
 
-
 	if($('.page_index').length != 0) {
 		$('.menu li.home').addClass('active');
 	} else if($('.proposition').length != 0) {
@@ -368,14 +367,26 @@ $(document).ready(function() {
 		makeAjax('POST', "messages/getMessagesByOffer", data, function() {
 			console.log('messages', _this.response);
 			//$('.conversation')
+
+			var type = $('.get_the_type').val();
 			var name;
 			for(message in _this.response.messages) {
 
-				if(_this.response.messages[message].from_who == 'brand') {
-					name = 'Moi';
+				if(type == 'brand') {
+					if(_this.response.messages[message].from_who == 'brand') {
+						name = 'Moi';
+					} else {
+						name = _this.response.messages[message].offer.modeus.firstname+' '+_this.response.messages[message].offer.modeus.lastname;
+					}
 				} else {
-					name = _this.response.messages[message].offer.modeus.firstname+' '+_this.response.messages[message].offer.modeus.lastname;
+					if(_this.response.messages[message].from_who == 'brand') {
+						name = _this.response.messages[message].offer.brand.name;
+					} else {
+						name = 'Moi';
+					}
 				}
+
+				
 				
 				var li =
 					'<li class="message">'+ 

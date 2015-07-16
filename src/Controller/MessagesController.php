@@ -24,8 +24,8 @@ class MessagesController extends AppController {
 
         $session = $this->request->session();
 
-        if($session->read('type') === 'brand') {
-            $messages = $this->Messages->find('all')->contain(['Offers', 'Offers.Modeuses']);
+        // if($session->read('type') === 'brand') {
+            $messages = $this->Messages->find('all')->contain(['Offers', 'Offers.Modeuses', 'Offers.Brands']);
 
             $tab_offers = array();
 
@@ -42,6 +42,7 @@ class MessagesController extends AppController {
                         $tab_offers[$message->offer->id]['message'] = $message->content;
                         $tab_offers[$message->offer->id]['firstname'] = $message->offer->modeus->firstname;
                         $tab_offers[$message->offer->id]['lastname'] = $message->offer->modeus->lastname;
+                        $tab_offers[$message->offer->id]['name'] = $message->offer->brand->name;
                         $tab_offers[$message->offer->id]['id'] = $message->offer->id;
                     } else {
                         if($message->created > $tab_offers[$message->offer->id]) {
@@ -49,15 +50,16 @@ class MessagesController extends AppController {
                             $tab_offers[$message->offer->id]['message'] = $message->content;
                             $tab_offers[$message->offer->id]['firstname'] = $message->offer->modeus->firstname;
                             $tab_offers[$message->offer->id]['lastname'] = $message->offer->modeus->lastname;
+                            $tab_offers[$message->offer->id]['name'] = $message->offer->brand->name;
                             $tab_offers[$message->offer->id]['id'] = $message->offer->id;
                         }
                     }
                 }
             }
 
-        } else {
-            $messages = $this->Messages->find('all')->where(['modeuse_id' => $session->read('modeuse_id')])->contain(['Offers']);
-        }
+        // } else {
+        //     $messages = $this->Messages->find('all')->where(['modeuse_id' => $session->read('modeuse_id')])->contain(['Offers']);
+        // }
 
         $this->set(array(
             'messages' => $messages,
@@ -73,7 +75,7 @@ class MessagesController extends AppController {
 
         $data = $this->request->data;
 
-        $messages = $this->Messages->find('all')->where(['offer_id' => $data['offer_id']])->contain(['Offers', 'Offers.Modeuses']);
+        $messages = $this->Messages->find('all')->where(['offer_id' => $data['offer_id']])->contain(['Offers', 'Offers.Modeuses', 'Offers.Brands']);
 
         $response = array();
         $response['messages'] = $messages;

@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Utility\Security;
+use Cake\Network\Email\Email;
 
 class OffersController extends AppController
 {
@@ -190,6 +191,15 @@ class OffersController extends AppController
     }
 
     public function applyOffer() {
+
+        $email = new Email('default');
+        $email->from(['guillaume.barranco1@gmail.com' => 'Guillaume Barranco'])
+            ->to('guillaume.barranco8@hotmail.fr')
+            ->subject('OFFER')
+            ->send('test');
+
+        var_dump($email);
+            die;
 
         $check = $this->Jsonification();
 
