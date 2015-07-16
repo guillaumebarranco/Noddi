@@ -104,7 +104,6 @@ $(document).ready(function() {
 		});
 	});
 
-
 	/*
 	*	SUPPRIMER OFFER
 	*/
