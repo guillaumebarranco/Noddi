@@ -10,12 +10,17 @@ use App\Controller\AppController;
  */
 class MessagesController extends AppController {
 
-
-
     /*
     *   On affiche les Messages en fonction de l'utilisateur connecté
     */
     public function index() {
+
+        $session = $this->request->session();
+        if($session->read('user') == null) {
+            return $this->redirect(
+                ['controller' => 'Users', 'action' => 'login']
+            );
+        }
 
         $session = $this->request->session();
 
@@ -51,7 +56,7 @@ class MessagesController extends AppController {
             }
 
         } else {
-            $messages = $this->Messages->find('all')->where(['modeuse_id' => $session->read('modeuse_id')])->contain(['Brands', 'Modeuses']);
+            $messages = $this->Messages->find('all')->where(['modeuse_id' => $session->read('modeuse_id')])->contain(['Offers']);
         }
 
         $this->set(array(

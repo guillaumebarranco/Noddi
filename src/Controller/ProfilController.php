@@ -16,10 +16,7 @@ class ProfilController extends AppController{
     public function index() {
 
         $session = $this->request->session();
-
-        if(null != ($session->read('user')) && $session->read('user') == true) {
-
-        } else {
+        if($session->read('user') == null) {
             return $this->redirect(
                 ['controller' => 'Users', 'action' => 'login']
             );
