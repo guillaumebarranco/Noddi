@@ -52,11 +52,17 @@ class OffersController extends AppController
 
             $modeuse = $this->Modeuses->get($session->read('modeuse_id'));
 
-            $this->set(array(
-                'modeuse' => $modeuse
+            $applies = $this->Applies->find('all')->where(['Applies.modeuse_id' => $modeuse->id])->contain(['Offers', 'Offers.Brands', 'Offers.Brands.Users'])->toArray();
+
+            $brand = $this->Brands->get($applies[0]['offer']['brand']['id']);
+
+            $this->set(array( 
+                'modeuse' => $modeuse,
+                'applies' => $applies,
+                'brand' => $brand
             ));
 
-            $this->set('_serialize', ['modeuse']);
+            $this->set('_serialize', ['modeuse, applies, brand']);
         } else {
             return $this->redirect(
                 ['controller' => 'Users', 'action' => 'login']

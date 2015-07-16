@@ -35,59 +35,73 @@
 
 <?php } else { ?>
 
-    <?php 
+    <?php if(!empty($applies[0])) { 
+            $k = 0;
+            foreach ($applies as $key => $apply) { 
 
-    if($modeuse->boost == 1) { ?>
+                ?>
+                <?php if($k==0) { echo'<div>'; } else { echo '<div style="display:none">'; } ?>
+                    <img width="200" src="img/offers/<?=$apply->offer->uniquid?>/1.jpg" alt=""> 
 
-        <h2>Propositions</h2>
+                    <h3>Informations générales</h3>
 
-        <p>
-            <b>Tu n'as plus de propositions pour le moment.</b> <br /><br />
+                    <img src="img/<?=$apply->offer->brand->user->picture?>" alt="">
 
-            Tu recevras un nouvel email d'alerte lorsqu'une autre marque sera intéressée par ton profil. <br /> <br />
+                    <button>Accepter</button>
+                    <button>Décliner</button>
 
-            Néanmoins, il te reste encore une chance de prouver ta motivation auprès d'une marque pour tenter de collaborer avec elle.
+                </div>
+            <?php $k++; }
             
-        </p>
-
-        <div>
-            <button class="button get_offers">Voir les propositions</button>
-        </div>
-
-        <ul class="all_offers"></ul>
-
-    <?php } else { ?>
-
-        <p>
-            <b>Si la marque est intéressée par ton offre, tu recevras un mail de confirmation dans ta boîte perso</b> <br /><br />
-
-            Samedi prochain, tu recevras de nouveau un Boost que tu pourras utiliser sur l'offre de ton choix. <br /><br />
-
-            D'ici-là, suis-nous sur les réseaux sociaux pour continuer à recevoir plein de bons plans !
-
-            <footer>
-                <section class="socials">
-                    <ul id="sectionSocial">
-                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
-                        <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
-                        <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
-                        <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
-                        <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
-                    </ul>
-                </section>
-            </footer>
-        </p>
-
-    <?php } ?>
+    ?>
 
 
-<?php } ?>
+    <?php } else {
 
+        if($modeuse->boost == 1) { ?>
 
+            <h2>Propositions</h2>
 
+            <p>
+                <b>Tu n'as plus de propositions pour le moment.</b> <br /><br />
 
+                Tu recevras un nouvel email d'alerte lorsqu'une autre marque sera intéressée par ton profil. <br /> <br />
 
+                Néanmoins, il te reste encore une chance de prouver ta motivation auprès d'une marque pour tenter de collaborer avec elle.
+                
+            </p>
 
+            <div>
+                <button class="button get_offers">Voir les propositions</button>
+            </div>
+
+            <ul class="all_offers"></ul>
+
+        <?php } else { ?>
+
+            <p>
+                <b>Si la marque est intéressée par ton offre, tu recevras un mail de confirmation dans ta boîte perso</b> <br /><br />
+
+                Samedi prochain, tu recevras de nouveau un Boost que tu pourras utiliser sur l'offre de ton choix. <br /><br />
+
+                D'ici-là, suis-nous sur les réseaux sociaux pour continuer à recevoir plein de bons plans !
+
+                <footer>
+                    <section class="socials">
+                        <ul id="sectionSocial">
+                            <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+                            <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+                            <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+                            <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+                            <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+                        </ul>
+                    </section>
+                </footer>
+            </p>
+
+        <?php }
+    }
+ } ?>
 
 
 
