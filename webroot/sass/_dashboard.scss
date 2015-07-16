@@ -2,7 +2,104 @@
 //DASHBOARD
 
 .page_dashboard{
-	.sentenceSelect{
-		// @extend  .sentenceSelect;
+	article.proposition {
+		background: $white;
+	    padding: 10px;
+	    max-width: 500px;
+	    margin: 0 auto;
+	    h2{
+	    	margin: 0;
+	    }
+		.content{
+			display: flex;
+			margin-top: 15px;
+			img{
+			  	width: 100%;
+			  	max-width: 150px;
+				height: auto;
+				flex:2;
+				height:auto;
+				align-self: flex-start;
+			}
+			.proposition_content{
+				flex: 3;
+				margin: 0 10px;
+			}
+			footer{
+				flex:1;
+				.edit{
+					background: $primary;
+				}
+				.delete{
+					background: $secondary;
+				}
+			}
+		}
+	}
+	.propositions{
+		display: flex;
+		margin: 30px;
+	}
+	.proposition_sent {
+		display: flex;
+		flex-direction: column;
+		background: $white;
+	    max-width: 150px;
+	    margin: 0 5px;
+		img{
+			width: 100%;
+			max-width: 150px;
+			height: auto;
+			align-self: flex-start;
+		}
+	    div {
+	    	
+	    }
+	}
+	.proposition_received{
+		display: flex;
+		background: $white;
+		justify-content: center;
+		img{
+			width: 100%;
+			max-width: 70px;
+			height: auto;
+			align-self: flex-start;
+
+		}
+		p{
+
+		}
+		footer{
+
+			.accept{
+				background: $primary;
+			}
+			.decline{
+				background: $secondary;
+			}
+		}
 	}
 }
+
+
+
+
+
+
+// .proposition_received {
+	
+//     padding: 10px;
+//     width: 90%;
+//     max-width: 300px;
+//     margin: 0 auto;
+// 	p{
+// 		margin: 0 10px;
+// 	}
+//     .buttons {
+//         .button {
+//             display: inline-block;
+//             vertical-align: top;
+//         }
+//     }
+// }
