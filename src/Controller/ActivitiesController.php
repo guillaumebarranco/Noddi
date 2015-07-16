@@ -16,8 +16,7 @@ class ActivitiesController extends AppController
      *
      * @return void
      */
-    public function index()
-    {
+    public function index() {
         $this->set('activities', $this->paginate($this->Activities));
         $this->set('_serialize', ['activities']);
     }

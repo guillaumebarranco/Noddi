@@ -23,7 +23,8 @@ class OffersControllerTest extends IntegrationTestCase
         'app.activities',
         'app.favoris',
         'app.messages',
-        'app.types'
+        'app.types',
+        'app.applies'
     ];
 
     /**
@@ -82,6 +83,26 @@ class OffersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testView()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test getOffers method
+     *
+     * @return void
+     */
+    public function testGetOffers()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test applyOffer method
+     *
+     * @return void
+     */
+    public function testApplyOffer()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

@@ -63,6 +63,10 @@ class OffersTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
+            ->requirePresence('uniquid', 'create')
+            ->notEmpty('uniquid');
+            
+        $validator
             ->add('date_begin', 'valid', ['rule' => 'datetime'])
             ->allowEmpty('date_begin');
             

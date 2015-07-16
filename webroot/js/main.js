@@ -188,7 +188,6 @@ $(document).ready(function() {
 		e.preventDefault();
 
 		var type = $(this).find('input[name=type]').val();
-
 		var data = {};
 
 		if(type === 'modeuse') {

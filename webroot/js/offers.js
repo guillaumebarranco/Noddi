@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	
 	$('#date-begin, #date-end').datepicker();
 
 	$('.create_offer').hide();
@@ -57,5 +58,43 @@ $(document).ready(function() {
 		$('.finished_offers').show();
 		$(this).addClass('reversed');
 	});
+
+	/*
+	*	OFFERS
+	*/
+
+	$('#upload_offer').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer'+$('.counter').val()+'.php',
+        'method'        : 'post',
+        'buttonText' : "Uploader le logo de l'entreprise",
+        'formData' : {'path': $('input[name=uniquid]').val()},
+
+        'width' : 300,
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            //alert('The file was saved to: ' + file);
+            //console.log(file);
+            
+            console.log(the_data);
+            //console.log(response);
+
+            $(".offer_picture_"+$('.counter').val()).attr('src', WEB_URL+'/'+the_data);
+            $('input[name=picture]').val(WEB_URL+'/'+the_data);
+
+            if(parseInt($('.counter').val()) < 3) {
+            	$('.counter').val(parseInt($('.counter').val()) + 1);
+            	console.log($('.counter').val());
+            }
+
+            
+        }
+    });
 
 });

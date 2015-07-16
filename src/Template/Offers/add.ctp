@@ -1,3 +1,5 @@
+<?php include('tab.php');  ?>
+
 <section class="page page_dashboard">
     <header class="headerPage">
         <h2 class="titlePage">Proposer une offre</h2>
@@ -39,15 +41,22 @@
             <?php } ?>
         </select>
     </div>
-        
-    <div class="button">Télécharger des images de l'offre</div>
 
-    <img src="" class="offer_picture offer_picture_one" />
-    <img src="" class="offer_picture offer_picture_two" />
-    <img src="" class="offer_picture offer_picture_three" />
+    <input type="hidden" name="uniquid" value="<?=uniqid()?>" />
+    <input type="hidden" name="finished" value="0" />
+
+    <input type="hidden" class="counter" value="1" />
+        
+    <input type="file" id="upload_offer" data-number="1" />Télécharger des images de l'offre
+
+    <img src="" width="100" class="offer_picture offer_picture_1" />
+    <img src="" width="100" class="offer_picture offer_picture_2" />
+    <img src="" width="100" class="offer_picture offer_picture_3" />
         
 
     <?= $this->Form->button(__('Valider mon offre'), ["class"=> "button small"]) ?>
     <?= $this->Form->end() ?>
 
 </section>
+
+<?= $this->Html->script('offers'); ?>

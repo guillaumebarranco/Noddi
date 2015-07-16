@@ -18,6 +18,7 @@ class OffersFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'uniquid' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'brand_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'type_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'date_begin' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
@@ -49,14 +50,15 @@ class OffersFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
+            'uniquid' => 'Lorem ipsum dolor sit amet',
             'brand_id' => 1,
             'type_id' => 1,
-            'date_begin' => '2015-07-16 08:47:14',
-            'date_end' => '2015-07-16 08:47:14',
+            'date_begin' => '2015-07-16 13:13:34',
+            'date_end' => '2015-07-16 13:13:34',
             'title' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-            'created' => '2015-07-16 08:47:14',
-            'updated' => '2015-07-16 08:47:14',
+            'created' => '2015-07-16 13:13:34',
+            'updated' => '2015-07-16 13:13:34',
             'lifestyle' => 'Lorem ipsum dolor sit amet',
             'personnality' => 'Lorem ipsum dolor sit amet',
             'exchange' => 'Lorem ipsum dolor sit amet',
