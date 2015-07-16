@@ -75,4 +75,14 @@ class MessagesControllerTest extends IntegrationTestCase
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
+
+    /**
+     * Test updateAnswer method
+     *
+     * @return void
+     */
+    public function testUpdateAnswer()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
 }

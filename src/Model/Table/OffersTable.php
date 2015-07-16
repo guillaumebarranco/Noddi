@@ -12,6 +12,9 @@ use Cake\Validation\Validator;
  *
  * @property \Cake\ORM\Association\BelongsTo $Brands
  * @property \Cake\ORM\Association\BelongsTo $Types
+ * @property \Cake\ORM\Association\BelongsTo $Modeuses
+ * @property \Cake\ORM\Association\HasMany $Applies
+ * @property \Cake\ORM\Association\HasMany $Messages
  */
 class OffersTable extends Table
 {
@@ -36,6 +39,15 @@ class OffersTable extends Table
             'foreignKey' => 'type_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Modeuses', [
+            'foreignKey' => 'modeuse_id'
+        ]);
+        $this->hasMany('Applies', [
+            'foreignKey' => 'offer_id'
+        ]);
+        $this->hasMany('Messages', [
+            'foreignKey' => 'offer_id'
+        ]);
     }
 
     /**
@@ -57,14 +69,6 @@ class OffersTable extends Table
         $validator
             ->add('date_end', 'valid', ['rule' => 'datetime'])
             ->allowEmpty('date_end');
-            
-        $validator
-            ->add('multiple_targets', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('multiple_targets');
-            
-        $validator
-            ->add('expected_targets', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('expected_targets');
             
         $validator
             ->allowEmpty('title');
@@ -103,6 +107,7 @@ class OffersTable extends Table
     {
         $rules->add($rules->existsIn(['brand_id'], 'Brands'));
         $rules->add($rules->existsIn(['type_id'], 'Types'));
+        $rules->add($rules->existsIn(['modeuse_id'], 'Modeuses'));
         return $rules;
     }
 }

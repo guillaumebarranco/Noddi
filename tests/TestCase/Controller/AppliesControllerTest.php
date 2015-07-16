@@ -1,13 +1,13 @@
 <?php
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\OffersController;
+use App\Controller\AppliesController;
 use Cake\TestSuite\IntegrationTestCase;
 
 /**
- * App\Controller\OffersController Test Case
+ * App\Controller\AppliesController Test Case
  */
-class OffersControllerTest extends IntegrationTestCase
+class AppliesControllerTest extends IntegrationTestCase
 {
 
     /**
@@ -16,25 +16,16 @@ class OffersControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.offers',
-        'app.brands',
-        'app.users',
+        'app.applies',
         'app.modeuses',
+        'app.users',
+        'app.brands',
         'app.activities',
-        'app.favoris',
+        'app.offers',
+        'app.types',
         'app.messages',
-        'app.types'
+        'app.favoris'
     ];
-
-    /**
-     * Test initialize method
-     *
-     * @return void
-     */
-    public function testInitialize()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 
     /**
      * Test index method
@@ -42,6 +33,16 @@ class OffersControllerTest extends IntegrationTestCase
      * @return void
      */
     public function testIndex()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test view method
+     *
+     * @return void
+     */
+    public function testView()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
@@ -57,31 +58,21 @@ class OffersControllerTest extends IntegrationTestCase
     }
 
     /**
-     * Test create method
+     * Test edit method
      *
      * @return void
      */
-    public function testCreate()
+    public function testEdit()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
 
     /**
-     * Test update method
+     * Test delete method
      *
      * @return void
      */
-    public function testUpdate()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test view method
-     *
-     * @return void
-     */
-    public function testView()
+    public function testDelete()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
