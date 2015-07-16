@@ -37,11 +37,11 @@ $(document).ready(function() {
 							'<img class="modeusePic" src="'+_this.response.modeuses[modeuse].user.picture+'" />'+
 						'</a>' +
 						'<div class="infoModeuse">' +
-						'<p class="modeuseName">NONO J.</p>' +
+						'<p class="modeuseName">'+_this.response.modeuses[modeuse].firstname+'</p>' +
 						'<ul class="modeuseStats">' +
-							'<li class="stat facebook">222</li>' +
-							'<li class="stat twitter">124</li>' +
-							'<li class="stat instagram">541</li>' +
+							'<li class="stat facebook">'+_this.response.modeuses[modeuse].facebook_followers+'</li>' +
+							'<li class="stat twitter">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
+							'<li class="stat instagram">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
 						'</ul>' +
 						'<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>'+
 						'</div>' +

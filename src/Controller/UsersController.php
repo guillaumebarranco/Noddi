@@ -13,6 +13,7 @@ class UsersController extends AppController
         parent::initialize();
 
         $this->loadModel('Activities');
+        $this->loadModel('Offers');
     }
 
     // Si l'utilisateur arrive sur la page index de Users, on le redirige sur la Home
@@ -350,6 +351,7 @@ class UsersController extends AppController
     public function getModeuses() {
 
         $this->Jsonification();
+        $session = $this->request->session();
 
         if(isset($this->request->data) && $this->request->data) {
             $data = $this->request->data;
@@ -374,11 +376,40 @@ class UsersController extends AppController
             $modeuses = $modeuses->toArray();
 
         } else {
+            $offer = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS' => null])->contain(['Brands'])->toArray()[0];
+
+            // var_dump($offer);
+            // die;
+
             $modeuses = $this->Modeuses->find('all')->contain(['Users'])->toArray();
+
+            $tab_modeuses = array();
+            $tab_id = array();
+
+            foreach ($modeuses as $key => $modeuse) {
+
+                $tab_lifestyle = explode(',', $modeuse->lifestyle);
+                
+                if(in_array($offer->lifestyle, $tab_lifestyle)) {
+                    if(!in_array($modeuse->id, $tab_id)) {
+                        $tab_id[] = $modeuse->id;
+                        $tab_modeuses[] = $modeuse;
+                    }
+                }
+
+                $tab_personnality = explode(',', $modeuse->personnality);
+
+                if(in_array($offer->personnality, $tab_personnality)) {
+                    if(!in_array($modeuse->id, $tab_id)) {
+                        $tab_id[] = $modeuse->id;
+                        $tab_modeuses[] = $modeuse;
+                    }
+                }
+            }
         }
 
         $response = array();
-        $response['modeuses'] = $modeuses;
+        $response['modeuses'] = $tab_modeuses;
 
         $this->response->body(json_encode($response));
         return $this->response;
