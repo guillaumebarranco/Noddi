@@ -169,7 +169,7 @@ form label.showLabel {
 form input,
 form textarea {
 	box-sizing: border-box;
-	border: solid 1px #90d6db;
+	border: solid 1px #aaaaaa;
 	padding: 12px 20px;
 	outline: none;
 	margin-bottom: 15px;
@@ -329,7 +329,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-	background: #90d6db;
+	background: #5fc6ce;
 	color: #ffffff;
 	padding: 10px 0;
 }
@@ -421,7 +421,7 @@ header.headerPage h2.titlePage {
 	-webkit-flex: 7;
 	-ms-flex: 7;
 	flex: 7;
-	background: #90d6db;
+	background: #5fc6ce;
 	text-align: center;
 	padding: 5px 0;
 	margin: 0;
@@ -763,7 +763,7 @@ header.headerPage .previousStepMenu:before {
 	align-items: flex-end;
 	padding: 5px 10px;
 	margin: 5px;
-	background: #90d6db;
+	background: #5fc6ce;
 }
 
 .page_index section.section_home .myDemandReminder ul li:before {
@@ -816,7 +816,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse img.modeusePic,
 .page_index section.section_home ul.all_favoris li.modeuse img.modeusePic {
 	width: 100%;
-	background: #90d6db;
+	background: #5fc6ce;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats,
@@ -844,7 +844,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -860,7 +860,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -876,7 +876,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -975,8 +975,30 @@ header.headerPage .previousStepMenu:before {
 }
 
 .page_signin .createFacebookAccount {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
 	background: url("../img/pictures/login/insc-modeuses_visu1.jpg") center center;
 	background-size: cover;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+}
+
+.page_signin .createFacebookAccount .content {
+	max-width: 300px;
+	margin: auto;
+}
+
+.page_signin .createFacebookAccount p {
+	color: #ffffff;
+}
+
+.page_signin .createFacebookAccount .fb_button {
+	border: solid 4px #2d4373;
+	background: #3b5998;
+	border-radius: 0;
+	color: #ffffff;
 }
 
 .page_signin .inscriptionVisu {
@@ -1087,13 +1109,17 @@ header.headerPage .previousStepMenu:before {
 	margin-top: 20px;
 }
 
+.page_signin .formBrand > div.form_brand_two,
+.page_signin .formModeuse > div.form_brand_two {
+	padding-left: 50px;
+}
+
 .page_signin .formBrand input,
 .page_signin .formBrand textarea,
 .page_signin .formModeuse input,
 .page_signin .formModeuse textarea {
 	width: 100%;
 	resize: none;
-	padding-left: 40px;
 }
 
 .page_signin .formBrand input.instagram:before,
@@ -1235,7 +1261,7 @@ header.headerPage .previousStepMenu:before {
 }
 
 footer {
-	background: #90d6db;
+	background: #5fc6ce;
 	text-align: center;
 	padding-bottom: 90px;
 }
@@ -1262,7 +1288,7 @@ footer .socials {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
-	background: #90d6db;
+	background: #5fc6ce;
 }
 
 footer .socials h3 {
@@ -1329,7 +1355,7 @@ footer .socials ul li.facebook:hover {
 
 footer .socials ul li.facebook a:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1348,7 +1374,7 @@ footer .socials ul li.twitter:hover {
 
 footer .socials ul li.twitter a:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1367,7 +1393,7 @@ footer .socials ul li.instagram:hover {
 
 footer .socials ul li.instagram a:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1386,7 +1412,7 @@ footer .socials ul li.snapchat:hover {
 
 footer .socials ul li.snapchat a:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1405,7 +1431,7 @@ footer .socials ul li.pinterest:hover {
 
 footer .socials ul li.pinterest a:before {
 	content: "";
-	color: #90d6db;
+	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1489,7 +1515,7 @@ footer ul > li a:hover {
 }
 
 .page_dashboard article.proposition .content footer .delete {
-	background: #90d6db;
+	background: #5fc6ce;
 }
 
 .page_dashboard .propositions {
@@ -1544,7 +1570,7 @@ footer ul > li a:hover {
 }
 
 .page_dashboard .proposition_received footer .decline {
-	background: #90d6db;
+	background: #5fc6ce;
 }
 
 @media (min-width: 500px) {
