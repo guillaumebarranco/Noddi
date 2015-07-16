@@ -1,6 +1,8 @@
 
 //PAGE INDEX
 .page_index {
+    display: flex;
+    flex-direction: column;
     header.homepage { // Not connected
         background:url('../img/pictures/cible.jpg') center center;
         background-size:cover;
@@ -243,6 +245,13 @@
                 }
             }
         }
+    }
+
+
+    .letsStart{
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
     }
 
 }

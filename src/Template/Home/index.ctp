@@ -1,19 +1,15 @@
-<div class="page page_index">
+<section class="page page_index">
 <?php 
 	$session = $this->request->session();
 if($session->read('user')) { ?>
-	<style>
-		.blog_selected, .network_selected, .section_selected, .audience_selected {
-			background-color: blue;
-		}
-	</style>
+
 	<?php if($this->request->session()->read('type') == 'brand') { ?>
 		
 		<?php if($can_make_offer) { ?>
-			<p>
-				Vite, vite, votre notoriété n'attend que vous !
-			</p>
+		<div class="letsStart">
+			<p>Vite, vite, votre notoriété n'attend que vous !</p>
 			<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button']) ?>
+		</div>
 		<?php } else { ?>
 			<header class="headerPage">
 				<h2 class="titlePage">Les Noddiz</h2>
@@ -118,4 +114,4 @@ if($session->read('user')) { ?>
 		</section>
 
 	<?php } ?>
-</div>
+</section>

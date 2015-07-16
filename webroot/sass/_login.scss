@@ -110,31 +110,33 @@
                 }
             }
         }
-        .sentenceSelect{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: baseline;
-            justify-content: center;
-            padding: 20px 0px;
-            p{
-                margin: 3px 5px;
-            }
-            select{
-                flex:flex-grow;
-                border: none;
-                color: $primary;
-                font-weight: bold;
-                @include font-size(2);
-                margin: 0 5px;
-                outline: none;
-                option{
-                    border: none;
-                }
-            }
-        }
         .checklist{
             margin: 10px 0 20px 0;
+        }
+    }
+}
+
+.sentenceSelect{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    padding: 20px 0px;
+    p{
+        margin: 3px 5px;
+    }
+    select{
+        flex:flex-grow;
+        border: none;
+        color: $primary;
+        font-weight: bold;
+        background: none;
+        @include font-size(2);
+        margin: 0 5px;
+        outline: none;
+        option{
+            border: none;
         }
     }
 }
