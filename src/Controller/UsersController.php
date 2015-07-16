@@ -108,8 +108,13 @@ class UsersController extends AppController
 
                 // On récupère l'id de la modeuse
                 $modeuse = $this->Modeuses->find('all')->where(['user_id' => $get_user['id']])->toArray()[0];
-                $session->write('modeuse_id', $modeuse->id);
 
+                $save_modeuse = $this->Modeuses->get($modeuse['id']);
+                $save_modeuse->fb_token = $data['fb_token'];
+
+                $this->Modeuses->save($save_modeuse);
+
+                $session->write('modeuse_id', $modeuse->id);
                 $check = 'OK';
             }
         }
