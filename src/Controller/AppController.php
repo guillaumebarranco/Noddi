@@ -15,6 +15,16 @@ class AppController extends Controller
         $this->loadModel('Brands');
     }
 
+    function checkSession() {
+        $session = $this->request->session();
+
+        //if($session->read('user') == null) {
+        return $this->redirect(
+            ['controller' => 'Users', 'action' => 'login']
+        );
+       // }
+    }
+
     function Jsonification() {
         $this->autoRender = false;
         $this->layout = null;

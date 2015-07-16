@@ -31,15 +31,6 @@ class UsersController extends AppController
 
         $session = $this->request->session();
 
-        if(null != ($session->read('user')) && $session->read('user') == true) {
-
-            return $this->redirect(
-                ['controller' => 'Home', 'action' => 'index']
-            );
-        }
-
-        $session = $this->request->session();
-
         // Si un formulaire a été envoyé
         if(isset($this->request->data) && $this->request->data) {
 

@@ -12,6 +12,14 @@ class OffersController extends AppController
 
         $this->loadModel('Types');
         $this->loadModel('Applies');
+
+        $session = $this->request->session();
+
+        if($session->read('user') == null) {
+            return $this->redirect(
+                ['controller' => 'Users', 'action' => 'login']
+            );
+        }
     }
 
     /*
@@ -39,7 +47,7 @@ class OffersController extends AppController
 
             $this->set('_serialize', ['current_offer, finished_offers']);
 
-        } else {
+        } elseif($session->read('type') == 'modeuse') {
 
             $modeuse = $this->Modeuses->get($session->read('modeuse_id'));
 
@@ -48,6 +56,10 @@ class OffersController extends AppController
             ));
 
             $this->set('_serialize', ['modeuse']);
+        } else {
+            return $this->redirect(
+                ['controller' => 'Users', 'action' => 'login']
+            );
         }
 
         

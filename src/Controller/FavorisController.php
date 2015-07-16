@@ -19,6 +19,12 @@ class FavorisController extends AppController
     public function index() {
         $session = $this->request->session();
 
+        if($session->read('user') == null) {
+            return $this->redirect(
+                ['controller' => 'Users', 'action' => 'login']
+            );
+        }
+
         $favoris = $this->Favoris->find('all')->where(['brand_id' => $session->read('brand_id')])->contain(['Modeuses', 'Brands']);
 
         $this->set('favoris', $favoris);
