@@ -261,56 +261,6 @@ header.headerPage{
 
 
 
-/*
-*   PROPOSITIONS
-*/
-
-.proposition {
-    border: solid 1px black;
-    padding: 10px;
-    width: 90%;
-    max-width: 300px;
-    margin: 0 auto;
-
-    .proposition_picture, .proposition_content, .proposition_buttons {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
-
-.center {
-    width: 350px;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-.proposition_sent {
-    width: 150px;
-    display: inline-block;
-    border: solid 1px black;
-    padding: 10px;
-
-    div {
-        display: inline-block;
-        vertical-align: top;
-        width: 70px;
-    }
-}
-
-.proposition_received {
-    border: solid 1px black;
-    padding: 10px;
-    width: 90%;
-    max-width: 300px;
-    margin: 0 auto;
-
-    .buttons {
-        .button {
-            display: inline-block;
-            vertical-align: top;
-        }
-    }
-}
 
 /*
 *   MESSAGES

@@ -6,49 +6,42 @@
 
 	<div class="timeline">10 juillet - 10:20</div>
 
-	<div class="proposition">
+	<article class="proposition">
 		<h2>Ma Proposition</h2>
-		<div class="proposition_picture">
-			<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="100" alt="" />
+		<div class="content">
+			<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" alt="" />
+			<div class="proposition_content">
+				<b>Bijoux</b>
+				<p>Don</p>
+			</div>
+			<footer class="proposition_buttons">
+				<div class="edit">Editer</div>
+				<div class="delete">Supprimer</div>
+			</footer>
 		</div>
-
-		<div class="proposition_content">
-			<b>Bijoux</b>
-			<p>
-				Don
-			</p>
-		</div>
-
-		<div class="proposition_buttons">
-			<button class="button">Editer</button>
-			<button class="button">Supprimer</button>
-		</div>
-
-	</div>
-
-	<div class="center">
+	</article>
+	
+	<div class="propositions">
 		<div class="proposition_sent">
-			<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="150" alt="" />
-			<div>Demande envoyée à Anna G.</div>
-			<div>EN ATTENTE</div>
+			<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" alt="" />
+			<div class="info">Demande envoyée à Anna G.</div>
+			<div class="status">EN ATTENTE</div>
 		</div>
-
 		<div class="proposition_sent">
-			<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="150" alt="" />
-			<div>Demande envoyée à Anna G.</div>
-			<div>EN ATTENTE</div>
+			<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" alt="" />
+			<div class="info">Demande envoyée à Anna G.</div>
+			<div class="status">EN ATTENTE</div>
 		</div>
 	</div>
 
 
 	<div class="proposition_received">
 		<img src="https://pbs.twimg.com/profile_images/473506797462896640/_M0JJ0v8.png" width="50" alt="">
-		
-		<div class="buttons">
-			<button class="button">Accepter</button>
-			<button class="button">Supprimer</button>
-		</div>
-		
+		<p>Demande Rçue de Caroline B.</p>
+		<footer>
+			<div class="accept">Accepter</div>
+			<div class="decline">Décliner</div>
+		</footer>
 	</div>
 
 	<?= $this->Html->link(__('Continuer la recherche de Noddiz'), ['controller' => 'Home', 'action' => 'index'], ['class' => 'button']) ?>
