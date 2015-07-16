@@ -9,15 +9,22 @@ $(document).ready(function() {
 
 	$('.inscriptionVisu').hide();
 	$('.stepsSignIn').hide();
+	$('.register_modeuse').hide();
 
 	$('.form_brand_one').hide();
 	$('.form_brand_two').hide();
 	$('.form_brand_three').hide();
 	$('.form_brand_four').hide();
 
-	$('.form_brand_one .fb_button').on('click', function() {
+
+
+
+	
+	$('#get_form_brand_two').on('click', function(e) {
 		$('.inscriptionVisu').show();
 		$('.stepsSignIn').show();
+		$('.register_modeuse').show();
+		$('.createFacebookAccount').hide();
 
 		$('.form_brand_one').hide();
 		$('.form_brand_two').show();
