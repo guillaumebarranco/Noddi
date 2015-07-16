@@ -355,4 +355,69 @@ $(document).ready(function() {
 		});
 	});
 
+	/*
+	*	SEE CONVERSATION
+	*/
+
+	$('.conversation').hide();
+
+	$('.seeConversation').on('click', function() {
+
+		var data = {};
+		data.offer_id = $(this).attr('data-offer');
+
+		makeAjax('POST', "messages/getMessagesByOffer", data, function() {
+			console.log('messages', _this.response);
+			//$('.conversation')
+			var name;
+			for(message in _this.response.messages) {
+
+				if(_this.response.messages[message].from_who == 'brand') {
+					name = 'Moi';
+				} else {
+					name = _this.response.messages[message].offer.modeus.firstname+' '+_this.response.messages[message].offer.modeus.lastname;
+				}
+				
+				var li =
+					'<li class="message">'+ 
+		                '<h3 class="message_sender">'+name+'</h3>'+ 
+		                '<div class="message_time">'+_this.response.messages[message].created+'</div>'+ 
+		                '<p class="message_content">'+_this.response.messages[message].content+'</p>'+
+		            '</li>'
+				;
+
+				$('.conversation ul').append(li);
+			}
+			$('.conversation ul').attr('data-offer', _this.response.messages[message].offer.id);
+			$('.conversation ul').append('<li><a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a></li>');
+
+			$('.all_messages').hide();
+			$('.conversation').show();
+		});
+		
+	});
+
+	/*
+	*	SEND MESSAGE
+	*/
+
+	$('.formSendMessage').on('submit', function(e) {
+		e.preventDefault();
+
+		var data_message = {};
+		data_message.offer_id = $('.conversation ul').attr('data-offer');
+		data_message.content = $(this).find('textarea').val();
+		data_message.viewed = 0;
+		data_message.answered = 0;
+
+		makeAjax('POST', "messages/add", data_message, function() {
+			swal({
+				title: 'Message envoyé',
+				type: 'success'
+			});
+		});
+
+
+	});
+
 });	

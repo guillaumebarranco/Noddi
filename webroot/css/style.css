@@ -161,7 +161,7 @@ form label.showLabel {
 form input,
 form textarea {
 	box-sizing: border-box;
-	border: solid 1px #f6f6f6;
+	border: solid 1px red;
 	border-radius: 12px;
 	padding: 12px 20px;
 	outline: none;
