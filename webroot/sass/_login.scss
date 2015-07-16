@@ -71,7 +71,7 @@
 
     .stepsSignIn {
         position:relative;
-        margin:auto;
+        align-self: center;
         max-width:300px;
         ul {
             min-width: 200px;
@@ -116,7 +116,6 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background: $white;
         border-top: solid 1px $tertiary;
         border-bottom: solid 1px $tertiary;
         & > div {
@@ -126,29 +125,62 @@
             display:flex;
             flex-direction:column;
             margin-top: 20px;
+            background-color: $white;
+            padding: 10px;
             &.form_brand_two{
-                padding-left: 50px;
+                .get_form_brand_three,
+                .get_form_brand_four,
+                .form_brand_four>button{
+                    margin: 20px;
+                }
             }
         }
         input,
         textarea {
             width:100%;
             resize:none;
-        }
-        input{
-            &.instagram:before{
-                @include noddifont($instagram, $tertiary, 1);
+            margin-bottom: 0;
+            border: none;
+            border-bottom: solid 1px $grey;
+            background: $white;
+            &#description{
+                min-height: 100px;
+                border: solid 1px $grey;
             }
-            &.twitter:before{
-                @include noddifont($twitter, $tertiary, 1);
+        }
+        label{
+            &.displayLabel:before{
+                @include show-text();
+                position: absolute;
+                margin: 23px 0px 0 -40px;
+            }
+            &.instagramUsername:before{
+                @include noddifont($instagram, $grey, 2.6);
+            }
+            &.twitterUsername:before{
+                @include noddifont($twitter, $grey, 2.6);
             }
             &.email:before{
-                @include noddifont($mail, $tertiary, 1);
+                @include noddifont($email, $grey, 2.6);
             }
-            &.firstname:before,
-            &.lastname:before
+            &.firstname:before
             {
-                @include noddifont($pseudo, $tertiary, 1);
+                @include noddifont($user, $grey, 2.6);
+            }
+            &.city:before
+            {
+                @include noddifont($pin, $grey, 2.6);
+            }
+        }
+        .offsetForm{ // decaler le form pour afficher les icons
+            padding-left: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+        .rowInput{
+            display: flex;
+            div {
+                flex: 1;
             }
         }
         ul.select_activities {

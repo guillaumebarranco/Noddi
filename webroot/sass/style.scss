@@ -72,11 +72,12 @@ form {
             align-items: center;
             padding:10px 20px;
             margin:5px;
-            border: solid $borderDefault $primary;
-            background: none;
-            color:$primary;
+            border: solid $borderDefault $grey;
+            background: $white;
+            color:$grey;
             // @extend .button;
             font-weight:bold;
+            border-radius: 5px;
         }
     }
     input, textarea {
@@ -94,7 +95,7 @@ form {
             width: 100%;
             opacity: 0;
             &:checked + label{
-                background: $primary;
+                background: $grey;
                 color: $white;
                 &:before{
                     padding-right: 5px;

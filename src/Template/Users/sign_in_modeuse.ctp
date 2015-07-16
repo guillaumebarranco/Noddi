@@ -1,3 +1,5 @@
+<?php include('tab.php');  ?>
+
 <section class="page page_signin modeuse">
 	<header class="headerPage">
 	    <h2 class="titlePage">Inscription</h2>
@@ -32,27 +34,33 @@
 			</div>
 
 			<div class="form_brand_two">
+				<div class="offsetForm">
+					<label class="displayLabel instagramUsername" for="instagramUsername">instagram</label>
+					<?= $this->Form->input('instagramUsername', ['placeholder' => "Nom d'utilisateur sur Instagram", "class" => "instagramUsername"]) ?>
+					
+					<label class="displayLabel twitterUsername" for="twitterUsername">twitter</label>
+					<?= $this->Form->input('twitterUsername', ['placeholder' => "Nom d'utilisateur sur Twitter", "class" => "twitterUsername"]) ?>
 
-				<label for="instagram showLabel instagram">
-				instagram
-				</label>
-					<input class="instagram" type="text" placeholder="Nom d'utilisateur sur Instagram">
-				<?= $this->Form->input('instagram', ['placeholder' => "Nom d'utilisateur sur Instagram", "class" => "instagram"]) ?>
-				<?= $this->Form->input('twitter', ['placeholder' => "Nom d'utilisateur sur Twitter", "class" => "twitter"]) ?>
+					<label class="displayLabel email" for="email">email</label>
+					<?= $this->Form->input('email', ['placeholder' => "Email", "class" => "email"]) ?>
+					
+					<div class="rowInput">
+						<label class="displayLabel firstname" for="firstname">Prénom</label>
+						<?= $this->Form->input('firstname', ['placeholder' => "Prénom", "class" => "firstname"]) ?>
 
+						<label class="displayLabel lastname" for="lastname">Nom</label>
+						<?= $this->Form->input('lastname', ['placeholder' => "Nom", "class" => "lastname"]) ?>
+					</div>					
 
-				<?= $this->Form->input('email', ['placeholder' => "Email", "class" => "email"]) ?>
+					
+					<label class="displayLabel birthday" for="birthday">Age</label>
+					<input type="hidden" name="birthday">
 
-				<?= $this->Form->input('firstname', ['placeholder' => "Prénom", "class" => "firstname"]) ?>
+					<label class="displayLabel city" for="city">Ville</label>
+					<?= $this->Form->input('city', ['placeholder' => "Ville"]) ?>
+				</div>
 
-				<?= $this->Form->input('lastname', ['placeholder' => "Nom", "class" => "lastname"]) ?>
-
-				<label for="birthday">Date de Naissance</label>
-				<input type="hidden" name="birthday">
-
-				<?= $this->Form->input('city', ['placeholder' => "Ville"]) ?>
-
-				<a class="button get_form_brand_three">Etape Suivante</a>
+				<a class="button get_form_brand_three reversed">Etape Suivante</a>
 			</div>
 
 			<div class="form_brand_three">
@@ -61,9 +69,9 @@
 						J'aime principalement 
 					</p>
 					<select name="hobbie-one">
-						<?php  foreach ($tab_interest as $interest) {   
-							echo"<option value=".$interest['value']." >" .$interest['name']. "</option> ";
-						} ?>
+						<?php foreach ($tab_interest as $interest) { ?>
+						    <option value="<?=$interest['value']?>"><?=$interest['name']?></option>
+						<?php } ?>
 					</select>
 					<p>et</p>
 					<select name="hobbie-two">
@@ -85,7 +93,7 @@
 					</select>
 				</div>
 				
-				<p>Choisis deux styles vestimentaires que tu portes au quotidien:</p>
+				<p>Choisis les styles vestimentaires que tu portes au quotidien:</p>
 				<div class="checklist">
 				<?php  foreach ($tab_lifestyle as $lifestyle) {  
 					echo"<input type=\"checkbox\" name='styleWear' id=".$lifestyle['value']." value=".$lifestyle['value'].">
@@ -98,7 +106,7 @@
 
 				<textarea name="myDescription" id="description" placeholder="Votre description"></textarea>
 				
-				<a class="button get_form_brand_four">Etape Suivante</a>
+				<a class="button get_form_brand_four reversed">Etape Suivante</a>
 			</div>
 
 			<div class="form_brand_four">
@@ -133,7 +141,7 @@
 						</label>";
 					} ?>
 				</div>
-				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button small"]); ?>
+				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button reversed"]); ?>
 
 		    	
 			</div>

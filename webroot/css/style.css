@@ -160,10 +160,11 @@ form label.showLabel {
 	align-items: center;
 	padding: 10px 20px;
 	margin: 5px;
-	border: solid 3px #ed7b6e;
-	background: none;
-	color: #ed7b6e;
+	border: solid 3px #c8c7cc;
+	background: #ffffff;
+	color: #c8c7cc;
 	font-weight: bold;
+	border-radius: 5px;
 }
 
 form input,
@@ -190,7 +191,7 @@ form input[type="radio"]:checked + label,
 form input[type="checkbox"]:checked + label,
 form textarea[type="radio"]:checked + label,
 form textarea[type="checkbox"]:checked + label {
-	background: #ed7b6e;
+	background: #c8c7cc;
 	color: #ffffff;
 }
 
@@ -1025,7 +1026,9 @@ header.headerPage .previousStepMenu:before {
 
 .page_signin .stepsSignIn {
 	position: relative;
-	margin: auto;
+	-webkit-align-self: center;
+	-ms-flex-item-align: center;
+	align-self: center;
 	max-width: 300px;
 }
 
@@ -1091,7 +1094,6 @@ header.headerPage .previousStepMenu:before {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	background: #ffffff;
 	border-top: solid 1px #aaaaaa;
 	border-bottom: solid 1px #aaaaaa;
 }
@@ -1107,11 +1109,17 @@ header.headerPage .previousStepMenu:before {
 	-ms-flex-direction: column;
 	flex-direction: column;
 	margin-top: 20px;
+	background-color: #ffffff;
+	padding: 10px;
 }
 
-.page_signin .formBrand > div.form_brand_two,
-.page_signin .formModeuse > div.form_brand_two {
-	padding-left: 50px;
+.page_signin .formBrand > div.form_brand_two .get_form_brand_three,
+.page_signin .formBrand > div.form_brand_two .get_form_brand_four,
+.page_signin .formBrand > div.form_brand_two .form_brand_four > button,
+.page_signin .formModeuse > div.form_brand_two .get_form_brand_three,
+.page_signin .formModeuse > div.form_brand_two .get_form_brand_four,
+.page_signin .formModeuse > div.form_brand_two .form_brand_four > button {
+	margin: 20px;
 }
 
 .page_signin .formBrand input,
@@ -1120,14 +1128,35 @@ header.headerPage .previousStepMenu:before {
 .page_signin .formModeuse textarea {
 	width: 100%;
 	resize: none;
+	margin-bottom: 0;
+	border: none;
+	border-bottom: solid 1px #c8c7cc;
+	background: #ffffff;
 }
 
-.page_signin .formBrand input.instagram:before,
-.page_signin .formModeuse input.instagram:before {
+.page_signin .formBrand input#description,
+.page_signin .formBrand textarea#description,
+.page_signin .formModeuse input#description,
+.page_signin .formModeuse textarea#description {
+	min-height: 100px;
+	border: solid 1px #c8c7cc;
+}
+
+.page_signin .formBrand label.displayLabel:before,
+.page_signin .formModeuse label.displayLabel:before {
+	font: inherit;
+	color: inherit;
+	text-shadow: inherit;
+	position: absolute;
+	margin: 23px 0px 0 -40px;
+}
+
+.page_signin .formBrand label.instagramUsername:before,
+.page_signin .formModeuse label.instagramUsername:before {
 	content: "";
-	color: #aaaaaa;
-	font-size: 10px;
-	font-size: 1rem;
+	color: #c8c7cc;
+	font-size: 26px;
+	font-size: 2.6rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -1138,12 +1167,12 @@ header.headerPage .previousStepMenu:before {
 	text-transform: none;
 }
 
-.page_signin .formBrand input.twitter:before,
-.page_signin .formModeuse input.twitter:before {
+.page_signin .formBrand label.twitterUsername:before,
+.page_signin .formModeuse label.twitterUsername:before {
 	content: "";
-	color: #aaaaaa;
-	font-size: 10px;
-	font-size: 1rem;
+	color: #c8c7cc;
+	font-size: 26px;
+	font-size: 2.6rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -1154,12 +1183,12 @@ header.headerPage .previousStepMenu:before {
 	text-transform: none;
 }
 
-.page_signin .formBrand input.email:before,
-.page_signin .formModeuse input.email:before {
-	content: "";
-	color: #aaaaaa;
-	font-size: 10px;
-	font-size: 1rem;
+.page_signin .formBrand label.email:before,
+.page_signin .formModeuse label.email:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 26px;
+	font-size: 2.6rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -1170,14 +1199,12 @@ header.headerPage .previousStepMenu:before {
 	text-transform: none;
 }
 
-.page_signin .formBrand input.firstname:before,
-.page_signin .formBrand input.lastname:before,
-.page_signin .formModeuse input.firstname:before,
-.page_signin .formModeuse input.lastname:before {
-	content: "";
-	color: #aaaaaa;
-	font-size: 10px;
-	font-size: 1rem;
+.page_signin .formBrand label.firstname:before,
+.page_signin .formModeuse label.firstname:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 26px;
+	font-size: 2.6rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -1186,6 +1213,47 @@ header.headerPage .previousStepMenu:before {
 	font-weight: normal;
 	text-decoration: none;
 	text-transform: none;
+}
+
+.page_signin .formBrand label.city:before,
+.page_signin .formModeuse label.city:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 26px;
+	font-size: 2.6rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_signin .formBrand .offsetForm,
+.page_signin .formModeuse .offsetForm {
+	padding-left: 50px;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.page_signin .formBrand .rowInput,
+.page_signin .formModeuse .rowInput {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_signin .formBrand .rowInput div,
+.page_signin .formModeuse .rowInput div {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 }
 
 .page_signin .formBrand ul.select_activities,

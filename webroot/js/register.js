@@ -40,8 +40,8 @@ $(document).ready(function() {
 			&& $('input[name=lastname]').val() != ''
 			&& $('input[name=email]').val() != ''
 			&& $('input[name=city]').val() != ''
-			&& $('input[name=instagram]').val() != ''
-			&& $('input[name=twitter]').val() != ''
+			&& $('input[name=instagramUsername]').val() != ''
+			&& $('input[name=twitterUsername]').val() != ''
 			// && $('input[name=birthday]').val() != ''
 		) {
 			if(validateEmail($('input[name=email]').val())) {
