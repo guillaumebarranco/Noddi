@@ -77,12 +77,12 @@ body {
 }
 
 *::-moz-selection {
-	background-color: #ef8f7a;
+	background-color: #ed7b6e;
 	color: #ffffff;
 }
 
 *::selection {
-	background-color: #ef8f7a;
+	background-color: #ed7b6e;
 	color: #ffffff;
 }
 
@@ -160,17 +160,16 @@ form label.showLabel {
 	align-items: center;
 	padding: 10px 20px;
 	margin: 5px;
-	border: solid 3px #ef8f7a;
+	border: solid 3px #ed7b6e;
 	background: none;
-	color: #ef8f7a;
+	color: #ed7b6e;
 	font-weight: bold;
 }
 
 form input,
 form textarea {
 	box-sizing: border-box;
-	border: solid 1px red;
-	border-radius: 12px;
+	border: solid 1px #90d6db;
 	padding: 12px 20px;
 	outline: none;
 	margin-bottom: 15px;
@@ -191,7 +190,7 @@ form input[type="radio"]:checked + label,
 form input[type="checkbox"]:checked + label,
 form textarea[type="radio"]:checked + label,
 form textarea[type="checkbox"]:checked + label {
-	background: #ef8f7a;
+	background: #ed7b6e;
 	color: #ffffff;
 }
 
@@ -235,8 +234,8 @@ form textarea[type="checkbox"]:checked + label:before {
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border 0.3s ease-in-out;
-	color: #ef8f7a;
-	border: solid #ef8f7a 3px;
+	color: #ed7b6e;
+	border: solid #ed7b6e 3px;
 	background: none;
 	display: block;
 	outline: none;
@@ -244,12 +243,12 @@ form textarea[type="checkbox"]:checked + label:before {
 
 .button:hover {
 	color: #ffffff;
-	background: #ef8f7a;
+	background: #ed7b6e;
 }
 
 .button.reversed {
-	border: solid #ef8f7a 3px;
-	background: #ef8f7a;
+	border: solid #ed7b6e 3px;
+	background: #ed7b6e;
 	color: #ffffff;
 }
 
@@ -269,7 +268,7 @@ form textarea[type="checkbox"]:checked + label:before {
 }
 
 .button.dark:hover {
-	border-color: #ef8f7a;
+	border-color: #ed7b6e;
 	background: none;
 	color: #ffffff;
 }
@@ -330,7 +329,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-	background: #acdce0;
+	background: #90d6db;
 	color: #ffffff;
 	padding: 10px 0;
 }
@@ -340,7 +339,7 @@ form textarea[type="checkbox"]:checked + label:before {
 }
 
 .headerApp nav#navigation ul.menu li.active {
-	background: #ef8f7a;
+	background: #ed7b6e;
 }
 
 .headerApp nav#navigation ul.menu li.home:before {
@@ -422,7 +421,7 @@ header.headerPage h2.titlePage {
 	-webkit-flex: 7;
 	-ms-flex: 7;
 	flex: 7;
-	background: #acdce0;
+	background: #90d6db;
 	text-align: center;
 	padding: 5px 0;
 	margin: 0;
@@ -557,7 +556,7 @@ header.headerPage .previousStepMenu:before {
 	width: 50px;
 	height: 50px;
 	border-radius: 25px;
-	background: #ef8f7a;
+	background: #ed7b6e;
 	color: #ffffff;
 	position: absolute;
 	margin-left: 45%;
@@ -667,7 +666,7 @@ header.headerPage .previousStepMenu:before {
 }
 
 .page_index section.memberType .typeDescription .description h2 {
-	color: #ef8f7a;
+	color: #ed7b6e;
 	text-align: center;
 	margin: 0;
 }
@@ -707,7 +706,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.memberType .typeDescription.details .description ul li span {
 	font-size: 50px;
 	font-size: 5rem;
-	color: #ef8f7a;
+	color: #ed7b6e;
 	margin-right: 25px;
 }
 
@@ -764,7 +763,7 @@ header.headerPage .previousStepMenu:before {
 	align-items: flex-end;
 	padding: 5px 10px;
 	margin: 5px;
-	background: #acdce0;
+	background: #90d6db;
 }
 
 .page_index section.section_home .myDemandReminder ul li:before {
@@ -784,7 +783,7 @@ header.headerPage .previousStepMenu:before {
 }
 
 .page_index section.section_home .myDemandReminder ul li.edit {
-	background: #ef8f7a;
+	background: #ed7b6e;
 }
 
 .page_index section.section_home .myDemandReminder ul li.edit:before {
@@ -817,7 +816,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse img.modeusePic,
 .page_index section.section_home ul.all_favoris li.modeuse img.modeusePic {
 	width: 100%;
-	background: #acdce0;
+	background: #90d6db;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats,
@@ -845,7 +844,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -861,7 +860,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -877,7 +876,7 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -934,7 +933,7 @@ header.headerPage .previousStepMenu:before {
 	max-width: 500px;
 	margin: 10px;
 	padding: 20px;
-	border: solid 1px #ef8f7a;
+	border: solid 1px #ed7b6e;
 }
 
 .page_login .connectSections form {
@@ -955,6 +954,26 @@ header.headerPage .previousStepMenu:before {
 	flex: 1;
 }
 
+.page_signin.modeuse {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.page_signin .createFacebookAccount {
+	background: url("../img/pictures/login/insc-modeuses_visu1.jpg") center center;
+	background-size: cover;
+}
+
+.page_signin .inscriptionVisu {
+	background: url("../img/pictures/login/lunettesGal.jpg") center center;
+	background-size: cover;
+	min-height: 200px;
+}
+
 .page_signin .inscriptionType {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -973,15 +992,13 @@ header.headerPage .previousStepMenu:before {
 
 .page_signin .stepsSignIn {
 	position: relative;
-	border-bottom: solid 1px;
-	height: 15px;
 	margin: auto;
 	max-width: 300px;
 }
 
 .page_signin .stepsSignIn ul {
+	min-width: 200px;
 	width: 100%;
-	position: absolute;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -989,6 +1006,7 @@ header.headerPage .previousStepMenu:before {
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 	margin: auto;
+	margin-top: -15px;
 	padding: 0;
 }
 
@@ -1002,18 +1020,20 @@ header.headerPage .previousStepMenu:before {
 	-webkit-justify-content: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	width: 30px;
-	height: 30px;
+	width: 36px;
+	height: 36px;
+	border-radius: 18px;
+	border: solid 3px #ed7b6e;
 	text-align: center;
 	list-style: none;
-	-webkit-transform: rotate(45deg);
-	transform: rotate(45deg);
-	color: #ffffff;
-	background: #aaaaaa;
+	color: #ed7b6e;
+	background: #ffffff;
+	font-weight: bold;
 }
 
 .page_signin .stepsSignIn ul li.active {
-	background: #ef8f7a;
+	color: #ffffff;
+	background: #ed7b6e;
 }
 
 .page_signin .stepsSignIn ul li:after {
@@ -1025,7 +1045,7 @@ header.headerPage .previousStepMenu:before {
 
 .page_signin .formBrand,
 .page_signin .formModeuse {
-	padding: 15px;
+	margin: 20px 0;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1038,6 +1058,9 @@ header.headerPage .previousStepMenu:before {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
+	background: #ffffff;
+	border-top: solid 1px #aaaaaa;
+	border-bottom: solid 1px #aaaaaa;
 }
 
 .page_signin .formBrand > div,
@@ -1059,6 +1082,73 @@ header.headerPage .previousStepMenu:before {
 .page_signin .formModeuse textarea {
 	width: 100%;
 	resize: none;
+	padding-left: 40px;
+}
+
+.page_signin .formBrand input.instagram:before,
+.page_signin .formModeuse input.instagram:before {
+	content: "";
+	color: #aaaaaa;
+	font-size: 10px;
+	font-size: 1rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_signin .formBrand input.twitter:before,
+.page_signin .formModeuse input.twitter:before {
+	content: "";
+	color: #aaaaaa;
+	font-size: 10px;
+	font-size: 1rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_signin .formBrand input.email:before,
+.page_signin .formModeuse input.email:before {
+	content: "";
+	color: #aaaaaa;
+	font-size: 10px;
+	font-size: 1rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_signin .formBrand input.firstname:before,
+.page_signin .formBrand input.lastname:before,
+.page_signin .formModeuse input.firstname:before,
+.page_signin .formModeuse input.lastname:before {
+	content: "";
+	color: #aaaaaa;
+	font-size: 10px;
+	font-size: 1rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
 }
 
 .page_signin .formBrand ul.select_activities,
@@ -1084,7 +1174,7 @@ header.headerPage .previousStepMenu:before {
 
 .page_signin .formBrand ul.select_activities li.button_selected,
 .page_signin .formModeuse ul.select_activities li.button_selected {
-	background: #ef8f7a;
+	background: #ed7b6e;
 }
 
 .page_signin .formBrand .checklist,
@@ -1120,7 +1210,7 @@ header.headerPage .previousStepMenu:before {
 	-ms-flex: flex-grow;
 	flex: flex-grow;
 	border: none;
-	color: #ef8f7a;
+	color: #ed7b6e;
 	font-weight: bold;
 	background: none;
 	font-size: 20px;
@@ -1134,7 +1224,7 @@ header.headerPage .previousStepMenu:before {
 }
 
 footer {
-	background: #acdce0;
+	background: #90d6db;
 	text-align: center;
 	padding-bottom: 90px;
 }
@@ -1161,7 +1251,7 @@ footer .socials {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
-	background: #acdce0;
+	background: #90d6db;
 }
 
 footer .socials h3 {
@@ -1228,7 +1318,7 @@ footer .socials ul li.facebook:hover {
 
 footer .socials ul li.facebook a:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1247,7 +1337,7 @@ footer .socials ul li.twitter:hover {
 
 footer .socials ul li.twitter a:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1266,7 +1356,7 @@ footer .socials ul li.instagram:hover {
 
 footer .socials ul li.instagram a:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1285,7 +1375,7 @@ footer .socials ul li.snapchat:hover {
 
 footer .socials ul li.snapchat a:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1304,7 +1394,7 @@ footer .socials ul li.pinterest:hover {
 
 footer .socials ul li.pinterest a:before {
 	content: "";
-	color: #acdce0;
+	color: #90d6db;
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: "noddifont";
@@ -1384,11 +1474,11 @@ footer ul > li a:hover {
 }
 
 .page_dashboard article.proposition .content footer .edit {
-	background: #ef8f7a;
+	background: #ed7b6e;
 }
 
 .page_dashboard article.proposition .content footer .delete {
-	background: #acdce0;
+	background: #90d6db;
 }
 
 .page_dashboard .propositions {
@@ -1439,11 +1529,11 @@ footer ul > li a:hover {
 }
 
 .page_dashboard .proposition_received footer .accept {
-	background: #ef8f7a;
+	background: #ed7b6e;
 }
 
 .page_dashboard .proposition_received footer .decline {
-	background: #acdce0;
+	background: #90d6db;
 }
 
 @media (min-width: 500px) {
