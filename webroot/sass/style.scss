@@ -278,11 +278,9 @@ header.headerPage{
     }
 }
 
-
-
 .blog_selected, .network_selected, .section_selected, .audience_selected {
-            background-color: blue;
-        }
+    background-color: blue;
+}
 
 
 
@@ -292,3 +290,4 @@ header.headerPage{
 @import '_profile';
 @import '_dashboard';
 @import '_account';
+

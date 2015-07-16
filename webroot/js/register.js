@@ -188,6 +188,7 @@ $(document).ready(function() {
 	$('.fb_button').on('click', function() {
 
 		FB.getLoginStatus(function(response) {
+			console.log('test', response);
 
 			if(response.status === "not_authorized") {
 
@@ -233,8 +234,6 @@ $(document).ready(function() {
 					var birthdayTimestamp = new Date(data.birthday).getTime(),
 						myAge = calculateAge(birthdayTimestamp);
 					$('input[name=birthday]').val(myAge);
-
-					//addModeuseFacebook(data);
 				}); 
 			}
 		});
@@ -251,6 +250,7 @@ $(document).ready(function() {
 
 					var data_user = {};
 					data_user.fb_id = data.id;
+					data_user.fb_token = fb_token;
 
 					makeAjax('POST', "loginFB", data_user, function() {
 

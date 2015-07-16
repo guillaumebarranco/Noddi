@@ -1,18 +1,19 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Message;
+use App\Model\Entity\Apply;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Messages Model
+ * Applies Model
  *
+ * @property \Cake\ORM\Association\BelongsTo $Modeuses
  * @property \Cake\ORM\Association\BelongsTo $Offers
  */
-class MessagesTable extends Table
+class AppliesTable extends Table
 {
 
     /**
@@ -23,10 +24,14 @@ class MessagesTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('messages');
+        $this->table('applies');
         $this->displayField('id');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->belongsTo('Modeuses', [
+            'foreignKey' => 'modeuse_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsTo('Offers', [
             'foreignKey' => 'offer_id',
             'joinType' => 'INNER'
@@ -46,22 +51,12 @@ class MessagesTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->requirePresence('content', 'create')
-            ->notEmpty('content');
-            
-        $validator
-            ->requirePresence('from_who', 'create')
-            ->notEmpty('from_who');
+            ->allowEmpty('message');
             
         $validator
             ->add('viewed', 'valid', ['rule' => 'numeric'])
             ->requirePresence('viewed', 'create')
             ->notEmpty('viewed');
-            
-        $validator
-            ->add('answered', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('answered', 'create')
-            ->notEmpty('answered');
 
         return $validator;
     }
@@ -75,6 +70,7 @@ class MessagesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->existsIn(['modeuse_id'], 'Modeuses'));
         $rules->add($rules->existsIn(['offer_id'], 'Offers'));
         return $rules;
     }

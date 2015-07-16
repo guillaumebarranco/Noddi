@@ -292,4 +292,67 @@ $(document).ready(function() {
 			});
 		});
 	});
+
+	/*
+	*	MODEUSES OFFERS
+	*/
+
+	$('.all_offers').hide();
+
+	$('.get_offers').on('click', function() {
+
+		makeAjax('POST', "offers/getOffers", '', function() {
+
+			console.log(_this.response.offers);
+
+			for (offer in _this.response.offers) {
+				var li =
+					'<li>'+
+						'<p>'+_this.response.offers[offer].title+'</p>'+
+						'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+					'</li>'
+				;
+				$('.all_offers').append(li);
+			}			
+
+			$('.all_offers').show();
+		});
+
+	});
+
+	/*
+	*	APPLY OFFER
+	*/
+
+	$('.apply_offer').on('click', function() {
+
+		var data_apply = {};
+		data_apply.modeuse_id = $(this).attr('data-modeuse');
+		data_apply.offer_id = $(this).attr('data-offer');
+		data_apply.message = 'test';
+		data_apply.viewed = 0;
+
+		swal({
+			title : 'yeah',
+			confirmButtonText : "OK",
+			closeOnConfirm: false
+
+		}, function() {
+
+			makeAjax('POST', "../applyOffer", data_apply, function() {
+
+				swal({
+					title: 'Success',
+					type : 'success'
+				}, function() {
+					window.location.href = WEB_URL+'/offers/';
+				});
+
+
+
+			});
+			
+		});
+	});
+
 });	

@@ -4,9 +4,9 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Message Entity.
+ * Apply Entity.
  */
-class Message extends Entity
+class Apply extends Entity
 {
 
     /**
@@ -15,12 +15,11 @@ class Message extends Entity
      * @var array
      */
     protected $_accessible = [
+        'modeuse_id' => true,
         'offer_id' => true,
-        'content' => true,
-        'from_who' => true,
+        'message' => true,
         'viewed' => true,
-        'answered' => true,
-        'brand' => true,
         'modeus' => true,
+        'offer' => true,
     ];
 }

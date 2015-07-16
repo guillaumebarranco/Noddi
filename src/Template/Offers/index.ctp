@@ -35,7 +35,9 @@
 
 <?php } else { ?>
 
-    <?php if($modeuse->boost == 1) { ?>
+    <?php 
+
+    if($modeuse->boost == 1) { ?>
 
         <h2>Propositions</h2>
 
@@ -49,8 +51,10 @@
         </p>
 
         <div>
-            <button class="button">Voir les propositions</button>
+            <button class="button get_offers">Voir les propositions</button>
         </div>
+
+        <ul class="all_offers"></ul>
 
     <?php } else { ?>
 

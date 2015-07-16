@@ -11,7 +11,7 @@ class OffersController extends AppController
         parent::initialize();
 
         $this->loadModel('Types');
-        $session = $this->request->session();
+        $this->loadModel('Applies');
     }
 
     /*
@@ -144,14 +144,61 @@ class OffersController extends AppController
     // }
 
 
-    public function view($id = null)
-    {
+    public function view($id = null) {
+
+        $session = $this->request->session();
+
+        if($session->read('type') == 'modeuse') {
+            if($this->Modeuses->get($session->read('modeuse_id'))->boost == 0) {
+                return $this->redirect(
+                    ['controller' => 'Offers', 'action' => 'index']
+                );
+            }
+        }
+
         $offer = $this->Offers->get($id, [
-            'contain' => ['Brands', 'Activities']
+            'contain' => ['Brands']
         ]);
         $this->set('offer', $offer);
         $this->set('_serialize', ['offer']);
     }
+
+    public function getOffers() {
+        $check = $this->Jsonification();
+
+        $offers = $this->Offers->find('all')
+            //->where(['modeuse_id' => NULL])
+        ;
+
+        $response = array();
+        $response['offers'] = $offers;
+
+        $this->response->body(json_encode($response));
+        return $this->response;
+    }
+
+    public function applyOffer() {
+
+        $check = $this->Jsonification();
+
+        if($this->request->data) {
+            $data = $this->request->data;
+
+            $apply = $this->Applies->newEntity();
+            $apply = $this->Applies->patchEntity($apply, $data);
+
+            if ($this->Applies->save($apply)) {
+                $modeuse = $this->Modeuses->get($data['modeuse_id']);
+                $modeuse->boost = 0;
+                $this->Modeuses->save($modeuse);
+                $check = 'OK';
+            }
+
+        }
+
+        echo $this->getResponse($check);
+    }
+
 
 }
 ?>
