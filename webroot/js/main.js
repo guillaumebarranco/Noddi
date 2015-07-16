@@ -428,4 +428,42 @@ $(document).ready(function() {
 
 	});
 
+	/*
+	*	BRAND : ACCEPT APPLY
+	*/
+
+	$('.acceptApply').on('click', function() {
+
+		data = {};
+		data.offer_id = $(this).attr('data-offer');
+		data.apply_id = $(this).attr('data-apply');
+		data.modeuse_id = $(this).attr('data-modeuse');
+
+		console.log('acceptApply', data);
+		
+		makeAjax('POST', WEB_URL+"/dashboard/acceptApply", data, function() {
+			swal({
+				title: 'Message envoyé',
+				type: 'success'
+			});
+		});
+	});
+
+	$('.removeApply').on('click', function() {
+
+		data = {};
+		data.apply_id = $(this).attr('data-apply');
+		var that = $(this);
+		console.log('acceptApply', data);
+		
+		makeAjax('POST', WEB_URL+"/dashboard/refuseApply", data, function() {
+			swal({
+				title: 'Demande supprimée',
+				type: 'success'
+			});
+
+			that.parents('.proposition_received').remove();
+		});
+	});
+
 });	

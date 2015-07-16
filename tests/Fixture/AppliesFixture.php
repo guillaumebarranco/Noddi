@@ -24,6 +24,7 @@ class AppliesFixture extends TestFixture
         'message' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'viewed' => ['type' => 'integer', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '0', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'accepted' => ['type' => 'integer', 'length' => 4, 'unsigned' => false, 'null' => false, 'default' => '0', 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -46,8 +47,9 @@ class AppliesFixture extends TestFixture
             'offer_id' => 1,
             'from_who' => 'Lorem ipsum dolor sit amet',
             'message' => 'Lorem ipsum dolor sit amet',
-            'created' => '2015-07-16 17:31:53',
-            'viewed' => 1
+            'created' => '2015-07-16 17:43:36',
+            'viewed' => 1,
+            'accepted' => 1
         ],
     ];
 }

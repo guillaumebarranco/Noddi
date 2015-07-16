@@ -104,4 +104,35 @@ $(document).ready(function() {
 		});
 	});
 
+
+	/*
+	*	SUPPRIMER OFFER
+	*/
+
+	$('.deleteOffer').on('click', function() {
+
+		data = {};
+		data.offer_id = $(this).attr('data-offer');
+
+		console.log('deleteOffer', data);
+		
+		makeAjax('POST', WEB_URL+"/offers/delete", data, function() {
+
+			if(_this.response.check === 'OK') {
+				swal({
+					title: 'Offre supprimée',
+					type: 'success'
+				}, function() {
+					window.location.href = WEB_URL+'/home/';
+				});
+
+			} else {
+				swal({
+					title: 'Votre offre a des postulats en cours ! Vous ne pouvez pas la supprimer !',
+					type: 'error'
+				});
+			}
+			
+		});
+	});
 });

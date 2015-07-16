@@ -16,12 +16,12 @@
 			</div>
 			<footer class="proposition_buttons">
 				<div class="edit">Editer</div>
-				<div class="delete">Supprimer</div>
+				<div class="delete deleteOffer" data-offer="<?=$offer->id?>">Supprimer</div>
 			</footer>
 		</div>
 	</article>
 
-	<?php if(!empty($applies_modeuse)) { ?>
+	<?php if(!empty($applies_brand)) { ?>
 
 		<div class="propositions">
 
@@ -36,24 +36,31 @@
 		<?php } ?>
 
 		</div>
+
 	<?php } ?>
 
 	<?php if(!empty($applies_modeuse)) { 
 
-		foreach ($applies_modeuse as $key => $apply_modeuse) { ?>
+		foreach ($applies_modeuse as $key => $apply_modeuse) { 
+
+			if($apply_modeuse->accepted != 2) { ?>
+
 			<div class="proposition_received">
 				<img src="<?=$apply_modeuse->modeus->user->picture?>" width="50" alt="">
 				<p>Demande reçue de <?=$apply_modeuse->modeus->firstname?></p>
 
 				<footer>
-					<div class="accept">Accepter</div>
-					<div class="decline">Décliner</div>
+					<div class="accept acceptApply" data-offer="<?=$offer->id?>" data-apply="<?=$apply_modeuse->id?>" data-modeuse="<?=$apply_modeuse->modeus->id?>">Accepter</div>
+					<div class="decline removeApply" data-apply="<?=$apply_modeuse->id?>">Décliner</div>
 				</footer>
 			</div>
 		<?php }
+		}
 	} ?>
 	
 
 	<?= $this->Html->link(__('Continuer la recherche de Noddiz'), ['controller' => 'Home', 'action' => 'index'], ['class' => 'button']) ?>
 
 </section>
+
+<?= $this->Html->script('offers') ?>

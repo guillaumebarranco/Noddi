@@ -61,6 +61,11 @@ class AppliesTable extends Table
             ->add('viewed', 'valid', ['rule' => 'numeric'])
             ->requirePresence('viewed', 'create')
             ->notEmpty('viewed');
+            
+        $validator
+            ->add('accepted', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('accepted', 'create')
+            ->notEmpty('accepted');
 
         return $validator;
     }

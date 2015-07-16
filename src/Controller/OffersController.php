@@ -140,21 +140,23 @@ class OffersController extends AppController
         echo $this->getResponse($check);
     }
 
-    // public function delete() {
+    public function delete() {
         
-    //     $check = $this->Jsonification();
+        $check = $this->Jsonification();
 
-    //     if(isset($this->request->data)) {
-    //         $offer = $this->Offers->get(12);
+        if(isset($this->request->data)) {
+            $offer = $this->Offers->get($this->request->data['offer_id']);
 
-    //         if(!$offer->$match) {
-    //             $this->Offers->delete($offer);
-    //             $check = 'OK';
-    //         }
-    //     }
+            $applies = $this->Applies->find('all')->where(['offer_id' => $this->request->data['offer_id'], 'accepted !=' => 2])->toArray();
 
-    //     echo $this->getResponse($check);
-    // }
+            if(empty($applies[0])) {
+                $this->Offers->delete($offer);
+                $check = 'OK';
+            }
+        }
+
+        echo $this->getResponse($check);
+    }
 
 
     public function view($id = null) {

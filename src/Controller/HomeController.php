@@ -18,7 +18,7 @@ class HomeController extends AppController {
         if($session->read('type') == 'brand') {
 
             $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray();
-            $offers = $this->Offers->find('all')->where(['brand_id' => $brand[0]['id']])->toArray();
+            $offers = $this->Offers->find('all')->where(['brand_id' => $brand[0]['id'], 'modeuse_id IS' => null])->toArray();
 
             // On voit si la marque a déjà une offre en cours ou non
 
@@ -26,8 +26,6 @@ class HomeController extends AppController {
             if(empty($offers)) {
                 $can_make_offer = true;
             }
-
-            
 
             $this->set(array(
                 'can_make_offer' => $can_make_offer

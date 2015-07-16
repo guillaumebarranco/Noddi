@@ -20,6 +20,7 @@ class Apply extends Entity
         'from_who' => true,
         'message' => true,
         'viewed' => true,
+        'accepted' => true,
         'modeus' => true,
         'offer' => true,
     ];
