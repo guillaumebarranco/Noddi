@@ -97,4 +97,11 @@ $(document).ready(function() {
         }
     });
 
+	$('.send_offer').on('click', function() {
+		swal({
+			title: "Confirmation",
+			text: "Votre demande a bien été envoyée."
+		});
+	});
+
 });

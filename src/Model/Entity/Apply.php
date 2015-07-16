@@ -17,6 +17,7 @@ class Apply extends Entity
     protected $_accessible = [
         'modeuse_id' => true,
         'offer_id' => true,
+        'from_who' => true,
         'message' => true,
         'viewed' => true,
         'modeus' => true,

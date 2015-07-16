@@ -23,7 +23,7 @@ $(document).ready(function() {
 	*/
 
 	function getModeuses() {
-		makeAjax('POST', "users/getModeuses", data_search, function() {
+		makeAjax('POST', WEB_URL+"/users/getModeuses", data_search, function() {
 			console.log('get_modeuses', _this.response.modeuses);
 
 			$('.list_modeuses').empty();
@@ -157,14 +157,6 @@ $(document).ready(function() {
 		$('.page_modeuse').hide();
 		$('.modeuse_socials').show();
 	});
-
-	$('.send_offer').on('click', function() {
-		swal({
-			title: "Confirmation",
-			text: "Votre demande a bien été envoyée."
-		});
-	});
-
 
 
 	/*
@@ -327,8 +319,11 @@ $(document).ready(function() {
 		var data_apply = {};
 		data_apply.modeuse_id = $(this).attr('data-modeuse');
 		data_apply.offer_id = $(this).attr('data-offer');
-		data_apply.message = 'test';
+		data_apply.message = $('textarea').val();
 		data_apply.viewed = 0;
+		data_apply.from_who = $(this).attr('data-fromwho');
+
+		console.log(data_apply);
 
 		swal({
 			title : 'yeah',
@@ -337,16 +332,19 @@ $(document).ready(function() {
 
 		}, function() {
 
-			makeAjax('POST', "../applyOffer", data_apply, function() {
+			makeAjax('POST', WEB_URL+"/offers/applyOffer", data_apply, function() {
 
 				swal({
 					title: 'Success',
 					type : 'success'
 				}, function() {
-					window.location.href = WEB_URL+'/offers/';
+					if(data_apply.from_who == 'brand') {
+						window.location.href = WEB_URL+'/home/';
+					} else {
+						window.location.href = WEB_URL+'/offers/';
+					}
+					
 				});
-
-
 
 			});
 			

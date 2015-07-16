@@ -111,4 +111,4 @@
 
 </section>
 
-<button class="button send_offer">Envoyer mon offre</button>
+  <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$this->request->session()->read('modeuse_id')?>">Utiliser mon boost</button>>

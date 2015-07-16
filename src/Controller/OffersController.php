@@ -192,14 +192,16 @@ class OffersController extends AppController
 
     public function applyOffer() {
 
-        $email = new Email('default');
-        $email->from(['guillaume.barranco1@gmail.com' => 'Guillaume Barranco'])
-            ->to('guillaume.barranco8@hotmail.fr')
-            ->subject('OFFER')
-            ->send('test');
+        // $email = new Email('default');
+        // $email->from(['guillaume.barranco1@gmail.com' => 'Guillaume Barranco'])
+        //     ->to('guillaume.barranco8@hotmail.fr')
+        //     ->subject('OFFER')
+        //     ->send('test');
 
-        var_dump($email);
-            die;
+        // var_dump($email);
+        //     die;
+
+        $session = $this->request->session();
 
         $check = $this->Jsonification();
 
@@ -210,9 +212,13 @@ class OffersController extends AppController
             $apply = $this->Applies->patchEntity($apply, $data);
 
             if ($this->Applies->save($apply)) {
-                $modeuse = $this->Modeuses->get($data['modeuse_id']);
-                $modeuse->boost = 0;
-                $this->Modeuses->save($modeuse);
+
+                if($session->read('type') == 'modeuse') {
+                    $modeuse = $this->Modeuses->get($data['modeuse_id']);
+                    $modeuse->boost = 0;
+                    $this->Modeuses->save($modeuse);
+                }
+
                 $check = 'OK';
             }
 
@@ -220,6 +226,8 @@ class OffersController extends AppController
 
         echo $this->getResponse($check);
     }
+
+
 
 
 }

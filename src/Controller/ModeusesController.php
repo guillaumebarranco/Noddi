@@ -9,6 +9,7 @@ class ModeusesController extends AppController {
         parent::initialize();
         
         $this->loadModel('Posts');
+        $this->loadModel('Offers');
     }
 
     public function index() {
@@ -22,11 +23,28 @@ class ModeusesController extends AppController {
 
     public function view($id = null) {
 
+        $session = $this->request->session();
+
         $posts = $this->Posts->find('all')->where(['modeuse_id' => $id]);
 
         $modeuse = $this->Modeuses->get($id, [
             'contain' => ['Users']
         ]);
+
+        if($session->read('type') == 'brand') {
+            $offer = $this->Offers->find('all')
+                ->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS' => null])
+                ->contain(['Brands'])->toArray()[0];
+
+                $this->set(array(
+                'modeuse'=> $modeuse,
+                'posts' => $posts,
+                'offer' => $offer
+            ));
+            $this->set('_serialize', ['modeuse, posts, offer']);
+        }
+
+        
 
         $this->set(array(
             'modeuse'=> $modeuse,

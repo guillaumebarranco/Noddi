@@ -51,6 +51,10 @@ class AppliesTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
+            ->requirePresence('from_who', 'create')
+            ->notEmpty('from_who');
+            
+        $validator
             ->allowEmpty('message');
             
         $validator
