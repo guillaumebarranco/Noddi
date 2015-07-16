@@ -28,7 +28,6 @@
 }
 
 .title,
-h1,
 .page_index section.servicePresentation .presentation h3,
 .page_index section.memberType .typeDescription .description h2,
 .page_index section.memberType .typeDescription.details .description ul li span {
@@ -116,6 +115,15 @@ ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
+}
+
+h1 {
+	color: white;
+	background-color: #90d6db;
+	margin: 0;
+	font-size: 1em;
+	padding: 10px 0;
+	text-align: center;
 }
 
 form {

@@ -38,7 +38,13 @@ ul{
 }
 
 h1 {
-    @extend .title;
+    //@extend .title;
+    color: white;
+    background-color: $blueModeuse;
+    margin: 0;
+    font-size: 1em;
+    padding: 10px 0;
+    text-align: center
 }
 h2 {
     @extend .subtitle;
