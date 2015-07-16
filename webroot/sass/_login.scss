@@ -32,6 +32,20 @@
 
 //PAGE SIGNIN
 .page_signin {
+    &.modeuse{
+        display: flex;
+        flex-direction: column;
+    }
+    .createFacebookAccount{
+        background: url('../img/pictures/login/insc-modeuses_visu1.jpg') center center;
+        background-size: cover;
+    }
+    .inscriptionVisu{
+        background: url('../img/pictures/login/lunettesGal.jpg') center center;
+        background-size: cover;
+        min-height: 200px;
+
+    }
     .inscriptionType {
         display:flex;
         flex-direction:row;
@@ -42,30 +56,34 @@
 
     .stepsSignIn {
         position:relative;
-        border-bottom:solid 1px;
-        height:15px;
         margin:auto;
         max-width:300px;
         ul {
+            min-width: 200px;
             width:100%;
-            position:absolute;
+            // position:absolute;
             display:flex;
             justify-content:space-between;
             margin:auto;
+            margin-top: -15px;
             padding:0;
 
             li {
                 display:flex;
                 align-items:center;
                 justify-content:center;
-                width:30px;
-                height:30px;
+                width: 36px;
+                height: 36px;
+                border-radius: 18px;
+                border:solid 3px $primary;
                 text-align:center;
                 list-style:none;
-                transform:rotate(45deg);
-                color:$white;
-                background:$tertiary;
+                // transform:rotate(45deg);
+                color:$primary;
+                background:$white;
+                font-weight: bold;
                 &.active {
+                    color: $white;
                     background:$primary;
                 }
                 &:after {
@@ -78,11 +96,14 @@
         }
     }
     .formBrand, .formModeuse {
-        padding:15px;
+        margin:20px 0;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        background: $white;
+        border-top: solid 1px $tertiary;
+        border-bottom: solid 1px $tertiary;
         & > div {
             //form_brand_one,two,three
             width: 100%;
@@ -95,6 +116,23 @@
         textarea {
             width:100%;
             resize:none;
+            padding-left: 40px;
+        }
+        input{
+            &.instagram:before{
+                @include noddifont($instagram, $tertiary, 1);
+            }
+            &.twitter:before{
+                @include noddifont($twitter, $tertiary, 1);
+            }
+            &.email:before{
+                @include noddifont($mail, $tertiary, 1);
+            }
+            &.firstname:before,
+            &.lastname:before
+            {
+                @include noddifont($pseudo, $tertiary, 1);
+            }
         }
         ul.select_activities {
             display:flex;

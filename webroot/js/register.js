@@ -7,6 +7,10 @@ $(document).ready(function() {
 	*	REGISTRER MODEUSE
 	*/
 
+	$('.inscriptionVisu').hide();
+	$('.stepsSignIn').hide();
+	
+	$('.form_brand_one').hide();
 	$('.form_brand_two').hide();
 	$('.form_brand_three').hide();
 	$('.form_brand_four').hide();

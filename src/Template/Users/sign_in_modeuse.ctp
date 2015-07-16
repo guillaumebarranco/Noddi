@@ -113,7 +113,15 @@
 
 
 <section class="page page_signin modeuse">
-
+	<header class="headerPage">
+	    <h2 class="titlePage">Inscription</h2>
+	    <div class="previousStepMenu"><a href="#">Précédent</a></div>
+	</header>
+	<div class="createFacebookAccount">
+		
+	</div>
+	
+	<div class="inscriptionVisu"></div>
 	<div class="stepsSignIn">
 		<ul>
 			<li id="step1" class="active">1</li>
@@ -143,19 +151,23 @@
 
 			<div class="form_brand_two">
 
-				<?= $this->Form->input('instagram', ['placeholder' => "Nom d'utilisateur sur Instagram"]) ?>
-				<?= $this->Form->input('twitter', ['placeholder' => "Nom d'utilisateur sur Twitter"]) ?>
 
-				<h2>Informations Générales</h2>
+				<label for="instagram showLabel">
+				instagram
+				</label>
+					<input class="instagram" type="text" placeholder="Nom d'utilisateur sur Instagram">
+				<?= $this->Form->input('instagram', ['placeholder' => "Nom d'utilisateur sur Instagram", "class" => "instagram"]) ?>
+				<?= $this->Form->input('twitter', ['placeholder' => "Nom d'utilisateur sur Twitter", "class" => "twitter"]) ?>
 
-				<?= $this->Form->input('email', ['placeholder' => "Email"]) ?>
 
-				<?= $this->Form->input('firstname', ['placeholder' => "Prénom"]) ?>
+				<?= $this->Form->input('email', ['placeholder' => "Email", "class" => "email"]) ?>
 
-				<?= $this->Form->input('lastname', ['placeholder' => "Nom"]) ?>
+				<?= $this->Form->input('firstname', ['placeholder' => "Prénom", "class" => "firstname"]) ?>
+
+				<?= $this->Form->input('lastname', ['placeholder' => "Nom", "class" => "lastname"]) ?>
 
 				<label for="birthday">Date de Naissance</label>
-				<input type="text" name="birthday">
+				<input type="hidden" name="birthday">
 
 				<?= $this->Form->input('city', ['placeholder' => "Ville"]) ?>
 
