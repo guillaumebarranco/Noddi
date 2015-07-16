@@ -9,13 +9,16 @@ $(document).ready(function() {
 
 	$('.inscriptionVisu').hide();
 	$('.stepsSignIn').hide();
-	
+
 	$('.form_brand_one').hide();
 	$('.form_brand_two').hide();
 	$('.form_brand_three').hide();
 	$('.form_brand_four').hide();
 
 	$('.form_brand_one .fb_button').on('click', function() {
+		$('.inscriptionVisu').show();
+		$('.stepsSignIn').show();
+
 		$('.form_brand_one').hide();
 		$('.form_brand_two').show();
 		$('#step2').addClass('active');

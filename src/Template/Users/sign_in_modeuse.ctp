@@ -4,7 +4,11 @@
 	    <div class="previousStepMenu"><a href="#">Précédent</a></div>
 	</header>
 	<div class="createFacebookAccount">
-		
+		.
+		<p>Tu dois disposer de comptes Facebook et Instagram pour t'inscrire.</p>
+		<p>200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.</p>
+
+		<div class="button fb_button">S'inscrire avec Facebook</div>
 	</div>
 	
 	<div class="inscriptionVisu"></div>
@@ -24,15 +28,7 @@
 			<div class="form_brand_one">
 				<h2>Création de compte</h2>
 
-				<p>
-					Tu dois disposer de comptes Facebook et Instagram pour t'inscrire.
-				</p>
-
-				<p>
-					200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.
-				</p>
-
-				<div class="button fb_button">S'inscrire avec Facebook</div>
+				
 			</div>
 
 			<div class="form_brand_two">
