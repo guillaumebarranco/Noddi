@@ -44,7 +44,7 @@ h1 {
     margin: 0;
     font-size: 1em;
     padding: 10px 0;
-    text-align: center
+    text-align: center;
 }
 h2 {
     @extend .subtitle;
@@ -151,7 +151,7 @@ form {
         background:$tertiary;
         color:$white;
         &:hover {
-            border-color:$primary;
+            border-color:$tertiary;
             background:none;
             color:$white;
         }
