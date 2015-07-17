@@ -177,6 +177,7 @@ form {
         z-index: 30;
         @media (min-width: $tablet) {
             position: relative;
+            background-color: #5fc6ce;
         }
         ul.menu {
             list-style: none;
@@ -199,17 +200,27 @@ form {
                 @media (min-width: $tablet) {
                     height: auto;
                     padding: 20px;
-                    padding-top: 40px;
                     text-align: center;
                 }
                 &+li{
                     border-left: solid 1px #000;
                     @media (min-width: $tablet) {
-                        border-top: solid 1px #000;
+                        border: none;
                     }
                 }
+                &.profile_picture {
+                    width: 130px;
+                    height: 130px;
+                    background-size: cover;
+                    margin: 10px;
+                    box-sizing: border-box;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    border-radius: 50%;
+                    margin-bottom: 50px;
+                }
                 &.active{
-                    background: $primary;
+                    background: #51aab2;
                 }
                 // &:before{position: absolute;}
                 &.home:before{
@@ -224,10 +235,19 @@ form {
                 &.messages:before{
                     @include noddifont($message, $white, 2.5);
                 }
-                
+
+                @media (min-width: $tablet) {
+                    position: relative;
+                    justify-content: left !important;
+
+                    &:before{
+                        position: absolute;
+                        top: 18px;
+                        left: 13px;
+                    }
+                }
             }
         }
-        
     }
 }
 

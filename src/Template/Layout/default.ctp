@@ -57,9 +57,11 @@
             <nav id="navigation">
                 <ul class="menu">
                     <?php 
-                        if($this->request->session()->read('user')) { 
-                            if($this->request->session()->read('type') == 'modeuse') { ?>
-
+                        if($this->request->session()->read('user')) { ?>
+                            <li class="profile_picture" style="background-image:url(<?=$this->request->session()->read('picture')?>);">
+                            </li>
+                            <?php if($this->request->session()->read('type') == 'modeuse') { ?>
+                                
                                 <!-- Menu Modeuse -->
                                 <li class="propositions">
                                     <?= $this->Html->link(__("Propositions"), ['controller' => 'Offers', 'action' => 'index']) ?>
@@ -72,8 +74,6 @@
                                 <li class="profil">
                                     <?= $this->Html->link(__("Mon Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
                                 </li>
-
-                                
 
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
                                 <!-- Menu Marque -->
@@ -92,10 +92,6 @@
 
                                 <li class="messages">
                                     <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
-                                </li>
-
-                                <li class="profil">
-                                    <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
                                 </li>
                                 
                             <?php } ?>
