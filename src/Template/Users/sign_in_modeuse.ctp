@@ -9,7 +9,7 @@
 		<div class="content">
 			<p>Tu dois disposer de comptes Facebook et Instagram pour t'inscrire.</p>
 			<p>200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.</p>
-			<div class="button fb_button" id="get_form_brand_two">S'inscrire avec Facebook</div>
+			<div class="button fb_button" id="get_form_brand_one">S'inscrire avec Facebook</div>
 		</div>
 	</div>
 	
@@ -28,11 +28,6 @@
 		<div class="formModeuse">
 
 			<div class="form_brand_one">
-
-				
-			</div>
-
-			<div class="form_brand_two">
 				<div class="offsetForm">
 					<label class="displayLabel instagramUsername" for="instagramUsername">instagram</label>
 					<?= $this->Form->input('instagramUsername', ['placeholder' => "Nom d'utilisateur sur Instagram", "class" => "instagramUsername"]) ?>
@@ -59,10 +54,10 @@
 					<?= $this->Form->input('city', ['placeholder' => "Ville"]) ?>
 				</div>
 
-				<a class="button get_form_brand_three reversed">Etape Suivante</a>
+				<a id="get_form_brand_two" class="button reversed">Etape Suivante</a>		
 			</div>
 
-			<div class="form_brand_three">
+			<div class="form_brand_two">
 				<div class="sentenceSelect">
 					<p>
 						J'aime principalement 
@@ -92,8 +87,8 @@
 					</select>
 				</div>
 				
-				<p>Choisis les styles vestimentaires que tu portes au quotidien:</p>
-				<div class="checklist">
+				<p>Choisis 2 styles vestimentaires que tu portes au quotidien:</p>
+				<div id="styleWearCheckboxes" class="checklist">
 				<?php  foreach ($tab_lifestyle as $lifestyle) {  
 					echo"<input type=\"checkbox\" name='styleWear' id=".$lifestyle['value']." value=".$lifestyle['value'].">
 					<label for=".$lifestyle['value']." class=\"showLabel\">
@@ -105,10 +100,10 @@
 
 				<textarea name="myDescription" id="description" placeholder="Votre description"></textarea>
 				
-				<a class="button get_form_brand_four reversed">Etape Suivante</a>
+				<a id="get_form_brand_three" class="button reversed">Etape Suivante</a>
 			</div>
 
-			<div class="form_brand_four">
+			<div class="form_brand_three">
 				<p>As-tu un blog ?</p>
 				 <div class="radiolist">
 					<input type="radio" name="blogAdmin" id="blog_yes" value="blog_yes">
@@ -140,9 +135,12 @@
 						</label>";
 					} ?>
 				</div>
-				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button reversed"]); ?>
+				<a id="get_form_brand_four" class="button reversed">Etape Suivante</a>
+			</div>
 
-		    	
+			<div class="form_brand_four">	
+
+				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button reversed"]); ?>
 			</div>
 		</div>
 
