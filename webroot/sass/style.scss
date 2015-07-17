@@ -388,6 +388,22 @@ header.headerPage{
     position: relative;
 }
 
+.message.error{
+    position: absolute;
+    background-color: $error;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+    color: $white;
+    font-weight: bold;
+    &:after{
+        @include noddifont($close, $white, 2.6);
+        padding: 10px 20px;
+    }
+}
+
 
 
 @import '_home';

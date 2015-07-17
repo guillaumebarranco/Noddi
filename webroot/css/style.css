@@ -126,10 +126,6 @@ h1 {
 	text-align: center;
 }
 
-.grey:before {
-	color: #c8c7cc !important;
-}
-
 form {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -567,6 +563,40 @@ header.headerPage .previousStepMenu:before {
 	position: relative;
 }
 
+.message.error {
+	position: absolute;
+	background-color: #f04a10;
+	width: 100%;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border: none;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.message.error:after {
+	content: "";
+	color: #ffffff;
+	font-size: 26px;
+	font-size: 2.6rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	padding: 10px 20px;
+}
+
 .page_index {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -905,17 +935,35 @@ header.headerPage .previousStepMenu:before {
 
 .page_index section.section_home ul.list_modeuses li.modeuse,
 .page_index section.section_home ul.all_favoris li.modeuse {
-	min-width: 150px;
-	min-height: 150px;
-	max-width: 300px;
+	min-width: 200px;
+	max-width: 200px;
+	position: relative;
 	margin: 10px;
 	background: #f6f6f6;
 }
 
-.page_index section.section_home ul.list_modeuses li.modeuse img.modeusePic,
-.page_index section.section_home ul.all_favoris li.modeuse img.modeusePic {
+.page_index section.section_home ul.list_modeuses li.modeuse .modeusePic,
+.page_index section.section_home ul.all_favoris li.modeuse .modeusePic {
 	width: 100%;
-	background: #5fc6ce;
+	background-color: #5fc6ce;
+	background-size: cover;
+	height: 160px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: solid #c8c7cc 1px;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName {
+	font-size: 1.5rem !important;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats,
@@ -938,6 +986,13 @@ header.headerPage .previousStepMenu:before {
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat:before {
 	position: absolute;
 	margin-top: -15px;
+	position: relative;
+	background-color: grey;
+	color: white !important;
+	padding: 5px;
+	border-radius: 50%;
+	margin-right: 10px;
+	font-size: 1.5rem !important;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
@@ -989,6 +1044,16 @@ header.headerPage .previousStepMenu:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 5px;
+	border-top-left-radius: 10px;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before,
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .delete_favori:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before {
@@ -1007,13 +1072,26 @@ header.headerPage .previousStepMenu:before {
 	text-transform: none;
 }
 
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori.grey:before,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori.grey:before {
+	color: black;
+}
+
 .page_index .letsStart {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 	text-align: center;
-	max-width: 500px;
-	margin: 0 auto;
 	background-image: url("../img/letstart.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center center;
 	padding: 150px 15px;
 	box-sizing: border-box;
 }
