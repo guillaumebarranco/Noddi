@@ -209,21 +209,32 @@
             justify-content: center;
             list-style: none;
             li.modeuse{
-                min-width: 150px;
-                min-height: 150px;
-                max-width: 300px;
+                min-width: 200px;
+                max-width: 200px;
+                position: relative;
                 margin: 10px;
                 background: $lightGrey;
                 @media (min-width: $tablet) {
                     flex:1;
                 }
-                img.modeusePic{
+                .modeusePic{
                     width: 100%;
-                    background: $secondary;
+                    background-color: $secondary;
+                    background-size: cover;
+                    height: 160px;;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
                 }
                 .infoModeuse{
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    border: solid $grey 1px;
+                    padding: 5px;
+                    box-sizing: border-box;
+
                     .modeuseName{
                         @extend .subtitleMini;
+                        font-size: 1.5rem !important;
                     }
                     ul.modeuseStats{
                         list-style: none;
@@ -231,16 +242,38 @@
                         li.stat{
                             flex:1;
                             text-align: center;
-                            &:before{position: absolute; margin-top: -15px;}
+                            &:before{
+                                position: absolute; 
+                                margin-top: -15px;
+                                position: relative; 
+                                background-color: grey;
+                                color: white !important;
+                                padding: 5px;
+                                border-radius: 50%;
+                                margin-right: 10px;
+                                font-size: 1.5rem !important;
+                            }
                             &.facebook:before{ @include noddifont($facebook, $secondary, 2);}
                             &.twitter:before{@include noddifont($twitter, $secondary, 2);}
                             &.instagram:before{@include noddifont($instagram, $secondary, 2);}
                         }
+                    }
 
+                    .add_favori:before {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: rgba(255,255,255,0.8);
+                        padding: 5px;
+                        border-top-left-radius: 10px;
                     }
                     .add_favori:before, .delete_favori:before{
                         position: absolute;
                         @include noddifont($fav, red, 2);
+                    }
+                    .add_favori.grey:before{
+                        color: black;
+                        //border: 2px solid white;
                     }
                 }
             }

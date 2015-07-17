@@ -32,26 +32,38 @@ $(document).ready(function() {
 
 			if(_this.response.modeuses[0]) {
 
+				if(_this.response.modeuses.length < 2) {
+					$('.count_modeuse').append('<p><b>'+_this.response.modeuses.length+' Noddiz</b> correspond à vos critères</p>');
+				} else {	
+					$('.count_modeuse').append('<p><b>'+_this.response.modeuses.length+' Noddiz</b> correspondent à vos critères</p>');
+				}
+
 				for(modeuse in _this.response.modeuses) {
+
+					var div_picture = '<div class="modeusePic" style="background-image:url('+_this.response.modeuses[modeuse].user.picture+');">'+
+					'</div>'
+					;
+
+					var name = _this.response.modeuses[modeuse].firstname +' '+shortName(_this.response.modeuses[modeuse].lastname);
 
 					var new_li = 
 						'<li class="modeuse">'+
 							'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
-								'<img class="modeusePic" src="'+_this.response.modeuses[modeuse].user.picture+'" />'+
+								div_picture +
 							'</a>' +
 							'<div class="infoModeuse">' +
-							'<p class="modeuseName">'+_this.response.modeuses[modeuse].firstname+'</p>' +
-							'<ul class="modeuseStats">' +
-								'<li class="stat facebook">'+_this.response.modeuses[modeuse].facebook_followers+'</li>' +
-								'<li class="stat twitter">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
-								'<li class="stat instagram">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
-							'</ul>'
+								'<p class="modeuseName">'+name+'</p>' +
+								'<ul class="modeuseStats">' +
+									'<li class="stat facebook">'+_this.response.modeuses[modeuse].facebook_followers+'</li>' +
+									'<li class="stat twitter">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
+									'<li class="stat instagram">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
+								'</ul>'
 					;
 
 					if(_this.response.modeuses[modeuse].already_favori) {
-						new_li += '<div class="add_favori grey" data-favori="'+_this.response.modeuses[modeuse].favori_id+'" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
+						new_li += '<div class="add_favori" data-favori="'+_this.response.modeuses[modeuse].favori_id+'"></div>';
 					} else {
-						new_li += '<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
+						new_li += '<div class="add_favori grey" data-favori="'+_this.response.modeuses[modeuse].favori_id+'" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
 					}
 
 					new_li +=	
@@ -232,7 +244,7 @@ $(document).ready(function() {
 		data_user.brand_id = $('.get_brand_id').val();
 		data_user.modeuse_id = $(this).attr('data-modeuse');
 
-		if($(this).hasClass('grey')) {
+		if(!$(this).hasClass('grey')) {
 
 			var favori_id = $(this).attr('data-favori');
 
