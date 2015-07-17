@@ -1,0 +1,46 @@
+// OFFERS
+.page_offers{
+	.formCreateOffer{
+		max-width: 500px;
+		margin: auto;
+		padding: 15px;
+		button{
+			width: 100%;
+		}
+	}
+	.regularCheckbox{
+		display: flex;
+		align-items: baseline;
+		input[type="checkbox"]{
+			display: block;
+			opacity: 1;
+			position: relative;
+			margin-right: 15px;
+			&:checked{
+				& + label{
+				background: none!important;
+					&:before{
+						content: none!important;
+					}
+				}	
+			}
+		}
+		label.allowContact{
+			@include show-text();
+		}
+	}
+	.flexInput{
+		display: flex;
+		max-width: 300px;
+		margin:auto;
+		.style_input.select{
+			flex:1;
+			margin: 10px 5px;
+		}
+		select{
+			width: 100%;
+			height: 40px;
+			border-radius: $radiusDefault;
+		}
+	}
+}
