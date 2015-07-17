@@ -16,9 +16,7 @@ $(document).ready(function() {
 	$('.form_brand_three').hide();
 	$('.form_brand_four').hide();
 
-
-
-//ONE
+	//ONE
 	$('#get_form_brand_one').on('click', function(e) {
 		$('.inscriptionVisu').show();
 		$('.stepsSignIn').show();
@@ -31,7 +29,7 @@ $(document).ready(function() {
 		$('#step1').removeClass('active');
 	});
 
-//TWO
+	//TWO
 	$('#get_form_brand_two').on('click', function(e) {
 		e.preventDefault();
 
@@ -50,24 +48,16 @@ $(document).ready(function() {
 				$('.form_brand_one').hide();
 				$('.form_brand_two').show();
 			} else {
-				swal({
-					title: "Erreur",
-					text: "Le mail entré n'est pas correct",
-					type: 'error'
-				});
+				popError("Le mail entré n'est pas correct");
 			}
 			
 		} else {
-			swal({
-				title: "Erreur",
-				text: "Certains champs ne sont pas remplis",
-				type: 'error'
-			});
+			popError("Certains champs ne sont pas remplis");
 		}
 
 	});
 
-//THREE
+	//THREE
 	$('#get_form_brand_three').on('click', function(e) {
 		e.preventDefault();
 
@@ -85,19 +75,11 @@ $(document).ready(function() {
 				$('.form_brand_two').hide();
 				$('.form_brand_three').show();
 			} else {
-				swal({
-					title: "Erreur",
-					text: "Deux champs sont identiques",
-					type: 'error'
-				});
+				popError("Deux champs sont identiques");
 			}
 
 		} else {
-			swal({
-				title: "Erreur",
-				text: "Certains champs ne sont pas remplis",
-				type: 'error'
-			});
+			popError("Certains champs ne sont pas remplis");
 		}
 	});
 
@@ -119,11 +101,7 @@ $(document).ready(function() {
 			$('.form_brand_four').show();
 			
 		} else {
-			swal({
-				title: "Erreur",
-				text: "Certains champs ne sont pas remplis",
-				type: 'error'
-			});
+			popError('Certains champs ne sont pas remplis');
 		}
 	});
 
@@ -222,28 +200,18 @@ $(document).ready(function() {
 						window.location.href = WEB_URL+'/offers';
 					});
 				} else {
-					swal({
-						title: "Error",
-						type: "error"
-					});
+					popError();
 				}
-				
 			});
-
 
 		} else {
 			e.preventDefault();
-			swal({
-				title: "Erreur",
-				text: "Certains champs ne sont pas remplis " + $('input[name=instagram]').val() + ' ' + $('input[name=twitter]').val(),
-				type: 'error'
-			});
+			popError("Certains champs ne sont pas remplis " + $('input[name=instagram]').val() + ' ' + $('input[name=twitter]').val());
 		}
 	});
 
 	var fields_fb = 'last_name, name, email, first_name, bio, birthday';
 	var perms_fb = 'public_profile,email, user_birthday, user_posts, user_friends';
-
 
 	$('.fb_button').on('click', function() {
 
@@ -338,17 +306,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 	/*
 	*	REGISTRER BRANDS
 	*/
@@ -369,20 +326,13 @@ $(document).ready(function() {
 				$('#step2').addClass('active');
 				$('.form_brand_two').show();
 				$('.form_brand_one').hide();
+
 			} else {
-				swal({
-					title: "Erreur",
-					text: "Le mail entré n'est pas correct",
-					type: 'error'
-				});
+				popError("Le mail entré n'est pas correct");
 			}
 
 		} else {
-			swal({
-				title: "Erreur",
-				text: "Certains champs ne sont pas remplis",
-				type: 'error'
-			});
+			popError("Certains champs ne sont pas remplis");
 		}		
 	});
 
@@ -400,19 +350,11 @@ $(document).ready(function() {
 				$('.form_brand_three').show();
 				$('.form_brand_two').hide();
 			} else {
-				swal({
-					title: "Erreur",
-					text: "Le site web entré n'est pas correct",
-					type: 'error'
-				});
+				popError("Le site web entré n'est pas correct");
 			}
 			
 		} else {
-			swal({
-				title: "Erreur",
-				text: "Certains champs ne sont pas remplis",
-				type: 'error'
-			});
+			popError("Certains champs ne sont pas remplis");
 		}
 
 	});
@@ -423,11 +365,7 @@ $(document).ready(function() {
 			&& $('input[name=city]').val() == ''
 		) {
 			e.preventDefault();
-			swal({
-				title: "Erreur",
-				text: "Certains champs ne sont pas remplis",
-				type: 'error'
-			});
+			popError("Certains champs ne sont pas remplis");
 		}
 	});
 

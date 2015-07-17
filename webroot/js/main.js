@@ -186,6 +186,10 @@ $(document).ready(function() {
 	$('.page_modeuse').hide();
 	$('.modeuse_infos').show();
 
+	/*
+	*	SWITCH MENU MODEUSES VIEW
+	*/
+
 	$('.show_modeuse_infos').on('click', function() {
 		$('.page_modeuse').hide();
 		$('.modeuse_infos').show();
@@ -203,6 +207,9 @@ $(document).ready(function() {
 
 	$('.profile_section').hide();
 
+	/*
+	*	Au clic sur le "menu profil", on récupère la section pour l'afficher
+	*/
 	$('.menu_profil li a').on('click', function(e) {
 
 		if(!$(this).hasClass('disconnect')) {
@@ -210,8 +217,11 @@ $(document).ready(function() {
 			$('.profile_section').hide();
 			$('.'+$(this).attr('data-section')).show();
 		}
-		
 	});
+
+	/*
+	*	UPDATE PROFIL
+	*/
 
 	$('.update_profil form').on('submit', function(e) {
 		e.preventDefault();
@@ -238,6 +248,10 @@ $(document).ready(function() {
 	*	FAVORIS
 	*/
 
+	/*
+	*	AJOUTER UN FAVORI
+	*/
+
 	$(document).on('click', '.add_favori', function() {
 
 		var data_user = {};
@@ -246,6 +260,7 @@ $(document).ready(function() {
 
 		var that = $(this);
 
+		// Si le favori a déjà été ajouté, on le supprime
 		if(!$(this).hasClass('grey')) {
 
 			var favori_id = $(this).attr('data-favori');
@@ -270,8 +285,11 @@ $(document).ready(function() {
 				});
 			});
 		}
-		
 	});
+
+	/*
+	*	SUPPRIMER UN FAVORI
+	*/
 
 	$('.delete_favori').on('click', function() {
 		var favori_id = $(this).attr('data-favori');
@@ -287,11 +305,16 @@ $(document).ready(function() {
 	*	MESSAGES
 	*/
 
+	/*
+	*	REPONDRE A UN MESSAGE
+	*/
+
 	$('.answer_message').hide();
 	$('.answerMessage').on('click', function() {
 
 		var parent = $(this).parent();
 		
+		// Si le message n'a pas été vu pour l'instant
 		if($('input[name=viewed]').length != 0) {
 
 			var data_message = {};
@@ -308,6 +331,7 @@ $(document).ready(function() {
 
 				$('.answer_message').show();
 			});
+
 		} else {
 			$('.all_messages').hide();
 
@@ -318,6 +342,9 @@ $(document).ready(function() {
 		}
 	});
 
+	/*
+	*	ENVOYER UN MESSAGE
+	*/
 	$('.sendMessage').on('click', function() {
 
 		data = {};
@@ -346,6 +373,10 @@ $(document).ready(function() {
 	*/
 
 	$('.all_offers').hide();
+
+	/*
+	*	RECUPERER LES OFFRES
+	*/
 
 	$('.get_offers').on('click', function() {
 
@@ -376,11 +407,7 @@ $(document).ready(function() {
 			}
 
 			hideLoading();
-			
 		});
-
-		
-
 	});
 
 	/*
@@ -404,7 +431,6 @@ $(document).ready(function() {
 			closeOnConfirm: false
 
 		}, function() {
-
 			makeAjax('POST', WEB_URL+"/offers/applyOffer", data_apply, function() {
 
 				swal({
@@ -416,11 +442,8 @@ $(document).ready(function() {
 					} else {
 						window.location.href = WEB_URL+'/offers/';
 					}
-					
 				});
-
 			});
-			
 		});
 	});
 
@@ -505,7 +528,7 @@ $(document).ready(function() {
 	});
 
 	/*
-	*	BRAND : ACCEPT APPLY
+	*	ACCEPT APPLY
 	*/
 
 	$('.acceptApply').on('click', function() {
@@ -525,6 +548,10 @@ $(document).ready(function() {
 		});
 	});
 
+	/*
+	*	DELETE APPLY
+	*/
+
 	$('.removeApply').on('click', function() {
 
 		data = {};
@@ -543,7 +570,7 @@ $(document).ready(function() {
 	});
 
 	/*
-	*
+	*	DELETE APPLY FOR OFFER
 	*/
 
 	$('.removeApplyOffer').on('click', function() {
@@ -566,7 +593,6 @@ $(document).ready(function() {
 	/*
 	*	AFFICHER MESSAGE AVEC APPLY
 	*/
-
 
 	$('.display_message').on('click', function() {
 		swal({

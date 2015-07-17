@@ -23,7 +23,7 @@ function makeAjax(type, url, data, callback) {
 		},
 		error: function(){
 			console.log('error', url);
-        }
+    }
 	});
 }
 
@@ -69,9 +69,6 @@ function calculateAge(date) { // birthday is a timestamp
 */
 
 function showLoading() {
-	// _this.which_loader.css('width', $('body').width()+'px');
-	// _this.which_loader.css('width', $('body').height()+'px');
-
 	$('.loader').show();
 }
 
@@ -83,10 +80,38 @@ function hideLoading() {
 	$('.loader').hide();
 }
 
-// $(window).on('scroll', function() {
-// 	_this.which_loader.css('top', $(window).scrollTop());
-// });
-
 function shortName(name) {
   return name.substr(0, 1)+'.';
+}
+
+function popError(description) {
+
+  if(description != undefined) {
+    swal({
+      type: 'error',
+      title: "Erreur",
+      text: description
+    });
+  } else {
+    swal({
+      type: 'error',
+      title: "Erreur"
+    });
+  }
+}
+
+function popSuccess(description) {
+
+  if(description != undefined) {
+    swal({
+      type: 'success',
+      title: "Succès !",
+      text: description
+    });
+  } else {
+    swal({
+      type: 'success',
+      title: "Succès !"
+    });
+  }
 }
