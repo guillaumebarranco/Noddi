@@ -368,8 +368,9 @@ $(document).ready(function() {
 				$('.get_offers').hide();
 				$('.all_offers').append('<p>Pas d\'offre pour le moment, revenez plus tard !</p>');
 				$('.all_offers').show();
-				hideLoading();
 			}
+
+			hideLoading();
 			
 		});
 

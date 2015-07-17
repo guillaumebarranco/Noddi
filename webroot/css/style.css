@@ -575,6 +575,18 @@ header.headerPage .previousStepMenu:before {
 	position: relative;
 }
 
+.uploadify-button-text {
+	position: relative;
+	top: 15px;
+	left: -15px;
+}
+
+.swfupload {
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
+
 .page_index {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -1928,13 +1940,6 @@ body {
 	height: auto;
 	padding: 20px;
 	text-align: center;
-}
-
-.headerApp nav#navigation ul.menu li + li {
-	border: none;
-}
-
-.headerApp nav#navigation ul.menu li {
 	position: relative;
 	-webkit-justify-content: left !important;
 	-ms-flex-pack: left !important;
@@ -1945,6 +1950,18 @@ body {
 	position: absolute;
 	top: 18px;
 	left: 13px;
+}
+
+.headerApp nav#navigation ul.menu li:hover {
+	background-color: #51aab2;
+}
+
+.headerApp nav#navigation ul.menu li.profile_picture:hover {
+	background-color: transparent;
+}
+
+.headerApp nav#navigation ul.menu li + li {
+	border: none;
 }
 
 header.headerPage h2.titlePage {

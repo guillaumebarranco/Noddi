@@ -201,6 +201,23 @@ form {
                     height: auto;
                     padding: 20px;
                     text-align: center;
+                    position: relative;
+                    justify-content: left !important;
+
+                    &:before{
+                        position: absolute;
+                        top: 18px;
+                        left: 13px;
+                    }
+
+                    &:hover {
+                        background-color: #51aab2;
+                    }
+                    &.profile_picture {
+                        &:hover {
+                            background-color: transparent;
+                        }
+                    }
                 }
                 &+li{
                     border-left: solid 1px #000;
@@ -234,17 +251,6 @@ form {
                 }
                 &.messages:before{
                     @include noddifont($message, $white, 2.5);
-                }
-
-                @media (min-width: $tablet) {
-                    position: relative;
-                    justify-content: left !important;
-
-                    &:before{
-                        position: absolute;
-                        top: 18px;
-                        left: 13px;
-                    }
                 }
             }
         }
@@ -406,6 +412,18 @@ header.headerPage{
     width: 100px;
     display: block;
     position: relative;
+}
+
+.uploadify-button-text {
+    position: relative;
+    top: 15px;
+    left: -15px;
+}
+
+.swfupload {
+    position: relative;
+    left: 0px;
+    top: 0px;
 }
 
 

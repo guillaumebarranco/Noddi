@@ -78,6 +78,10 @@
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
                                 <!-- Menu Marque -->
 
+                                <li class="profil">
+                                    <?= $this->Html->link(__("Mon Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
+                                </li>
+
                                 <li class="dashboard">
                                     <?= $this->Html->link(__("Dashboard"), ['controller' => 'Dashboard', 'action' => 'index']) ?>
                                 </li>
