@@ -57,6 +57,28 @@ class MessagesController extends AppController {
                 }
             }
 
+        if($session->read('type') == 'brand') {
+
+            $offer = $this->getCurrentOffer();
+
+            $this->set(array(
+                'messages' => $messages,
+                'tab_offers' => $tab_offers,
+                'offer' => $offer
+            ));
+
+            $this->set('_serialize', ['messages, tab_offers, offer']);
+
+        } else {
+            $modeuse = $this->Modeuses->get($session->read('modeuse_id'));
+            $this->set(array(
+                'messages' => $messages,
+                'tab_offers' => $tab_offers,
+                'modeuse' => $modeuse
+            ));
+            $this->set('_serialize', ['messages, tab_offers, modeuse']);
+        }
+
         // } else {
         //     $messages = $this->Messages->find('all')->where(['modeuse_id' => $session->read('modeuse_id')])->contain(['Offers']);
         // }

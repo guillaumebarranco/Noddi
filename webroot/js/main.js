@@ -4,7 +4,7 @@ $(document).ready(function() {
 	*	MENU
 	*/
 
-	if($('.page_index').length != 0) {
+	if($('.page_home').length != 0) {
 		$('.menu li.home').addClass('active');
 	} else if($('.proposition').length != 0) {
 		$('.menu li.dashboard').addClass('active');

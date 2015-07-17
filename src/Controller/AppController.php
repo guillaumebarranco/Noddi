@@ -39,6 +39,7 @@ class AppController extends Controller
     }
 
     public function getCurrentOffer() {
+        $this->loadModel('Offers');
         $session = $this->request->session();
 
         $brand = $this->Brands->get($session->read('brand_id'));

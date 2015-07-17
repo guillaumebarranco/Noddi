@@ -1,3 +1,4 @@
+<div class="page_home"></div>
 <section class="page page_index">
 <?php 
 	$session = $this->request->session();
