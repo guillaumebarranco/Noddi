@@ -13,6 +13,7 @@ class UsersController extends AppController
         parent::initialize();
 
         $this->loadModel('Activities');
+        $this->loadModel('Favoris');
         $this->loadModel('Offers');
     }
 
@@ -367,10 +368,8 @@ class UsersController extends AppController
             $modeuses = $modeuses->toArray();
 
         } else {
-            $offer = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS' => null])->contain(['Brands'])->toArray()[0];
 
-            // var_dump($offer);
-            // die;
+            $offer = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS' => null])->contain(['Brands'])->toArray()[0];
 
             $modeuses = $this->Modeuses->find('all')->contain(['Users'])->toArray();
 
@@ -378,6 +377,15 @@ class UsersController extends AppController
             $tab_id = array();
 
             foreach ($modeuses as $key => $modeuse) {
+
+                $favori = $this->Favoris->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id' => $modeuse->id])->toArray();
+
+                if(!empty($favori[0])) {
+                    $modeuse['already_favori'] = true;
+                    $modeuse['favori_id'] = $favori[0]['id'];
+                } else {
+                    $modeuse['already_favori'] = false;
+                }
 
                 $tab_lifestyle = explode(',', $modeuse->lifestyle);
                 

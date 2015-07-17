@@ -126,6 +126,10 @@ h1 {
 	text-align: center;
 }
 
+.grey:before {
+	color: #c8c7cc !important;
+}
+
 form {
 	display: -webkit-flex;
 	display: -ms-flexbox;

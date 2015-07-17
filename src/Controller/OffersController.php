@@ -52,24 +52,31 @@ class OffersController extends AppController
 
             $modeuse = $this->Modeuses->get($session->read('modeuse_id'));
 
-            $applies = $this->Applies->find('all')->where(['Applies.modeuse_id' => $modeuse->id])->contain(['Offers', 'Offers.Brands', 'Offers.Brands.Users'])->toArray();
+            $applies = $this->Applies->find('all')->where(['Applies.modeuse_id' => $modeuse->id, 'Applies.accepted' => 0, 'Applies.from_who' => 'brand'])->contain(['Offers', 'Offers.Brands', 'Offers.Brands.Users'])->toArray();
 
-            $brand = $this->Brands->get($applies[0]['offer']['brand']['id']);
+            if(!empty($applies[0])) {
+                $brand = $this->Brands->get($applies[0]['offer']['brand']['id']);
 
-            $this->set(array( 
-                'modeuse' => $modeuse,
-                'applies' => $applies,
-                'brand' => $brand
-            ));
+                $this->set(array( 
+                    'modeuse' => $modeuse,
+                    'applies' => $applies,
+                    'brand' => $brand
+                ));
 
-            $this->set('_serialize', ['modeuse, applies, brand']);
+                $this->set('_serialize', ['modeuse, applies, brand']);
+            } else {
+                $this->set(array( 
+                    'modeuse' => $modeuse
+                ));
+
+                $this->set('_serialize', ['modeuse']);
+            }
+            
         } else {
             return $this->redirect(
                 ['controller' => 'Users', 'action' => 'login']
             );
         }
-
-        
     }
 
     public function add()
@@ -188,7 +195,7 @@ class OffersController extends AppController
         $check = $this->Jsonification();
 
         $offers = $this->Offers->find('all')
-            //->where(['modeuse_id' => NULL])
+            ->where(['modeuse_id IS' => null])
         ;
 
         $response = array();
