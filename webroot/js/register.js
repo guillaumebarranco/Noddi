@@ -18,7 +18,6 @@ $(document).ready(function() {
 
 
 
-
 //ONE
 	$('#get_form_brand_one').on('click', function(e) {
 		$('.inscriptionVisu').show();
@@ -203,11 +202,16 @@ $(document).ready(function() {
 				datas_modeuse.has_blog = 1;
 			}
 
-
 			datas_modeuse.socialPresence 	= socialPresence;
 			datas_modeuse.website 			= 'http://';
 			datas_modeuse.password 			= 'modeuse';
-			datas_modeuse.picture 			= 'http://graph.facebook.com/'+fb_id+'/picture?type=large';
+
+			if($('input[name=picture]').val() == '') {
+				datas_modeuse.picture 			= 'http://graph.facebook.com/'+fb_id+'/picture?type=large';
+			} else {
+				datas_modeuse.picture 			= $('input[name=picture]').val();
+			}
+			
 			datas_modeuse.type 				= 'modeuse';
 
 			console.log(datas_modeuse);

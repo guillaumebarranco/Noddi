@@ -51,7 +51,12 @@
         
         <div class="flexInput">
             <div class="style_input select">
-                <?= $this->Form->select('types._ids', $types, [ 'name' => 'types[_ids][]', 'class' => 'types', 'default' => "Type d'offre"]); ?>
+                <select name="type_id" id="">
+                    <option selected disabled>Type d'echange</option>
+                    <?php foreach ($types as $type) { ?>
+                        <option value="<?=$type->id?>"><?=$type->name?></option>
+                    <?php } ?>
+                </select>
             </div>
             <div class="style_input select">
                 <select name="exchange" id="">

@@ -244,6 +244,8 @@ $(document).ready(function() {
 		data_user.brand_id = $('.get_brand_id').val();
 		data_user.modeuse_id = $(this).attr('data-modeuse');
 
+		var that = $(this);
+
 		if(!$(this).hasClass('grey')) {
 
 			var favori_id = $(this).attr('data-favori');
@@ -252,18 +254,22 @@ $(document).ready(function() {
 				swal({
 					title: "Deleted !",
 					type: "success"
+				}, function() {
+					that.addClass('grey');
 				});
 			});
 
 		} else {
 			makeAjax('POST', "favoris/add", data_user, function() {
+
 				swal({
 					title: "Added !",
 					type: "success"
+				}, function() {
+					that.removeClass('grey');
 				});
 			});
 		}
-
 		
 	});
 
@@ -282,7 +288,6 @@ $(document).ready(function() {
 	*/
 
 	$('.answer_message').hide();
-
 	$('.answerMessage').on('click', function() {
 
 		var parent = $(this).parent();

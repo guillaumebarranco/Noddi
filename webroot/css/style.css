@@ -1101,6 +1101,16 @@ header.headerPage .previousStepMenu:before {
 	color: black;
 }
 
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .delete_favori:before,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 5px;
+	border-top-left-radius: 10px;
+}
+
 .page_index .letsStart {
 	display: -webkit-flex;
 	display: -ms-flexbox;
