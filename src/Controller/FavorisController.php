@@ -25,7 +25,7 @@ class FavorisController extends AppController
             );
         }
 
-        $favoris = $this->Favoris->find('all')->where(['brand_id' => $session->read('brand_id')])->contain(['Modeuses', 'Brands'])->toArray();
+        $favoris = $this->Favoris->find('all')->where(['brand_id' => $session->read('brand_id')])->contain(['Modeuses', 'Modeuses.Users', 'Brands'])->toArray();
 
         $this->set('favoris', $favoris);
         $this->set('_serialize', ['favoris']);

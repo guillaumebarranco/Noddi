@@ -13,7 +13,7 @@
 			        <li class="modeuse">
 
 						<a href="/Noddi/Modeuses/view/<?=$favori->modeus->id?>">
-							<img class="modeusePic" src="<?=$favori->modeus->picture?>" />
+							<div class="modeusePic" style="background-image:url(<?=$favori->modeus->user->picture?>);"></div>
 						</a>
 
 						<div class="infoModeuse">
@@ -28,6 +28,10 @@
 							<div class="delete_favori" data-favori="<?=$favori->id?>"></div>
 						</div>
 					</li>
+
+
+
+
 			    <?php }
 			    } else {
 			    	echo "<p>Vous n'avez pas de favori pour le moment. Ajoutez-en parmi les Noddiz !</p>";

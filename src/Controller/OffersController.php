@@ -95,7 +95,7 @@ class OffersController extends AppController
         }
 
         $brands = $this->Offers->Brands->find('list', ['limit' => 200]);
-        $types = $this->Offers->Types->find('list', ['limit' => 200]);
+        $types = $this->Types->find('all');
 
         $this->set(compact('offer', 'brands', 'types'));
         $this->set('_serialize', ['offer']);
