@@ -7,7 +7,6 @@ class HomeController extends AppController {
 
     public function initialize() {
         parent::initialize();
-
         $this->loadModel('Offers');
     }
 
@@ -17,21 +16,29 @@ class HomeController extends AppController {
 
         if($session->read('type') == 'brand') {
 
-            $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray();
-            $offers = $this->Offers->find('all')->where(['brand_id' => $brand[0]['id'], 'modeuse_id IS' => null])->toArray();
+            $offers = $this->getCurrentOffer();
 
             // On voit si la marque a déjà une offre en cours ou non
 
-            $can_make_offer = false;
             if(empty($offers)) {
                 $can_make_offer = true;
+
+                $this->set(array(
+                    'can_make_offer' => $can_make_offer
+                ));
+                $this->set('_serialize', ['can_make_offer']);
+
+            } else {
+                $can_make_offer = false;
+
+                $offer = $offers[0];
+
+                $this->set(array(
+                    'can_make_offer' => $can_make_offer,
+                    'offer' => $offer
+                ));
+                $this->set('_serialize', ['can_make_offer, offer']);
             }
-
-            $this->set(array(
-                'can_make_offer' => $can_make_offer
-            ));
-
-            $this->set('_serialize', ['can_make_offer']);
         }
     }
 }

@@ -511,4 +511,16 @@ $(document).ready(function() {
 		});
 	});
 
+	/*
+	*	AFFICHER MESSAGE AVEC APPLY
+	*/
+
+
+	$('.display_message').on('click', function() {
+		swal({
+			title: 'Demande reçue',
+			text: $(this).attr('data-message')
+		});
+	});
+
 });	

@@ -33,11 +33,7 @@ class OffersController extends AppController
 
         if($session->read('type') == 'brand') {
 
-            $current_offer = $this->Offers
-                ->find('all')
-                ->where(['brand_id' => $session->read('brand_id'), 'finished' => 0])
-                ->contain(['Types'])
-                ->toArray()[0];
+            $current_offer = $this->getCurrentOffer()[0];
 
             $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'finished' => 1]);
 
@@ -100,6 +96,7 @@ class OffersController extends AppController
 
         $brands = $this->Offers->Brands->find('list', ['limit' => 200]);
         $types = $this->Offers->Types->find('list', ['limit' => 200]);
+
         $this->set(compact('offer', 'brands', 'types'));
         $this->set('_serialize', ['offer']);
     }

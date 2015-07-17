@@ -11,7 +11,6 @@ class UsersController extends AppController
 
     public function initialize() {
         parent::initialize();
-
         $this->loadModel('Activities');
         $this->loadModel('Favoris');
         $this->loadModel('Offers');
@@ -48,13 +47,9 @@ class UsersController extends AppController
 
                 // On compare les informations rentrées dans le formulaire à celles de l'admin en base
                 if($data['username'] == $get_user['username'] && $data['password'] == $get_user['password']) {
-                        
+
                     // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
-                    $session->write('user', true);
-                    $session->write('username', $get_user['username']);
-                    $session->write('password', $get_user['password']);
-                    $session->write('user_id', $get_user['id']);
-                    $session->write('type', $get_user['type']);
+                    $this->writeSession($get_user);
 
                     // On récupère le brand_id
                     $brand_id = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
@@ -81,7 +76,6 @@ class UsersController extends AppController
     public function loginFB() {
 
         $check = $this->Jsonification();
-
         $session = $this->request->session();
 
         if(isset($this->request->data) && $this->request->data) {
@@ -93,11 +87,7 @@ class UsersController extends AppController
             if($get_user) {
                 $get_user = $get_user[0];
 
-                $session->write('user', true);
-                $session->write('username', $get_user['username']);
-                $session->write('password', $get_user['password']);
-                $session->write('user_id', $get_user['id']);
-                $session->write('type', $get_user['type']);
+                $this->writeSession($get_user);
 
                 // On récupère l'id de la modeuse
                 $modeuse = $this->Modeuses->find('all')->where(['user_id' => $get_user['id']])->toArray()[0];
@@ -283,7 +273,6 @@ class UsersController extends AppController
                     $session->write('user_id', $data['user_id']);
 
                     $brand = $this->Brands->newEntity();
-
                     $brand = $this->Brands->patchEntity($brand, $data);
 
                     if (!$this->Brands->save($brand)) {
@@ -348,8 +337,7 @@ class UsersController extends AppController
         if(isset($this->request->data) && $this->request->data) {
             $data = $this->request->data;
 
-            $modeuses = $this->Modeuses->find('all')
-            ->contain(['Users']);
+            $modeuses = $this->Modeuses->find('all')->contain(['Users']);
 
             if($data['blog'] == 'yes') {
                 $modeuses = $modeuses ->where(['Users.website !=' => '']);

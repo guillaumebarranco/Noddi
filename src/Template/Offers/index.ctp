@@ -47,6 +47,8 @@
 
                 <img src="img/<?=$apply->offer->brand->user->picture?>" alt="">
 
+                <button class="display_message" data-message="<?=$apply->message?>">Display Message</button>
+
                 <button class="button acceptApply" data-apply="<?=$apply->id?>" data-offer="<?=$apply->offer->id?>" data-modeuse="<?=$modeuse->id?>">Accepter</button>
                 <button class="button removeApplyOffer" data-apply="<?=$apply->id?>">Décliner</button>
 
