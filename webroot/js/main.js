@@ -4,7 +4,7 @@ $(document).ready(function() {
 	*	MENU
 	*/
 
-	if($('.page_index').length != 0) {
+	if($('.page_home').length != 0) {
 		$('.menu li.home').addClass('active');
 	} else if($('.proposition').length != 0) {
 		$('.menu li.dashboard').addClass('active');
@@ -23,6 +23,8 @@ $(document).ready(function() {
 	*/
 
 	function getModeuses() {
+		showLoading();
+
 		makeAjax('POST', WEB_URL+"/users/getModeuses", data_search, function() {
 			console.log('get_modeuses', _this.response.modeuses);
 
@@ -41,8 +43,17 @@ $(document).ready(function() {
 							'<li class="stat facebook">'+_this.response.modeuses[modeuse].facebook_followers+'</li>' +
 							'<li class="stat twitter">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
 							'<li class="stat instagram">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
-						'</ul>' +
-						'<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>'+
+						'</ul>'
+				;
+
+				if(_this.response.modeuses[modeuse].already_favori) {
+					new_li += '<div class="add_favori grey" data-favori="'+_this.response.modeuses[modeuse].favori_id+'" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
+				} else {
+					new_li += '<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
+				}
+
+
+				new_li +=	
 						'</div>' +
 					'</li>'
 				;
@@ -50,6 +61,7 @@ $(document).ready(function() {
 				$('.list_modeuses').append(new_li);
 
 				$('.section_home').hide();
+				hideLoading();
 				$('.section_les_noddiz').show();
 			}
 		});
@@ -206,12 +218,27 @@ $(document).ready(function() {
 		data_user.brand_id = $('.get_brand_id').val();
 		data_user.modeuse_id = $(this).attr('data-modeuse');
 
-		makeAjax('POST', "favoris/add", data_user, function() {
-			swal({
-				title: "Added !",
-				type: "success"
+		if($(this).hasClass('grey')) {
+
+			var favori_id = $(this).attr('data-favori');
+
+			makeAjax('POST', "favoris/delete/"+favori_id, '', function() {
+				swal({
+					title: "Deleted !",
+					type: "success"
+				});
 			});
-		});
+
+		} else {
+			makeAjax('POST', "favoris/add", data_user, function() {
+				swal({
+					title: "Added !",
+					type: "success"
+				});
+			});
+		}
+
+		
 	});
 
 	$('.delete_favori').on('click', function() {
@@ -291,7 +318,9 @@ $(document).ready(function() {
 
 	$('.get_offers').on('click', function() {
 
-		makeAjax('POST', "offers/getOffers", '', function() {
+		showLoading();
+
+		makeAjax('POST', WEB_URL+"/offers/getOffers", '', function() {
 
 			console.log(_this.response.offers);
 
@@ -303,10 +332,15 @@ $(document).ready(function() {
 					'</li>'
 				;
 				$('.all_offers').append(li);
-			}			
+			}
+			hideLoading();
+
+			$('.get_offers').hide();
 
 			$('.all_offers').show();
 		});
+
+		
 
 	});
 
@@ -359,6 +393,8 @@ $(document).ready(function() {
 
 	$('.seeConversation').on('click', function() {
 
+		showLoading();
+
 		var data = {};
 		data.offer_id = $(this).attr('data-offer');
 
@@ -384,8 +420,6 @@ $(document).ready(function() {
 					}
 				}
 
-				
-				
 				var li =
 					'<li class="message">'+ 
 		                '<h3 class="message_sender">'+name+'</h3>'+ 
@@ -400,6 +434,9 @@ $(document).ready(function() {
 			$('.conversation ul').append('<li><a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a></li>');
 
 			$('.all_messages').hide();
+
+			hideLoading();
+
 			$('.conversation').show();
 		});
 		
@@ -463,6 +500,39 @@ $(document).ready(function() {
 			});
 
 			that.parents('.proposition_received').remove();
+		});
+	});
+
+	/*
+	*
+	*/
+
+	$('.removeApplyOffer').on('click', function() {
+
+		data = {};
+		data.apply_id = $(this).attr('data-apply');
+		var that = $(this);
+		console.log('acceptApply', data);
+		
+		makeAjax('POST', WEB_URL+"/dashboard/refuseApply", data, function() {
+			swal({
+				title: 'Demande supprimée',
+				type: 'success'
+			});
+
+			window.location.href = WEB_URL+'/offers/';
+		});
+	});
+
+	/*
+	*	AFFICHER MESSAGE AVEC APPLY
+	*/
+
+
+	$('.display_message').on('click', function() {
+		swal({
+			title: 'Demande reçue',
+			text: $(this).attr('data-message')
 		});
 	});
 

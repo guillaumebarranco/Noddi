@@ -5,26 +5,57 @@
     </header>
     <div class="all_messages">
 
-        <?php foreach ($tab_offers as $message) { ?>
+        <?php 
+        if(!empty($tab_offers)) {
+            foreach ($tab_offers as $message) { ?>
 
-            <div class="message">
-                
-                <?php if($this->request->session()->read('type') == 'modeuse') { ?>
-                    <h3 class="message_sender"><?=$message['name']?></h3>
-                <?php } else { ?>
-                    <h3 class="message_sender"><?=$message['firstname']?> <?=$message['lastname']?></h3>
-                <?php } ?>
-    
-                <input type="hidden" class="get_the_type" value="<?=$this->request->session()->read('type')?>">
-                
-                <div class="message_time"><?=$message['created'] ?></div>
-                <p class="message_content"><?=$message['message']?></p>
+                <div class="message">
+                    
+                    <?php if($this->request->session()->read('type') == 'modeuse') { ?>
+                        <h3 class="message_sender"><?=$message['name']?></h3>
+                    <?php } else { ?>
+                        <h3 class="message_sender"><?=$message['firstname']?> <?=$message['lastname']?></h3>
+                    <?php } ?>
+        
+                    <input type="hidden" class="get_the_type" value="<?=$this->request->session()->read('type')?>">
+                    
+                    <div class="message_time"><?=$message['created'] ?></div>
+                    <p class="message_content"><?=$message['message']?></p>
 
-                <button class="button seeConversation" data-offer="<?=$message['id']?>">Voir la conversation</button>
+                    <button class="button seeConversation" data-offer="<?=$message['id']?>">Voir la conversation</button>
 
-            </div>
+                </div>
 
-        <?php } ?>
+            <?php } 
+        } else {
+
+            echo "<p>Vous n'avez pas de conversation pour le moment.</p>";
+
+            if($this->request->session()->read('type') == 'modeuse') {
+
+                if($modeuse->boost == 1) {
+
+                    echo "<p>Il vous reste cependant un boost pour postule à une offre !";
+                        echo $this->Html->link(__('Voir les Offres'), ['controller' => 'Offers', 'action' => 'index'], ['class' => 'button']);
+                    echo "</p>";
+                    
+                } else {
+
+                    echo "<p>Bah..</p>";
+                }
+
+            } else {
+
+                if(!isset($offer[0])) {
+                    echo "<p>Vous n'avez pas d'offre, allez vite en faire une !</p>";
+                    echo $this->Html->link(__('Créer une offre'), ['controller' => 'Home', 'action' => 'index'], ['class' => 'button']);
+                } else {
+                    echo'<p>Proposez votre offre à des Noddiz !</p>';
+                    echo $this->Html->link(__('Voir les Noddiz'), ['controller' => 'Home', 'action' => 'index'], ['class' => 'button']);
+                }
+            }
+        } ?>
+
     </div>
 
     <div class="answer_message">

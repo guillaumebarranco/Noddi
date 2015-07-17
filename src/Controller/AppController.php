@@ -37,4 +37,23 @@ class AppController extends Controller
         $response['check'] = $check;
         return json_encode($response);
     }
+
+    public function getCurrentOffer() {
+        $this->loadModel('Offers');
+        $session = $this->request->session();
+
+        $brand = $this->Brands->get($session->read('brand_id'));
+        
+        $offers = $this->Offers->find('all')->where(['brand_id' => $brand->id, 'modeuse_id IS' => null])->contain(['Types'])->toArray();
+        return $offers;
+    }
+
+    function writeSession($get_user) {
+        $session = $this->request->session();
+        $session->write('user', true);
+        $session->write('username', $get_user['username']);
+        $session->write('password', $get_user['password']);
+        $session->write('user_id', $get_user['id']);
+        $session->write('type', $get_user['type']);
+    }
 }

@@ -4,6 +4,12 @@
 
 var _this = this;
 
+if(!isIE()) {
+	_this.which_loader = $('.loader');
+} else {
+	_this.which_loader = $('.loaderIE');
+}
+
 function makeAjax(type, url, data, callback) {
 
 	$.ajax({
@@ -21,6 +27,26 @@ function makeAjax(type, url, data, callback) {
 	});
 }
 
+function isIE() {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+    window.browser_response;
+
+    if (msie > 0) { // If Internet Explorer, return version number
+      if(parseInt(ua.substring(msie + 5, ua.indexOf(".", msie))) < 10) {
+        //window.browser_response = 'isIE';
+        return true;
+      } else {
+        //window.browser_response = 'isNotIE';
+        return false;
+      }
+      
+    } else {
+      //window.browser_response = 'isNotIE';
+      return false;
+    }
+}
+
 function validateEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
@@ -36,3 +62,27 @@ function calculateAge(date) { // birthday is a timestamp
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
     return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
+
+
+/*
+*	FONCTION POUR AFFICHER LE LOADER
+*/
+
+function showLoading() {
+	// _this.which_loader.css('width', $('body').width()+'px');
+	// _this.which_loader.css('width', $('body').height()+'px');
+
+	$('.loader').show();
+}
+
+/*
+*	FONCTION POUR CACHER LE LOADER
+*/
+
+function hideLoading() {
+	$('.loader').hide();
+}
+
+// $(window).on('scroll', function() {
+// 	_this.which_loader.css('top', $(window).scrollTop());
+// });

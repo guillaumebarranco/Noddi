@@ -32,31 +32,31 @@
 
     </section>
 
-
 <?php } else { ?>
 
     <?php if(!empty($applies[0])) { 
-            $k = 0;
-            foreach ($applies as $key => $apply) { 
+        $k = 0;
+        foreach ($applies as $key => $apply) { 
 
-                ?>
-                <?php if($k==0) { echo'<div>'; } else { echo '<div style="display:none">'; } ?>
-                    <img width="200" src="img/offers/<?=$apply->offer->uniquid?>/1.jpg" alt=""> 
+            if($k==0) { echo'<div>'; } else { echo '<div style="display:none">'; } ?>
+                <img width="200" src="img/offers/<?=$apply->offer->uniquid?>/1.jpg" alt=""> 
 
-                    <h3>Informations générales</h3>
+                <h3>Informations générales</h3>
 
-                    <img src="img/<?=$apply->offer->brand->user->picture?>" alt="">
+                <h4><?=$apply->offer->title?></h4>
 
-                    <button>Accepter</button>
-                    <button>Décliner</button>
+                <img src="img/<?=$apply->offer->brand->user->picture?>" alt="">
 
-                </div>
-            <?php $k++; }
-            
-    ?>
+                <button class="display_message" data-message="<?=$apply->message?>">Display Message</button>
 
+                <button class="button acceptApply" data-apply="<?=$apply->id?>" data-offer="<?=$apply->offer->id?>" data-modeuse="<?=$modeuse->id?>">Accepter</button>
+                <button class="button removeApplyOffer" data-apply="<?=$apply->id?>">Décliner</button>
 
-    <?php } else {
+            </div>
+
+        <?php $k++; }
+   
+    } else {
 
         if($modeuse->boost == 1) { ?>
 

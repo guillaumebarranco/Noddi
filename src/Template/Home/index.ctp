@@ -1,3 +1,4 @@
+<div class="page_home"></div>
 <section class="page page_index">
 <?php 
 	$session = $this->request->session();
@@ -21,9 +22,9 @@ if($session->read('user')) { ?>
 				<div class="myDemandReminder showLarge">
 					<h3>Ma demande</h3>
 					<ul>
-						<li class="reminder style">Bohème</li>
+						<li class="reminder style"><?=$offer->lifestyle?></li>
 						<li class="reminder whatilike">Maquillage</li>
-						<li class="reminder myType">Sociable</li>
+						<li class="reminder myType"><?=$offer->personnality?></li>
 						<li class="reminder whereilive">Paris</li>
 						<li class="reminder age">20</li>
 						<li class="reminder edit"><a href="#">Modifier mes critères</a></li>
