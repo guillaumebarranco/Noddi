@@ -220,6 +220,8 @@ class OffersController extends AppController
         if($this->request->data) {
             $data = $this->request->data;
 
+            $data['accepted'] = 0;
+
             $apply = $this->Applies->newEntity();
             $apply = $this->Applies->patchEntity($apply, $data);
 

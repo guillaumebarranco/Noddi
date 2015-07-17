@@ -52,6 +52,7 @@ class AppController extends Controller
         $session = $this->request->session();
         $session->write('user', true);
         $session->write('username', $get_user['username']);
+        $session->write('picture', $get_user['picture']);
         $session->write('password', $get_user['password']);
         $session->write('user_id', $get_user['id']);
         $session->write('type', $get_user['type']);
