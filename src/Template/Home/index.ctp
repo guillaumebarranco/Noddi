@@ -25,11 +25,14 @@ if($session->read('user')) { ?>
 						<li class="reminder style"><?=$offer->lifestyle?></li>
 						<li class="reminder whatilike">Maquillage</li>
 						<li class="reminder myType"><?=$offer->personnality?></li>
-						<li class="reminder whereilive">Paris</li>
-						<li class="reminder age">20</li>
-						<li class="reminder edit"><a href="#">Modifier mes critères</a></li>
+						<li class="reminder whereilive">France</li>
+						<!-- <li class="reminder age">20</li>
+						<li class="reminder edit"><a href="#">Modifier mes critères</a></li> -->
 					</ul>
 				</div>
+	
+				<div class="count_modeuse"></div>
+
 				<ul class="list_modeuses">	
 				</ul>
 

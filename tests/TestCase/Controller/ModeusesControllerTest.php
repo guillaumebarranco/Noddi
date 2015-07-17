@@ -22,8 +22,9 @@ class ModeusesControllerTest extends IntegrationTestCase
         'app.activities',
         'app.offers',
         'app.types',
-        'app.favoris',
-        'app.messages'
+        'app.applies',
+        'app.messages',
+        'app.favoris'
     ];
 
     /**

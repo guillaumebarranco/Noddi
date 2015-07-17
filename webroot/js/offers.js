@@ -18,8 +18,7 @@ $(document).ready(function() {
 		data.description = $(this).find('input[name=description]').val();
 		data.date_begin = $(this).find('input[name=date_begin]').val();
 		data.date_end = $(this).find('input[name=date_end]').val();
-		data.multiple_targets = $(this).find('input[name=multiple_targets]').val();
-		data.expected_targets = $(this).find('input[name=expected_targets]').val();
+		data.type = 2;
 
 		data.activity_id = $(this).find('select[class=activities]').val();
 		data.brand_id = $(this).find('input[name=brand_id]').val();

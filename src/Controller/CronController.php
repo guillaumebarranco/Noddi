@@ -200,7 +200,7 @@ class CronController extends AppController
         foreach ($modeuses as $key => $modeuse) {
             if($modeuse->twitter != null) {
 
-                $twitter_datas = $this->requestTwitter($modeuse->id);
+                $twitter_datas = $this->requestTwitter($modeuse->twitter);
 
                 if (isset($twitter_datas[0]['user']['screen_name'])) {
 

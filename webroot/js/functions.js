@@ -86,3 +86,7 @@ function hideLoading() {
 // $(window).on('scroll', function() {
 // 	_this.which_loader.css('top', $(window).scrollTop());
 // });
+
+function shortName(name) {
+  return name.substr(0, 1)+'.';
+}
