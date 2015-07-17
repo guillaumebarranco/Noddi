@@ -28,7 +28,6 @@
 		<div class="formModeuse">
 
 			<div class="form_brand_one">
-				<h2>Création de compte</h2>
 
 				
 			</div>

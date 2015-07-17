@@ -7,11 +7,11 @@ $(document).ready(function() {
 	*	REGISTRER MODEUSE
 	*/
 
-	$('.inscriptionVisu').hide();
-	$('.stepsSignIn').hide();
+	$('section.modeuse .inscriptionVisu').hide();
+	$('section.modeuse .stepsSignIn').hide();
 	$('.register_modeuse').hide();
 
-	$('.form_brand_one').hide();
+	$('section.modeuse .form_brand_one').hide();
 	$('.form_brand_two').hide();
 	$('.form_brand_three').hide();
 	$('.form_brand_four').hide();

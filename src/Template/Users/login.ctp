@@ -1,4 +1,12 @@
 <section class="page page_login">
+	<header class="headerPage">
+	    <h2 class="titlePage">Se connecter</h2>
+	    <div class="previousStepMenu">
+	    	<a href="<?=$this->request->base?>">
+	    		Précédent
+	    	</a>
+	    </div>
+	</header>
 	<div class="logo">
 		<a href="<?=$this->request->base?>">
 			<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
@@ -8,7 +16,6 @@
 		<h2>Modeuses</h2>
 		<button class="button fb_button">Se connecter via Facebook</button>
 	</div>
-
 
 	<div class="connectSections">
 		<h2>Professionnel</h2>

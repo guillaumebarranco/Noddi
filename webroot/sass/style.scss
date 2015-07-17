@@ -90,9 +90,10 @@ form {
         margin-bottom:15px;
         &[type="radio"],&[type="checkbox"]{
             position: absolute;
+            position: absolute;
             top: 0;
             right: 0;
-            width: 100%;
+            width: auto;
             opacity: 0;
             &:checked + label{
                 background: $grey;
@@ -148,11 +149,11 @@ form {
         padding:5px 10px;
     }
     &.dark {
-        border-color:$tertiary;
-        background:$tertiary;
+        border-color:$quaternary;
+        background:$quaternary;
         color:$white;
         &:hover {
-            border-color:$tertiary;
+            border-color:$primary;
             background:none;
             color:$white;
         }
@@ -237,6 +238,7 @@ form {
 header.headerPage{
     display: flex;
     flex-direction: row-reverse;
+    align-items: baseline;
     h2.titlePage{
         flex:7;
         background: $secondary;
@@ -251,11 +253,13 @@ header.headerPage{
         }
     }
     .previousStepMenu{
-        @include hide-text();
+        a{
+            @include hide-text();
+        }
         &:before{
-        content: ' < ';
-        @include show-text();
-        flex:1;
+            @include show-text();
+            @include noddifont($prev, $grey, 2.6);
+            flex:1;
         }
     }
 }

@@ -1,4 +1,5 @@
 <section class="page page_signin brand">
+<div class="inscriptionVisu inscriptionBrand"></div>
 <div class="stepsSignIn">
 	<ul>
 		<li id="step1" class="active">1</li>
@@ -10,30 +11,37 @@
     <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'sign_in_brand'], 'class' => 'register_brand']) ?>
 	<div class="formBrand">
 		<div class="form_brand_one">
-			<h2>Création de compte</h2>
+			<div class="offsetForm">
+				<label class="displayLabel firstname username" for="username">Nom utilisateur</label>
+			    <?= $this->Form->input('username', ['label' => '', 'placeholder' => "Nom d'utilisateur"]) ?>
+				
+				<label class="displayLabel password" for="password">Mot de passe</label>
+			    <?= $this->Form->input('password', ['label' => '', 'placeholder' => "Mot de passe"]) ?>
 
-		    <?= $this->Form->input('username', ['label' => '', 'placeholder' => "Nom d'utilisateur"]) ?>
-		    <?= $this->Form->input('password', ['label' => '', 'placeholder' => "Mot de passe"]) ?>
-		    <?= $this->Form->input('email', ['label' => '', 'placeholder' => "Email"]) ?>
+				<label class="displayLabel email" for="email">Mot de passe</label>
+			    <?= $this->Form->input('email', ['label' => '', 'placeholder' => "Email"]) ?>
 
-		    <h2>Informations générales</h2>
+			    <h2>Informations générales</h2>
 
-		    <?= $this->Form->input('name', ['label' => '', 'placeholder' => "Nom de l'entreprise"]) ?>	    
+				<label class="displayLabel store" for="name">Nom de l'entreprise</label>
+			    <?= $this->Form->input('name', ['label' => '', 'placeholder' => "Nom de l'entreprise"]) ?>	    
 
-		    <div>
-				<input type="file" id="upload" class="button reversed" />
-				<input type="hidden" name="picture" />
+			    <div>
+					<input type="file" id="upload" class="button reversed" />
+					<input type="hidden" name="picture" />
+				</div>
+
+				<div class="the_picture">
+					<img src="" width="150" />
+				</div>
 			</div>
 
-			<div class="the_picture">
-				<img src="" width="150" />
-			</div>
-
-			<a class="button get_form_brand_two">Etape Suivante</a>
+			<a class="button get_form_brand_two dark reversed">Etape Suivante</a>
 		</div>
 
 		<div class="form_brand_two">
 
+			<label class="displayLabel website" for="website">Site web</label>
 			<?= $this->Form->input('website', ['placeholder' => 'URL de votre site']) ?>
 
 			<label for="bio">Bio</label>
@@ -58,17 +66,21 @@
 		</div>
 
 		<div class="form_brand_three">
+			<div class="offsetForm">
+				<select name="type_commerce" id="">
+					<option selected disabled>Type de commerce</option>
+					<option value="boutique">Boutique</option>
+					<option value="e-commerce">E-commerce</option>
+					<option value="all">Les deux</option>
+				</select>
+				
 
-			<select name="type_commerce" id="">
-				<option selected disabled>Type de commerce</option>
-				<option value="boutique">Boutique</option>
-				<option value="e-commerce">E-commerce</option>
-				<option value="all">Les deux</option>
-			</select>
+				<label class="displayLabel city" for="city">Ville</label>
+				<?= $this->Form->input('city', ['label' => '', 'placeholder' => 'City']) ?>
 
-			<?= $this->Form->input('city', ['label' => '', 'placeholder' => 'City']) ?>
-
-			<input type="hidden" name="type" value="brand" />
+				<input type="hidden" name="type" value="brand" />
+				
+			</div>
 
 			<p>Après validation, vous recevrez un mail de confirmation</p>
 
