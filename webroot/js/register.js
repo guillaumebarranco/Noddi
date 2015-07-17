@@ -25,8 +25,7 @@ $(document).ready(function() {
 
 		// $('.form_brand_one').hide();
 		$('.form_brand_one').show();
-		$('#step2').addClass('active');
-		$('#step1').removeClass('active');
+		$('#step1').addClass('active');
 	});
 
 	//TWO
@@ -43,8 +42,8 @@ $(document).ready(function() {
 			// && $('input[name=birthday]').val() != ''
 		) {
 			if(validateEmail($('input[name=email]').val())) {
-				$('#step2').removeClass('active');
-				$('#step3').addClass('active');
+				$('#step1').removeClass('active');
+				$('#step2').addClass('active');
 				$('.form_brand_one').hide();
 				$('.form_brand_two').show();
 			} else {
@@ -60,18 +59,19 @@ $(document).ready(function() {
 	//THREE
 	$('#get_form_brand_three').on('click', function(e) {
 		e.preventDefault();
-
+		var myDescription = $('textarea[name=myDescription]').val(),
+			styleWear = $('input[name=styleWear]:checked').val();
 		if(
-			$('textarea[name=myDescription]').val() != ''
-			&& $('checklist[name=styleWear]').val() != ''
+			myDescription != ''
+			&& styleWear != '' 
+			&& styleWear !=  undefined
 		) {
-			
 			if(
 				$('select[name=hobbie-one]').val() != $('select[name=hobbie-two]').val() 
-				&& $('select[name=iAmOne]').val() != $('select[name=iAmOne]').val() 
+				&& $('select[name=iAmOne]').val() != $('select[name=iAmTwo]').val() 
 			) {
-				$('#step3').removeClass('active');
-				$('#step4').addClass('active');
+				$('#step2').removeClass('active');
+				$('#step3').addClass('active');
 				$('.form_brand_two').hide();
 				$('.form_brand_three').show();
 			} else {
@@ -83,8 +83,9 @@ $(document).ready(function() {
 		}
 	});
 
+	// Checkbox selection: Max 2 checked
 	$('#styleWearCheckboxes').on('click', function(e){
-		console.log(e,$('input[name=styleWear]:checked').length);
+		// console.log(e,$('input[name=styleWear]:checked').length);
 		($('input[name=styleWear]:checked').length > 2) && e.preventDefault() && e.stopPropagation();
 	});
 
@@ -93,7 +94,10 @@ $(document).ready(function() {
 		e.preventDefault();
 
 		if(
-			$('textarea[name=myDescription]').val() != ''
+			$('input[name=blogAdmin]:checked').val() != ''
+			&& $('input[name=brandExperience]:checked').val() != ''
+			&& $('input[name=social_presence]:checked').val() != ''
+			&& $('input[name=social_presence]:checked').val() !=  undefined
 		) {
 			$('#step3').removeClass('active');
 			$('#step4').addClass('active');
@@ -130,12 +134,12 @@ $(document).ready(function() {
 
 		// push selected styles to stylewear[]
 		$('input[type=checkbox][name=styleWear]:checked').each(function() {
-			styleWear.push($(this).attr('value'));
+			styleWear.push($(this).val());
 		});
 
 		// push selected social networks to social_presence[]
 		$('input[type=checkbox][name=social_presence]:checked').each(function() {
-			socialPresence.push($(this).attr('value'));
+			socialPresence.push($(this).val());
 		});
 
 		if(
