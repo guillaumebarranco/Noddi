@@ -19,20 +19,21 @@ $(document).ready(function() {
 
 
 
-	
-	$('#get_form_brand_two').on('click', function(e) {
+//ONE
+	$('#get_form_brand_one').on('click', function(e) {
 		$('.inscriptionVisu').show();
 		$('.stepsSignIn').show();
 		$('.register_modeuse').show();
 		$('.createFacebookAccount').hide();
 
-		$('.form_brand_one').hide();
-		$('.form_brand_two').show();
+		// $('.form_brand_one').hide();
+		$('.form_brand_one').show();
 		$('#step2').addClass('active');
 		$('#step1').removeClass('active');
 	});
 
-	$('.formModeuse .get_form_brand_three').on('click', function(e) {
+//TWO
+	$('#get_form_brand_two').on('click', function(e) {
 		e.preventDefault();
 
 		if(
@@ -47,8 +48,8 @@ $(document).ready(function() {
 			if(validateEmail($('input[name=email]').val())) {
 				$('#step2').removeClass('active');
 				$('#step3').addClass('active');
-				$('.form_brand_three').show();
-				$('.form_brand_two').hide();
+				$('.form_brand_one').hide();
+				$('.form_brand_two').show();
 			} else {
 				swal({
 					title: "Erreur",
@@ -67,7 +68,47 @@ $(document).ready(function() {
 
 	});
 
-	$('.formModeuse .get_form_brand_four').on('click', function(e) {
+//THREE
+	$('#get_form_brand_three').on('click', function(e) {
+		e.preventDefault();
+
+		if(
+			$('textarea[name=myDescription]').val() != ''
+			&& $('checklist[name=styleWear]').val() != ''
+		) {
+			
+			if(
+				$('select[name=hobbie-one]').val() != $('select[name=hobbie-two]').val() 
+				&& $('select[name=iAmOne]').val() != $('select[name=iAmOne]').val() 
+			) {
+				$('#step3').removeClass('active');
+				$('#step4').addClass('active');
+				$('.form_brand_two').hide();
+				$('.form_brand_three').show();
+			} else {
+				swal({
+					title: "Erreur",
+					text: "Deux champs sont identiques",
+					type: 'error'
+				});
+			}
+
+		} else {
+			swal({
+				title: "Erreur",
+				text: "Certains champs ne sont pas remplis",
+				type: 'error'
+			});
+		}
+	});
+
+	$('#styleWearCheckboxes').on('click', function(e){
+		console.log(e,$('input[name=styleWear]:checked').length);
+		($('input[name=styleWear]:checked').length > 2) && e.preventDefault() && e.stopPropagation();
+	});
+
+//FOUR 
+	$('#get_form_brand_four').on('click', function(e) {
 		e.preventDefault();
 
 		if(
