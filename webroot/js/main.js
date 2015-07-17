@@ -30,40 +30,54 @@ $(document).ready(function() {
 
 			$('.list_modeuses').empty();
 
-			for(modeuse in _this.response.modeuses) {
+			if(_this.response.modeuses[0]) {
 
-				var new_li = 
-					'<li class="modeuse">'+
-						'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
-							'<img class="modeusePic" src="'+_this.response.modeuses[modeuse].user.picture+'" />'+
-						'</a>' +
-						'<div class="infoModeuse">' +
-						'<p class="modeuseName">'+_this.response.modeuses[modeuse].firstname+'</p>' +
-						'<ul class="modeuseStats">' +
-							'<li class="stat facebook">'+_this.response.modeuses[modeuse].facebook_followers+'</li>' +
-							'<li class="stat twitter">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
-							'<li class="stat instagram">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
-						'</ul>'
-				;
+				for(modeuse in _this.response.modeuses) {
 
-				if(_this.response.modeuses[modeuse].already_favori) {
-					new_li += '<div class="add_favori grey" data-favori="'+_this.response.modeuses[modeuse].favori_id+'" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
-				} else {
-					new_li += '<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
+					var new_li = 
+						'<li class="modeuse">'+
+							'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
+								'<img class="modeusePic" src="'+_this.response.modeuses[modeuse].user.picture+'" />'+
+							'</a>' +
+							'<div class="infoModeuse">' +
+							'<p class="modeuseName">'+_this.response.modeuses[modeuse].firstname+'</p>' +
+							'<ul class="modeuseStats">' +
+								'<li class="stat facebook">'+_this.response.modeuses[modeuse].facebook_followers+'</li>' +
+								'<li class="stat twitter">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
+								'<li class="stat instagram">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
+							'</ul>'
+					;
+
+					if(_this.response.modeuses[modeuse].already_favori) {
+						new_li += '<div class="add_favori grey" data-favori="'+_this.response.modeuses[modeuse].favori_id+'" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
+					} else {
+						new_li += '<div class="add_favori" data-modeuse="'+_this.response.modeuses[modeuse].id+'"></div>';
+					}
+
+					new_li +=	
+							'</div>' +
+						'</li>'
+					;
+
+					$('.list_modeuses').append(new_li);
+
+					$('.section_home').hide();
+					hideLoading();
+					$('.section_les_noddiz').show();
 				}
 
+			} else {
 
-				new_li +=	
-						'</div>' +
-					'</li>'
+				var link =
+					'<p>Aucune Noddie ne matche votre offre ! Attendez ou modifiez votre offre !</p>'+
+					'<br />'+
+					'<a class="button" href="'+WEB_URL+'/dashboard/">Aller sur le dashboard</a>'
 				;
 
-				$('.list_modeuses').append(new_li);
-
-				$('.section_home').hide();
+				$('.section_home').append(link);
 				hideLoading();
-				$('.section_les_noddiz').show();
 			}
+
 		});
 	}
 
@@ -323,21 +337,28 @@ $(document).ready(function() {
 		makeAjax('POST', WEB_URL+"/offers/getOffers", '', function() {
 
 			console.log(_this.response.offers);
+			if(_this.response.offers[0]) {
 
-			for (offer in _this.response.offers) {
-				var li =
-					'<li>'+
-						'<p>'+_this.response.offers[offer].title+'</p>'+
-						'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
-					'</li>'
-				;
-				$('.all_offers').append(li);
+				for (offer in _this.response.offers) {
+					var li =
+						'<li>'+
+							'<p>'+_this.response.offers[offer].title+'</p>'+
+							'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+						'</li>'
+					;
+					$('.all_offers').append(li);
+				}
+				
+				$('.get_offers').hide();
+				$('.all_offers').show();
+
+			} else {
+				$('.get_offers').hide();
+				$('.all_offers').append('<p>Pas d\'offre pour le moment, revenez plus tard !</p>');
+				$('.all_offers').show();
+				hideLoading();
 			}
-			hideLoading();
-
-			$('.get_offers').hide();
-
-			$('.all_offers').show();
+			
 		});
 
 		

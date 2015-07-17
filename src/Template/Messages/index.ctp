@@ -41,7 +41,8 @@
                     
                 } else {
 
-                    echo "<p>Bah..</p>";
+                    echo "<p>Tenez vous au courant de vos propositions éventuelles !</p>";
+                    echo $this->Html->link(__('Voir les Offres'), ['controller' => 'Offers', 'action' => 'index'], ['class' => 'button']);
                 }
 
             } else {

@@ -20,7 +20,6 @@ class Modeus extends Entity
         'lastname' => true,
         'instagram' => true,
         'twitter' => true,
-        'facebook' => true,
         'activity_searched' => true,
         'insta_followers' => true,
         'twitter_followers' => true,

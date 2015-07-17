@@ -80,7 +80,7 @@
         <?php } else { ?>
 
             <p>
-                <b>Si la marque est intéressée par ton offre, tu recevras un mail de confirmation dans ta boîte perso</b> <br /><br />
+                <b>Si la marque est intéressée par ton profil, tu recevras un mail de confirmation dans ta boîte perso</b> <br /><br />
 
                 Samedi prochain, tu recevras de nouveau un Boost que tu pourras utiliser sur l'offre de ton choix. <br /><br />
 

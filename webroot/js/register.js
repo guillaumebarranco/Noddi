@@ -85,13 +85,12 @@ $(document).ready(function() {
 				type: 'error'
 			});
 		}
-
 	});
 
 	$('.register_modeuse').on('submit', function(e) {
 
-		var instagramName = 	$('input[name=instagram]').val(),
-			twitterName = 		$('input[name=twitter]').val(),
+		var instagramName = 	$('input[name=instagramUsername]').val(),
+			twitterName = 		$('input[name=twitterUsername]').val(),
 			email = 			$('input[name=email]').val(),
 			firstname = 		$('input[name=firstname]').val(),
 			lastname = 			$('input[name=lastname]').val(),
@@ -174,6 +173,8 @@ $(document).ready(function() {
 					swal({
 						title: "Added !",
 						type: "success"
+					}, function() {
+						window.location.href = WEB_URL+'/offers';
 					});
 				} else {
 					swal({

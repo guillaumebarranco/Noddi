@@ -196,6 +196,8 @@ class UsersController extends AppController
                         str_replace("_", " ", $data[$tabs_implode[$i]]);
                     }
 
+                    $data['boost'] = 1;
+
                     $modeuse = $this->Modeuses->newEntity();
                     $modeuse = $this->Modeuses->patchEntity($modeuse, $data);
                     

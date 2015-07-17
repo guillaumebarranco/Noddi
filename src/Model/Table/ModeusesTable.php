@@ -57,9 +57,6 @@ class ModeusesTable extends Table
             ->allowEmpty('twitter');
             
         $validator
-            ->allowEmpty('facebook');
-            
-        $validator
             ->allowEmpty('activity_searched');
             
         $validator
