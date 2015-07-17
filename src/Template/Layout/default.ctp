@@ -139,6 +139,22 @@
 
         </div>
 
+        <!-- LOADER -->
+        <div class="loader">
+            <div class="rectangle-bounce selected">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+            </div>
+        </div>
+        
+        <!-- LOADER IE -->
+        <div class="loaderIE">
+            <img src="<?= $this->request->base ?>/img/loader.gif" alt="" />
+        </div>
+
         <script>
           window.fbAsyncInit = function() {
             FB.init({

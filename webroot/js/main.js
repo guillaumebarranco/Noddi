@@ -23,6 +23,8 @@ $(document).ready(function() {
 	*/
 
 	function getModeuses() {
+		showLoading();
+
 		makeAjax('POST', WEB_URL+"/users/getModeuses", data_search, function() {
 			console.log('get_modeuses', _this.response.modeuses);
 
@@ -59,6 +61,7 @@ $(document).ready(function() {
 				$('.list_modeuses').append(new_li);
 
 				$('.section_home').hide();
+				hideLoading();
 				$('.section_les_noddiz').show();
 			}
 		});
@@ -315,6 +318,8 @@ $(document).ready(function() {
 
 	$('.get_offers').on('click', function() {
 
+		showLoading();
+
 		makeAjax('POST', WEB_URL+"/offers/getOffers", '', function() {
 
 			console.log(_this.response.offers);
@@ -327,10 +332,15 @@ $(document).ready(function() {
 					'</li>'
 				;
 				$('.all_offers').append(li);
-			}			
+			}
+			hideLoading();
+
+			$('.get_offers').hide();
 
 			$('.all_offers').show();
 		});
+
+		
 
 	});
 
@@ -383,6 +393,8 @@ $(document).ready(function() {
 
 	$('.seeConversation').on('click', function() {
 
+		showLoading();
+
 		var data = {};
 		data.offer_id = $(this).attr('data-offer');
 
@@ -408,8 +420,6 @@ $(document).ready(function() {
 					}
 				}
 
-				
-				
 				var li =
 					'<li class="message">'+ 
 		                '<h3 class="message_sender">'+name+'</h3>'+ 
@@ -424,6 +434,9 @@ $(document).ready(function() {
 			$('.conversation ul').append('<li><a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a></li>');
 
 			$('.all_messages').hide();
+
+			hideLoading();
+
 			$('.conversation').show();
 		});
 		

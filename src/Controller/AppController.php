@@ -41,9 +41,9 @@ class AppController extends Controller
     public function getCurrentOffer() {
         $session = $this->request->session();
 
-        $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray();
+        $brand = $this->Brands->get($session->read('brand_id'));
         
-        $offers = $this->Offers->find('all')->where(['brand_id' => $brand[0]['id'], 'modeuse_id IS' => null])->contain(['Types'])->toArray();
+        $offers = $this->Offers->find('all')->where(['brand_id' => $brand->id, 'modeuse_id IS' => null])->contain(['Types'])->toArray();
         return $offers;
     }
 
