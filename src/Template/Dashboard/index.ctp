@@ -13,18 +13,19 @@
 		<article class="proposition">
 
 			<div class="blue_header">
-				<h2><?=$offer->title?> lol</h2>
+				<h2><?php if($offer->title != null) { echo $offer->title; } else { echo 'Unknown'; } ?></h2>
 				<span class="delete deleteOffer" data-offer="<?=$offer->id?>"></span>
 			</div>
 			
 			<div class="content">
-				<img src="img/offers/<?=$offer->uniquid?>/1.png" alt="" />
+				<img src="<?=$this->request->base?>/img/offers/<?=$offer->uniquid?>/1.png" alt="" />
 				<div class="proposition_content">
 					<p class="type"><?=$offer->type->name?></p>
 					<p class="exchange"><?=$offer->exchange?></p>
 					<p class="status"><?php if($offer->finished == 0) { echo 'En attente'; } else { echo 'Finie'; } ?></p>
 				</div>
 			</div>
+
 			<?php if($offer->notif != 0) { echo '<div class="notifOffer">'.$offer->notif.'</div>'; } ?>
 			
 		</article>
@@ -52,7 +53,7 @@
 					</div>
 					
 					<div class="content">
-						<img src="img/offers/<?=$offer->uniquid?>/1.png" alt="" />
+						<img src="<?=$this->request->base?>/img/offers/<?=$offer->uniquid?>/1.png" alt="" />
 						<div class="proposition_content">
 							<p class="type"><?=$offer->type->name?></p>
 							<p class="exchange"><?=$offer->exchange?></p>

@@ -195,7 +195,7 @@ $(document).ready(function() {
 	*	PAGE MODEUSE
 	*/
 
-	$('.page_modeuse').hide();
+	//$('.page_modeuse').hide();
 	$('.modeuse_infos').show();
 
 	/*
@@ -654,6 +654,7 @@ $(document).ready(function() {
 	});
 
 	$('.viewTab').hide();
+	$('#viewUserDescription').show();
 	$('#tabsProfile li').on('click', function() {
 		var clickedTab = $(this).attr('id');
 		$('#tabsProfile li').removeClass('active');

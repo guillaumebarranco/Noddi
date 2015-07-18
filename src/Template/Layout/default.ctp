@@ -65,6 +65,7 @@
                             <li class="profil">
                                     <a href="#" class="showAccountSelect">
                                         <?= $this->request->session()->read('firstname') ?> <?= $this->request->session()->read('lastname') ?>
+                                        <?= $this->request->session()->read('name')?>
                                     </a>
 
                                     <ul class="account_select">

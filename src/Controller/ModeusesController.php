@@ -13,6 +13,13 @@ class ModeusesController extends AppController {
     }
 
     public function index() {
+        $session = $this->request->session();
+
+        if($session->read('user') == null) {
+            return $this->redirect(
+                ['controller' => 'Users', 'action' => 'login']
+            );
+        }
 
         $this->paginate = [
             'contain' => ['Users']
@@ -22,6 +29,13 @@ class ModeusesController extends AppController {
     }
 
     public function view($id = null) {
+        $session = $this->request->session();
+
+        if($session->read('user') == null) {
+            return $this->redirect(
+                ['controller' => 'Users', 'action' => 'login']
+            );
+        }
 
         $session = $this->request->session();
 
