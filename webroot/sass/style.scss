@@ -282,6 +282,9 @@ form {
                     &.profil:before{
                         @include noddifont($message, $grey, 2.5);
                     }
+                    &.link_propositions:before{
+                        @include noddifont($tag, $grey, 2.5);
+                    }
                 }
 
                 &.profile_picture {

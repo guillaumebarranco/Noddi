@@ -52,51 +52,71 @@ footer{
                             font-size $transitionLengthDefault $transitionTimingDefault;
 
                 & a{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100%;
-                margin: auto;
-                }
-                    
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    margin: auto;
+                    padding: 10px;
+                    transition: 0.4s;
+                    @media (min-width: $tablet) {
+                        &:hover {
+                            text-decoration: none;
+                            transform: rotate(360deg);
 
+                            &:before {
+                               color: white !important;
+                            }
+                        }
+                    }
+                }
                 
 
                 &.facebook {
-                    &:hover{
-                        background: #3b5998;
+                    @media (min-width: $tablet) {
+                        &:hover{
+                            background: #3b5998;
+                        }
                     }
                     a:before{
                         @include noddifont($facebook, $secondary, 2);
                     }
                 }
                 &.twitter {
-                    &:hover{
-                        background: #55acee;
+                    @media (min-width: $tablet) {
+                        &:hover{
+                            background: #55acee;
+                        }
                     }
                     a:before{
                         @include noddifont($twitter, $secondary, 2);
                     }
                 }
                 &.instagram {
-                    &:hover{
-                        background: #3f729b;
+                    @media (min-width: $tablet) {
+                        &:hover{
+                            background: #3f729b;
+                        }
                     }
                     a:before{
                         @include noddifont($instagram, $secondary, 2);
                     }
                 }
                 &.snapchat {
-                    &:hover{
-                        background: #fffc00;
+                    @media (min-width: $tablet) {
+                        &:hover{
+                            background: #fffc00;
+                        }
                     }
                     a:before{
                         @include noddifont($snapchat, $secondary, 2);
                     }
                 }
                 &.pinterest {
-                    &:hover{
-                        background: #cc2127;
+                    @media (min-width: $tablet) {
+                        &:hover{
+                            background: #cc2127;
+                        }
                     }
                     a:before{
                         @include noddifont($pinterest, $secondary, 2);

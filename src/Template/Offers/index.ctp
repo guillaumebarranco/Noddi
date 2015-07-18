@@ -1,4 +1,4 @@
-<div class="page page_offers"></div>
+<div class="page page_offers">
 
 <?php if($this->request->session()->read('type') == 'brand') { ?>
     <button class="buttons_offers button get_current_offer">Offre en cours</button>
@@ -102,7 +102,7 @@
         <?php }
     }
  } ?>
-
+</div>
 
 
 <?=$this->Html->script('offers')?>

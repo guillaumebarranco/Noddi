@@ -64,16 +64,16 @@
                             <?php if($this->request->session()->read('type') == 'modeuse') { ?>
                                 
                                 <!-- Menu Modeuse -->
-                                <li class="propositions">
-                                    <?= $this->Html->link(__("Propositions"), ['controller' => 'Offers', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Propositions"), ['controller' => 'Offers', 'action' => 'index'], ['class' => 'link_propositions']) ?>
                                 </li>
 
-                                <li class="messages">
-                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index'], ['class' => 'messages']) ?>
                                 </li>
 
-                                <li class="profil">
-                                    <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index'], ['class' => 'profil']) ?>
                                 </li>
 
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
