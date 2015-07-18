@@ -7,32 +7,35 @@
 	    	</a>
 	    </div>
 	</header>
-	<div class="logo">
-		<a href="<?=$this->request->base?>">
-			<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
-		</a>
-	</div>
-	<div class="connectSections">
-		<h2>Modeuses</h2>
-		<button class="button fb_button">Se connecter via Facebook</button>
-	</div>
+	<section class="connect">
+		<div class="connectSections modeuse">
+			<h2>Modeuses</h2>
+			<div class="content">
+				<button class="button fb_button">Se connecter via Facebook</button>
+			</div>
+		</div>
 
-	<div class="connectSections">
-		<h2>Professionnel</h2>
+		<div class="connectSections brand">
+			<h2>Professionnel</h2>
+			<div class="content">
+				<div class="offsetForm">
+					<?php
+					    echo $this->Form->create(null, [
+					        'url' => ['controller' => 'Users', 'action' => 'login']
+					    ]);?>
 
-		<?php
-		    echo $this->Form->create(null, [
-		        'url' => ['controller' => 'Users', 'action' => 'login']
-		    ]);
+					    <label class="displayLabel username" for="username">Nom utilisateur</label>
+					    <?php echo $this->Form->input('username');?>
+					    <label class="displayLabel password" for="password">password</label>
+					    <?php echo $this->Form->input('password');?>
+				</div>
+					    <?php echo $this->Form->button('Se connecter', ["class"=> "button dark reversed"]);
 
-		    echo $this->Form->input('username');
-		    echo $this->Form->input('password');
-
-		    echo $this->Form->button('Se connecter', ["class"=> "button small reversed"]);
-
-		    echo $this->Form->end(); 
-		?>
-	</div>
+					    echo $this->Form->end(); 
+					?>
+			</div>
+		</div>
+	</section>		
 
 	<div>
 		<?= $this->Html->link(__("Je n'ai pas encore de compte"), ['controller' => 'Users', 'action' => 'sign_in']) ?>
