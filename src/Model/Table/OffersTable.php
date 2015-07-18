@@ -96,6 +96,11 @@ class OffersTable extends Table
             ->add('finished', 'valid', ['rule' => 'numeric'])
             ->requirePresence('finished', 'create')
             ->notEmpty('finished');
+            
+        $validator
+            ->add('is_public', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('is_public', 'create')
+            ->notEmpty('is_public');
 
         return $validator;
     }

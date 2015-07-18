@@ -23,6 +23,8 @@ $(document).ready(function() {
 		data.activity_id = $(this).find('select[class=activities]').val();
 		data.brand_id = $(this).find('input[name=brand_id]').val();
 
+		data.is_public = 0;
+
 		makeAjax('POST', "offers/create", data, function() {
 			console.log('user_added', _this.response);
 

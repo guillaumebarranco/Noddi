@@ -322,6 +322,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	background-color: #f6f6f6;
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
@@ -2196,6 +2197,7 @@ body {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
+	background-color: transparent;
 }
 
 .headerApp nav#navigation ul.menu li {

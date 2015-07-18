@@ -78,6 +78,16 @@ class OffersControllerTest extends IntegrationTestCase
     }
 
     /**
+     * Test delete method
+     *
+     * @return void
+     */
+    public function testDelete()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
      * Test view method
      *
      * @return void
