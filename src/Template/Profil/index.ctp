@@ -73,12 +73,19 @@
 
 
 	<div class="profile_section profile">
-
-		<h2>Profil</h2>
+		<header class="globalInfo">
+			<img src="" alt="profile picture"/>
+			<div class="contentInfos">
+				<h3><?= $user->username ?></h3>
+				<p><?= $user->bio ?></p>
+			</div>
+			<div class="notifications"></div>
+		</header>
+		
 
 		<div>Username : <?= $user->username ?></div>
 		
-		<div>Biographie : <p><?= $user->bio ?></p></div>
+		<div>Biographie : <p></p></div>
 		
 		<div>Website : <?= $user->website ?></div>
 		
