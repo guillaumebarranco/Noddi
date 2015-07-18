@@ -2001,7 +2001,7 @@ footer ul > li a:hover {
 	text-decoration: underline;
 }
 
-.page_account {
+.page_viewProfile {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -2010,28 +2010,139 @@ footer ul > li a:hover {
 	flex-direction: column;
 }
 
-.page_account header.globalInfo {
+.page_viewProfile header.globalInfo {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	max-width: 500px;
+	margin: auto;
 }
 
-.page_account header.globalInfo img {
-	-webkit-flex: 3;
-	-ms-flex: 3;
-	flex: 3;
+.page_viewProfile header.globalInfo .profile_picture {
+	background-color: #c8c7cc;
+	margin-right: 20px;
 }
 
-.page_account header.globalInfo .contentInfos {
+.page_viewProfile header.globalInfo .contentInfos {
 	-webkit-flex: 4;
 	-ms-flex: 4;
 	flex: 4;
 }
 
-.page_account header.globalInfo .notifications {
+.page_viewProfile header.globalInfo .contentInfos h3 {
+	color: #ed7b6e;
+	font-size: 18px;
+	font-size: 1.8rem;
+	font-weight: normal;
+}
+
+.page_viewProfile header.globalInfo .notifications {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
+}
+
+.page_viewProfile .content ul.tabsProfile {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	max-width: 500px;
+	margin: auto;
+}
+
+.page_viewProfile .content ul.tabsProfile li {
+	cursor: pointer;
+	text-align: center;
+	padding: 10px;
+	border: solid 1px #c8c7cc;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.page_viewProfile .content ul.tabsProfile li + li {
+	border-left: none;
+	border-right: solid 1px #c8c7cc;
+}
+
+.page_viewProfile .content ul.tabsProfile li:hover {
+	background-color: #ffffff;
+}
+
+.page_viewProfile .content ul.tabsProfile li.active {
+	color: #ffffff;
+	background-color: #5fc6ce;
+}
+
+.page_viewProfile .content .viewTab {
+	max-width: 500px;
+	margin: auto;
+}
+
+.page_viewProfile .content .viewTab .iconsUser {
+	max-width: 500px;
+	margin-bottom: 15px;
+}
+
+.page_viewProfile .content .viewTab .iconsUser h4 {
+	color: #ed7b6e;
+	margin: 0;
+	margin-left: 25px;
+}
+
+.page_viewProfile .content .viewTab .iconsUser p {
+	margin: 0;
+	margin-left: 25px;
+}
+
+.page_viewProfile .content .viewTab .iconsUser:before {
+	position: absolute;
+}
+
+.page_viewProfile .content .viewTab .iconsUser.hobbies:before {
+	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab .iconsUser.personality:before {
+	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab .iconsUser.style:before {
+	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
 }
 
 article.proposition {

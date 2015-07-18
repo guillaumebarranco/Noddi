@@ -641,5 +641,14 @@ $(document).ready(function() {
 		$(this).hide();
 	});
 
+	$('.viewTab').hide();
+	$('#tabsProfile li').on('click', function() {
+		var clickedTab = $(this).attr('id');
+		$('#tabsProfile li').removeClass('active');
+		$(this).addClass('active');
+		$('.viewTab').hide();
+		$('#view'+clickedTab).show();
+	});
+
 
 });	

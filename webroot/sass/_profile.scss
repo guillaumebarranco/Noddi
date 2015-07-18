@@ -7,18 +7,87 @@
 // }
 
 .page_account{
+}
+
+.page_viewProfile{
 	display: flex;
 	flex-direction: column;
 	header.globalInfo{
 		display: flex;
-		img{
-			flex: 3;
+		max-width: 500px;
+		margin: auto;
+		.profile_picture{
+			background-color: $grey;
+			margin-right: 20px;
 		}
 		.contentInfos{
 			flex: 4;
+			h3{
+				color: $primary;
+				@include font-size(1.8);
+				font-weight: normal;
+			}
+			.user{}
+			.bio{}
 		}
 		.notifications{
 			flex: 1;
+		}
+	}
+	.content{
+		ul.tabsProfile{
+				display: flex;
+				max-width: 500px;
+				margin: auto;
+			li{
+				cursor: pointer;
+				text-align: center;
+				padding: 10px;
+				border: solid 1px $grey;
+				flex:1;
+				transition: background-color $transitionLengthDefault $transitionTimingDefault;
+				&+li{
+					// border: none;
+					border-left: none;
+					border-right: solid 1px $grey;
+				}
+				&:hover{
+					background-color: $white;
+				}
+				&.active{
+					color: $white;
+					background-color: $secondary;
+				}
+			}
+		}
+		.viewTab{
+			max-width: 500px;
+			margin: auto;
+			.iconsUser{
+				max-width: 500px;
+				margin-bottom: 15px;
+				h4{
+					color: $primary;
+					margin: 0;
+					margin-left:25px;
+				}
+				p{
+					margin: 0;
+					margin-left:25px;
+				}
+				&:before{
+					position: absolute;
+				}
+				&.hobbies:before{
+					@include noddifont($fav, $primary, 1.7);
+				}
+				&.personality:before{
+					@include noddifont($user, $primary, 1.7);
+				}
+				&.style:before{
+					@include noddifont($user, $primary, 1.7);
+				}
+			}
 		}
 	}
 }
