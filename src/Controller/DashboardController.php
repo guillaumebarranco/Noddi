@@ -32,17 +32,68 @@ class DashboardController extends AppController {
             }
         }
 
-        $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'modeuse'])->contain(['Modeuses', 'Modeuses.Users']);
-        $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'brand'])->contain(['Modeuses', 'Modeuses.Users']);
+        $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'modeuse'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+        $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'brand'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+
+        $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS NOT' => null])->toArray();
         
         $this->set(array(
         	'offer' => $offer,
-        	'applies_modeuse' => $applies_modeuse,
-        	'applies_brand' => $applies_brand
+            'finished_offers' => $finished_offers,
+            'applies_brand' => $applies_brand,
+            'applies_modeuse' => $applies_modeuse
         ));
 
-        $this->set('_serialize', ['offers', 'applies_modeuse', 'applies_brand']);
+        $this->set('_serialize', ['offers', 'finished_offers', 'applies_modeuse', 'applies_brand']);
     }
+
+    /*
+    *
+    *
+    *
+    *   VIEW
+    */
+
+    public function view($id = null) {
+
+        if($id == null) {
+            return $this->redirect(
+                ['controller' => 'Dashboard', 'action' => 'index']
+            );
+
+        } else {
+
+            $session = $this->request->session();
+
+            if($session->read('user') == null) {
+                return $this->redirect(
+                    ['controller' => 'Users', 'action' => 'login']
+                );
+            }
+
+            $offer = $this->Offers->find('all')->where(['Offers.id' => $id])->contain(['Types'])->toArray()[0];
+
+            if(empty($offer)) {
+                if($session->read('type') == 'brand') {
+                    return $this->redirect(
+                        ['controller' => 'Home', 'action' => 'index']
+                    );
+                }
+            }
+
+            $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer->id, 'from_who' => 'modeuse'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+            $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer->id, 'from_who' => 'brand'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+            
+            $this->set(array(
+                'offer' => $offer,
+                'applies_modeuse' => $applies_modeuse,
+                'applies_brand' => $applies_brand
+            ));
+
+            $this->set('_serialize', ['offers', 'applies_modeuse', 'applies_brand']);
+        }
+    }
+
 
     public function acceptApply() {
 
