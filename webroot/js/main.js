@@ -539,13 +539,38 @@ $(document).ready(function() {
 		data.modeuse_id = $(this).attr('data-modeuse');
 
 		console.log('acceptApply', data);
-		
-		makeAjax('POST', WEB_URL+"/dashboard/acceptApply", data, function() {
-			swal({
-				title: 'Message envoyé',
-				type: 'success'
+
+		swal({
+			title: "An input!", 
+			text: "Write something interesting:", 
+			type: "input",   showCancelButton: true, 
+			closeOnConfirm: false, 
+			animation: "slide-from-top", 
+			inputPlaceholder: "Write something" },
+
+		function(inputValue) {
+
+			if (inputValue === false) return false;
+			if (inputValue === "") {
+				swal.showInputError("Vous devez écrire un message !");
+				return false;
+			}
+
+			data.from_who = 'brand';
+			data.viewed = 0;
+			data.answered = 0;
+
+			data.message = inputValue;
+
+			makeAjax('POST', WEB_URL+"/dashboard/acceptApply", data, function() {
+
+				swal({
+					title: 'Message envoyé',
+					type: 'success'
+				});
 			});
 		});
+		
 	});
 
 	/*

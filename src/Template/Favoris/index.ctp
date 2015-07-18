@@ -1,10 +1,11 @@
 
 <div class="page_index">
 	<section class="section_home">
+	
 		<header class="headerPage">
-				<h2 class="titlePage">Favoris</h2>
-				<!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
-			</header>
+			<h2 class="titlePage">Favoris</h2>
+		</header>
+
 		<ul class="all_favoris">
 		    <?php 
 		    if(!empty($favoris[0])) {
