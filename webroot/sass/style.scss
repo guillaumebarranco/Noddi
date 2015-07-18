@@ -206,55 +206,88 @@ form {
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
+                box-sizing: border-box;
                 flex:1;
-                background: $secondary;
-                color: $white;
-                padding: 10px 0;
+                color: $grey;
+                padding: 10px 5px;
                 @media (min-width: $tablet) {
-                    height: auto;
-                    padding: 20px;
+                    color: $white;
+                    background-color: $secondary;
+                    //height: auto;
+                    padding: 0;
                     text-align: center;
                     position: relative;
                     justify-content: left !important;
 
-                    &:before{
-                        position: absolute;
-                        top: 18px;
-                        left: 13px;
+                    &.profile_picture {
+                        display: block;
+                    }
+
+                    a {
+                        color: white;
+                        padding: 20px;
+                        font-weight: bold;
+
+                        &:before{
+                            position: absolute;
+                            top: 15px;
+                            left: 13px;
+                            color: white !important;
+                        }
                     }
 
                     &:hover {
-                        background-color: #51aab2;
+                        background-color: darken($secondary, 13%);
                     }
                     &.profile_picture {
                         &:hover {
                             background-color: transparent;
                         }
                     }
-                }
-                &+li{
-                    border-left: solid 1px #000;
-                    @media (min-width: $tablet) {
-                        border: none;
+                    &.active{
+                        background-color: darken($secondary, 13%);
+                        a:before {
+                            color: white !important;
+                        }
                     }
                 }
+
+                a {
+                    font-size: 0.75em;
+                    text-align: center;
+
+                    &:before {
+                        display: block;
+                    }
+
+                    &.home:before{
+                        @include noddifont($home, $grey, 2.5);
+                    }
+                    &.offers:before{
+                        @include noddifont($tag, $grey, 2.5);
+                    }
+                    &.favs:before{
+                        @include noddifont($fav, $grey, 2.5);
+                    }
+                    &.messages:before{
+                        @include noddifont($message, $grey, 2.5);
+                    }
+                    &.dashboard:before{
+                        @include noddifont($message, $grey, 2.5);
+                    }
+                    &.profil:before{
+                        @include noddifont($message, $grey, 2.5);
+                    }
+                }
+
                 &.profile_picture {
+                    display: none;
                 }
                 &.active{
-                    background: #51aab2;
-                }
-                // &:before{position: absolute;}
-                &.home:before{
-                    @include noddifont($home, $white, 2.5);
-                }
-                &.offers:before{
-                    @include noddifont($tag, $white, 2.5);
-                }
-                &.favs:before{
-                    @include noddifont($fav, $white, 2.5);
-                }
-                &.messages:before{
-                    @include noddifont($message, $white, 2.5);
+                    color: $secondary;
+                    a:before {
+                        color: $secondary !important;
+                    }
                 }
             }
         }

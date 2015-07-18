@@ -53,8 +53,7 @@
 	<article class="proposition">
 
 		<div class="blue_header">
-			<h2><?=$offer->title?></h2>
-			<span class="delete deleteOffer" data-offer="<?=$offer->id?>"></span>
+			<h2><?=$offer->title?></h2>			
 		</div>
 		
 		<div class="content">

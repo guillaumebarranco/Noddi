@@ -338,80 +338,123 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
+	box-sizing: border-box;
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-	background: #5fc6ce;
-	color: #ffffff;
-	padding: 10px 0;
+	color: #c8c7cc;
+	padding: 10px 5px;
 }
 
-.headerApp nav#navigation ul.menu li + li {
-	border-left: solid 1px #000;
+.headerApp nav#navigation ul.menu li a {
+	font-size: 0.75em;
+	text-align: center;
+}
+
+.headerApp nav#navigation ul.menu li a:before {
+	display: block;
+}
+
+.headerApp nav#navigation ul.menu li a.home:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li a.offers:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li a.favs:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li a.messages:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li a.dashboard:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li a.profil:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.headerApp nav#navigation ul.menu li.profile_picture {
+	display: none;
 }
 
 .headerApp nav#navigation ul.menu li.active {
-	background: #51aab2;
+	color: #5fc6ce;
 }
 
-.headerApp nav#navigation ul.menu li.home:before {
-	content: "";
-	color: #ffffff;
-	font-size: 25px;
-	font-size: 2.5rem;
-	font-family: "noddifont";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	text-decoration: none;
-	text-transform: none;
-}
-
-.headerApp nav#navigation ul.menu li.offers:before {
-	content: "";
-	color: #ffffff;
-	font-size: 25px;
-	font-size: 2.5rem;
-	font-family: "noddifont";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	text-decoration: none;
-	text-transform: none;
-}
-
-.headerApp nav#navigation ul.menu li.favs:before {
-	content: "";
-	color: #ffffff;
-	font-size: 25px;
-	font-size: 2.5rem;
-	font-family: "noddifont";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	text-decoration: none;
-	text-transform: none;
-}
-
-.headerApp nav#navigation ul.menu li.messages:before {
-	content: "";
-	color: #ffffff;
-	font-size: 25px;
-	font-size: 2.5rem;
-	font-family: "noddifont";
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-	text-decoration: none;
-	text-transform: none;
+.headerApp nav#navigation ul.menu li.active a:before {
+	color: #5fc6ce !important;
 }
 
 .page {
@@ -2028,8 +2071,9 @@ body {
 }
 
 .headerApp nav#navigation ul.menu li {
-	height: auto;
-	padding: 20px;
+	color: #ffffff;
+	background-color: #5fc6ce;
+	padding: 0;
 	text-align: center;
 	position: relative;
 	-webkit-justify-content: left !important;
@@ -2037,22 +2081,37 @@ body {
 	justify-content: left !important;
 }
 
-.headerApp nav#navigation ul.menu li:before {
+.headerApp nav#navigation ul.menu li.profile_picture {
+	display: block;
+}
+
+.headerApp nav#navigation ul.menu li a {
+	color: white;
+	padding: 20px;
+	font-weight: bold;
+}
+
+.headerApp nav#navigation ul.menu li a:before {
 	position: absolute;
-	top: 18px;
+	top: 15px;
 	left: 13px;
+	color: white !important;
 }
 
 .headerApp nav#navigation ul.menu li:hover {
-	background-color: #51aab2;
+	background-color: #37abb4;
 }
 
 .headerApp nav#navigation ul.menu li.profile_picture:hover {
 	background-color: transparent;
 }
 
-.headerApp nav#navigation ul.menu li + li {
-	border: none;
+.headerApp nav#navigation ul.menu li.active {
+	background-color: #37abb4;
+}
+
+.headerApp nav#navigation ul.menu li.active a:before {
+	color: white !important;
 }
 
 header.headerPage h2.titlePage {

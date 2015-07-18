@@ -59,7 +59,7 @@
                 <ul class="menu">
                     <?php 
                         if($this->request->session()->read('user')) { ?>
-                            <li class="profile_picture" style="background-image:url(<?=$this->request->session()->read('picture')?>);">
+                            <li class="profile_picture showLarge" style="background-image:url(<?=$this->request->session()->read('picture')?>);">
                             </li>
                             <?php if($this->request->session()->read('type') == 'modeuse') { ?>
                                 
@@ -73,30 +73,30 @@
                                 </li>
 
                                 <li class="profil">
-                                    <?= $this->Html->link(__("Mon Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
+                                    <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
                                 </li>
 
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
                                 <!-- Menu Marque -->
 
-                                <li class="profil">
-                                    <?= $this->Html->link(__("Mon Compte"), ['controller' => 'Profil', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index'], ['class' => 'profil']) ?>
                                 </li>
 
-                                <li class="dashboard">
-                                    <?= $this->Html->link(__("Dashboard"), ['controller' => 'Dashboard', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Dashboard"), ['controller' => 'Dashboard', 'action' => 'index'], ['class' => 'dashboard']) ?>
                                 </li>
 
-                                <li class="home">
-                                    <?= $this->Html->link(__("Noddiz"), ['controller' => 'Home', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Noddiz"), ['controller' => 'Home', 'action' => 'index'], ['class' => 'home']) ?>
                                 </li>
 
-                                <li class="favs">
-                                    <?= $this->Html->link(__("Favoris"), ['controller' => 'Favoris', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Favoris"), ['controller' => 'Favoris', 'action' => 'index'], ['class' => 'favs']) ?>
                                 </li>
 
-                                <li class="messages">
-                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index']) ?>
+                                <li>
+                                    <?= $this->Html->link(__("Messages"), ['controller' => 'Messages', 'action' => 'index'], ['class' => 'messages']) ?>
                                 </li>
                                 
                             <?php } ?>

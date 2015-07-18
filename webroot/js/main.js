@@ -5,17 +5,17 @@ $(document).ready(function() {
 	*/
 
 	if($('.page_home').length != 0) {
-		$('.menu li.home').addClass('active');
+		$('.menu a.home').parent().addClass('active');
 	} else if($('.proposition').length != 0) {
-		$('.menu li.dashboard').addClass('active');
+		$('.menu a.dashboard').parent().addClass('active');
 	} else if($('.all_favoris').length != 0) {
-		$('.menu li.favs').addClass('active');
+		$('.menu a.favs').parent().addClass('active');
 	} else if($('.all_messages').length != 0) {
-		$('.menu li.messages').addClass('active');
+		$('.menu a.messages').parent().addClass('active');
 	} else if($('.page_offers').length != 0) {
-		$('.menu li.propositions').addClass('active');
+		$('.menu a.propositions').parent().addClass('active');
 	} else if($('.menu_profil').length != 0) {
-		$('.menu li.profil').addClass('active');
+		$('.menu a.profil').parent().addClass('active');
 	}
 
 	/*
