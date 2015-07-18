@@ -1,8 +1,13 @@
 <section class="page page_messagerie">
     <header class="headerPage">
         <h2 class="titlePage">Messagerie</h2>
-        <!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
+        <div class="previousStepMenu previousStepMenuMessage"><a href="#">Précédent</a></div>
     </header>
+
+
+
+
+
     <div class="all_messages">
 
         <?php 

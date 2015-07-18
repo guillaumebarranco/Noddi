@@ -27,6 +27,7 @@
             <select name="" id="">
                 <option value="maintenant">maintenant</option>
             </select>
+
             <!-- <p>De</p>
             <select name="fromAge" id="fromAge">
                 <?php for ($i=17; $i<50; $i++) {?>
@@ -45,7 +46,7 @@
         </div>
         
         <div class="regularCheckbox">
-            <input type="checkbox" name="allowContact" id="allowContact" class="singlecheckbox" checked>
+            <input type="checkbox" name="is_public" id="allowContact" class="singlecheckbox" checked>
             <label for="allowContact" class="allowContact">J'autorise les Noddiz à me contater</label>
         </div>
         

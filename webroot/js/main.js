@@ -452,6 +452,7 @@ $(document).ready(function() {
 	*/
 
 	$('.conversation').hide();
+	$('.previousStepMenuMessage').hide();
 
 	$('.seeConversation').on('click', function() {
 
@@ -462,7 +463,8 @@ $(document).ready(function() {
 
 		makeAjax('POST', "messages/getMessagesByOffer", data, function() {
 			console.log('messages', _this.response);
-			//$('.conversation')
+			$('.conversation ul').empty();
+
 
 			var type = $('.get_the_type').val();
 			var name;
@@ -500,8 +502,17 @@ $(document).ready(function() {
 			hideLoading();
 
 			$('.conversation').show();
+			$('.previousStepMenuMessage').show();
 		});
 		
+	});
+
+	$('.previousStepMenuMessage').on('click', function(e) {
+		e.preventDefault();
+
+		$('.previousStepMenuMessage').hide();
+		$('.conversation').hide();
+		$('.all_messages').show();
 	});
 
 	/*
