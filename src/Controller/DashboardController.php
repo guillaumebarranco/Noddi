@@ -32,8 +32,8 @@ class DashboardController extends AppController {
             }
         }
 
-        $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'modeuse'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
-        $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'brand'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+        $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'modeuse', 'Applies.accepted' => 0])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+        $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'brand', 'Applies.accepted' => 0])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
 
         $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS NOT' => null])->toArray();
         
@@ -81,8 +81,8 @@ class DashboardController extends AppController {
                 }
             }
 
-            $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer->id, 'from_who' => 'modeuse'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
-            $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer->id, 'from_who' => 'brand'])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+            $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'modeuse', 'Applies.accepted' => 0])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
+            $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'brand', 'Applies.accepted' => 0])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
             
             $this->set(array(
                 'offer' => $offer,
@@ -103,11 +103,19 @@ class DashboardController extends AppController {
 
         $offer = $this->Offers->get($data['offer_id']);
         $offer->modeuse_id = $data['modeuse_id'];
+        $offer->finished = 1;
         $this->Offers->save($offer);
 
         $apply = $this->Applies->get($data['apply_id']);
         $apply->accepted = 1;
         $this->Applies->save($apply);
+
+        $data['content'] = $data['message'];
+
+        $message = $this->Messages->newEntity();
+        $message = $this->Messages->patchEntity($message, $data);
+        
+        $this->Messages->save($message);
 
         $check = 'OK';
 

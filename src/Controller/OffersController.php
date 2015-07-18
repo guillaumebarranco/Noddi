@@ -81,11 +81,19 @@ class OffersController extends AppController
         $offer = $this->Offers->newEntity();
         if ($this->request->is('post')) {
 
+            $data = $this->request->data;
+
+            if($data['is_public'] == 'on') {
+                $data['is_public'] = 1;
+            } else {
+                $data['is_public'] = 0;
+            }
+
             $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0];
 
-            $this->request->data['brand_id'] = $brand['id'];
+            $data['brand_id'] = $session->read('brand_id');
 
-            $offer = $this->Offers->patchEntity($offer, $this->request->data);
+            $offer = $this->Offers->patchEntity($offer, $data);
 
             if ($this->Offers->save($offer)) {
                 return $this->redirect(['controller' => 'Home', 'action' => 'index']);

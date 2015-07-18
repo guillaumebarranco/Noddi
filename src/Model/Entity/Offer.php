@@ -27,6 +27,7 @@ class Offer extends Entity
         'exchange' => true,
         'finished' => true,
         'modeuse_id' => true,
+        'is_public' => true,
         'brand' => true,
         'type' => true,
         'modeus' => true,

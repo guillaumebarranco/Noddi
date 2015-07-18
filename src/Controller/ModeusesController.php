@@ -34,7 +34,11 @@ class ModeusesController extends AppController {
         if($session->read('type') == 'brand') {
             $offer = $this->Offers->find('all')
                 ->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS' => null])
-                ->contain(['Brands'])->toArray()[0];
+                ->contain(['Brands'])->toArray();
+
+            if(isset($offer[0])) {
+                $offer = $offer[0];
+            }
 
                 $this->set(array(
                 'modeuse'=> $modeuse,

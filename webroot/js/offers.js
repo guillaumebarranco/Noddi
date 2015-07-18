@@ -23,23 +23,27 @@ $(document).ready(function() {
 		data.activity_id = $(this).find('select[class=activities]').val();
 		data.brand_id = $(this).find('input[name=brand_id]').val();
 
-		makeAjax('POST', "offers/create", data, function() {
-			console.log('user_added', _this.response);
+		data.is_public = $('.allowContact').val();
 
-			if(_this.response.check == 'OK') {
-				swal({
-		    		title : "Félicitations !", 
-		    		text: "Votre offre a bien été ajoutée !", 
-		    		type: "success"
-	    		});
-			} else {
-				swal({
-		    		title : "Dommage", 
-		    		text: "Votre offre n'a pas été ajoutée !", 
-		    		type: "error"
-	    		});
-			}
-		});
+		console.log(data);
+
+		// makeAjax('POST', "offers/create", data, function() {
+		// 	console.log('user_added', _this.response);
+
+		// 	if(_this.response.check == 'OK') {
+		// 		swal({
+		//     		title : "Félicitations !", 
+		//     		text: "Votre offre a bien été ajoutée !", 
+		//     		type: "success"
+	 //    		});
+		// 	} else {
+		// 		swal({
+		//     		title : "Dommage", 
+		//     		text: "Votre offre n'a pas été ajoutée !", 
+		//     		type: "error"
+	 //    		});
+		// 	}
+		// });
 	});
 
 	$('.finished_offers').hide();

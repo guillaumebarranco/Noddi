@@ -198,9 +198,11 @@ form {
             margin:0;
             padding:0;
             display:flex;
+            background-color: $lightGrey;
             flex-direction:row;
             @media (min-width: $tablet) {
                 flex-direction:column;
+                background-color: transparent;
             }
             li{
                 display: flex;
@@ -228,6 +230,7 @@ form {
                         color: white;
                         padding: 20px;
                         font-weight: bold;
+                        width: 100%;
 
                         &:before{
                             position: absolute;

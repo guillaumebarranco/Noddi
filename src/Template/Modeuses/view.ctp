@@ -1,3 +1,4 @@
+<div class="page_home"></div>
 <button class="button show_modeuse_infos">Informations générales</button>
 <button class="button show_modeuse_socials">Performance réseaux sociaux</button>
 
@@ -111,4 +112,8 @@
 
 </section>
 
-  <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</button>
+<?php if(!empty($offer)) { ?>
+    <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</button>
+<?php } ?>
+
+  
