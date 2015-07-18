@@ -18,6 +18,18 @@ $(document).ready(function() {
 		$('.menu a.profil').parent().addClass('active');
 	}
 
+	$('.account_select').hide();
+
+	$('.showAccountSelect').on('click', function(e) {
+		e.preventDefault();
+
+		if($('.account_select').css('display') == 'none') {
+			$('.account_select').slideDown();
+		} else {
+			$('.account_select').slideUp();
+		}
+	});
+
 	/*
 	*	HOME
 	*/

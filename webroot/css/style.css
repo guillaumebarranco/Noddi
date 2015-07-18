@@ -116,6 +116,7 @@ body {
 	background-position: 50% 50%;
 	border-radius: 50%;
 	margin-bottom: 50px;
+	margin: 0 auto;
 }
 
 a {
@@ -474,6 +475,10 @@ form textarea[type="checkbox"]:checked + label:before {
 
 .headerApp nav#navigation ul.menu li.active a:before {
 	color: #5fc6ce !important;
+}
+
+.headerApp nav#navigation ul.menu li .account_select li a {
+	padding: 0;
 }
 
 .page {
@@ -2262,6 +2267,7 @@ body {
 }
 
 .headerApp nav#navigation {
+	width: 190px;
 	position: relative;
 	background-color: #5fc6ce;
 }
@@ -2304,6 +2310,38 @@ body {
 
 .headerApp nav#navigation ul.menu li:hover {
 	background-color: #37abb4;
+}
+
+.headerApp nav#navigation ul.menu li.profil {
+	position: relative;
+}
+
+.headerApp nav#navigation ul.menu li.profil:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	position: absolute;
+	right: 0;
+	top: 14px;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+
+.headerApp nav#navigation ul.menu li.profil a {
+	cursor: default;
+}
+
+.headerApp nav#navigation ul.menu li.profil:hover {
+	background-color: #5fc6ce;
 }
 
 .headerApp nav#navigation ul.menu li.profile_picture:hover {

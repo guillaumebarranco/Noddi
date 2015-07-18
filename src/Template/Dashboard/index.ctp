@@ -59,7 +59,6 @@
 							<p class="status"><?php if($offer->finished == 0) { echo 'En attente'; } else { echo 'Finie'; } ?></p>
 						</div>
 					</div>
-					<div class="notifOffer">2</div>
 				</article>
 
 			<?php }

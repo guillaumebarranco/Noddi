@@ -48,12 +48,12 @@ class UsersController extends AppController
                 // On compare les informations rentrées dans le formulaire à celles de l'admin en base
                 if($data['username'] == $get_user['username'] && $data['password'] == $get_user['password']) {
 
-                    // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
-                    $this->writeSession($get_user);
-
                     // On récupère le brand_id
-                    $brand_id = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
-                    $session->write('brand_id', $brand_id);
+                    $brand = $brand = $this->Brands->find('all')->where(['user_id' => $get_user->id])->toArray()[0];
+                    $session->write('brand_id', $brand['id']);
+
+                    // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
+                    $this->writeSession($get_user, $brand);
 
                     return $this->redirect(
                         ['controller' => 'Home', 'action' => 'index']
@@ -87,10 +87,10 @@ class UsersController extends AppController
             if($get_user) {
                 $get_user = $get_user[0];
 
-                $this->writeSession($get_user);
-
                 // On récupère l'id de la modeuse
                 $modeuse = $this->Modeuses->find('all')->where(['user_id' => $get_user['id']])->toArray()[0];
+
+                $this->writeSession($get_user, $modeuse);
 
                 $save_modeuse = $this->Modeuses->get($modeuse['id']);
                 $save_modeuse->fb_token = $data['fb_token'];
