@@ -2316,7 +2316,11 @@ body {
 	position: relative;
 }
 
-.headerApp nav#navigation ul.menu li.profil:before {
+.headerApp nav#navigation ul.menu li.profil a {
+	cursor: default;
+}
+
+.headerApp nav#navigation ul.menu li.profil a:before {
 	content: "";
 	color: #c8c7cc;
 	font-size: 25px;
@@ -2330,14 +2334,10 @@ body {
 	text-decoration: none;
 	text-transform: none;
 	position: absolute;
-	right: 0;
+	right: -65px;
 	top: 14px;
 	-webkit-transform: rotate(-90deg);
 	transform: rotate(-90deg);
-}
-
-.headerApp nav#navigation ul.menu li.profil a {
-	cursor: default;
 }
 
 .headerApp nav#navigation ul.menu li.profil:hover {

@@ -61,11 +61,8 @@
                         if($this->request->session()->read('user')) { ?>
                             <li class="profile_picture showLarge" style="background-image:url(<?=$this->request->session()->read('picture')?>);">
                             </li>
-                            <?php if($this->request->session()->read('type') == 'modeuse') { ?>
-                                
-                                <!-- Menu Modeuse -->
 
-                                <li class="profil">
+                            <li class="profil">
                                     <a href="#" class="showAccountSelect">
                                         <?= $this->request->session()->read('firstname') ?> <?= $this->request->session()->read('lastname') ?>
                                     </a>
@@ -110,6 +107,10 @@
                                     </ul>
                                 </li>
 
+                            <?php if($this->request->session()->read('type') == 'modeuse') { ?>
+                                
+                                <!-- Menu Modeuse -->
+
                                 <li>
                                     <?= $this->Html->link(__("Propositions"), ['controller' => 'Offers', 'action' => 'index'], ['class' => 'link_propositions']) ?>
                                 </li>
@@ -120,51 +121,6 @@
 
                            <?php } elseif ($this->request->session()->read('type') == 'brand') { ?>
                                 <!-- Menu Marque -->
-
-                                <li class="profil">
-                                    <a href="#" class="showAccountSelect">
-                                        <?= $this->request->session()->read('name') ?>
-                                    </a>
-
-                                    <ul class="account_select">
-                                        <li>
-                                            <a href="#" data-section="profile">Modifier mon profil</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" data-section="notifications">Notifications par email</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" data-section="preferences">Préférences</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" data-section="conditions">Conditions d'utilisation</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" data-section="mentions">Mentions légales</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" data-section="notifications">FAQ</a>
-                                        </li>
-
-                                        <li>
-                                            <?= $this->Html->link(__('Déconnexion'), ['controller' => 'Users', 'action' => 'disconnect'], ['class' => 'disconnect']) ?>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" data-section="maj">Mise à jour 1.0</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" data-section="contact">Nous contacter</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
 
                                 <!-- <li>
                                     <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index'], ['class' => 'profil']) ?>

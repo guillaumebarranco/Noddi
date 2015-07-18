@@ -19,7 +19,7 @@
         <div>
 
             <div class="offer_picture">
-                <img src="img/offers/<?=$current_offer->id?>/1.jpg" alt="" />
+                <img src="img/offers/<?=$current_offer->id?>/1.png" alt="" />
             </div>
 
             <div class="offer_content">
@@ -39,13 +39,13 @@
         foreach ($applies as $key => $apply) { 
 
             if($k==0) { echo'<div>'; } else { echo '<div style="display:none">'; } ?>
-                <img width="200" src="img/offers/<?=$apply->offer->uniquid?>/1.jpg" alt=""> 
+                <img width="200" src="<?=$this->request->base?>/img/offers/<?=$apply->offer->uniquid?>/1.png" alt=""> 
 
                 <h3>Informations générales</h3>
 
                 <h4><?=$apply->offer->title?></h4>
 
-                <img src="img/<?=$apply->offer->brand->user->picture?>" alt="">
+                <img src="<?=$apply->offer->brand->user->picture?>" width="150" alt="">
 
                 <button class="display_message" data-message="<?=$apply->message?>">Display Message</button>
 

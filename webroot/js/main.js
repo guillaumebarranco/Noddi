@@ -13,7 +13,7 @@ $(document).ready(function() {
 	} else if($('.all_messages').length != 0) {
 		$('.menu a.messages').parent().addClass('active');
 	} else if($('.page_offers').length != 0) {
-		$('.menu a.propositions').parent().addClass('active');
+		$('.menu a.link_propositions').parent().addClass('active');
 	} else if($('.menu_profil').length != 0) {
 		$('.menu a.profil').parent().addClass('active');
 	}

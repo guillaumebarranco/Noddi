@@ -249,15 +249,16 @@ form {
                     &.profil {
                         position: relative;
 
-                        &:before {
-                            @include noddifont($prev, $grey, 2.5);
-                            position: absolute;
-                            right: 0;
-                            top: 14px;
-                            transform: rotate(-90deg);
-                        }
                         a {
                             cursor: default;
+
+                            &:before {
+                                @include noddifont($prev, $grey, 2.5);
+                                position: absolute;
+                                right: -65px;
+                                top: 14px;
+                                transform: rotate(-90deg);
+                            }
                         }
                         &:hover {
                             background-color: $secondary;
