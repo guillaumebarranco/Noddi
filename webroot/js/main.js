@@ -637,4 +637,9 @@ $(document).ready(function() {
 		});
 	});
 
+	$('.message.error').on('click', function() {
+		$(this).hide();
+	});
+
+
 });	

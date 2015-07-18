@@ -140,7 +140,7 @@
 			</div>
 
 			<div class="form_brand_four">	
-
+				<input type="hidden" name="picture"/>
 				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button reversed"]); ?>
 			</div>
 		</div>
