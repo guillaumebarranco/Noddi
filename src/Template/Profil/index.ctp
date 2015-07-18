@@ -77,7 +77,8 @@
 			<img src="" alt="profile picture"/>
 			<div class="contentInfos">
 				<h3><?= $user->username ?></h3>
-				<p><?= $user->bio ?></p>
+				<p class="user"><?= $user->age ?><?= $user->city ?></p>
+				<p class="bio"><?= $user->bio ?></p>
 			</div>
 			<div class="notifications"></div>
 		</header>
