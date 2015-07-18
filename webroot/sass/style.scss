@@ -37,6 +37,7 @@ body {
     background-position: 50% 50%;
     border-radius: 50%;
     margin-bottom: 50px;
+    margin: 0 auto;
 }
 
 a {
@@ -190,6 +191,7 @@ form {
         width: 100%;
         z-index: 30;
         @media (min-width: $tablet) {
+            width: 190px;
             position: relative;
             background-color: #5fc6ce;
         }
@@ -243,6 +245,25 @@ form {
                     &:hover {
                         background-color: darken($secondary, 13%);
                     }
+                    
+                    &.profil {
+                        position: relative;
+
+                        &:before {
+                            @include noddifont($prev, $grey, 2.5);
+                            position: absolute;
+                            right: 0;
+                            top: 14px;
+                            transform: rotate(-90deg);
+                        }
+                        a {
+                            cursor: default;
+                        }
+                        &:hover {
+                            background-color: $secondary;
+                        }
+                    }
+
                     &.profile_picture {
                         &:hover {
                             background-color: transparent;
@@ -282,6 +303,9 @@ form {
                     &.profil:before{
                         @include noddifont($message, $grey, 2.5);
                     }
+                    &.link_propositions:before{
+                        @include noddifont($tag, $grey, 2.5);
+                    }
                 }
 
                 &.profile_picture {
@@ -291,6 +315,14 @@ form {
                     color: $secondary;
                     a:before {
                         color: $secondary !important;
+                    }
+                }
+
+                .account_select {
+                    li {
+                        a {
+                            padding: 0;
+                        }
                     }
                 }
             }

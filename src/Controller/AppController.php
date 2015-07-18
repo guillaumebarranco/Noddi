@@ -48,13 +48,21 @@ class AppController extends Controller
         return $offers;
     }
 
-    function writeSession($get_user) {
+    function writeSession($get_user, $other = null) {
         $session = $this->request->session();
+
         $session->write('user', true);
         $session->write('username', $get_user['username']);
         $session->write('picture', $get_user['picture']);
         $session->write('password', $get_user['password']);
         $session->write('user_id', $get_user['id']);
         $session->write('type', $get_user['type']);
+
+        if($get_user['type'] == 'modeuse') {
+            $session->write('firstname', $other['firstname']);
+            $session->write('lastname', $other['lastname']);
+        } else {
+            $session->write('name', $other['name']);
+        }
     }
 }

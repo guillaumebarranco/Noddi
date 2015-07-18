@@ -35,7 +35,15 @@ class DashboardController extends AppController {
         $applies_modeuse = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'modeuse', 'Applies.accepted' => 0])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
         $applies_brand = $this->Applies->find('all')->where(['offer_id' => $offer['id'], 'from_who' => 'brand', 'Applies.accepted' => 0])->contain(['Modeuses', 'Modeuses.Users'])->toArray();
 
-        $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS NOT' => null])->toArray();
+        $offer->notif = 0;
+
+        foreach ($applies_modeuse as $key => $apply) {
+            if($apply->accepted == 0) {
+                $offer->notif = $offer->notif + 1;
+            }
+        }
+
+        $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS NOT' => null])->contain(['Types'])->toArray();
         
         $this->set(array(
         	'offer' => $offer,

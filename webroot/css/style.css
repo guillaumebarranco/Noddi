@@ -116,6 +116,7 @@ body {
 	background-position: 50% 50%;
 	border-radius: 50%;
 	margin-bottom: 50px;
+	margin: 0 auto;
 }
 
 a {
@@ -449,6 +450,21 @@ form textarea[type="checkbox"]:checked + label:before {
 	text-transform: none;
 }
 
+.headerApp nav#navigation ul.menu li a.link_propositions:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
 .headerApp nav#navigation ul.menu li.profile_picture {
 	display: none;
 }
@@ -459,6 +475,10 @@ form textarea[type="checkbox"]:checked + label:before {
 
 .headerApp nav#navigation ul.menu li.active a:before {
 	color: #5fc6ce !important;
+}
+
+.headerApp nav#navigation ul.menu li .account_select li a {
+	padding: 0;
 }
 
 .page {
@@ -1888,10 +1908,8 @@ footer .socials ul li a {
 	justify-content: center;
 	height: 100%;
 	margin: auto;
-}
-
-footer .socials ul li.facebook:hover {
-	background: #3b5998;
+	padding: 10px;
+	transition: 0.4s;
 }
 
 footer .socials ul li.facebook a:before {
@@ -1909,10 +1927,6 @@ footer .socials ul li.facebook a:before {
 	text-transform: none;
 }
 
-footer .socials ul li.twitter:hover {
-	background: #55acee;
-}
-
 footer .socials ul li.twitter a:before {
 	content: "";
 	color: #5fc6ce;
@@ -1926,10 +1940,6 @@ footer .socials ul li.twitter a:before {
 	font-weight: normal;
 	text-decoration: none;
 	text-transform: none;
-}
-
-footer .socials ul li.instagram:hover {
-	background: #3f729b;
 }
 
 footer .socials ul li.instagram a:before {
@@ -1947,10 +1957,6 @@ footer .socials ul li.instagram a:before {
 	text-transform: none;
 }
 
-footer .socials ul li.snapchat:hover {
-	background: #fffc00;
-}
-
 footer .socials ul li.snapchat a:before {
 	content: "";
 	color: #5fc6ce;
@@ -1964,10 +1970,6 @@ footer .socials ul li.snapchat a:before {
 	font-weight: normal;
 	text-decoration: none;
 	text-transform: none;
-}
-
-footer .socials ul li.pinterest:hover {
-	background: #cc2127;
 }
 
 footer .socials ul li.pinterest a:before {
@@ -2150,6 +2152,7 @@ article.proposition {
 	border: solid 1px #c8c7cc;
 	border-radius: 10px;
 	max-width: 500px;
+	width: 100%;
 	margin: 0 auto;
 	-webkit-flex: 1;
 	-ms-flex: 1;
@@ -2242,6 +2245,9 @@ article.proposition .notifOffer {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 	margin: 30px;
 }
 
@@ -2372,6 +2378,7 @@ body {
 }
 
 .headerApp nav#navigation {
+	width: 190px;
 	position: relative;
 	background-color: #5fc6ce;
 }
@@ -2414,6 +2421,38 @@ body {
 
 .headerApp nav#navigation ul.menu li:hover {
 	background-color: #37abb4;
+}
+
+.headerApp nav#navigation ul.menu li.profil {
+	position: relative;
+}
+
+.headerApp nav#navigation ul.menu li.profil:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 25px;
+	font-size: 2.5rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	position: absolute;
+	right: 0;
+	top: 14px;
+	-webkit-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+
+.headerApp nav#navigation ul.menu li.profil a {
+	cursor: default;
+}
+
+.headerApp nav#navigation ul.menu li.profil:hover {
+	background-color: #5fc6ce;
 }
 
 .headerApp nav#navigation ul.menu li.profile_picture:hover {
@@ -2494,6 +2533,36 @@ footer .socials {
 	-ms-flex-direction: row;
 	flex-direction: row;
 	max-width: 800px;
+}
+
+footer .socials ul li a:hover {
+	text-decoration: none;
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+footer .socials ul li a:hover:before {
+	color: white !important;
+}
+
+footer .socials ul li.facebook:hover {
+	background: #3b5998;
+}
+
+footer .socials ul li.twitter:hover {
+	background: #55acee;
+}
+
+footer .socials ul li.instagram:hover {
+	background: #3f729b;
+}
+
+footer .socials ul li.snapchat:hover {
+	background: #fffc00;
+}
+
+footer .socials ul li.pinterest:hover {
+	background: #cc2127;
 }
 
 }

@@ -18,6 +18,18 @@ $(document).ready(function() {
 		$('.menu a.profil').parent().addClass('active');
 	}
 
+	$('.account_select').hide();
+
+	$('.showAccountSelect').on('click', function(e) {
+		e.preventDefault();
+
+		if($('.account_select').css('display') == 'none') {
+			$('.account_select').slideDown();
+		} else {
+			$('.account_select').slideUp();
+		}
+	});
+
 	/*
 	*	HOME
 	*/
@@ -650,5 +662,25 @@ $(document).ready(function() {
 		$('#view'+clickedTab).show();
 	});
 
+
+	/*
+	*	SHOW TERMINATED OFFERS
+	*/
+
+	$('.terminatedOffers').hide();
+
+	$('.showTerminatedOffers').on('click', function() {
+		$('.showCurrentOffer').removeClass('reversed');
+		$('.showTerminatedOffers').addClass('reversed');
+		$('.terminatedOffers').show();
+		$('.currentOffer').hide();
+	});
+
+	$('.showCurrentOffer').on('click', function() {
+		$('.showCurrentOffer').addClass('reversed');
+		$('.showTerminatedOffers').removeClass('reversed');
+		$('.terminatedOffers').hide();
+		$('.currentOffer').show();
+	});
 
 });	

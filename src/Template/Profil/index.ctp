@@ -88,7 +88,7 @@
 		
 		<div>Biographie : <p></p></div>
 		
-		<div>Website : <?= $user->website ?></div>
+		<div>Website : <a target="_blank" href="<?= $user->website ?>"><?= $user->website ?></a></div>
 		
 		<div class="the_picture">
 			Picture : <img src="<?= $user->picture ?>" width="150" alt="Image de <?= $user->username ?>" />
