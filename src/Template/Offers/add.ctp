@@ -44,6 +44,10 @@
 
 
         </div>
+
+        <div class="flexInput">
+            <?= $this->Form->input('title', ['label' => 'Titre', 'placeholder' => "Titre de l'offre"]) ?>
+        </div>
         
         <div class="regularCheckbox">
             <input type="checkbox" name="is_public" id="allowContact" class="singlecheckbox" checked>
@@ -53,7 +57,7 @@
         <div class="flexInput">
             <div class="style_input select">
                 <select name="type_id" id="">
-                    <option selected disabled>Type d'echange</option>
+                    <option selected disabled>Type d'offre</option>
                     <?php foreach ($types as $type) { ?>
                         <option value="<?=$type->id?>"><?=$type->name?></option>
                     <?php } ?>

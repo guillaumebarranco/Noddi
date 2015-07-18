@@ -642,4 +642,24 @@ $(document).ready(function() {
 	});
 
 
+	/*
+	*	SHOW TERMINATED OFFERS
+	*/
+
+	$('.terminatedOffers').hide();
+
+	$('.showTerminatedOffers').on('click', function() {
+		$('.showCurrentOffer').removeClass('reversed');
+		$('.showTerminatedOffers').addClass('reversed');
+		$('.terminatedOffers').show();
+		$('.currentOffer').hide();
+	});
+
+	$('.showCurrentOffer').on('click', function() {
+		$('.showCurrentOffer').addClass('reversed');
+		$('.showTerminatedOffers').removeClass('reversed');
+		$('.terminatedOffers').hide();
+		$('.currentOffer').show();
+	});
+
 });	

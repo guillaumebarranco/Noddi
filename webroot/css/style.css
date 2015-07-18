@@ -2036,6 +2036,7 @@ article.proposition {
 	border: solid 1px #c8c7cc;
 	border-radius: 10px;
 	max-width: 500px;
+	width: 100%;
 	margin: 0 auto;
 	-webkit-flex: 1;
 	-ms-flex: 1;
@@ -2128,6 +2129,9 @@ article.proposition .notifOffer {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 	margin: 30px;
 }
 
