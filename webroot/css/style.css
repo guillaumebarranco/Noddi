@@ -46,7 +46,8 @@ footer .socials h3 {
 
 .subtitleSmall,
 h3,
-header.headerPage h2.titlePage {
+header.headerPage h2.titlePage,
+.page_viewProfile .content .viewTab h2 {
 	font-size: 25px;
 	font-size: 2.5rem;
 	font-family: Helvetica, Arial, sans-serif;
@@ -2044,6 +2045,10 @@ footer ul > li a:hover {
 	flex: 1;
 }
 
+.page_viewProfile .content {
+	margin: 0 15px;
+}
+
 .page_viewProfile .content ul.tabsProfile {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -2134,6 +2139,200 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .viewTab .iconsUser.style:before {
 	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab h2 {
+	margin-top: 40px;
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	margin-left: 50px;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li {
+	padding: 10px 0;
+	font-size: 20px;
+	font-size: 2rem;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li small {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li:before {
+	position: absolute;
+	background-color: #ed7b6e;
+	margin-right: 10px;
+	border-radius: 50%;
+	text-align: center;
+	padding: 10px;
+	margin-left: -40px;
+	margin-top: -10px;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.facebook:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.twitter:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.instagram:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab .backReach {
+	max-width: 500%;
+	background-color: #ffffff;
+	height: 30px;
+}
+
+.page_viewProfile .content .viewTab .backReach .reach {
+	background-color: #ed7b6e;
+	height: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.page_viewProfile .content .viewTab .backReach .reach small {
+	text-align: right;
+	padding-right: 20px;
+	position: absolute;
+	right: 0;
+	margin-top: 8px;
+	color: white;
+	font-weight: bold;
+}
+
+.page_viewProfile .content .viewTab article.post {
+	border-radius: 12px;
+	background-color: #ffffff;
+	margin-bottom: 20px;
+}
+
+.page_viewProfile .content .viewTab article.post header.post_picture {
+	min-height: 200px;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 12px;
+	border-bottom-left-radius: initial;
+	border-bottom-right-radius: initial;
+}
+
+.page_viewProfile .content .viewTab article.post .post_content {
+	padding: 10px;
+	color: #000000;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts {
+	background: none;
+	padding: 10px 20px;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li:before {
+	position: absolute;
+	margin-left: -20px;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li.likes:before {
+	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li.comments:before {
+	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li.share:before {
+	content: "";
 	color: #ed7b6e;
 	font-size: 17px;
 	font-size: 1.7rem;
@@ -2563,6 +2762,12 @@ footer .socials ul li.snapchat:hover {
 
 footer .socials ul li.pinterest:hover {
 	background: #cc2127;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats {
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
 }
 
 }
