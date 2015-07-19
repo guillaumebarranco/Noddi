@@ -37,7 +37,6 @@
         foreach ($applies as $key => $apply) { 
 
             if($k==0) { echo'<div>'; } else { echo '<div style="display:none">'; } ?>
-                <img width="200" src="<?=$this->request->base?>/img/offers/<?=$apply->offer->uniquid?>/1.png" alt=""> 
 
                 <h2>Informations générales</h2>
 

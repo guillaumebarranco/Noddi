@@ -171,18 +171,29 @@ $(document).ready(function() {
 		var data_apply = {};
 		data_apply.modeuse_id = $(this).attr('data-modeuse');
 		data_apply.offer_id = $(this).attr('data-offer');
-		data_apply.message = $('textarea').val();
 		data_apply.viewed = 0;
 		data_apply.from_who = $(this).attr('data-fromwho');
 
 		console.log(data_apply);
 
 		swal({
-			title : 'yeah',
-			confirmButtonText : "OK",
-			closeOnConfirm: false
+			title: "", 
+			text: "Ecrivez un message !", 
+			type: "input",   showCancelButton: true, 
+			closeOnConfirm: false, 
+			animation: "slide-from-top", 
+			inputPlaceholder: "" },
 
-		}, function() {
+		function(inputValue) {
+
+			if (inputValue === false) return false;
+			if (inputValue === "") {
+				swal.showInputError("Vous devez écrire un message !");
+				return false;
+			}
+			
+			data_apply.message = inputValue;
+
 			makeAjax('POST', WEB_URL+"/offers/applyOffer", data_apply, function() {
 
 				swal({

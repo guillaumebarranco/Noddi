@@ -505,7 +505,7 @@ $(document).ready(function() {
 			type: "input",   showCancelButton: true, 
 			closeOnConfirm: false, 
 			animation: "slide-from-top", 
-			inputPlaceholder: "Write something" },
+			inputPlaceholder: "" },
 
 		function(inputValue) {
 
