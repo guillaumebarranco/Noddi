@@ -124,6 +124,10 @@ a {
 	text-decoration: none;
 }
 
+.center {
+	text-align: center;
+}
+
 ul {
 	padding: 0;
 	margin: 0;
@@ -283,9 +287,9 @@ form textarea[type="checkbox"]:checked + label:before {
 }
 
 .button.dark:hover {
-	border-color: #ed7b6e;
+	border-color: #c8c7cc;
 	background: none;
-	color: #ffffff;
+	color: #c8c7cc;
 }
 
 #container {

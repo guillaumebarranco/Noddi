@@ -42,10 +42,19 @@ $(document).ready(function() {
 			// && $('input[name=birthday]').val() != ''
 		) {
 			if(validateEmail($('input[name=email]').val())) {
-				$('#step1').removeClass('active');
-				$('#step2').addClass('active');
-				$('.form_brand_one').hide();
-				$('.form_brand_two').show();
+
+				makeAjax('POST', WEB_URL+"/users/checkInstaFollowers/"+$('input[name=instagramUsername]').val(), '', function() {
+					if(_this.response.check == 'OK') {
+						$('#step1').removeClass('active');
+						$('#step2').addClass('active');
+						$('.form_brand_one').hide();
+						$('.form_brand_two').show();
+					} else {
+						popError("Vous devez avoir plus de 200 followers sur Instagram pour vous inscrire");
+					}
+				});
+
+				
 			} else {
 				popError("Le mail entré n'est pas correct");
 			}

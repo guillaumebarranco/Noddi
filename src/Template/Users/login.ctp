@@ -35,11 +35,11 @@
 					?>
 			</div>
 		</div>
-	</section>		
 
-	<div>
-		<?= $this->Html->link(__("Je n'ai pas encore de compte"), ['controller' => 'Users', 'action' => 'sign_in']) ?>
-	</div>
+		<div class="center">
+			<?= $this->Html->link(__("Je n'ai pas encore de compte"), ['controller' => 'Users', 'action' => 'sign_in']) ?>
+		</div>
+	</section>
 
 </section>
 

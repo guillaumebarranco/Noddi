@@ -5,6 +5,7 @@ use App\Controller\AppController;
 use Cake\Utility\Security;
 use Cake\Controller\Component\CookieComponent;
 use Cake\Core\Configure;
+use App\Controller\CronController;
 
 class UsersController extends AppController
 {
@@ -14,6 +15,33 @@ class UsersController extends AppController
         $this->loadModel('Activities');
         $this->loadModel('Favoris');
         $this->loadModel('Offers');
+    }
+
+    /*
+    *   Fonction qui va servir à renvoyer un JSON depuis une URL donnée
+    */
+
+    function getJsonUrl($url) {
+        $get = file_get_contents($url);
+        $json = json_decode($get);
+        return $json;
+    }
+
+    /*
+    *   IDEM qu'au-dessus, avec cependant plus de spécifications
+    */
+
+    function getEndpoint($endpoint) {
+        $curl = curl_init($endpoint);
+
+        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 3);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+        $json = curl_exec($curl);
+
+        $insta_datas = json_decode($json, true);
+        return $insta_datas;
     }
 
     // Si l'utilisateur arrive sur la page index de Users, on le redirige sur la Home
@@ -213,6 +241,10 @@ class UsersController extends AppController
                         $session->write('type', $data['type']);
 
                         $check = 'OK';
+
+                        // On met à jour les informations des RS de la Modeuse
+                        $cron = new CronController();
+                        $cron->launchModeuse($modeuse_id);
                     }
 
                     echo $this->getResponse($check);
@@ -223,6 +255,46 @@ class UsersController extends AppController
                 return $this->redirect(['action' => 'sign_in']);
             }
         }
+    }
+
+    public function checkInstaFollowers($instagram = null) {
+
+        $check = $this->Jsonification();
+
+        $instagramClientId = "e7b008f986f64a8c9f94642520b4e0ea";
+        $url = 'https://api.instagram.com/v1/users/search?q='.$instagram.'&client_id='.$instagramClientId;
+        $json = $this->getJsonUrl($url);
+
+        foreach($json->data as $user) { 
+            if(strtolower($user->username) == strtolower($instagram)) {
+                $userId = $user->id;
+            }
+        }
+
+        if(isset($userId)) {
+
+            $endpoint = 'https://api.instagram.com/v1/users/'.$userId.'/media/recent?client_id='.$instagramClientId;
+            $insta_datas = $this->getEndpoint($endpoint);
+
+            // GESTION DES DONNEES RETOURNEES
+
+            if(isset($insta_datas['data'])) {
+                
+                if($insta_datas['data'][0]['user']['username']) {
+
+                    // GET FOLLOWERS
+
+                    $get_followers = 'https://api.instagram.com/v1/users/'.$userId.'/?client_id='.$instagramClientId;
+                    $followers = $this->getEndpoint($get_followers);
+
+                    if($followers['data']['counts']['followed_by'] > 199) {
+                        $check = 'OK';
+                    }
+                }
+            }
+        }
+
+        echo $this->getResponse($check);
     }
 
     /*

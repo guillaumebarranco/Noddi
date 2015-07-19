@@ -45,6 +45,10 @@ a {
     text-decoration:none;
 }
 
+.center {
+    text-align: center;
+}
+
 ul{
     padding: 0;
     margin: 0;
@@ -167,9 +171,9 @@ form {
         background:$quaternary;
         color:$white;
         &:hover {
-            border-color:$primary;
+            border-color:$grey;
             background:none;
-            color:$white;
+            color:$grey;
         }
     }
 }
