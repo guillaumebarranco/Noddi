@@ -47,7 +47,7 @@
 				<article class="proposition">
 
 					<div class="blue_header">
-						<h2><?=$offer->title?> lol</h2>
+						<h2><?=$offer->title?></h2>
 						<span class="delete deleteOffer" data-offer="<?=$offer->id?>"></span>
 					</div>
 					
