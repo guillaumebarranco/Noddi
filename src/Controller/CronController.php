@@ -419,7 +419,7 @@ class CronController extends AppController
     function launchModeuse($id = null) {
 
         if($id != null) {
-            $modeuse = $this->Modeuses->find('all')->where(['Modeuses.id' => $modeuse_id])->contain(['Users'])->toArray()[0];
+            $modeuse = $this->Modeuses->find('all')->where(['Modeuses.id' => $id])->contain(['Users'])->toArray()[0];
 
             $this->getInstaDatasModeuse($modeuse);
             $this->getTwitterDatasModeuse($modeuse);
@@ -436,8 +436,6 @@ class CronController extends AppController
     */
 
     function getInstaDatasModeuse($modeuse) {
-
-        echo '----------------- BEGIN INSTAGRAM ---------------- <br />';
 
         $instagramClientId = "e7b008f986f64a8c9f94642520b4e0ea";
 
@@ -472,11 +470,7 @@ class CronController extends AppController
                     $the_modeuse->insta_followers = $followers['data']['counts']['followed_by'];
                     
                     // On check si la sauvegarde des followers se fait correctement
-                    if($this->Modeuses->save($the_modeuse)) {
-                        echo '[SUCCESS] Modeuse '.$modeuse->id.' : insta_followers saved.<br />';
-                    } else {
-                        echo '[ERROR] Modeuse '.$modeuse->id.' : insta_followers not saved.<br />';
-                    }
+                    $this->Modeuses->save($the_modeuse);
 
                     foreach ($insta_datas as $key => $insta) {
                         foreach ($insta as $key => $the_data) {
@@ -508,11 +502,7 @@ class CronController extends AppController
 
                                     if($this->Posts->save($search_post)) {
 
-                                        if($this->Posts->save($search_post)) {
-                                            echo '[SUCCESS] Modeuse '.$modeuse->id.' NEW post instagram '.$search_post->number.' saved !<br />';
-                                        } else {
-                                            echo '[ERROR] Modeuse '.$modeuse->id.' NEW post instagram '.$search_post->number.' failed saved.<br />';
-                                        }
+                                        $this->Posts->save($search_post);
                                     }
 
                                     $k++;
@@ -523,7 +513,6 @@ class CronController extends AppController
                 }
             }
         }
-        echo '----------------- END INSTAGRAM ----------------<br /><br />';
     }
 
 
@@ -534,8 +523,6 @@ class CronController extends AppController
 
     function getTwitterDatasModeuse($modeuse) {
 
-        echo '----------------- BEGIN TWITTER ----------------<br />';
-
         if($modeuse->twitter != null) {
 
             $twitter_datas = $this->requestTwitter($modeuse->twitter);
@@ -545,11 +532,7 @@ class CronController extends AppController
                 $the_modeuse = $this->Modeuses->get($modeuse->id);
                 $the_modeuse->twitter_followers = $twitter_datas[0]['user']['followers_count'];
 
-                if($this->Modeuses->save($the_modeuse)) {
-                    echo '[SUCCESS] Modeuse '.$modeuse->id.' : twitter_followers saved.<br />';
-                } else {
-                    echo '[ERROR] Modeuse '.$modeuse->id.' : twitter_followers not saved.<br />';
-                }
+                $this->Modeuses->save($the_modeuse);
 
                 $t = 1;
 
@@ -582,18 +565,12 @@ class CronController extends AppController
                             $search_post->nb_tweets = $status['user']['statuses_count'];
                             $t++;
 
-                            if($this->Posts->save($search_post)) {
-                                echo '[SUCCESS] Modeuse '.$modeuse->id.' NEW post twitter '.$search_post->number.' saved !<br />';
-                            } else {
-                                echo '[ERROR] Modeuse '.$modeuse->id.' NEW post twitter '.$search_post->number.' failed saved.<br />';
-                            }
+                            $this->Posts->save($search_post);
                         }
                     }
                 }
             }
         }
-
-        echo '----------------- END TWITTER ----------------<br /><br />';
     }
 
 
@@ -602,8 +579,6 @@ class CronController extends AppController
     */
 
     function getFacebookDatasModeuse($modeuse) {
-
-        echo '----------------- BEGIN FACEBOOK ----------------<br />';
 
         if($modeuse->user->id_facebook != null && $modeuse->user->id_facebook != '') {
 
@@ -616,11 +591,7 @@ class CronController extends AppController
                     $the_modeuse = $this->Modeuses->get($modeuse->id);
                     $the_modeuse->facebook_followers = $page['summary']['total_count'];
 
-                    if($this->Modeuses->save($the_modeuse)) {
-                        echo '[SUCCESS] Modeuse '.$modeuse->id.' : facebook_followers saved.<br />';
-                    } else {
-                        echo '[ERROR] Modeuse '.$modeuse->id.' : facebook_followers not saved.<br />';
-                    }
+                    $this->Modeuses->save($the_modeuse);
                 }
             }
 
@@ -659,18 +630,12 @@ class CronController extends AppController
                     $search_post->comments = $the_post['likes']['summary']['total_count'];
                     $search_post->shares = '';
 
-                    if($this->Posts->save($search_post)) {
-                        echo '[SUCCESS] Modeuse '.$modeuse->id.' NEW post facebook '.$search_post->number.' saved !<br />';
-                    } else {
-                        echo '[ERROR] Modeuse '.$modeuse->id.' NEW post facebook '.$search_post->number.' failed saved.<br />';
-                    }
+                    $this->Posts->save($search_post);
 
                     $t++;
                 }
             }
         }
-
-        echo '----------------- END FACEBOOK ----------------<br /><br />';
     }
 
     /*
@@ -679,7 +644,7 @@ class CronController extends AppController
 
     function calculReachModeuse($modeuse) {
 
-        echo '----------------- BEGIN CALCUL REACH ----------------<br />';
+        $modeuse = $this->Modeuses->find('all')->where(['Modeuses.id' => $modeuse->id])->contain(['Users'])->toArray()[0];
 
         $posts = $this->Posts->find('all')->where(['modeuse_id' => $modeuse->id]);
 
@@ -717,8 +682,6 @@ class CronController extends AppController
         $the_modeuse = $this->Modeuses->get($modeuse->id);
         $the_modeuse->noddi_rank = $reach;
         $this->Modeuses->save($the_modeuse);
-
-        echo '----------------- END CALCUL REACH ----------------<br /><br />';
     }
 
 }

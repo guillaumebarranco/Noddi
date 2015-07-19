@@ -44,6 +44,7 @@ $(document).ready(function() {
 			if(validateEmail($('input[name=email]').val())) {
 
 				makeAjax('POST', WEB_URL+"/users/checkInstaFollowers/"+$('input[name=instagramUsername]').val(), '', function() {
+
 					if(_this.response.check == 'OK') {
 						$('#step1').removeClass('active');
 						$('#step2').addClass('active');
@@ -203,7 +204,11 @@ $(document).ready(function() {
 
 			console.log(datas_modeuse);
 
+			showLoading();
+
 			makeAjax('POST', "sign_in_modeuse", datas_modeuse, function() {
+
+				hideLoading();
 
 				if(_this.response.check === 'OK') {
 					swal({

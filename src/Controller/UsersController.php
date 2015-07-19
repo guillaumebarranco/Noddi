@@ -185,13 +185,6 @@ class UsersController extends AppController
 
                 if($this->Users->save($user)) {
 
-                    $session = $this->request->session();
-
-                    // On créé la session
-                    $session->write('user', true);
-                    $session->write('username', $data['username']);
-                    $session->write('password', $data['password']);
-
                     // On créé les cookies
                     // $this->Cookie->config('path', '/');
                     // $this->Cookie->config([
@@ -206,8 +199,7 @@ class UsersController extends AppController
                     $user = $this->Users->find()->where(['username' => $data['username']])->toArray();
 
                     $data['user_id'] = $user[0]['id'];
-
-                    $session->write('user_id', $data['user_id']);
+                    $data['id'] = $user[0]['id'];
 
                     // On se prépare à insérer la modeuse en BDD
                     $data['offers_attempted'] = 0;
@@ -233,12 +225,13 @@ class UsersController extends AppController
                     // On vériéfie que la sauvegarde a bien marché
                     if($this->Modeuses->save($modeuse)) {
 
-                        $session->write('type', $data['type']);
+                        $modeuse = $this->Modeuses->find('all')->where(['user_id' => $data['user_id']])->toArray()[0];
+                        $modeuse_id = $modeuse->id;
 
-                        $modeuse_id = $this->Modeuses->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+                        $this->writeSession($data, $modeuse);
 
+                        $session = $this->request->session();
                         $session->write('modeuse_id', $modeuse_id);
-                        $session->write('type', $data['type']);
 
                         $check = 'OK';
 
@@ -279,7 +272,7 @@ class UsersController extends AppController
             // GESTION DES DONNEES RETOURNEES
 
             if(isset($insta_datas['data'])) {
-                
+
                 if($insta_datas['data'][0]['user']['username']) {
 
                     // GET FOLLOWERS
