@@ -480,4 +480,19 @@ class UsersController extends AppController
         return $this->response;
     }
 
+    public function checkModeuse() {
+        $check = $this->Jsonification();
+
+
+        $data = $this->request->data;
+
+        $user = $this->Users->find('all')->where(['id_facebook' => $data['id']])->toArray();
+
+        if(!isset($user[0])) {
+            $check = 'OK';
+        }
+
+        echo $this->getResponse($check);
+    }
+
 }

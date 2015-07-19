@@ -233,7 +233,7 @@ $(document).ready(function() {
 			if(response.status === "not_authorized") {
 
 				FB.login(function(response) {
-					console.log(response.authResponse.accessToken);
+					//console.log(response.authResponse.accessToken);
 					fb_token = response.authResponse.accessToken;
 
 					if(response.status === "not_authorized") {
@@ -249,24 +249,35 @@ $(document).ready(function() {
 				}, {scope: perms_fb});
 
 			} else if(response.status === "connected") {
-				console.log(response.authResponse);
+				//console.log(response.authResponse);
 				fb_token = response.authResponse.accessToken;
 
 				console.log(that);
 
 				if(that.hasClass('fb_button_signin')) {
-					popError("Vous êtes déjà inscrite avec ce compte Facebook !");
+
+					FB.api('/me', {fields: fields_fb}, function(data){
+
+						makeAjax('POST', WEB_URL+"/users/checkModeuse", data, function() {
+							if(_this.response.check == 'OK') {
+								FBsignin();
+							} else {
+								popError("Vous êtes déjà inscrite avec ce compte Facebook !");
+							}
+						});
+
+					});
+					
 				} else {
 					FBlogin();
 				}
-				
 			}
 		});
 	});
 
 	function FBsignin() {
 		FB.api('/me/permissions', function(perms){
-			console.log(perms);
+			//console.log(perms);
 
 			if(perms.data[0].status === 'granted' && perms.data[1].status === 'granted') {
 

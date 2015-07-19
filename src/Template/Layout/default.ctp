@@ -221,8 +221,6 @@
             var WEB_URL = "<?=$this->request->base?>";
             var FB_APP_ID = "<?=FB_APP_ID?>";
             var FB_APP_SECRET = "<?=FB_APP_SECRET?>";
-
-            console.log(FB_APP_SECRET);
         </script>
 
         <?= $this->Html->script('jquery.uploadify.min') ?>
