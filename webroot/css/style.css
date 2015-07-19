@@ -143,6 +143,15 @@ h1 {
 	text-align: center;
 }
 
+.showMobile {
+	display: block !important;
+	text-align: center;
+}
+
+.showDesktop {
+	display: none !important;
+}
+
 form {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -2379,6 +2388,14 @@ body {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
+}
+
+.showMobile {
+	display: none !important;
+}
+
+.showDesktop {
+	display: block !important;
 }
 
 .headerApp nav#navigation {

@@ -317,11 +317,6 @@ class UsersController extends AppController
 
                     $session = $this->request->session();
 
-                    // On créé la session
-                    $session->write('user', true);
-                    $session->write('username', $data['username']);
-                    $session->write('password', $data['password']);
-
                     // On créé les cookies
                     // $this->Cookie->config('path', '/');
                     // $this->Cookie->config([
@@ -336,8 +331,7 @@ class UsersController extends AppController
                     $user = $this->Users->find()->where(['username' => $data['username']])->toArray();
 
                     $data['user_id'] = $user[0]['id'];
-
-                    $session->write('user_id', $data['user_id']);
+                    $data['id'] = $user[0]['id'];
 
                     $brand = $this->Brands->newEntity();
                     $brand = $this->Brands->patchEntity($brand, $data);
@@ -346,10 +340,13 @@ class UsersController extends AppController
                         $this->Flash->error(__('The brand could not be saved. Please, try again.'));
                     }
 
-                    $brand_id = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+                    $brand = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0];
+                    $brand_id = $brand->id;
 
                     $session->write('brand_id', $brand_id);
-                    $session->write('type', $data['type']);
+
+                    // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
+                    $this->writeSession($data, $brand);
                 }
 
             } else {

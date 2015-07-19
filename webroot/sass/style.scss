@@ -74,6 +74,23 @@ h4 {
     @extend .subtitleMini;
 }
 
+.showMobile {
+    display: block !important;
+    text-align: center;
+
+    @media (min-width: $tablet) {
+        display: none !important;
+    }
+}
+
+.showDesktop {
+    display: none !important;
+
+    @media (min-width: $tablet) {
+        display: block !important;
+    }
+}
+
 
 form {
     display:flex;
