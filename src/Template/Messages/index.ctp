@@ -4,10 +4,6 @@
         <div class="previousStepMenu previousStepMenuMessage"><a href="#">Précédent</a></div>
     </header>
 
-
-
-
-
     <div class="all_messages">
 
         <?php 

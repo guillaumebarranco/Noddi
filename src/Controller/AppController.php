@@ -65,4 +65,31 @@ class AppController extends Controller
             $session->write('name', $other['name']);
         }
     }
+
+    /*
+    *   Fonction qui va servir à renvoyer un JSON depuis une URL donnée
+    */
+
+    function getJsonUrl($url) {
+        $get = file_get_contents($url);
+        $json = json_decode($get);
+        return $json;
+    }
+
+    /*
+    *   IDEM qu'au-dessus, avec cependant plus de spécifications
+    */
+
+    function getEndpoint($endpoint) {
+        $curl = curl_init($endpoint);
+
+        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 3);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+        $json = curl_exec($curl);
+
+        $insta_datas = json_decode($json, true);
+        return $insta_datas;
+    }
 }

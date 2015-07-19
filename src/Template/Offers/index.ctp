@@ -17,7 +17,6 @@
     <section class="current_offer">
 
         <div>
-
             <div class="offer_picture">
                 <img src="img/offers/<?=$current_offer->id?>/1.png" alt="" />
             </div>
@@ -27,7 +26,6 @@
 
                 <?=$current_offer->exchange?>
             </div>
-            
         </div>
 
     </section>

@@ -1,9 +1,12 @@
 <?php include('tab.php');  ?>
 
-<section class="page page_signin modeuse">
+<section class="page page_signin modeuse page_noConnect">
 	<header class="headerPage">
 	    <h2 class="titlePage">Inscription</h2>
-	    <div class="previousStepMenu"><a href="#">Précédent</a></div>
+	    <a href="<?=$this->request->base?>">
+	    	<div class="previousStepMenu"></div>
+	    </a>
+	    
 	</header>
 	<div class="createFacebookAccount">
 		<div class="content">

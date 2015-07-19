@@ -504,6 +504,11 @@ form textarea[type="checkbox"]:checked + label:before {
 	padding-bottom: 40px;
 }
 
+.page.page_noConnect {
+	padding: 0;
+	padding-bottom: 40px;
+}
+
 header.headerPage {
 	display: -webkit-flex;
 	display: -ms-flexbox;

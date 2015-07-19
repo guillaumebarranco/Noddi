@@ -361,6 +361,10 @@ form {
     @media (min-width: $tablet) {
         padding-bottom: 0;
     }
+    &.page_noConnect {
+        padding: 0;
+        padding-bottom: 40px;
+    }
 
 }
 
