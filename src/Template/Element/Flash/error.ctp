@@ -1,1 +1,1 @@
-<div class="message error"><?= h($message) ?></div>
+<script>popError("<?= h($message) ?>");</script>

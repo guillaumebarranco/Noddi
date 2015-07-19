@@ -105,7 +105,7 @@ class OffersController extends AppController
             if ($this->Offers->save($offer)) {
                 return $this->redirect(['controller' => 'Home', 'action' => 'index']);
             } else {
-                $this->Flash->error(__('The offer could not be saved. Please, try again.'));
+                $this->Flash->error(__("L'offre n'a pas pu être sauvegardée, il y a une erreur dans votre formulaire."));
             }
         }
 
