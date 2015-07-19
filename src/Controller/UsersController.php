@@ -384,12 +384,22 @@ class UsersController extends AppController
                         $tab_id[] = $modeuse->id;
                         $tab_modeuses[] = $modeuse;
                     }
+                } else {
+                    if(!in_array($modeuse->id, $tab_id) && $offer->lifestyle == 'indifférent') {
+                        $tab_id[] = $modeuse->id;
+                        $tab_modeuses[] = $modeuse;
+                    }
                 }
 
                 $tab_personnality = explode(',', $modeuse->personnality);
 
                 if(in_array($offer->personnality, $tab_personnality)) {
                     if(!in_array($modeuse->id, $tab_id)) {
+                        $tab_id[] = $modeuse->id;
+                        $tab_modeuses[] = $modeuse;
+                    }
+                } else {
+                    if(!in_array($modeuse->id, $tab_id) && $offer->personnality == 'peu importe') {
                         $tab_id[] = $modeuse->id;
                         $tab_modeuses[] = $modeuse;
                     }

@@ -234,13 +234,14 @@ class CronController extends AppController
                                 }
 
                                 $search_post->social = 'twitter';
-                                    $search_post->title = 'https://twitter.com/'.$modeuse->twitter.'/status/'.$status['id_str'];
-                                    $search_post->content = $status['text'];
-                                    $search_post->picture = '';
-                                    $search_post->likes = $status['favorite_count'];
-                                    $search_post->comments = $status['retweet_count'];
-                                    $search_post->shares = '';
-                                    $search_post->nb_tweets = $status['user']['statuses_count'];
+                                $search_post->modeuse_id = $modeuse->id;
+                                $search_post->title = 'https://twitter.com/'.$modeuse->twitter.'/status/'.$status['id_str'];
+                                $search_post->content = $status['text'];
+                                $search_post->picture = '';
+                                $search_post->likes = $status['favorite_count'];
+                                $search_post->comments = $status['retweet_count'];
+                                $search_post->shares = '';
+                                $search_post->nb_tweets = $status['user']['statuses_count'];
                                 $t++;
 
                                 if($this->Posts->save($search_post)) {
@@ -316,6 +317,7 @@ class CronController extends AppController
                             $search_post = $this->Posts->newEntity();
                         }
 
+                        $search_post->modeuse_id = $modeuse->id;
                         $search_post->social = 'facebook';
                         $search_post->title = $the_post['message'];
                         $search_post->content = $the_post['message'];
