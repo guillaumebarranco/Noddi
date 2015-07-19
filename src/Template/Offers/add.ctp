@@ -28,24 +28,12 @@
                 <option value="maintenant">maintenant</option>
             </select>
 
-            <!-- <p>De</p>
-            <select name="fromAge" id="fromAge">
-                <?php for ($i=17; $i<50; $i++) {?>
-                    <option value="<?=$i?>"><?=$i?></option>
-                <?php } ?>
-            </select>
-            <p> ans à</p>
-            <select name="toAge" id="toAge">
-                <?php for ($j=18; $j<50; $j++) {?>
-                    <option value="<?=$j?>"><?=$j?></option>
-                <?php } ?>
-            </select>
-            <p> ans</p> -->
+            
 
 
         </div>
 
-        <div class="flexInput">
+        <div class="titleOffer">
             <?= $this->Form->input('title', ['label' => 'Titre', 'placeholder' => "Titre de l'offre"]) ?>
         </div>
         

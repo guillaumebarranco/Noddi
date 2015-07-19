@@ -48,7 +48,8 @@ footer .socials h3 {
 
 .subtitleSmall,
 h3,
-header.headerPage h2.titlePage {
+header.headerPage h2.titlePage,
+.page_viewProfile .content .viewTab h2 {
 	font-size: 25px;
 	font-size: 2.5rem;
 	font-family: Helvetica, Arial, sans-serif;
@@ -142,7 +143,7 @@ ul {
 
 h1 {
 	color: white;
-	background-color: #90d6db;
+	background-color: #5fc6ce;
 	margin: 0;
 	font-size: 1em;
 	padding: 10px 0;
@@ -504,7 +505,6 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-flex-grow: 1;
 	-ms-flex-positive: 1;
 	flex-grow: 1;
-	padding: 10px;
 	padding-bottom: 40px;
 }
 
@@ -538,13 +538,33 @@ header.headerPage h2.titlePage {
 	font-size: 1.8rem;
 }
 
+header.headerPage .previousStepMenu {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background-color: #3bb6bf;
+}
+
 header.headerPage .previousStepMenu a {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 	font: 0/0 serif;
 	color: transparent;
 	text-shadow: none;
 }
 
-header.headerPage .previousStepMenu:before {
+header.headerPage .previousStepMenu a:before {
+	width: 30px;
 	font: inherit;
 	color: inherit;
 	text-shadow: inherit;
@@ -563,6 +583,7 @@ header.headerPage .previousStepMenu:before {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
+	color: #ffffff;
 }
 
 .fb_button {
@@ -1294,16 +1315,17 @@ header.headerPage .previousStepMenu:before {
 	-ms-flex: 1;
 	flex: 1;
 	text-align: center;
-	background-image: url("../img/letstart.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	padding: 150px 15px;
 	box-sizing: border-box;
+	max-width: 500px;
+	margin: auto;
 }
 
 .page_index .letsStart p {
-	color: white;
+	color: #5c5c5c;
 	font-size: 1.3em;
 	font-weight: bold;
 }
@@ -1317,6 +1339,10 @@ header.headerPage .previousStepMenu:before {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
+}
+
+.page_login .headerPage h2.titlePage {
+	color: #ffffff;
 }
 
 .page_login .logo {
@@ -1334,6 +1360,12 @@ header.headerPage .previousStepMenu:before {
 	-ms-flex: 1;
 	flex: 1;
 	margin: auto;
+}
+
+.page_login section.connect .signInLink {
+	font-size: 18px;
+	font-size: 1.8rem;
+	color: #ffffff;
 }
 
 .page_login .connectSections {
@@ -1613,6 +1645,12 @@ header.headerPage .previousStepMenu:before {
 	border: solid 1px #c8c7cc;
 }
 
+.page_signin .formBrand select,
+.page_signin .formModeuse select {
+	height: 40px;
+	border: solid 1px #c8c7cc;
+}
+
 .page_signin .formBrand label.displayLabel:before,
 .page_signin .formModeuse label.displayLabel:before {
 	font: inherit;
@@ -1836,8 +1874,8 @@ header.headerPage .previousStepMenu:before {
 	color: #ed7b6e;
 	font-weight: bold;
 	background: none;
-	font-size: 20px;
-	font-size: 2rem;
+	font-size: 16px;
+	font-size: 1.6rem;
 	margin: 0 5px;
 	outline: none;
 }
@@ -2069,6 +2107,10 @@ footer ul > li a:hover {
 	flex: 1;
 }
 
+.page_viewProfile .content {
+	margin: 0 15px;
+}
+
 .page_viewProfile .content ul.tabsProfile {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -2159,6 +2201,200 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .viewTab .iconsUser.style:before {
 	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab h2 {
+	margin-top: 40px;
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	margin-left: 50px;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li {
+	padding: 10px 0;
+	font-size: 20px;
+	font-size: 2rem;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li small {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li:before {
+	position: absolute;
+	background-color: #ed7b6e;
+	margin-right: 10px;
+	border-radius: 50%;
+	text-align: center;
+	padding: 10px;
+	margin-left: -40px;
+	margin-top: -10px;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.facebook:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.twitter:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.instagram:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab .backReach {
+	max-width: 500%;
+	background-color: #ffffff;
+	height: 30px;
+}
+
+.page_viewProfile .content .viewTab .backReach .reach {
+	background-color: #ed7b6e;
+	height: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.page_viewProfile .content .viewTab .backReach .reach small {
+	text-align: right;
+	padding-right: 20px;
+	position: absolute;
+	right: 0;
+	margin-top: 8px;
+	color: white;
+	font-weight: bold;
+}
+
+.page_viewProfile .content .viewTab article.post {
+	border-radius: 12px;
+	background-color: #ffffff;
+	margin-bottom: 20px;
+}
+
+.page_viewProfile .content .viewTab article.post header.post_picture {
+	min-height: 200px;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 12px;
+	border-bottom-left-radius: initial;
+	border-bottom-right-radius: initial;
+}
+
+.page_viewProfile .content .viewTab article.post .post_content {
+	padding: 10px;
+	color: #000000;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts {
+	background: none;
+	padding: 10px 20px;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li:before {
+	position: absolute;
+	margin-left: -20px;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li.likes:before {
+	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li.comments:before {
+	content: "";
+	color: #ed7b6e;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab article.post footer.statsPosts ul li.share:before {
+	content: "";
 	color: #ed7b6e;
 	font-size: 17px;
 	font-size: 1.7rem;
@@ -2339,6 +2575,14 @@ footer.footerLinks {
 	width: 100%;
 }
 
+.page_offers .formCreateOffer .titleOffer input {
+	width: 100%;
+}
+
+.page_offers .formCreateOffer .flexInput {
+	width: 100%;
+}
+
 .page_offers .regularCheckbox {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -2437,6 +2681,8 @@ body {
 
 .headerApp nav#navigation ul.menu li.profile_picture {
 	display: block;
+	background-color: #3bb6bf;
+	margin-top: 20px;
 }
 
 .headerApp nav#navigation ul.menu li a {
@@ -2502,12 +2748,26 @@ body {
 }
 
 .page {
+	padding: 10px;
 	padding-bottom: 0;
 }
 
 header.headerPage h2.titlePage {
 	color: #000000;
 	background: none;
+}
+
+header.headerPage .previousStepMenu {
+	background: none;
+}
+
+header.headerPage .previousStepMenu a {
+	font: inherit;
+	color: inherit;
+	text-shadow: inherit;
+	color: #ffffff;
+	margin-left: 15px;
+	font-weight: bold;
 }
 
 .page_index section.servicePresentation {
@@ -2597,6 +2857,12 @@ footer .socials ul li.snapchat:hover {
 
 footer .socials ul li.pinterest:hover {
 	background: #cc2127;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats {
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
 }
 
 }

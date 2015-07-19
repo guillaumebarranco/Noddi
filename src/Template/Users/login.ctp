@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-		<div class="center">
+		<div class="center signInLink">
 			<?= $this->Html->link(__("Je n'ai pas encore de compte"), ['controller' => 'Users', 'action' => 'sign_in']) ?>
 		</div>
 	</section>

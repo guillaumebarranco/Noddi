@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="form_brand_two">
-
+		<div class="offsetForm">
 			<label class="displayLabel website" for="website">Site web</label>
 			<?= $this->Form->input('website', ['placeholder' => 'URL de votre site']) ?>
 
@@ -59,15 +59,15 @@
 				<input type="radio" name="activity_id" id="other" data-activity="other"/>
 				<label for="other" class="showLabel">Autre</label>
 			</div>
-
-			
-
+		</div>		
+		
 			<a class="button get_form_brand_three">Etape Suivante</a>
 		</div>
 
 		<div class="form_brand_three">
 			<div class="offsetForm">
-				<select name="type_commerce" id="">
+				<label class="displayLabel store" for="city">Type de commerce</label>
+				<select class="brandType" name="type_commerce" id="">
 					<option selected disabled>Type de commerce</option>
 					<option value="boutique">Boutique</option>
 					<option value="e-commerce">E-commerce</option>
@@ -84,7 +84,7 @@
 
 			<p>Après validation, vous recevrez un mail de confirmation</p>
 
-			<?= $this->Form->button('S\'inscrire et terminer', ["class"=> "button small"]); ?>
+			<?= $this->Form->button('Finaliser mon inscription', ["class"=> "button reversed"]); ?>
 
 	    	<?= $this->Form->end() ?>
 		</div>

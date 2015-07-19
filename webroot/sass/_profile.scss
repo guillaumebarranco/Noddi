@@ -35,6 +35,7 @@
 		}
 	}
 	.content{
+		margin: 0 15px;
 		ul.tabsProfile{
 				display: flex;
 				max-width: 500px;
@@ -86,6 +87,111 @@
 				}
 				&.style:before{
 					@include noddifont($user, $primary, 1.7);
+				}
+			}
+
+			h2{
+				margin-top: 40px;
+				@extend .subtitleSmall;
+				@include font-size(1.8);
+			}
+			ul.socialStats{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				margin-left: 50px;
+				@media (min-width: $tablet) {
+					flex-direction: row;
+				}
+				li{
+					padding: 10px 0;
+					@include font-size(2);
+					small{
+						@include font-size(1.4);
+					}
+					&:before{
+						position: absolute;
+						background-color: $primary;
+						margin-right: 10px;
+						border-radius: 50%;
+						text-align: center;
+						padding: 10px;
+						margin-left: -40px;
+						margin-top: -10px;
+					}
+					&.facebook:before{
+						@include noddifont($facebook, $white, 1.7);
+					}
+					&.twitter:before{
+						@include noddifont($twitter, $white, 1.7);
+					}
+					&.instagram:before{
+						@include noddifont($instagram, $white, 1.7);
+					}
+				}
+			}
+			.backReach{
+				max-width: 500%;
+				background-color: $white;
+				height: 30px;
+				.reach{
+					background-color: $primary;
+					height: 100%;
+					max-width: 100%;
+					overflow: hidden;
+					//width: ; html style
+					position: relative;
+					small{
+						text-align: right;
+						padding-right: 20px;
+						position: absolute;
+						right: 0;
+						margin-top: 8px;
+						color: white;
+						font-weight: bold;
+					}
+				}
+			}
+			article.post{
+
+				// max-width: 200px;
+				border-radius: $radiusDefault;
+				background-color: $white;
+				margin-bottom: 20px;
+				header.post_picture{
+					min-height: 200px;
+					background-position: center center;
+					background-size: cover;
+					border-radius: $radiusDefault;
+					border-bottom-left-radius: initial;
+					border-bottom-right-radius: initial;
+				}
+				.post_content{
+					padding: 10px;
+					color: $black;
+				}
+				footer.statsPosts{
+					background: none;
+					padding: 10px 20px;
+					ul{
+						display: flex;
+					  	justify-content: space-around;
+						li{
+							&:before{
+								position: absolute;
+								margin-left: -20px;
+							}
+							&.likes:before{
+								@include noddifont($fav, $primary, 1.7);
+							}
+							&.comments:before{
+								@include noddifont($message, $primary, 1.7);
+							}
+							&.share:before{
+								@include noddifont($share, $primary, 1.7);
+							}
+						}
+					}
 				}
 			}
 		}

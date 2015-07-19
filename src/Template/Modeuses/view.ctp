@@ -33,7 +33,7 @@
         </header>
         <div class="content">
             <ul id="tabsProfile" class="tabsProfile">
-                <li id="UserDescription">Description</li>
+                <li id="UserDescription" class="active">Description</li>
                 <li id="UserReputation">Notoriété</li>
                 <li id="UserPosts">Publication</li>
             </ul>
@@ -54,39 +54,24 @@
             </div>
                 
             <div class="viewTab" id="viewUserReputation">
-                <h2>Audience</h2>
-
-                <ul>
-                    <li><?=$modeuse->facebook_followers?> Amis Facebook</li>
-                    <li><?=$modeuse->twitter_followers?> followers Twitter</li>
-                    <li><?=$modeuse->insta_followers?> followers Instagram</li>
-                </ul>
-                    
-                <p>
-                    <b>Moyenne de portée des publications :</b> <?= $modeuse->noddi_rank ?>%
-                </p> 
-
-                Présence sur les Réseaux Sociaux
                 
-                <div>
-                    <b>Instagram</b>
-                    <a href="https://twitter.com/<?=$modeuse->twitter?>" target="_blank">
-                        https://twitter.com/<?=$modeuse->twitter?>
-                    </a>
-                </div>
-
-                <div>
-                    <b>Twitter</b>
-                    <a href="https://twitter.com/<?=$modeuse->twitter?>" target="_blank">
-                        https://twitter.com/<?=$modeuse->twitter?>
-                    </a>
-                </div>
-
-                <div>
-                    <b>Facebook</b>
-                    <a href="https://facebook.com/<?=$modeuse->user->id_facebook?>" target="_blank">
-                        https://facebook.com/<?=$modeuse->user->id_facebook?>
-                    </a>
+                <h2>Audience</h2>
+                <ul class="socialStats">
+                    <li class="facebook"><?=$modeuse->facebook_followers?> <small>Amis</small></li>
+                    <li class="twitter"><?=$modeuse->twitter_followers?> <small>followers</small></li>
+                    <li class="instagram"><?=$modeuse->insta_followers?> <small>followers</small></li>
+                </ul>
+                <p>également présente sur
+                    <?php if(isset($modeuse->socialPresence)){
+                        echo $modeuse->socialPresence;
+                    } ?>
+                </p>
+                
+                <h2>Moyenne de portée des publications :</h2>
+                <div class="backReach">
+                    <div class="reach" style="width:<?= $modeuse->noddi_rank ?>%;">
+                        <small><?= $modeuse->noddi_rank ?>%</small>
+                    </div>
                 </div>
             </div>
 
@@ -101,23 +86,41 @@
 
                         for ($i=0; $i < 3; $i++) { 
                            
-                            echo '<b>Dernières publications '.ucfirst($tab_socials[$i]).'</b>';
+                            echo '<h2>Dernières publications '.ucfirst($tab_socials[$i]).'</h2>';
 
                             foreach ($posts as $key => $post) { 
 
                                 if($post->social == $tab_socials[$i]) { ?>
                                     
-                                    <div class="post">
-                                        <div class="post_picture">
+                                    <article class="post">
                                         <?php if($post->picture != '' && $post->picture != null) { ?>
-                                            <img src="<?=$post->picture?>" alt="" width="100" />
+                                        <header class="post_picture" style="background-image:url('<?=$post->picture?>');">
+                                        </header>
                                         <?php } ?>
-                                        </div>
-
+                                        
+                                        <?php if($post->content != '' && $post->content != null) { ?>
                                         <div class="post_content">
                                             <?= $post->content ?>
                                         </div>
-                                    </div>
+                                        <?php } ?>
+
+                                        <footer class="statsPosts">
+                                            <ul>
+                                                <?php 
+                                                if($post->likes != '' && $post->likes != null) { 
+                                                    echo "<li class=\"likes\">$post->likes </li>";
+                                                } 
+                                                if($post->comments != '' && $post->comments != null) { 
+                                                    echo "<li class=\"comments\">$post->comments </li>";
+                                                } 
+                                                // if($post->shares != '' && $post->shares != null) { 
+                                                //     echo "<li class=\"share\">$post->shares </li>";
+                                                // } 
+
+                                                ?>
+                                            </ul>
+                                        </footer>
+                                    </article>
                                <?php }
                             } 
 
