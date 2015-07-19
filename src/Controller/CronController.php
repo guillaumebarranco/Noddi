@@ -16,33 +16,6 @@ class CronController extends AppController
     }
 
     /*
-    *   Fonction qui va servir à renvoyer un JSON depuis une URL donnée
-    */
-
-    function getJsonUrl($url) {
-        $get = file_get_contents($url);
-        $json = json_decode($get);
-        return $json;
-    }
-
-    /*
-    *   IDEM qu'au-dessus, avec cependant plus de spécifications
-    */
-
-    function getEndpoint($endpoint) {
-        $curl = curl_init($endpoint);
-
-        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 3);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-
-        $json = curl_exec($curl);
-
-        $insta_datas = json_decode($json, true);
-        return $insta_datas;
-    }
-
-    /*
     *   Fonction qui prépare la requête à Twitter et retourne les statuses pour un user
     */
 
@@ -394,6 +367,294 @@ class CronController extends AppController
         }
 
         echo '----------------- END CALCUL REACH ----------------<br /><br />';
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function launchModeuse($id = null) {
+
+        if($id != null) {
+            $modeuse = $this->Modeuses->find('all')->where(['Modeuses.id' => $id])->contain(['Users'])->toArray()[0];
+
+            $this->getInstaDatasModeuse($modeuse);
+            $this->getTwitterDatasModeuse($modeuse);
+            $this->getFacebookDatasModeuse($modeuse);
+            $this->calculReachModeuse($modeuse);
+        }
+    }
+
+
+
+
+    /*
+    *   Fonction pour récupérer les followers, posts et KPI's par modeuse pour INSTAGRAM
+    */
+
+    function getInstaDatasModeuse($modeuse) {
+
+        $instagramClientId = "e7b008f986f64a8c9f94642520b4e0ea";
+
+        if($modeuse->instagram != null) {
+
+            $url = 'https://api.instagram.com/v1/users/search?q='.$modeuse->instagram.'&client_id='.$instagramClientId;
+            $json = $this->getJsonUrl($url);
+
+            foreach($json->data as $user) { 
+                if(strtolower($user->username) == strtolower($modeuse->instagram)) {
+                    $userId = $user->id;
+                }
+            }
+
+            if (isset($userId)) {
+
+                $endpoint = 'https://api.instagram.com/v1/users/'.$userId.'/media/recent?client_id='.$instagramClientId;
+                $insta_datas = $this->getEndpoint($endpoint);
+
+                // GESTION DES DONNEES RETOURNEES
+
+                if ($insta_datas['data'][0]['user']['username']) {
+
+                    // GET FOLLOWERS
+
+                    $get_followers = 'https://api.instagram.com/v1/users/'.$userId.'/?client_id='.$instagramClientId;
+                    $followers = $this->getEndpoint($get_followers);
+
+                    $k = 1;
+
+                    $the_modeuse = $this->Modeuses->get($modeuse->id);
+                    $the_modeuse->insta_followers = $followers['data']['counts']['followed_by'];
+                    
+                    // On check si la sauvegarde des followers se fait correctement
+                    $this->Modeuses->save($the_modeuse);
+
+                    foreach ($insta_datas as $key => $insta) {
+                        foreach ($insta as $key => $the_data) {
+                            if(isset($the_data['images']['standard_resolution']) && $the_data['images']['standard_resolution'] != null) {
+
+                                if($k < 4) {
+                                    $search_post = $this->Posts
+                                        ->find('all')
+                                        ->where(['modeuse_id' => $modeuse->id, 'number' => $k, 'social' => 'instagram'])
+                                        ->toArray();
+
+                                    if(!empty($search_post)) {
+                                        $search_post = $search_post[0];
+                                        $this->Posts->id = $search_post['id'];
+
+                                    } else {
+                                        $search_post = $this->Posts->newEntity();                                            
+                                    }
+
+                                    $search_post->modeuse_id = $modeuse->id;
+                                    $search_post->social = 'instagram';
+                                    $search_post->title = $the_data['link'];
+                                    $search_post->content = $the_data['caption']['text'];
+                                    $search_post->picture = $the_data['images']['standard_resolution']['url'];
+                                    $search_post->number = $k;
+                                    $search_post->likes = $the_data['likes']['count'];
+                                    $search_post->comments = $the_data['comments']['count'];
+                                    $search_post->shares = '';
+
+                                    if($this->Posts->save($search_post)) {
+
+                                        $this->Posts->save($search_post);
+                                    }
+
+                                    $k++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    /*
+    *   Fonction pour récupérer les followers, posts et KPI's par modeuse pour TWITTER
+    */
+
+    function getTwitterDatasModeuse($modeuse) {
+
+        if($modeuse->twitter != null) {
+
+            $twitter_datas = $this->requestTwitter($modeuse->twitter);
+
+            if (isset($twitter_datas[0]['user']['screen_name'])) {
+
+                $the_modeuse = $this->Modeuses->get($modeuse->id);
+                $the_modeuse->twitter_followers = $twitter_datas[0]['user']['followers_count'];
+
+                $this->Modeuses->save($the_modeuse);
+
+                $t = 1;
+
+                foreach ($twitter_datas as $key => $status) {
+                    if(empty($status['retweeted_status']) && $status['in_reply_to_status_id'] === null) {
+
+                        if($t < 4) {
+
+                            $search_post = $this->Posts
+                                ->find('all')
+                                ->where(['modeuse_id' => $modeuse->id, 'number' => $t, 'social' => 'twitter'])
+                                ->toArray();
+
+                            if(!empty($search_post)) {
+                                $search_post = $search_post[0];
+                                $this->Posts->id = $search_post['id'];
+
+                            } else {
+                                $search_post = $this->Posts->newEntity();
+                            }
+
+                            $search_post->social = 'twitter';
+                            $search_post->modeuse_id = $modeuse->id;
+                            $search_post->title = 'https://twitter.com/'.$modeuse->twitter.'/status/'.$status['id_str'];
+                            $search_post->content = $status['text'];
+                            $search_post->picture = '';
+                            $search_post->likes = $status['favorite_count'];
+                            $search_post->comments = $status['retweet_count'];
+                            $search_post->shares = '';
+                            $search_post->nb_tweets = $status['user']['statuses_count'];
+                            $t++;
+
+                            $this->Posts->save($search_post);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    /*
+    *   Fonction pour récupérer les followers, posts et KPI's par modeuse pour FACEBOOK
+    */
+
+    function getFacebookDatasModeuse($modeuse) {
+
+        if($modeuse->user->id_facebook != null && $modeuse->user->id_facebook != '') {
+
+            $url="https://graph.facebook.com/".$modeuse->user->id_facebook."/friends?access_token=".$modeuse->fb_token."&limit=3";
+            
+            $page = $this->getEndpoint($url);
+
+            if($page) {
+                if(isset($page['summary'])) {
+                    $the_modeuse = $this->Modeuses->get($modeuse->id);
+                    $the_modeuse->facebook_followers = $page['summary']['total_count'];
+
+                    $this->Modeuses->save($the_modeuse);
+                }
+            }
+
+            $url="https://graph.facebook.com/".$modeuse->user->id_facebook."/posts?limit=3&fields=object_id,likes.summary(true),comments.summary(true),message&access_token=".$modeuse->fb_token."&limit=3";
+
+            $page = $this->getEndpoint($url);
+
+            if($page && isset($page['data']) && !isset($page['error'])) {
+
+                $t = 1;
+                foreach ($page['data'] as $key => $the_post) {
+
+                    if(!isset($the_post['message'])) {
+                        $the_post['message'] = '';
+                    }
+
+                    $search_post = $this->Posts
+                        ->find('all')
+                        ->where(['modeuse_id' => $modeuse->id, 'number' => $t, 'social' => 'facebook'])
+                        ->toArray();
+
+                    if(!empty($search_post)) {
+                        $search_post = $search_post[0];
+                        $this->Posts->id = $search_post['id'];
+                        
+                    } else {
+                        $search_post = $this->Posts->newEntity();
+                    }
+
+                    $search_post->modeuse_id = $modeuse->id;
+                    $search_post->social = 'facebook';
+                    $search_post->title = $the_post['message'];
+                    $search_post->content = $the_post['message'];
+                    $search_post->picture = '';
+                    $search_post->likes = $the_post['likes']['summary']['total_count'];
+                    $search_post->comments = $the_post['likes']['summary']['total_count'];
+                    $search_post->shares = '';
+
+                    $this->Posts->save($search_post);
+
+                    $t++;
+                }
+            }
+        }
+    }
+
+    /*
+    *   Fonction pour calculer la portée d'une modeuse par rapport à ses posts et likes/comments
+    */
+
+    function calculReachModeuse($modeuse) {
+
+        $modeuse = $this->Modeuses->find('all')->where(['Modeuses.id' => $modeuse->id])->contain(['Users'])->toArray()[0];
+
+        $posts = $this->Posts->find('all')->where(['modeuse_id' => $modeuse->id]);
+
+        $reach = 0;
+        $reach_likes = 0;
+        $reach_comments = 0;
+
+        if($modeuse->insta_followers == 0) {
+            $modeuse->insta_followers = 1;
+        }
+
+        foreach ($posts as $key => $post) {
+
+            if($post['social'] == 'facebook') {
+
+                $reach_likes += ($post->likes / $modeuse->facebook_followers);
+                $reach_comments += ($post->comments / $modeuse->facebook_followers);
+
+            } elseif($post['social'] == 'twitter') {
+
+                $reach_likes += ($post->likes / $modeuse->twitter_followers);
+                $reach_comments += ($post->comments / $modeuse->twitter_followers);
+
+            } elseif($post['social'] == 'instagram') {
+
+                $reach_likes += ($post->likes / $modeuse->insta_followers);
+                $reach_comments += ($post->comments / $modeuse->insta_followers);
+            }
+
+            $reach = (($reach_likes/40)*100) + (($reach_comments/60)*100);
+
+            $reach = $reach * 10;
+        }
+
+        $the_modeuse = $this->Modeuses->get($modeuse->id);
+        $the_modeuse->noddi_rank = $reach;
+        $this->Modeuses->save($the_modeuse);
     }
 
 }

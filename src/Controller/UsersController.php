@@ -5,6 +5,7 @@ use App\Controller\AppController;
 use Cake\Utility\Security;
 use Cake\Controller\Component\CookieComponent;
 use Cake\Core\Configure;
+use App\Controller\CronController;
 
 class UsersController extends AppController
 {
@@ -18,6 +19,7 @@ class UsersController extends AppController
 
     // Si l'utilisateur arrive sur la page index de Users, on le redirige sur la Home
     public function index() {
+        $this->Jsonification();
         return $this->redirect(
             ['controller' => 'Home', 'action' => 'index']
         );
@@ -30,6 +32,12 @@ class UsersController extends AppController
     public function login() {
 
         $session = $this->request->session();
+
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
 
         // Si un formulaire a été envoyé
         if(isset($this->request->data) && $this->request->data) {
@@ -129,6 +137,14 @@ class UsersController extends AppController
 
     public function sign_in() {
 
+        $session = $this->request->session();
+
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
+
     }
 
 
@@ -137,6 +153,14 @@ class UsersController extends AppController
     */
 
     public function sign_in_modeuse() {
+
+        $session = $this->request->session();
+
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
 
         $user = $this->Users->newEntity();
 
@@ -157,13 +181,6 @@ class UsersController extends AppController
 
                 if($this->Users->save($user)) {
 
-                    $session = $this->request->session();
-
-                    // On créé la session
-                    $session->write('user', true);
-                    $session->write('username', $data['username']);
-                    $session->write('password', $data['password']);
-
                     // On créé les cookies
                     // $this->Cookie->config('path', '/');
                     // $this->Cookie->config([
@@ -178,8 +195,7 @@ class UsersController extends AppController
                     $user = $this->Users->find()->where(['username' => $data['username']])->toArray();
 
                     $data['user_id'] = $user[0]['id'];
-
-                    $session->write('user_id', $data['user_id']);
+                    $data['id'] = $user[0]['id'];
 
                     // On se prépare à insérer la modeuse en BDD
                     $data['offers_attempted'] = 0;
@@ -205,14 +221,19 @@ class UsersController extends AppController
                     // On vériéfie que la sauvegarde a bien marché
                     if($this->Modeuses->save($modeuse)) {
 
-                        $session->write('type', $data['type']);
+                        $modeuse = $this->Modeuses->find('all')->where(['user_id' => $data['user_id']])->toArray()[0];
+                        $modeuse_id = $modeuse->id;
 
-                        $modeuse_id = $this->Modeuses->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+                        $this->writeSession($data, $modeuse);
 
+                        $session = $this->request->session();
                         $session->write('modeuse_id', $modeuse_id);
-                        $session->write('type', $data['type']);
 
                         $check = 'OK';
+
+                        // On met à jour les informations des RS de la Modeuse
+                        $cron = new CronController();
+                        $cron->launchModeuse($modeuse_id);
                     }
 
                     echo $this->getResponse($check);
@@ -225,11 +246,59 @@ class UsersController extends AppController
         }
     }
 
+    public function checkInstaFollowers($instagram = null) {
+
+        $check = $this->Jsonification();
+
+        $instagramClientId = "e7b008f986f64a8c9f94642520b4e0ea";
+        $url = 'https://api.instagram.com/v1/users/search?q='.$instagram.'&client_id='.$instagramClientId;
+        $json = $this->getJsonUrl($url);
+
+        foreach($json->data as $user) { 
+            if(strtolower($user->username) == strtolower($instagram)) {
+                $userId = $user->id;
+            }
+        }
+
+        if(isset($userId)) {
+
+            $endpoint = 'https://api.instagram.com/v1/users/'.$userId.'/media/recent?client_id='.$instagramClientId;
+            $insta_datas = $this->getEndpoint($endpoint);
+
+            // GESTION DES DONNEES RETOURNEES
+
+            if(isset($insta_datas['data'])) {
+
+                if($insta_datas['data'][0]['user']['username']) {
+
+                    // GET FOLLOWERS
+
+                    $get_followers = 'https://api.instagram.com/v1/users/'.$userId.'/?client_id='.$instagramClientId;
+                    $followers = $this->getEndpoint($get_followers);
+
+                    if($followers['data']['counts']['followed_by'] > 199) {
+                        $check = 'OK';
+                    }
+                }
+            }
+        }
+
+        echo $this->getResponse($check);
+    }
+
     /*
     *   INSCRIPTION BRAND
     */
 
     public function sign_in_brand() {
+
+        $session = $this->request->session();
+
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
 
         $user = $this->Users->newEntity();
 
@@ -252,11 +321,6 @@ class UsersController extends AppController
 
                     $session = $this->request->session();
 
-                    // On créé la session
-                    $session->write('user', true);
-                    $session->write('username', $data['username']);
-                    $session->write('password', $data['password']);
-
                     // On créé les cookies
                     // $this->Cookie->config('path', '/');
                     // $this->Cookie->config([
@@ -271,8 +335,7 @@ class UsersController extends AppController
                     $user = $this->Users->find()->where(['username' => $data['username']])->toArray();
 
                     $data['user_id'] = $user[0]['id'];
-
-                    $session->write('user_id', $data['user_id']);
+                    $data['id'] = $user[0]['id'];
 
                     $brand = $this->Brands->newEntity();
                     $brand = $this->Brands->patchEntity($brand, $data);
@@ -281,10 +344,13 @@ class UsersController extends AppController
                         $this->Flash->error(__('The brand could not be saved. Please, try again.'));
                     }
 
-                    $brand_id = $brand = $this->Brands->find('all')->where(['user_id' => $session->read('user_id')])->toArray()[0]['id'];
+                    $brand = $brand = $this->Brands->find('all')->where(['user_id' => $data['user_id']])->toArray()[0];
+                    $brand_id = $brand->id;
 
                     $session->write('brand_id', $brand_id);
-                    $session->write('type', $data['type']);
+
+                    // Si c'est bon, on met dans la session que l'utilisateur est admin, il n'aura plus besoin de s'authentifier
+                    $this->writeSession($data, $brand);
                 }
 
             } else {

@@ -1,16 +1,19 @@
 <?php include('tab.php');  ?>
 
-<section class="page page_signin modeuse">
+<section class="page page_signin modeuse page_noConnect">
 	<header class="headerPage">
 	    <h2 class="titlePage">Inscription</h2>
-	    <div class="previousStepMenu"><a href="#">Précédent</a></div>
+	    <a href="<?=$this->request->base?>">
+	    	<div class="previousStepMenu"></div>
+	    </a>
+	    
 	</header>
 	<div class="createFacebookAccount">
 		<div class="content">
 			<h3>Création de compte modeuse</h3>
 			<p>Tu dois disposer de comptes Facebook et Instagram pour t'inscrire.</p>
 			<p>200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.</p>
-			<div class="button fb_button" id="get_form_brand_one">S'inscrire avec Facebook</div>
+			<div class="button fb_button fb_button_signin" id="get_form_brand_one">S'inscrire avec Facebook</div>
 		</div>
 	</div>
 	
@@ -140,7 +143,11 @@
 			</div>
 
 			<div class="form_brand_four">	
+				<input type="file" id="myUpload" />
 				<input type="hidden" name="picture"/>
+				<div class="the_picture">
+					<img src="" alt="" width="200" style="border-radius: 50%;"/>
+				</div>
 				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button reversed"]); ?>
 			</div>
 		</div>

@@ -61,7 +61,7 @@
                         <li class="profile_picture showLarge" style="background-image:url(<?=$this->request->session()->read('picture')?>);">
                         </li>
 
-                        <li class="profil">
+                        <li class="profil showDesktop">
                                 <a href="#" class="showAccountSelect">
                                     <?= $this->request->session()->read('firstname') ?> <?= $this->request->session()->read('lastname') ?>
                                     <?= $this->request->session()->read('name')?>
@@ -143,6 +143,10 @@
                                 </li>
                                 
                         <?php } ?>
+
+                        <li class="showMobile">
+                            <?= $this->Html->link(__("Compte"), ['controller' => 'Profil', 'action' => 'index'], ['class' => 'profil']) ?>
+                        </li>
                     </ul>
                 </nav>
             <?php } ?>

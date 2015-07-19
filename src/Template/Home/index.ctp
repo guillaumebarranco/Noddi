@@ -1,51 +1,55 @@
-<div class="page_home"></div>
-<section class="page page_index">
 <?php 
-	$session = $this->request->session();
-if($session->read('user')) { ?>
+$session = $this->request->session(); ?>
+<div class="page_home"></div>
 
-	<?php if($this->request->session()->read('type') == 'brand') { ?>
+<?php
+	// Si l'utilisateur est connecté
+	if($session->read('user')) { ?>
+
+			<?php if($this->request->session()->read('type') == 'brand') { ?>
+<section class="page page_index page_noConnect">
+				<?php if($can_make_offer) { ?>
+					<h1>Trouvez votre Noddiz</h1>
+					<div class="letsStart">
+						<p>Vite, vite, votre notoriété n'attend que vous !</p>
+						<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button dark']) ?>
+					</div>
+
+				<?php } else { ?>
+<section class="page page_index">
+					<header class="headerPage">
+						<h2 class="titlePage">Les Noddiz</h2>
+						<!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
+					</header>
+
+					<section class="section_home section_les_noddiz">
+						<div class="myDemandReminder showLarge">
+							<h3>Ma demande</h3>
+							<ul>
+								<li class="reminder style"><?=$offer->lifestyle?></li>
+								<li class="reminder whatilike">Maquillage</li>
+								<li class="reminder myType"><?=$offer->personnality?></li>
+								<li class="reminder whereilive">France</li>
+								<!-- <li class="reminder age">20</li>
+								<li class="reminder edit"><a href="#">Modifier mes critères</a></li> -->
+							</ul>
+						</div>
+			
+						<div class="count_modeuse"></div>
+
+						<ul class="list_modeuses">	
+						</ul>
+
+						<input type="hidden" value="<?=$session->read('brand_id')?>" class="get_brand_id">
+					</section>
+
+				<?php } ?>
 		
-		<?php if($can_make_offer) { ?>
-		<h1>Trouvez votre Noddiz</h1>
-		<div class="letsStart">
-			<p>Vite, vite, votre notoriété n'attend que vous !</p>
-			<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button dark']) ?>
-		</div>
-		<?php } else { ?>
-			<header class="headerPage">
-				<h2 class="titlePage">Les Noddiz</h2>
-				<!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
-			</header>
+			<?php } ?>
 
-			<section class="section_home section_les_noddiz">
-				<div class="myDemandReminder showLarge">
-					<h3>Ma demande</h3>
-					<ul>
-						<li class="reminder style"><?=$offer->lifestyle?></li>
-						<li class="reminder whatilike">Maquillage</li>
-						<li class="reminder myType"><?=$offer->personnality?></li>
-						<li class="reminder whereilive">France</li>
-						<!-- <li class="reminder age">20</li>
-						<li class="reminder edit"><a href="#">Modifier mes critères</a></li> -->
-					</ul>
-				</div>
-	
-				<div class="count_modeuse"></div>
-
-				<ul class="list_modeuses">	
-				</ul>
-
-				<input type="hidden" value="<?=$session->read('brand_id')?>" class="get_brand_id">
-			</section>
-
-		<?php } ?>
-		
 	<?php } else { ?>
 
-	<?php } ?>
-
-	<?php } else { ?>
+	<section class="page page_index page_noConnect">
 
 		<header class="homepage">
 			<div class="topMenu">

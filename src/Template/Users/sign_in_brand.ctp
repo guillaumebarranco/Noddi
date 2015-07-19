@@ -1,4 +1,4 @@
-<section class="page page_signin brand">
+<section class="page page_signin brand page_noConnect">
 <div class="inscriptionVisu inscriptionBrand"></div>
 <div class="stepsSignIn">
 	<ul>

@@ -29,6 +29,13 @@ class OffersController extends AppController
 
     public function index() {
 
+        // $email = new Email('default');
+
+        // $email->from(['contact@noddi.eu' => 'Noddi'])
+        //     ->to('guillaume.barranco8@hotmail.fr')
+        //     ->subject('OFFER')
+        //     ->$email->send('test');
+
         $session = $this->request->session();
 
         if($session->read('type') == 'brand') {
@@ -48,7 +55,7 @@ class OffersController extends AppController
 
             $modeuse = $this->Modeuses->get($session->read('modeuse_id'));
 
-            $applies = $this->Applies->find('all')->where(['Applies.modeuse_id' => $modeuse->id, 'Applies.accepted' => 0, 'Applies.from_who' => 'brand'])->contain(['Offers', 'Offers.Brands', 'Offers.Brands.Users'])->toArray();
+            $applies = $this->Applies->find('all')->where(['Applies.modeuse_id' => $modeuse->id, 'Applies.accepted' => 0, 'Applies.from_who' => 'brand'])->contain(['Offers', 'Offers.Brands', 'Offers.Brands.Users', 'Offers.Brands.Activities', 'Offers.Types'])->toArray();
 
             if(!empty($applies[0])) {
                 $brand = $this->Brands->get($applies[0]['offer']['brand']['id']);
@@ -190,7 +197,7 @@ class OffersController extends AppController
         }
 
         $offer = $this->Offers->get($id, [
-            'contain' => ['Brands']
+            'contain' => ['Brands', 'Types', 'Brands.Activities']
         ]);
         $this->set('offer', $offer);
         $this->set('_serialize', ['offer']);
@@ -212,11 +219,7 @@ class OffersController extends AppController
 
     public function applyOffer() {
 
-        // $email = new Email('default');
-        // $email->from(['guillaume.barranco1@gmail.com' => 'Guillaume Barranco'])
-        //     ->to('guillaume.barranco8@hotmail.fr')
-        //     ->subject('OFFER')
-        //     ->send('test');
+        
 
         // var_dump($email);
         //     die;
@@ -239,18 +242,18 @@ class OffersController extends AppController
                     $modeuse = $this->Modeuses->get($data['modeuse_id']);
                     $modeuse->boost = 0;
                     $this->Modeuses->save($modeuse);
-                }
 
+                    // $email = new Email('default');
+                    // $email->from(['guillaume.barranco1@gmail.com' => 'Guillaume Barranco'])
+                    //     ->to('guillaume.barranco8@hotmail.fr')
+                    //     ->subject('OFFER')
+                    //     ->send('test');
+                }
                 $check = 'OK';
             }
-
         }
-
         echo $this->getResponse($check);
     }
-
-
-
 
 }
 ?>

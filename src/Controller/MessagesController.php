@@ -143,7 +143,11 @@ class MessagesController extends AppController {
             }
         }
 
-        echo $this->getResponse($check);
+        $response = array();
+        $response['check'] = $check;
+        $response['message'] = $message;
+
+        echo json_encode($response);
     }
 
     /**

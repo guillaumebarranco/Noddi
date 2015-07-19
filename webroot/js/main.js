@@ -250,7 +250,7 @@ $(document).ready(function() {
 			data.name = $(this).find('input[name=name]').val();
 		}
 
-		makeAjax('POST', "profil/update", data, function() {
+		makeAjax('POST', WEB_URL+"/profil/update", data, function() {
 			console.log('user_added', _this.response);
 		});
 	});
@@ -277,7 +277,7 @@ $(document).ready(function() {
 
 			var favori_id = $(this).attr('data-favori');
 
-			makeAjax('POST', "favoris/delete/"+favori_id, '', function() {
+			makeAjax('POST', WEB_URL+"/favoris/delete/"+favori_id, '', function() {
 				swal({
 					title: "Deleted !",
 					type: "success"
@@ -287,7 +287,7 @@ $(document).ready(function() {
 			});
 
 		} else {
-			makeAjax('POST', "favoris/add", data_user, function() {
+			makeAjax('POST', WEB_URL+"/favoris/add", data_user, function() {
 
 				swal({
 					title: "Added !",
@@ -307,7 +307,7 @@ $(document).ready(function() {
 		var favori_id = $(this).attr('data-favori');
 		var that = $(this);
 		
-		makeAjax('POST', "favoris/delete/"+favori_id, favori_id, function() {
+		makeAjax('POST', WEB_URL+"/favoris/delete/"+favori_id, favori_id, function() {
 			that.parents('li').remove();
 		});
 	});
@@ -333,7 +333,7 @@ $(document).ready(function() {
 
 			data_message.message_id = $('input[name=viewed]').val();
 
-			makeAjax('POST', "messages/updateView/", data_message, function() {
+			makeAjax('POST', WEB_URL+"/messages/updateView/", data_message, function() {
 
 				$('.all_messages').hide();
 
@@ -366,12 +366,12 @@ $(document).ready(function() {
 		data.from_who = 'brand';
 		data.viewed = 0;
 
-		makeAjax('POST', "messages/add", data, function() {
+		makeAjax('POST', WEB_URL+"/messages/add", data, function() {
 
 			var data_message = {};
 			data_message.message_id = $('input[name=viewed]').val();
 			
-			makeAjax('POST', "messages/updateAnswer/", data_message, function() {
+			makeAjax('POST', WEB_URL+"/messages/updateAnswer/", data_message, function() {
 				swal({
 					type: "success",
 					title: 'success'
@@ -380,84 +380,7 @@ $(document).ready(function() {
 		});
 	});
 
-	/*
-	*	MODEUSES OFFERS
-	*/
-
-	$('.all_offers').hide();
-
-	/*
-	*	RECUPERER LES OFFRES
-	*/
-
-	$('.get_offers').on('click', function() {
-
-		showLoading();
-
-		makeAjax('POST', WEB_URL+"/offers/getOffers", '', function() {
-
-			console.log(_this.response.offers);
-			if(_this.response.offers[0]) {
-
-				for (offer in _this.response.offers) {
-					var li =
-						'<li>'+
-							'<p>'+_this.response.offers[offer].title+'</p>'+
-							'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
-						'</li>'
-					;
-					$('.all_offers').append(li);
-				}
-				
-				$('.get_offers').hide();
-				$('.all_offers').show();
-
-			} else {
-				$('.get_offers').hide();
-				$('.all_offers').append('<p>Pas d\'offre pour le moment, revenez plus tard !</p>');
-				$('.all_offers').show();
-			}
-
-			hideLoading();
-		});
-	});
-
-	/*
-	*	APPLY OFFER
-	*/
-
-	$('.apply_offer').on('click', function() {
-
-		var data_apply = {};
-		data_apply.modeuse_id = $(this).attr('data-modeuse');
-		data_apply.offer_id = $(this).attr('data-offer');
-		data_apply.message = $('textarea').val();
-		data_apply.viewed = 0;
-		data_apply.from_who = $(this).attr('data-fromwho');
-
-		console.log(data_apply);
-
-		swal({
-			title : 'yeah',
-			confirmButtonText : "OK",
-			closeOnConfirm: false
-
-		}, function() {
-			makeAjax('POST', WEB_URL+"/offers/applyOffer", data_apply, function() {
-
-				swal({
-					title: 'Success',
-					type : 'success'
-				}, function() {
-					if(data_apply.from_who == 'brand') {
-						window.location.href = WEB_URL+'/home/';
-					} else {
-						window.location.href = WEB_URL+'/offers/';
-					}
-				});
-			});
-		});
-	});
+	
 
 	/*
 	*	SEE CONVERSATION
@@ -473,7 +396,7 @@ $(document).ready(function() {
 		var data = {};
 		data.offer_id = $(this).attr('data-offer');
 
-		makeAjax('POST', "messages/getMessagesByOffer", data, function() {
+		makeAjax('POST', WEB_URL+"/messages/getMessagesByOffer", data, function() {
 			console.log('messages', _this.response);
 			$('.conversation ul').empty();
 
@@ -507,7 +430,7 @@ $(document).ready(function() {
 				$('.conversation ul').append(li);
 			}
 			$('.conversation ul').attr('data-offer', _this.response.messages[message].offer.id);
-			$('.conversation ul').append('<li><a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a></li>');
+			$('.conversation .seeProfil').append('<a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a>');
 
 			$('.all_messages').hide();
 
@@ -540,10 +463,23 @@ $(document).ready(function() {
 		data_message.viewed = 0;
 		data_message.answered = 0;
 
-		makeAjax('POST', "messages/add", data_message, function() {
+		makeAjax('POST', WEB_URL+"/messages/add", data_message, function() {
 			swal({
 				title: 'Message envoyé',
 				type: 'success'
+			}, function() {
+
+				var li =
+					'<li class="message">' +
+
+						'<h3 class="message_sender">Moi</h3>' +
+	                    
+	                    '<div class="message_time">'+_this.response.message.created+'</div>' +
+	                    '<p class="message_content">'+_this.response.message.content+'</p>' +
+	                '</li>'
+				;
+
+				$('.conversation ul').append(li);
 			});
 		});
 
@@ -564,12 +500,12 @@ $(document).ready(function() {
 		console.log('acceptApply', data);
 
 		swal({
-			title: "An input!", 
-			text: "Write something interesting:", 
+			title: "", 
+			text: "Ecrivez un message !", 
 			type: "input",   showCancelButton: true, 
 			closeOnConfirm: false, 
 			animation: "slide-from-top", 
-			inputPlaceholder: "Write something" },
+			inputPlaceholder: "" },
 
 		function(inputValue) {
 
@@ -590,6 +526,8 @@ $(document).ready(function() {
 				swal({
 					title: 'Message envoyé',
 					type: 'success'
+				}, function() {
+					window.location.href = WEB_URL+'/messages/';
 				});
 			});
 		});
@@ -655,6 +593,7 @@ $(document).ready(function() {
 
 	$('.viewTab').hide();
 	$('#viewUserDescription').show();
+	$('#UserDescription').addClass('active');
 	$('#tabsProfile li').on('click', function() {
 		var clickedTab = $(this).attr('id');
 		$('#tabsProfile li').removeClass('active');
