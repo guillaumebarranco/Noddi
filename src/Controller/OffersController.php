@@ -243,11 +243,11 @@ class OffersController extends AppController
                     $modeuse->boost = 0;
                     $this->Modeuses->save($modeuse);
 
-                    $email = new Email('default');
-                    $email->from(['guillaume.barranco1@gmail.com' => 'Guillaume Barranco'])
-                        ->to('guillaume.barranco8@hotmail.fr')
-                        ->subject('OFFER')
-                        ->send('test');
+                    // $email = new Email('default');
+                    // $email->from(['guillaume.barranco1@gmail.com' => 'Guillaume Barranco'])
+                    //     ->to('guillaume.barranco8@hotmail.fr')
+                    //     ->subject('OFFER')
+                    //     ->send('test');
                 }
                 $check = 'OK';
             }

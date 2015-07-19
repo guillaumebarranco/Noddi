@@ -84,5 +84,5 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'c
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
 
-define('FB_APP_ID', "941789582554913");
+define('FB_APP_ID', "899235186815679");
 define('FB_APP_SECRET', "3bb9005afcbc9a395b0ab273ac282c88");
