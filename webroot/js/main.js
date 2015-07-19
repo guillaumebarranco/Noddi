@@ -250,7 +250,7 @@ $(document).ready(function() {
 			data.name = $(this).find('input[name=name]').val();
 		}
 
-		makeAjax('POST', "profil/update", data, function() {
+		makeAjax('POST', WEB_URL+"/profil/update", data, function() {
 			console.log('user_added', _this.response);
 		});
 	});
@@ -277,7 +277,7 @@ $(document).ready(function() {
 
 			var favori_id = $(this).attr('data-favori');
 
-			makeAjax('POST', "favoris/delete/"+favori_id, '', function() {
+			makeAjax('POST', WEB_URL+"/favoris/delete/"+favori_id, '', function() {
 				swal({
 					title: "Deleted !",
 					type: "success"
@@ -287,7 +287,7 @@ $(document).ready(function() {
 			});
 
 		} else {
-			makeAjax('POST', "favoris/add", data_user, function() {
+			makeAjax('POST', WEB_URL+"/favoris/add", data_user, function() {
 
 				swal({
 					title: "Added !",
@@ -307,7 +307,7 @@ $(document).ready(function() {
 		var favori_id = $(this).attr('data-favori');
 		var that = $(this);
 		
-		makeAjax('POST', "favoris/delete/"+favori_id, favori_id, function() {
+		makeAjax('POST', WEB_URL+"/favoris/delete/"+favori_id, favori_id, function() {
 			that.parents('li').remove();
 		});
 	});
@@ -333,7 +333,7 @@ $(document).ready(function() {
 
 			data_message.message_id = $('input[name=viewed]').val();
 
-			makeAjax('POST', "messages/updateView/", data_message, function() {
+			makeAjax('POST', WEB_URL+"/messages/updateView/", data_message, function() {
 
 				$('.all_messages').hide();
 
@@ -366,12 +366,12 @@ $(document).ready(function() {
 		data.from_who = 'brand';
 		data.viewed = 0;
 
-		makeAjax('POST', "messages/add", data, function() {
+		makeAjax('POST', WEB_URL+"/messages/add", data, function() {
 
 			var data_message = {};
 			data_message.message_id = $('input[name=viewed]').val();
 			
-			makeAjax('POST', "messages/updateAnswer/", data_message, function() {
+			makeAjax('POST', WEB_URL+"/messages/updateAnswer/", data_message, function() {
 				swal({
 					type: "success",
 					title: 'success'
@@ -473,7 +473,7 @@ $(document).ready(function() {
 		var data = {};
 		data.offer_id = $(this).attr('data-offer');
 
-		makeAjax('POST', "messages/getMessagesByOffer", data, function() {
+		makeAjax('POST', WEB_URL+"/messages/getMessagesByOffer", data, function() {
 			console.log('messages', _this.response);
 			$('.conversation ul').empty();
 
@@ -540,7 +540,7 @@ $(document).ready(function() {
 		data_message.viewed = 0;
 		data_message.answered = 0;
 
-		makeAjax('POST', "messages/add", data_message, function() {
+		makeAjax('POST', WEB_URL+"/messages/add", data_message, function() {
 			swal({
 				title: 'Message envoyé',
 				type: 'success'

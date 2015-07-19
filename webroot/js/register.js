@@ -206,7 +206,7 @@ $(document).ready(function() {
 
 			showLoading();
 
-			makeAjax('POST', "sign_in_modeuse", datas_modeuse, function() {
+			makeAjax('POST', WEB_URL+"/users/sign_in_modeuse", datas_modeuse, function() {
 
 				hideLoading();
 
@@ -298,12 +298,12 @@ $(document).ready(function() {
 					data_user.fb_id = data.id;
 					data_user.fb_token = fb_token;
 
-					makeAjax('POST', "loginFB", data_user, function() {
+					makeAjax('POST', WEB_URL+"/users/loginFB", data_user, function() {
 
 						console.log(_this.response);
 
 						if(_this.response.check === 'OK') {
-							window.location.href = WEB_URL+'/profil';
+							window.location.href = WEB_URL+'/offers';
 						
 						} else {
 							swal({
