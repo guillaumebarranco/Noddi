@@ -33,7 +33,7 @@
         </header>
         <div class="content">
             <ul id="tabsProfile" class="tabsProfile">
-                <li id="UserDescription" class="active">Description</li>
+                <li id="UserDescription">Description</li>
                 <li id="UserReputation">Notoriété</li>
                 <li id="UserPosts">Publication</li>
             </ul>
