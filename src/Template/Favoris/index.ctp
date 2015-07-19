@@ -1,4 +1,3 @@
-
 <div class="page_index">
 	<section class="section_home">
 	
@@ -42,4 +41,3 @@
 		</ul>
 	</section>
 </div>
-

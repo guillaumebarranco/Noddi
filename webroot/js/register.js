@@ -16,17 +16,6 @@ $(document).ready(function() {
 	$('.form_brand_three').hide();
 	$('.form_brand_four').hide();
 
-	//ONE
-	$('#get_form_brand_one').on('click', function(e) {
-		$('.inscriptionVisu').show();
-		$('.stepsSignIn').show();
-		$('.register_modeuse').show();
-		$('.createFacebookAccount').hide();
-
-		// $('.form_brand_one').hide();
-		$('.form_brand_one').show();
-		$('#step1').addClass('active');
-	});
 
 	//TWO
 	$('#get_form_brand_two').on('click', function(e) {
@@ -43,7 +32,9 @@ $(document).ready(function() {
 		) {
 			if(validateEmail($('input[name=email]').val())) {
 
+				showLoading();
 				makeAjax('POST', WEB_URL+"/users/checkInstaFollowers/"+$('input[name=instagramUsername]').val(), '', function() {
+					hideLoading();
 
 					if(_this.response.check == 'OK') {
 						$('#step1').removeClass('active');
@@ -55,7 +46,6 @@ $(document).ready(function() {
 					}
 				});
 
-				
 			} else {
 				popError("Le mail entré n'est pas correct");
 			}
@@ -109,6 +99,8 @@ $(document).ready(function() {
 			&& $('input[name=social_presence]:checked').val() != ''
 			&& $('input[name=social_presence]:checked').val() !=  undefined
 		) {
+			$('.the_picture img').attr('src', 'http://graph.facebook.com/'+fb_id+'/picture?type=large');
+			$('.the_picture').show();
 			$('#step3').removeClass('active');
 			$('#step4').addClass('active');
 			$('.form_brand_three').hide();
@@ -233,6 +225,8 @@ $(document).ready(function() {
 
 	$('.fb_button').on('click', function() {
 
+		var that = $(this);
+
 		FB.getLoginStatus(function(response) {
 			console.log('test', response);
 
@@ -257,7 +251,15 @@ $(document).ready(function() {
 			} else if(response.status === "connected") {
 				console.log(response.authResponse);
 				fb_token = response.authResponse.accessToken;
-				FBlogin();
+
+				console.log(that);
+
+				if(that.hasClass('fb_button_signin')) {
+					popError("Vous êtes déjà inscrite avec ce compte Facebook !");
+				} else {
+					FBlogin();
+				}
+				
 			}
 		});
 	});
@@ -272,6 +274,14 @@ $(document).ready(function() {
 
 					console.log(data);
 					fb_id = data.id;
+					$('.inscriptionVisu').show();
+					$('.stepsSignIn').show();
+					$('.register_modeuse').show();
+					$('.createFacebookAccount').hide();
+
+					// $('.form_brand_one').hide();
+					$('.form_brand_one').show();
+					$('#step1').addClass('active');
 					$('input[name=firstname]').val(data.first_name);
 					$('input[name=lastname]').val(data.last_name);
 					$('input[name=email]').val(data.email);
@@ -280,7 +290,7 @@ $(document).ready(function() {
 					var birthdayTimestamp = new Date(data.birthday).getTime(),
 						myAge = calculateAge(birthdayTimestamp);
 					$('input[name=birthday]').val(myAge);
-				}); 
+				});
 			}
 		});
 	}
@@ -316,6 +326,26 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+	$('#myUpload').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify.php',
+        'method'        : 'post',
+        'buttonText' : "Changer ma photo de profil",
+        'width' : 300,
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            // alert('The file was saved to: ' + data);
+            $(".the_picture img").attr('src', WEB_URL+'/'+the_data);
+            $('input[name=picture]').val(WEB_URL+'/'+the_data);
+        }
+    });
 
 
 

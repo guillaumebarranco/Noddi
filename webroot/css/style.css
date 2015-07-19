@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
+
 @font-face {
 	font-family: 'Satisfy-Regular';
 	src: url("font/Satisfy-Regular.eot");
@@ -117,6 +119,10 @@ body {
 	border-radius: 50%;
 	margin-bottom: 50px;
 	margin: 0 auto;
+}
+
+#upload {
+	margin: 15px 0;
 }
 
 a {
@@ -498,7 +504,13 @@ form textarea[type="checkbox"]:checked + label:before {
 	-webkit-flex-grow: 1;
 	-ms-flex-positive: 1;
 	flex-grow: 1;
+	padding: 10px;
 	padding-bottom: 40px;
+}
+
+.page.page_noConnect {
+	padding: 0;
+	padding-bottom: 0;
 }
 
 header.headerPage {
@@ -2396,6 +2408,7 @@ body {
 
 .showDesktop {
 	display: block !important;
+	margin: 10px 0;
 }
 
 .headerApp nav#navigation {
@@ -2448,11 +2461,11 @@ body {
 	position: relative;
 }
 
-.headerApp nav#navigation ul.menu li.profil a {
+.headerApp nav#navigation ul.menu li.profil a.showAccountSelect {
 	cursor: default;
 }
 
-.headerApp nav#navigation ul.menu li.profil a:before {
+.headerApp nav#navigation ul.menu li.profil a.showAccountSelect:before {
 	content: "";
 	color: #c8c7cc;
 	font-size: 25px;
@@ -2466,8 +2479,8 @@ body {
 	text-decoration: none;
 	text-transform: none;
 	position: absolute;
-	right: -65px;
-	top: 14px;
+	right: -104px;
+	top: -2px;
 	-webkit-transform: rotate(-90deg);
 	transform: rotate(-90deg);
 }

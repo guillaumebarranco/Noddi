@@ -17,7 +17,6 @@
     <section class="current_offer">
 
         <div>
-
             <div class="offer_picture">
                 <img src="img/offers/<?=$current_offer->id?>/1.png" alt="" />
             </div>
@@ -27,7 +26,6 @@
 
                 <?=$current_offer->exchange?>
             </div>
-            
         </div>
 
     </section>
@@ -39,15 +37,29 @@
         foreach ($applies as $key => $apply) { 
 
             if($k==0) { echo'<div>'; } else { echo '<div style="display:none">'; } ?>
-                <img width="200" src="<?=$this->request->base?>/img/offers/<?=$apply->offer->uniquid?>/1.png" alt=""> 
 
-                <h3>Informations générales</h3>
+                <h2>Informations générales</h2>
 
-                <h4><?=$apply->offer->title?></h4>
+                <img src="<?=$this->request->base?>/img/offers/<?=$apply->offer->uniquid?>/1.png" width="200" alt="" />
+                
+                <p><?=$apply->offer->brand->name?></p>
+                <p><?=$apply->offer->brand->activity->name?></p>
+                <p><?=$apply->offer->brand->city?></p>
 
-                <img src="<?=$apply->offer->brand->user->picture?>" width="150" alt="">
+                <div>
+                    <h3><?=$apply->offer->title?></h3>
+                    <p><?=$apply->offer->description?></p>
+                </div>
 
-                <button class="display_message" data-message="<?=$apply->message?>">Display Message</button>
+                <h2>Informations sur l'offre</h2>
+
+                <p>
+                    En échange de <strong><?=$apply->offer->type->name?></strong> (<strong><?=$apply->offer->exchange?></strong> de la Petite Luciole), tu t'engages à partager le bon plan à ta communauté.
+                </p>
+
+                <p>
+                    Disponibilité : A partir de maintenant
+                </p>
 
                 <button class="button acceptApply" data-apply="<?=$apply->id?>" data-offer="<?=$apply->offer->id?>" data-modeuse="<?=$modeuse->id?>">Accepter</button>
                 <button class="button removeApplyOffer" data-apply="<?=$apply->id?>">Décliner</button>

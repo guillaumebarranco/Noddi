@@ -119,4 +119,94 @@ $(document).ready(function() {
 			
 		});
 	});
+
+	/*
+	*	MODEUSES OFFERS
+	*/
+
+	$('.all_offers').hide();
+
+	/*
+	*	RECUPERER LES OFFRES
+	*/
+
+	$('.get_offers').on('click', function() {
+
+		showLoading();
+
+		makeAjax('POST', WEB_URL+"/offers/getOffers", '', function() {
+
+			console.log(_this.response.offers);
+			if(_this.response.offers[0]) {
+
+				for (offer in _this.response.offers) {
+					var li =
+						'<li>'+
+							'<p>'+_this.response.offers[offer].title+'</p>'+
+							'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+						'</li>'
+					;
+					$('.all_offers').append(li);
+				}
+				
+				$('.get_offers').hide();
+				$('.all_offers').show();
+
+			} else {
+				$('.get_offers').hide();
+				$('.all_offers').append('<h3>Pas d\'offre pour le moment, revenez plus tard !</h3>');
+				$('.all_offers').show();
+			}
+
+			hideLoading();
+		});
+	});
+
+	/*
+	*	APPLY OFFER
+	*/
+
+	$('.apply_offer').on('click', function() {
+
+		var data_apply = {};
+		data_apply.modeuse_id = $(this).attr('data-modeuse');
+		data_apply.offer_id = $(this).attr('data-offer');
+		data_apply.viewed = 0;
+		data_apply.from_who = $(this).attr('data-fromwho');
+
+		console.log(data_apply);
+
+		swal({
+			title: "", 
+			text: "Ecrivez un message !", 
+			type: "input",   showCancelButton: true, 
+			closeOnConfirm: false, 
+			animation: "slide-from-top", 
+			inputPlaceholder: "" },
+
+		function(inputValue) {
+
+			if (inputValue === false) return false;
+			if (inputValue === "") {
+				swal.showInputError("Vous devez écrire un message !");
+				return false;
+			}
+			
+			data_apply.message = inputValue;
+
+			makeAjax('POST', WEB_URL+"/offers/applyOffer", data_apply, function() {
+
+				swal({
+					title: 'Success',
+					type : 'success'
+				}, function() {
+					if(data_apply.from_who == 'brand') {
+						window.location.href = WEB_URL+'/home/';
+					} else {
+						window.location.href = WEB_URL+'/offers/';
+					}
+				});
+			});
+		});
+	});
 });

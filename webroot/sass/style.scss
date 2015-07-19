@@ -40,6 +40,10 @@ body {
     margin: 0 auto;
 }
 
+#upload {
+    margin: 15px 0;
+}
+
 a {
     color:inherit;
     text-decoration:none;
@@ -88,6 +92,7 @@ h4 {
 
     @media (min-width: $tablet) {
         display: block !important;
+        margin: 10px 0;
     }
 }
 
@@ -271,14 +276,14 @@ form {
                     &.profil {
                         position: relative;
 
-                        a {
+                        a.showAccountSelect {
                             cursor: default;
 
                             &:before {
                                 @include noddifont($prev, $grey, 2.5);
                                 position: absolute;
-                                right: -65px;
-                                top: 14px;
+                                right: -104px;
+                                top: -2px;
                                 transform: rotate(-90deg);
                             }
                         }
@@ -355,8 +360,13 @@ form {
 
 .page {
     flex-grow: 1; //Set the footer a the bottom of the page
+    padding: 10px;
     padding-bottom: 40px;
     @media (min-width: $tablet) {
+        padding-bottom: 0;
+    }
+    &.page_noConnect {
+        padding: 0;
         padding-bottom: 0;
     }
 
