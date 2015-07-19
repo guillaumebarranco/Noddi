@@ -29,12 +29,12 @@ class OffersController extends AppController
 
     public function index() {
 
-        $email = new Email('default');
+        // $email = new Email('default');
 
-        $email->from(['contact@noddi.eu' => 'Noddi'])
-            ->to('guillaume.barranco8@hotmail.fr')
-            ->subject('OFFER')
-            ->$email->send('test');
+        // $email->from(['contact@noddi.eu' => 'Noddi'])
+        //     ->to('guillaume.barranco8@hotmail.fr')
+        //     ->subject('OFFER')
+        //     ->$email->send('test');
 
         $session = $this->request->session();
 

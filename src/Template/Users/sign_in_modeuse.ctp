@@ -140,7 +140,11 @@
 			</div>
 
 			<div class="form_brand_four">	
+				<input type="file" id="myUpload" />
 				<input type="hidden" name="picture"/>
+				<div class="the_picture">
+					<img src="" alt="" width="200" style="border-radius: 50%;"/>
+				</div>
 				<?= $this->Form->button('Valider l\'inscription', ["class"=> "button reversed"]); ?>
 			</div>
 		</div>

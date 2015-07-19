@@ -670,6 +670,7 @@ $(document).ready(function() {
 
 	$('.viewTab').hide();
 	$('#viewUserDescription').show();
+	$('#UserDescription').addClass('active');
 	$('#tabsProfile li').on('click', function() {
 		var clickedTab = $(this).attr('id');
 		$('#tabsProfile li').removeClass('active');
