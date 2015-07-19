@@ -55,7 +55,7 @@ class OffersController extends AppController
 
             $modeuse = $this->Modeuses->get($session->read('modeuse_id'));
 
-            $applies = $this->Applies->find('all')->where(['Applies.modeuse_id' => $modeuse->id, 'Applies.accepted' => 0, 'Applies.from_who' => 'brand'])->contain(['Offers', 'Offers.Brands', 'Offers.Brands.Users'])->toArray();
+            $applies = $this->Applies->find('all')->where(['Applies.modeuse_id' => $modeuse->id, 'Applies.accepted' => 0, 'Applies.from_who' => 'brand'])->contain(['Offers', 'Offers.Brands', 'Offers.Brands.Users', 'Offers.Brands.Activities', 'Offers.Types'])->toArray();
 
             if(!empty($applies[0])) {
                 $brand = $this->Brands->get($applies[0]['offer']['brand']['id']);
@@ -197,7 +197,7 @@ class OffersController extends AppController
         }
 
         $offer = $this->Offers->get($id, [
-            'contain' => ['Brands']
+            'contain' => ['Brands', 'Types', 'Brands.Activities']
         ]);
         $this->set('offer', $offer);
         $this->set('_serialize', ['offer']);

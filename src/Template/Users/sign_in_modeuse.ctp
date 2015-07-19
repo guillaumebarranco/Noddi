@@ -13,7 +13,7 @@
 			<h3>Création de compte modeuse</h3>
 			<p>Tu dois disposer de comptes Facebook et Instagram pour t'inscrire.</p>
 			<p>200 followers minimum sur Instagram sont requis pour poursuivre la création de ton compte.</p>
-			<div class="button fb_button" id="get_form_brand_one">S'inscrire avec Facebook</div>
+			<div class="button fb_button fb_button_signin" id="get_form_brand_one">S'inscrire avec Facebook</div>
 		</div>
 	</div>
 	

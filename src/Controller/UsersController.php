@@ -33,6 +33,12 @@ class UsersController extends AppController
 
         $session = $this->request->session();
 
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
+
         // Si un formulaire a été envoyé
         if(isset($this->request->data) && $this->request->data) {
 
@@ -131,6 +137,14 @@ class UsersController extends AppController
 
     public function sign_in() {
 
+        $session = $this->request->session();
+
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
+
     }
 
 
@@ -139,6 +153,14 @@ class UsersController extends AppController
     */
 
     public function sign_in_modeuse() {
+
+        $session = $this->request->session();
+
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
 
         $user = $this->Users->newEntity();
 
@@ -269,6 +291,14 @@ class UsersController extends AppController
     */
 
     public function sign_in_brand() {
+
+        $session = $this->request->session();
+
+        if($session->read('user') == true) {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
 
         $user = $this->Users->newEntity();
 

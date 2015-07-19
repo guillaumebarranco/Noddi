@@ -500,8 +500,8 @@ $(document).ready(function() {
 		console.log('acceptApply', data);
 
 		swal({
-			title: "An input!", 
-			text: "Write something interesting:", 
+			title: "", 
+			text: "Ecrivez un message !", 
 			type: "input",   showCancelButton: true, 
 			closeOnConfirm: false, 
 			animation: "slide-from-top", 

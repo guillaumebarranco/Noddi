@@ -225,6 +225,8 @@ $(document).ready(function() {
 
 	$('.fb_button').on('click', function() {
 
+		var that = $(this);
+
 		FB.getLoginStatus(function(response) {
 			console.log('test', response);
 
@@ -249,7 +251,15 @@ $(document).ready(function() {
 			} else if(response.status === "connected") {
 				console.log(response.authResponse);
 				fb_token = response.authResponse.accessToken;
-				FBlogin();
+
+				console.log(that);
+
+				if(that.hasClass('fb_button_signin')) {
+					popError("Vous êtes déjà inscrite avec ce compte Facebook !");
+				} else {
+					FBlogin();
+				}
+				
 			}
 		});
 	});
@@ -280,7 +290,7 @@ $(document).ready(function() {
 					var birthdayTimestamp = new Date(data.birthday).getTime(),
 						myAge = calculateAge(birthdayTimestamp);
 					$('input[name=birthday]').val(myAge);
-				}); 
+				});
 			}
 		});
 	}

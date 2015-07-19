@@ -5,18 +5,18 @@ $session = $this->request->session(); ?>
 <?php
 	// Si l'utilisateur est connecté
 	if($session->read('user')) { ?>
-<section class="page page_index">
 
 			<?php if($this->request->session()->read('type') == 'brand') { ?>
-		
+<section class="page page_index page_noConnect">
 				<?php if($can_make_offer) { ?>
-				<h1>Trouvez votre Noddiz</h1>
-				<div class="letsStart">
-					<p>Vite, vite, votre notoriété n'attend que vous !</p>
-					<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button dark']) ?>
-				</div>
+					<h1>Trouvez votre Noddiz</h1>
+					<div class="letsStart">
+						<p>Vite, vite, votre notoriété n'attend que vous !</p>
+						<?= $this->Html->link(__('Proposer une offre'), ['controller' => 'Offers', 'action' => 'add'], ['class' => 'button dark']) ?>
+					</div>
 
 				<?php } else { ?>
+<section class="page page_index">
 					<header class="headerPage">
 						<h2 class="titlePage">Les Noddiz</h2>
 						<!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
@@ -45,8 +45,6 @@ $session = $this->request->session(); ?>
 
 				<?php } ?>
 		
-			<?php } else { ?>
-
 			<?php } ?>
 
 	<?php } else { ?>

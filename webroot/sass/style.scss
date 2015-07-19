@@ -40,6 +40,10 @@ body {
     margin: 0 auto;
 }
 
+#upload {
+    margin: 15px 0;
+}
+
 a {
     color:inherit;
     text-decoration:none;
@@ -363,7 +367,7 @@ form {
     }
     &.page_noConnect {
         padding: 0;
-        padding-bottom: 40px;
+        padding-bottom: 0;
     }
 
 }
