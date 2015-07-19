@@ -74,6 +74,7 @@
 
     <div class="conversation">
         <ul></ul>
+        <div class="seeProfil"></div>
         <form action="" class="formSendMessage">
             <textarea name="" id="" cols="30" rows="10"></textarea>
             <button class="button">Envoyer</button>

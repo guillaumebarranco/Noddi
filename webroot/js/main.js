@@ -507,7 +507,7 @@ $(document).ready(function() {
 				$('.conversation ul').append(li);
 			}
 			$('.conversation ul').attr('data-offer', _this.response.messages[message].offer.id);
-			$('.conversation ul').append('<li><a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a></li>');
+			$('.conversation .seeProfil').append('<a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a>');
 
 			$('.all_messages').hide();
 
@@ -544,6 +544,19 @@ $(document).ready(function() {
 			swal({
 				title: 'Message envoyé',
 				type: 'success'
+			}, function() {
+
+				var li =
+					'<li class="message">' +
+
+						'<h3 class="message_sender">Moi</h3>' +
+	                    
+	                    '<div class="message_time">'+_this.response.message.created+'</div>' +
+	                    '<p class="message_content">'+_this.response.message.content+'</p>' +
+	                '</li>'
+				;
+
+				$('.conversation ul').append(li);
 			});
 		});
 
@@ -590,6 +603,8 @@ $(document).ready(function() {
 				swal({
 					title: 'Message envoyé',
 					type: 'success'
+				}, function() {
+					window.location.href = WEB_URL+'/messages/';
 				});
 			});
 		});
