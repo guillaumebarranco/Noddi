@@ -296,15 +296,17 @@
         flex-direction: column;
         flex:1;
         text-align: center;
-        background-image: url('../img/letstart.jpg');
+        // background-image: url('../img/letstart.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
         padding: 150px 15px;
         box-sizing: border-box;
+        max-width: 500px;
+        margin: auto;
 
         p {
-            color: white;
+            color: $quaternary;
             font-size:  1.3em;
             font-weight: bold;
         }

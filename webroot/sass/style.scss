@@ -219,7 +219,7 @@ form {
         @media (min-width: $tablet) {
             width: 190px;
             position: relative;
-            background-color: #5fc6ce;
+            background-color: $secondary;
         }
         ul.menu {
             list-style: none;
@@ -252,6 +252,8 @@ form {
 
                     &.profile_picture {
                         display: block;
+                        background-color: darken($secondary, 10%);
+                        margin-top: 20px;
                     }
 
                     a {
@@ -360,9 +362,9 @@ form {
 
 .page {
     flex-grow: 1; //Set the footer a the bottom of the page
-    padding: 10px;
     padding-bottom: 40px;
     @media (min-width: $tablet) {
+        padding: 10px;
         padding-bottom: 0;
     }
     &.page_noConnect {
@@ -393,13 +395,30 @@ header.headerPage{
         }
     }
     .previousStepMenu{
-        a{
-            @include hide-text();
+        display: flex;
+        align-items: center;
+        background-color: darken($secondary, 10%);
+        @media (min-width: $tablet) {
+            background: none;
         }
-        &:before{
-            @include show-text();
-            @include noddifont($prev, $grey, 2.6);
-            flex:1;
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include hide-text();
+            @media (min-width: $tablet) {
+                @include show-text();
+                color: $white;
+                margin-left: 15px;
+                font-weight: bold;
+            }
+            &:before{
+                width: 30px;
+                @include show-text();
+                @include noddifont($prev, $grey, 2.6);
+                flex:1;
+                color: $white;
+            }
         }
     }
 }
