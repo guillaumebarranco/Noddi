@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+	pngquant = require('imagemin-pngquant'),
 	$ = require('gulp-load-plugins')(
 		{
 		  rename: {
@@ -85,6 +86,16 @@ gulp.task('iconfont', function(){
       fontName: 'noddifont' // identique au nom de iconfontCss
      }))
     .pipe( gulp.dest( root + 'css/font/') )
+});
+
+gulp.task('images', function () {
+    return gulp.src(root + 'img/pictures/*')
+        .pipe($.imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest(root + 'img/pictures/*'));
 });
 
 gulp.task('default', ['sass']);

@@ -1,4 +1,12 @@
 <section class="page page_signin brand page_noConnect">
+<header class="headerPage">
+    <h2 class="titlePage">Inscription Marque</h2>
+    <div class="previousStepMenu">
+    	<a href="<?=$this->request->base?>">
+    		Précédent
+    	</a>
+    </div>
+</header>
 <div class="inscriptionVisu inscriptionBrand"></div>
 <div class="stepsSignIn">
 	<ul>
