@@ -122,6 +122,21 @@ footer{
                         @include noddifont($pinterest, $secondary, 2);
                     }
                 }
+                &.emptyFacebook{
+                    @include noddifont($emptyFb, $secondary, 2);
+                }
+                &.emptyInstagram{
+                    @include noddifont($emptyInsta, $secondary, 2);
+                }
+                &.emptyPinterest{
+                    @include noddifont($emptyPin, $secondary, 2);
+                }
+                &.emptySnapchat{
+                    @include noddifont($emptySnap, $secondary, 2);
+                }
+                &.emptySnapchat{
+                    @include noddifont($emptySnap, $secondary, 2);
+                }
             }
             
         }
