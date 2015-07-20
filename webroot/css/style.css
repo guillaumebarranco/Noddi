@@ -963,7 +963,18 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.memberType {
-	background: salmon;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 600px;
+}
+
+.page_index section.memberType.brand {
+	background-image: url("../img/pictures/home_desktop-visu3.jpg");
+}
+
+.page_index section.memberType.modeuse {
+	background-image: url("../img/pictures/home_desktop-visu2.jpg");
 }
 
 .page_index section.memberType .content {
@@ -981,7 +992,7 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.memberType .content .citation blockquote.quote {
-	background: #5fc6ce;
+	background-color: rgba(95, 198, 206, 0.9);
 	padding: 15px;
 	margin-bottom: 0px;
 }
@@ -1032,6 +1043,7 @@ header.headerPage .previousStepMenu a:before {
 	-ms-flex-pack: end;
 	justify-content: flex-end;
 	position: relative;
+	left: 176px;
 }
 
 .page_index section.memberType .content .description h2 {
@@ -1158,8 +1170,9 @@ header.headerPage .previousStepMenu a:before {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	background: #c8c7cc;
 	min-height: 500px;
+	background-repeat: no-repeat;
+	background-image: url("../img/pictures/home_desktop-visu4.jpg");
 }
 
 .page_index footer .content {
@@ -1179,6 +1192,13 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index footer ul li a:before {
 	color: #c8c7cc !important;
+	font-size: 2.6rem !important;
+	position: relative;
+	left: -3px;
+}
+
+.page_index footer small {
+	color: #ffffff;
 }
 
 .page_index section.section_home {

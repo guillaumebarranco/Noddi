@@ -84,16 +84,16 @@ $session = $this->request->session(); ?>
 			<div class="content">
 				<div class="citation">
 					<blockquote class="quote quoteModeuse">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore enim quae perferendis ratione ipsam totam, veritatis rerum debitis, soluta culpa ullam deserunt sunt voluptatibus. Atque?</p>
+						<p>J’aimerais découvrir de nouveaux produits et de nouvelles marques facilement et gratuitement.</p>
 					</blockquote>	
 				</div>
 				<div class="description">
-					<h2>L<small>orem</small></h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aperiam omnis accusantium laudantium minus fuga in natus nam qui, recusandae, repellat dignissimos dolores error ut optio id voluptatibus amet ea eum dolorem?</p>
+					<h2>M<small>odeuse</small></h2>
+					<p>Toi, la modeuse en quête de bons plans, tu souhaites collaborer avec de jeunes créateurs et des boutiques trendy ? Ne cherche plus, Noddi est fait pour toi !</p>
 					<ul>
-						<li class="offerPerso">Lorem ipsum dolor sit amet.</li>
-						<li class="fav">Loremconsectetur adipisicing.</li>
-						<li class="phone">Consectetur adipisicing elit.</li>
+						<li class="offerPerso">Reçois des offres personnalisées</li>
+						<li class="fav">Choisis tes créateurs et boutiques</li>
+						<li class="phone">Partage ton expérience</li>
 					</ul>
 					<a href="#" class="button reversed">S'inscrire</a>
 				</div>
@@ -104,16 +104,16 @@ $session = $this->request->session(); ?>
 			<div class="content">
 				<div class="citation">
 					<blockquote class="quote quoteModeuse">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore enim quae perferendis ratione ipsam totam, veritatis rerum debitis, soluta culpa ullam deserunt sunt voluptatibus. Atque?</p>
+						<p>Pour une petite boutique comme la mienne,il est difficile d’attirer l’attention des modeuses.</p>
 					</blockquote>	
 				</div>
 				<div class="description">
-					<h2>I<small>psum</small></h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aperiam omnis accusantium laudantium minus fuga in natus nam qui, recusandae, repellat dignissimos dolores error ut optio id voluptatibus amet ea eum dolorem?</p>
+					<h2>M<small>arque</small></h2>
+					<p>Jeunes créateurs et boutiques trendy, vous êtes à la recherche de visibilité ? Sur Noddi, trouvez la modeuse qui parlera de vous auprès de sa communauté.</p>
 					<ul>
-						<li class="shoes">Lorem ipsum dolor sit amet.</li>
-						<li class="hands">Loremconsectetur adipisicing.</li>
-						<li class="star">Consectetur adipisicing elit.</li>
+						<li class="shoes">Choisissez votre modeuse</li>
+						<li class="hands">Collaborez avec elle</li>
+						<li class="star">Gagnez en notoriété</li>
 					</ul>
 					<a href="#" class="button reversed dark">S'inscrire</a>
 				</div>
@@ -121,6 +121,10 @@ $session = $this->request->session(); ?>
 		</section>
     <footer>
 	    <div class="content">
+
+	    	<img src="img/logo2.png" alt="" />
+
+
 			<section class="socials">
 	            <h3 class="showLarge">rejoins vite notre réseau de noddiz :</h3>
 	            <ul id="sectionSocial">
