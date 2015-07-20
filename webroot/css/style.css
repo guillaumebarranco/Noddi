@@ -2856,6 +2856,19 @@ footer.footerLinks {
 	margin: 0;
 }
 
+.page_viewOffer .content article.offer footer .flexButtons {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_viewOffer .content article.offer footer .flexButtons .button {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	margin: 5px;
+}
+
 @media (min-width: 500px) {
 
 .showLarge {

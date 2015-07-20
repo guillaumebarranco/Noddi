@@ -118,6 +118,13 @@
 				.apply_offer{
 					margin:0;
 				}
+				.flexButtons{
+					display: flex;
+					.button{
+						flex:1;
+						margin: 5px;
+					}
+				}
 			}
 		}
 	}
