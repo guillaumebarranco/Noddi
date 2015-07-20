@@ -16,7 +16,7 @@ class MessagesController extends AppController {
     public function index() {
 
         $session = $this->request->session();
-        if($session->read('user') == null) {
+        if($session->read('user') != true) {
             return $this->redirect(
                 ['controller' => 'Users', 'action' => 'login']
             );

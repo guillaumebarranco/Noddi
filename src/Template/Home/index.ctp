@@ -22,7 +22,7 @@ $session = $this->request->session(); ?>
 						<!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
 					</header>
 
-					<section class="section_home section_les_noddiz">
+					<section class="section_home section_les_noddiz reduce_button">
 						<div class="myDemandReminder showLarge">
 							<h3>Ma demande</h3>
 							<ul>
@@ -37,8 +37,8 @@ $session = $this->request->session(); ?>
 			
 						<div class="count_modeuse"></div>
 
-						<ul class="list_modeuses">	
-						</ul>
+						<ul class="list_modeuses"></ul>
+						
 
 						<input type="hidden" value="<?=$session->read('brand_id')?>" class="get_brand_id">
 					</section>

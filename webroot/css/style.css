@@ -155,6 +155,15 @@ h1 {
 	text-align: center;
 }
 
+.reduce_button {
+	text-align: center;
+}
+
+.reduce_button .button {
+	max-width: 500px !important;
+	margin: 0 auto;
+}
+
 .showMobile {
 	display: block !important;
 	text-align: center;
@@ -830,14 +839,9 @@ header.headerPage .previousStepMenu a:before {
 	flex-direction: column;
 }
 
-<<<<<<< HEAD
 .page_index header.homepage,
 .page_offers header.homepage {
-	background: url("../img/pictures/cible.jpg") center center;
-=======
-.page_index header.homepage {
 	background: url("../img/pictures/home_desktop-visu1.jpg") center center;
->>>>>>> e4fd118967fcb693287189077b050299e4ba251f
 	background-size: cover;
 	padding: 40px;
 }
@@ -919,7 +923,8 @@ header.headerPage .previousStepMenu a:before {
 	max-width: 250px;
 }
 
-.page_index section.servicePresentation .presentation h3 {
+.page_index section.servicePresentation .presentation h3,
+.page_offers section.servicePresentation .presentation h3 {
 	color: #ed7b6e;
 	margin-bottom: 0;
 }
