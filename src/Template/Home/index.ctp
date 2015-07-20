@@ -54,7 +54,7 @@ $session = $this->request->session(); ?>
 		<header class="homepage">
 			<div class="topMenu">
 				<div class="logo">
-					<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
+					<img src="<?=$this->request->base?>/img/logo_white.svg" alt="Noddi logo"/>
 				</div>
 				<?= $this->Html->link(__("Se connecter"), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button']) ?>
 			</div>
@@ -122,7 +122,7 @@ $session = $this->request->session(); ?>
     <footer>
 	    <div class="content">
 
-	    	<img src="img/logo2.png" alt="" />
+	    	<img src="<?=$this->request->base?>/img/nodd.svg" alt="Noddi logo"/>
 
 
 			<section class="socials">
