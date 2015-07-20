@@ -823,7 +823,7 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index header.homepage {
-	background: url("../img/pictures/cible.jpg") center center;
+	background: url("../img/pictures/home_desktop-visu1.jpg") center center;
 	background-size: cover;
 	padding: 40px;
 }
@@ -885,6 +885,7 @@ header.headerPage .previousStepMenu a:before {
 	margin: auto;
 	text-align: center;
 	padding: 0 20px;
+	width: 100%;
 }
 
 .page_index section.servicePresentation .presentation {
@@ -892,6 +893,12 @@ header.headerPage .previousStepMenu a:before {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
+	max-width: 250px;
+}
+
+.page_index section.servicePresentation .presentation h3 {
+	color: #ed7b6e;
+	margin-bottom: 0;
 }
 
 .page_index section.servicePresentation .presentation:before {
@@ -907,7 +914,7 @@ header.headerPage .previousStepMenu a:before {
 	width: 50px;
 	height: 50px;
 	border-radius: 25px;
-	background: #ed7b6e;
+	background: #5fc6ce;
 	color: #ffffff;
 	position: absolute;
 	z-index: -5;
@@ -1000,6 +1007,8 @@ header.headerPage .previousStepMenu a:before {
 .page_index section.memberType .content .citation blockquote.quote p {
 	margin: 0;
 	color: #ffffff;
+	padding: 20px;
+	position: relative;
 }
 
 .page_index section.memberType .content .citation blockquote.quote p:before,
@@ -1026,6 +1035,7 @@ header.headerPage .previousStepMenu a:before {
 	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 	margin-top: -5px;
+	right: 0;
 }
 
 .page_index section.memberType .content .citation blockquote.quote p:before {
@@ -1036,6 +1046,9 @@ header.headerPage .previousStepMenu a:before {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-flex: 3;
+	-ms-flex: 3;
+	flex: 3;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
@@ -1043,7 +1056,6 @@ header.headerPage .previousStepMenu a:before {
 	-ms-flex-pack: end;
 	justify-content: flex-end;
 	position: relative;
-	left: 176px;
 }
 
 .page_index section.memberType .content .description h2 {
@@ -3110,6 +3122,9 @@ header.headerPage .previousStepMenu a:before {
 	-webkit-align-items: flex-end;
 	-ms-flex-align: end;
 	align-items: flex-end;
+	-webkit-flex: 5;
+	-ms-flex: 5;
+	flex: 5;
 }
 
 .page_index section.memberType .content .description h2 {
