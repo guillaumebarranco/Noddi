@@ -65,9 +65,17 @@
         <input type="hidden" name="uniquid" value="<?=uniqid()?>" />
         <input type="hidden" name="finished" value="0" />
 
-        <input type="hidden" class="counter" value="1" />
-            
-        <input type="file" id="upload_offer" class="button reversed small dark" data-number="1" />
+        <div class="show_upload1">
+            <input type="file" id="upload_offer1" class="button reversed small dark" data-number="1" />
+        </div>
+
+        <div class="show_upload2">
+            <input type="file" id="upload_offer2" class="button reversed small dark" data-number="1" />
+        </div>
+
+        <div class="show_upload3">
+            <input type="file" id="upload_offer3" class="button reversed small dark" data-number="1" />
+        </div>
 
         <img src="" width="100" class="offer_picture offer_picture_1" />
         <img src="" width="100" class="offer_picture offer_picture_2" />
