@@ -77,30 +77,22 @@
     } else {
 
         if($modeuse->boost == 1) { ?>
-
-            <p>
-                <b>Tu n'as plus de propositions pour le moment.</b> <br /><br />
-
-                Tu recevras un nouvel email d'alerte lorsqu'une autre marque sera intéressée par ton profil. <br /> <br />
-
-                Néanmoins, il te reste encore une chance de prouver ta motivation auprès d'une marque pour tenter de collaborer avec elle.
-                
-            </p>
-
-            <div>
-                <button class="button get_offers">Voir les propositions</button>
-            </div>
+        <div class="content">
+            <p><strong>Tu n'as plus de propositions pour le moment.</strong></p>
+            <p>Tu recevras un nouvel email d'alerte lorsqu'une autre marque sera intéressée par ton profil.</p>
+            <p>Néanmoins, il te reste encore une chance de prouver ta motivation auprès d'une marque pour tenter de collaborer avec elle.</p>
+            <div class="button get_offers reversed">Voir les propositions</div>
+           
 
             <ul class="all_offers"></ul>
-
+        </div>
         <?php } else { ?>
-
-            <p>
-                <b>Si la marque est intéressée par ton profil, tu recevras un mail de confirmation dans ta boîte perso</b> <br /><br />
-
-                Samedi prochain, tu recevras de nouveau un Boost que tu pourras utiliser sur l'offre de ton choix. <br /><br />
-
-                D'ici-là, suis-nous sur les réseaux sociaux pour continuer à recevoir plein de bons plans !
+            <div class="content">
+                <p><strong>Si la marque est intéressée par ton profil, tu recevras un mail de confirmation dans ta boîte perso</strong></p>
+                <p>Samedi prochain, tu recevras de nouveau un Boost que tu pourras utiliser sur l'offre de ton choix.</p>
+                <p>D'ici-là, suis-nous sur les réseaux sociaux pour continuer à recevoir plein de bons plans !</p>
+            </div>
+                
 
                 <footer>
                     <section class="socials">

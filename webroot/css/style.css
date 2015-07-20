@@ -2774,7 +2774,12 @@ footer.footerLinks {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	margin: 10px;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	max-width: 500px;
+	margin: auto;
+	padding: 10px;
 }
 
 .page_viewOffer .content article.offer {

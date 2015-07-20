@@ -59,7 +59,10 @@
 .page_viewOffer{
 	.content{
 		display: flex;
-		margin: 10px;
+		flex-direction: column;
+		max-width: 500px;
+		margin: auto;
+		padding: 10px;
 		article.offer{
 			background-color: $white;
 			border-radius: $radiusDefault;
