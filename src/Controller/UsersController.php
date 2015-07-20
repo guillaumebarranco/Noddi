@@ -455,8 +455,7 @@ class UsersController extends AppController
                 } else if($modeuse->facebook_followers > 1000000) {
                     $modeuse->facebook_followers = round($modeuse->facebook_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
                 }
-            
-
+                
                 if(!empty($favori[0])) {
                     $modeuse['already_favori'] = true;
                     $modeuse['favori_id'] = $favori[0]['id'];
