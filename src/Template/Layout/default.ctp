@@ -14,24 +14,24 @@
 
         <!-- Schema.org markup for Google+ -->
         <meta itemprop="name" content="Noddi" />
-        <meta itemprop="description" content="Noddi est une plateforme de matching entre les marques et les modeuses." />
-        <meta itemprop="image" content="http://www.noddi.eu/logo.svg" />
+        <meta itemprop="description" content="Mettre sa notoriété à profit n’a jamais été aussi simple." />
+        <meta itemprop="image" content="http://www.noddi.eu/img/logo.svg" />
 
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="http://www.noddi.eu/" />
         <meta name="twitter:title" content="Noddi" />
-        <meta name="twitter:description" content="Noddi est une plateforme de matching entre les marques et les modeuses." />
+        <meta name="twitter:description" content="Mettre sa notoriété à profit n’a jamais été aussi simple." />
         <meta name="twitter:creator" content="@TheNoddi" />
         <!-- Twitter summary card with large image must be at least 280x150px -->
-        <meta name="twitter:image:src" content="http://www.example.com/image.html" />
+        <meta name="twitter:image:src" content="http://www.noddi.eu/img/logo.svg" />
 
         <!-- Open Graph data -->
         <meta property="og:title" content="Noddi" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="http://www.noddi.eu/" />
-        <meta property="og:image" content="http://noddi.eu/img/logo.svg" />
-        <meta property="og:description" content="Noddi est une plateforme de matching entre les marques et les modeuses." />
+        <meta property="og:image" content="http://www.noddi.eu/img/logo.svg" />
+        <meta property="og:description" content="Mettre sa notoriété à profit n’a jamais été aussi simple." />
         <meta property="og:site_name" content="Noddi" />
 
         <link rel="icon" href="<?=$this->request->base?>/img/favicon2.ico.png" type="image/x-icon" />

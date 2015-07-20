@@ -135,8 +135,16 @@
     
 </section>
 
-<?php if(!empty($offer)) { ?>
-    <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</button>
+<?php if(!empty($offer)) { 
+
+    if($can_apply) { ?>
+        <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</button>
+    <?php } else {
+        echo "<p style='text-align:center;'>Vous avez déjà proposé votre offre à cette modeuse !</p>";
+    }
+
+    ?>
+
 <?php } ?>
 
 <?= $this->Html->script('offers') ?>
