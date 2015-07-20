@@ -29,7 +29,9 @@
 
 .title,
 .page_index section.servicePresentation .presentation h3,
+.page_offers section.servicePresentation .presentation h3,
 .page_index section.memberType .content .description h2,
+.page_offers section.memberType .content .description h2,
 .page_login .connectSections h2 {
 	font-size: 40px;
 	font-size: 4rem;
@@ -57,7 +59,11 @@ header.headerPage h2.titlePage,
 .subtitleMini,
 h4,
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse .modeuseName,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse .modeuseName {
 	font-size: 20px;
 	font-size: 2rem;
 	font-family: Helvetica, Arial, sans-serif;
@@ -505,6 +511,7 @@ form textarea[type="checkbox"]:checked + label:before {
 	-ms-flex-positive: 1;
 	flex-grow: 1;
 	padding-bottom: 40px;
+	position: relative;
 }
 
 .page.page_noConnect {
@@ -813,7 +820,8 @@ header.headerPage .previousStepMenu a:before {
 	display: inline-block;
 }
 
-.page_index {
+.page_index,
+.page_offers {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -822,13 +830,15 @@ header.headerPage .previousStepMenu a:before {
 	flex-direction: column;
 }
 
-.page_index header.homepage {
+.page_index header.homepage,
+.page_offers header.homepage {
 	background: url("../img/pictures/cible.jpg") center center;
 	background-size: cover;
 	padding: 40px;
 }
 
-.page_index header.homepage .topMenu {
+.page_index header.homepage .topMenu,
+.page_offers header.homepage .topMenu {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -843,35 +853,42 @@ header.headerPage .previousStepMenu a:before {
 	flex-direction: column;
 }
 
-.page_index header.homepage .topMenu .logo {
+.page_index header.homepage .topMenu .logo,
+.page_offers header.homepage .topMenu .logo {
 	max-width: 200px;
 }
 
-.page_index header.homepage .topMenu .logo img {
+.page_index header.homepage .topMenu .logo img,
+.page_offers header.homepage .topMenu .logo img {
 	max-width: 100%;
 	height: auto;
 }
 
-.page_index header.homepage .topMenu .button {
+.page_index header.homepage .topMenu .button,
+.page_offers header.homepage .topMenu .button {
 	border-color: #ffffff;
 	color: #ffffff;
 }
 
-.page_index header.homepage .content {
+.page_index header.homepage .content,
+.page_offers header.homepage .content {
 	text-align: center;
 }
 
-.page_index header.homepage .content h2 {
+.page_index header.homepage .content h2,
+.page_offers header.homepage .content h2 {
 	font-size: 35px;
 	font-size: 3.5rem;
 	color: #ffffff;
 }
 
-.page_index header.homepage .content .button {
+.page_index header.homepage .content .button,
+.page_offers header.homepage .content .button {
 	display: inline-block;
 }
 
-.page_index section.servicePresentation {
+.page_index section.servicePresentation,
+.page_offers section.servicePresentation {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -887,14 +904,16 @@ header.headerPage .previousStepMenu a:before {
 	padding: 0 20px;
 }
 
-.page_index section.servicePresentation .presentation {
+.page_index section.servicePresentation .presentation,
+.page_offers section.servicePresentation .presentation {
 	position: relative;
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
 }
 
-.page_index section.servicePresentation .presentation:before {
+.page_index section.servicePresentation .presentation:before,
+.page_offers section.servicePresentation .presentation:before {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -917,7 +936,8 @@ header.headerPage .previousStepMenu a:before {
 	margin-top: 10px;
 }
 
-.page_index section.servicePresentation .presentation.free:before {
+.page_index section.servicePresentation .presentation.free:before,
+.page_offers section.servicePresentation .presentation.free:before {
 	content: "";
 	color: #ffffff;
 	font-size: 30px;
@@ -932,7 +952,8 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.servicePresentation .presentation.simple:before {
+.page_index section.servicePresentation .presentation.simple:before,
+.page_offers section.servicePresentation .presentation.simple:before {
 	content: "";
 	color: #ffffff;
 	font-size: 30px;
@@ -947,7 +968,8 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.servicePresentation .presentation.reliable:before {
+.page_index section.servicePresentation .presentation.reliable:before,
+.page_offers section.servicePresentation .presentation.reliable:before {
 	content: "";
 	color: #ffffff;
 	font-size: 30px;
@@ -962,22 +984,26 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType {
+.page_index section.memberType,
+.page_offers section.memberType {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 50% 50%;
 	height: 600px;
 }
 
-.page_index section.memberType.brand {
+.page_index section.memberType.brand,
+.page_offers section.memberType.brand {
 	background-image: url("../img/pictures/home_desktop-visu3.jpg");
 }
 
-.page_index section.memberType.modeuse {
+.page_index section.memberType.modeuse,
+.page_offers section.memberType.modeuse {
 	background-image: url("../img/pictures/home_desktop-visu2.jpg");
 }
 
-.page_index section.memberType .content {
+.page_index section.memberType .content,
+.page_offers section.memberType .content {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -987,23 +1013,28 @@ header.headerPage .previousStepMenu a:before {
 	padding: 20px;
 }
 
-.page_index section.memberType .content .citation {
+.page_index section.memberType .content .citation,
+.page_offers section.memberType .content .citation {
 	display: none;
 }
 
-.page_index section.memberType .content .citation blockquote.quote {
+.page_index section.memberType .content .citation blockquote.quote,
+.page_offers section.memberType .content .citation blockquote.quote {
 	background-color: rgba(95, 198, 206, 0.9);
 	padding: 30px 40px;
 	margin-bottom: 0px;
 }
 
-.page_index section.memberType .content .citation blockquote.quote p {
+.page_index section.memberType .content .citation blockquote.quote p,
+.page_offers section.memberType .content .citation blockquote.quote p {
 	margin: 0;
 	color: #ffffff;
 }
 
 .page_index section.memberType .content .citation blockquote.quote p:before,
-.page_index section.memberType .content .citation blockquote.quote p:after {
+.page_index section.memberType .content .citation blockquote.quote p:after,
+.page_offers section.memberType .content .citation blockquote.quote p:before,
+.page_offers section.memberType .content .citation blockquote.quote p:after {
 	content: "";
 	color: #ffffff;
 	font-size: 30px;
@@ -1022,17 +1053,20 @@ header.headerPage .previousStepMenu a:before {
 	position: absolute;
 }
 
-.page_index section.memberType .content .citation blockquote.quote p:after {
+.page_index section.memberType .content .citation blockquote.quote p:after,
+.page_offers section.memberType .content .citation blockquote.quote p:after {
 	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 	margin-top: -5px;
 }
 
-.page_index section.memberType .content .citation blockquote.quote p:before {
+.page_index section.memberType .content .citation blockquote.quote p:before,
+.page_offers section.memberType .content .citation blockquote.quote p:before {
 	margin: -40px 0 0 -20px;
 }
 
-.page_index section.memberType .content .description {
+.page_index section.memberType .content .description,
+.page_offers section.memberType .content .description {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1046,32 +1080,38 @@ header.headerPage .previousStepMenu a:before {
 	left: 176px;
 }
 
-.page_index section.memberType .content .description h2 {
+.page_index section.memberType .content .description h2,
+.page_offers section.memberType .content .description h2 {
 	font-size: 70px;
 	font-size: 7rem;
 	color: #ffffff;
 	margin: 0;
 }
 
-.page_index section.memberType .content .description p {
+.page_index section.memberType .content .description p,
+.page_offers section.memberType .content .description p {
 	color: #ffffff;
 }
 
-.page_index section.memberType .content .description ul {
+.page_index section.memberType .content .description ul,
+.page_offers section.memberType .content .description ul {
 	margin: 0 0 15px 30px;
 }
 
-.page_index section.memberType .content .description ul li {
+.page_index section.memberType .content .description ul li,
+.page_offers section.memberType .content .description ul li {
 	padding: 10px 0;
 	color: #ffffff;
 }
 
-.page_index section.memberType .content .description ul li:before {
+.page_index section.memberType .content .description ul li:before,
+.page_offers section.memberType .content .description ul li:before {
 	position: absolute;
 	margin-left: -30px;
 }
 
-.page_index section.memberType .content .description ul li.offerPerso:before {
+.page_index section.memberType .content .description ul li.offerPerso:before,
+.page_offers section.memberType .content .description ul li.offerPerso:before {
 	content: "";
 	color: #ffffff;
 	font-size: 20px;
@@ -1086,7 +1126,8 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType .content .description ul li.fav:before {
+.page_index section.memberType .content .description ul li.fav:before,
+.page_offers section.memberType .content .description ul li.fav:before {
 	content: "";
 	color: #ffffff;
 	font-size: 20px;
@@ -1101,7 +1142,8 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType .content .description ul li.phone:before {
+.page_index section.memberType .content .description ul li.phone:before,
+.page_offers section.memberType .content .description ul li.phone:before {
 	content: "";
 	color: #ffffff;
 	font-size: 20px;
@@ -1116,7 +1158,8 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType .content .description ul li.hands:before {
+.page_index section.memberType .content .description ul li.hands:before,
+.page_offers section.memberType .content .description ul li.hands:before {
 	content: "";
 	color: #ffffff;
 	font-size: 20px;
@@ -1131,7 +1174,8 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType .content .description ul li.shoes:before {
+.page_index section.memberType .content .description ul li.shoes:before,
+.page_offers section.memberType .content .description ul li.shoes:before {
 	content: "";
 	color: #ffffff;
 	font-size: 20px;
@@ -1146,7 +1190,8 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType .content .description ul li.star:before {
+.page_index section.memberType .content .description ul li.star:before,
+.page_offers section.memberType .content .description ul li.star:before {
 	content: "";
 	color: #ffffff;
 	font-size: 20px;
@@ -1161,12 +1206,14 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType .content .description .button {
+.page_index section.memberType .content .description .button,
+.page_offers section.memberType .content .description .button {
 	margin: auto;
 	width: 100%;
 }
 
-.page_index footer {
+.page_index footer,
+.page_offers footer {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1176,33 +1223,39 @@ header.headerPage .previousStepMenu a:before {
 	background-image: url("../img/pictures/home_desktop-visu4.jpg");
 }
 
-.page_index footer .content {
+.page_index footer .content,
+.page_offers footer .content {
 	margin: auto;
 }
 
-.page_index footer .socials {
+.page_index footer .socials,
+.page_offers footer .socials {
 	background: none;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
 }
 
-.page_index footer .socials h3 {
+.page_index footer .socials h3,
+.page_offers footer .socials h3 {
 	color: #ffffff;
 }
 
-.page_index footer ul li a:before {
+.page_index footer ul li a:before,
+.page_offers footer ul li a:before {
 	color: #c8c7cc !important;
 	font-size: 2.6rem !important;
 	position: relative;
 	left: -3px;
 }
 
-.page_index footer small {
+.page_index footer small,
+.page_offers footer small {
 	color: #ffffff;
 }
 
-.page_index section.section_home {
+.page_index section.section_home,
+.page_offers section.section_home {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1211,13 +1264,15 @@ header.headerPage .previousStepMenu a:before {
 	flex-direction: column;
 }
 
-.page_index section.section_home .myDemandReminder {
+.page_index section.section_home .myDemandReminder,
+.page_offers section.section_home .myDemandReminder {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
 }
 
-.page_index section.section_home .myDemandReminder ul {
+.page_index section.section_home .myDemandReminder ul,
+.page_offers section.section_home .myDemandReminder ul {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1232,7 +1287,8 @@ header.headerPage .previousStepMenu a:before {
 	flex-wrap: wrap;
 }
 
-.page_index section.section_home .myDemandReminder ul li {
+.page_index section.section_home .myDemandReminder ul li,
+.page_offers section.section_home .myDemandReminder ul li {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1245,7 +1301,8 @@ header.headerPage .previousStepMenu a:before {
 	border-radius: 3px;
 }
 
-.page_index section.section_home .myDemandReminder ul li:before {
+.page_index section.section_home .myDemandReminder ul li:before,
+.page_offers section.section_home .myDemandReminder ul li:before {
 	margin-right: 5px;
 	content: "";
 	color: #ffffff;
@@ -1261,16 +1318,22 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.section_home .myDemandReminder ul li.edit {
+.page_index section.section_home .myDemandReminder ul li.edit,
+.page_offers section.section_home .myDemandReminder ul li.edit {
 	background: #ed7b6e;
 }
 
-.page_index section.section_home .myDemandReminder ul li.edit:before {
+.page_index section.section_home .myDemandReminder ul li.edit:before,
+.page_offers section.section_home .myDemandReminder ul li.edit:before {
 	content: none;
 }
 
 .page_index section.section_home ul.list_modeuses,
-.page_index section.section_home ul.all_favoris {
+.page_index section.section_home ul.all_favoris,
+.page_index section.section_home ul.all_offers,
+.page_offers section.section_home ul.list_modeuses,
+.page_offers section.section_home ul.all_favoris,
+.page_offers section.section_home ul.all_offers {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1284,7 +1347,11 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse,
-.page_index section.section_home ul.all_favoris li.modeuse {
+.page_index section.section_home ul.all_favoris li.modeuse,
+.page_index section.section_home ul.all_offers li.modeuse,
+.page_offers section.section_home ul.list_modeuses li.modeuse,
+.page_offers section.section_home ul.all_favoris li.modeuse,
+.page_offers section.section_home ul.all_offers li.modeuse {
 	max-width: 300px;
 	width: 250px;
 	position: relative;
@@ -1293,7 +1360,11 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .modeusePic,
-.page_index section.section_home ul.all_favoris li.modeuse .modeusePic {
+.page_index section.section_home ul.all_favoris li.modeuse .modeusePic,
+.page_index section.section_home ul.all_offers li.modeuse .modeusePic,
+.page_offers section.section_home ul.list_modeuses li.modeuse .modeusePic,
+.page_offers section.section_home ul.all_favoris li.modeuse .modeusePic,
+.page_offers section.section_home ul.all_offers li.modeuse .modeusePic {
 	width: 100%;
 	background-color: #5fc6ce;
 	background-size: cover;
@@ -1304,7 +1375,11 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse {
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border: solid #c8c7cc 1px;
@@ -1313,12 +1388,20 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse .modeuseName,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse .modeuseName,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse .modeuseName,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse .modeuseName {
 	font-size: 1.5rem !important;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats {
 	list-style: none;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -1332,12 +1415,20 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat {
 	text-align: center;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat:before {
 	position: absolute;
 	margin-top: -15px;
 	position: relative;
@@ -1350,7 +1441,11 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat.facebook:before {
 	content: "";
 	color: #5fc6ce;
 	font-size: 20px;
@@ -1366,7 +1461,11 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat.twitter:before {
 	content: "";
 	color: #5fc6ce;
 	font-size: 20px;
@@ -1382,7 +1481,11 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse ul.modeuseStats li.stat.instagram:before {
 	content: "";
 	color: #5fc6ce;
 	font-size: 20px;
@@ -1397,8 +1500,112 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer {
+	text-align: center;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_icon,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_icon,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_icon,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_icon,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_icon,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_icon {
+	text-align: center;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_icon:before,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_icon:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_icon:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_icon:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_icon:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_icon:before {
+	padding-right: 10px;
+	position: relative;
+	top: 2px;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_icon span,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_icon span,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_icon span,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_icon span,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_icon span,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_icon span {
+	width: 100px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_lifestyle:before,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_lifestyle:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_lifestyle:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_lifestyle:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_lifestyle:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_lifestyle:before {
+	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_personnality:before,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_personnality:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_personnality:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_personnality:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_personnality:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_personnality:before {
+	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_exchange:before,
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_exchange:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_exchange:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse.infoOffer .offer_exchange:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse.infoOffer .offer_exchange:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse.infoOffer .offer_exchange:before {
+	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse .add_favori:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse .add_favori:before {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1410,7 +1617,15 @@ header.headerPage .previousStepMenu a:before {
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before,
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .delete_favori:before,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse .add_favori:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse .delete_favori:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse .delete_favori:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse .add_favori:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse .delete_favori:before {
 	position: absolute;
 	content: "";
 	color: red;
@@ -1427,12 +1642,20 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori.grey:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori.grey:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori.grey:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse .add_favori.grey:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse .add_favori.grey:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse .add_favori.grey:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse .add_favori.grey:before {
 	color: black;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse .delete_favori:before,
-.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before {
+.page_index section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before,
+.page_index section.section_home ul.all_offers li.modeuse .infoModeuse .delete_favori:before,
+.page_offers section.section_home ul.list_modeuses li.modeuse .infoModeuse .delete_favori:before,
+.page_offers section.section_home ul.all_favoris li.modeuse .infoModeuse .delete_favori:before,
+.page_offers section.section_home ul.all_offers li.modeuse .infoModeuse .delete_favori:before {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1441,7 +1664,8 @@ header.headerPage .previousStepMenu a:before {
 	border-top-left-radius: 10px;
 }
 
-.page_index .letsStart {
+.page_index .letsStart,
+.page_offers .letsStart {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -1461,7 +1685,8 @@ header.headerPage .previousStepMenu a:before {
 	margin: auto;
 }
 
-.page_index .letsStart p {
+.page_index .letsStart p,
+.page_offers .letsStart p {
 	color: #5c5c5c;
 	font-size: 1.3em;
 	font-weight: bold;
@@ -3087,24 +3312,28 @@ header.headerPage .previousStepMenu a:before {
 	color: #aaaaaa;
 }
 
-.page_index header.homepage .topMenu {
+.page_index header.homepage .topMenu,
+.page_offers header.homepage .topMenu {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
 }
 
-.page_index section.servicePresentation {
+.page_index section.servicePresentation,
+.page_offers section.servicePresentation {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
 }
 
-.page_index section.servicePresentation .presentation:before {
+.page_index section.servicePresentation .presentation:before,
+.page_offers section.servicePresentation .presentation:before {
 	z-index: 5;
 	margin-top: -20px;
 }
 
-.page_index section.memberType .content .citation {
+.page_index section.memberType .content .citation,
+.page_offers section.memberType .content .citation {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -3113,7 +3342,8 @@ header.headerPage .previousStepMenu a:before {
 	align-items: flex-end;
 }
 
-.page_index section.memberType .content .description h2 {
+.page_index section.memberType .content .description h2,
+.page_offers section.memberType .content .description h2 {
 	font-size: 120px;
 	font-size: 12rem;
 	position: absolute;
@@ -3122,21 +3352,28 @@ header.headerPage .previousStepMenu a:before {
 	margin-top: -30px;
 }
 
-.page_index section.memberType .content .description h2 small {
+.page_index section.memberType .content .description h2 small,
+.page_offers section.memberType .content .description h2 small {
 	font-size: 70px;
 	font-size: 7rem;
 }
 
-.page_index section.memberType .content .description p {
+.page_index section.memberType .content .description p,
+.page_offers section.memberType .content .description p {
 	padding-top: 100px;
 }
 
-.page_index section.memberType .content .description .button {
+.page_index section.memberType .content .description .button,
+.page_offers section.memberType .content .description .button {
 	max-width: 200px;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse,
-.page_index section.section_home ul.all_favoris li.modeuse {
+.page_index section.section_home ul.all_favoris li.modeuse,
+.page_index section.section_home ul.all_offers li.modeuse,
+.page_offers section.section_home ul.list_modeuses li.modeuse,
+.page_offers section.section_home ul.all_favoris li.modeuse,
+.page_offers section.section_home ul.all_offers li.modeuse {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
