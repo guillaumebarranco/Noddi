@@ -298,10 +298,17 @@ $(document).ready(function() {
 					$('input[name=lastname]').val(data.last_name);
 					$('input[name=email]').val(data.email);
 
-					// Get modeuse age (Birthday to Age)
-					var birthdayTimestamp = new Date(data.birthday).getTime(),
-						myAge = calculateAge(birthdayTimestamp);
-					$('input[name=birthday]').val(myAge);
+					if(data.birthday != null && data.birthday != '' && data.birthday != undefined) {
+						// Get modeuse age (Birthday to Age)
+						var birthdayTimestamp = new Date(data.birthday).getTime(),
+							myAge = calculateAge(birthdayTimestamp);
+						$('input[name=birthday]').val(myAge);
+					} else {
+						$('input[name=birthday]').attr('type', 'number');
+						$('input[name=birthday]').attr('step', '1');
+					}
+
+					
 				});
 			}
 		});
