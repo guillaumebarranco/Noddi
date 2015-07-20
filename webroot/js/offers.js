@@ -189,12 +189,21 @@ $('#upload_offer3').uploadify({
 			if(_this.response.offers[0]) {
 
 				for (offer in _this.response.offers) {
+
 					var li =
-						'<li>'+
-							'<p>'+_this.response.offers[offer].title+'</p>'+
-							'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+						'<li class="modeuse">'+
+							'<div class="modeusePic" style="background-image:url('+WEB_URL+'/img/offers/'+_this.response.offers[offer].uniquid+'/1.png);">'+
+							'</div>' +
+							'<div class="infoModeuse infoOffer">' +
+								'<p class="modeuseName">'+_this.response.offers[offer].title+'</p>' +
+								'<p class="offer_lifestyle offer_icon"><span>'+_this.response.offers[offer].lifestyle+'</span></p>' +
+								'<p class="offer_personnality offer_icon"><span>'+_this.response.offers[offer].personnality+'</span></p>' +
+								'<p class="offer_exchange offer_icon"><span>'+_this.response.offers[offer].exchange+'</span></p>' +
+								'<br /><a class="see_offer button reversed" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+							'</div>' +
 						'</li>'
 					;
+
 					$('.all_offers').append(li);
 				}
 				

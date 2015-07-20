@@ -1,10 +1,10 @@
 
 //PAGE INDEX
-.page_index {
+.page_index, .page_offers {
     display: flex;
     flex-direction: column;
     header.homepage { // Not connected
-        background:url('../img/pictures/cible.jpg') center center;
+        background:url('../img/pictures/home_desktop-visu1.jpg') center center;
         background-size:cover;
         padding:40px;
         .topMenu {
@@ -48,14 +48,18 @@
         margin:auto;
         text-align:center;
         padding:0 20px;
+        width: 100%;
         @media (min-width: $tablet) {
             flex-direction:row;
         }
         .presentation {
             position:relative;
             flex:1;
+            max-width: 250px;
             h3 {
                 @extend .title;
+                color: $primary;
+                margin-bottom: 0;
             }
             &:before {
                 display:flex;
@@ -64,7 +68,7 @@
                 width:50px;
                 height:50px;
                 border-radius:25px;
-                background:$primary;
+                background:$secondary;
                 color:$white;
                 position:absolute;
                 z-index: -5;
@@ -114,6 +118,7 @@
                 @media (min-width: $tablet) {
                     display: flex;
                     align-items: flex-end;
+                    flex:5
                 }
                 blockquote.quote{
                     background-color: rgba(95,198,206,0.9);
@@ -122,6 +127,8 @@
                     p{
                         margin:0;
                         color: $white;
+                        padding: 20px;
+                        position: relative;
                         &:before,
                         &:after{
                             @include noddifont($quote, $white, 3);
@@ -132,6 +139,7 @@
                         &:after{
                             transform: rotateY(180deg);
                             margin-top: -5px;
+                            right: 0;
                         }
                         &:before{
                             margin: -40px 0 0 -20px;
@@ -141,10 +149,10 @@
             }
             .description{
                 display: flex;
+                flex:3;
                 flex-direction: column;
                 justify-content: flex-end;
                 position: relative;
-                left: 176px; // youhou
                 h2{
                     @extend .title;
                     @include font-size(7);
@@ -211,6 +219,7 @@
         display: flex;
         min-height: 500px;
         background-repeat: no-repeat;
+        background-position: 50% 50%;
         background-image: url('../img/pictures/home_desktop-visu4.jpg');
         .content{
             margin: auto;   
@@ -262,7 +271,7 @@
                 }
             }
         }
-        ul.list_modeuses, ul.all_favoris {
+        ul.list_modeuses, ul.all_favoris, ul.all_offers {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -318,6 +327,42 @@
                             &.facebook:before{ @include noddifont($facebook, $secondary, 2);}
                             &.twitter:before{@include noddifont($twitter, $secondary, 2);}
                             &.instagram:before{@include noddifont($instagram, $secondary, 2);}
+                        }
+                    }
+
+                    &.infoOffer {
+                        text-align: center;
+                        
+                        .offer_icon {
+                            text-align: center;
+
+                            &:before {
+                                padding-right: 10px;
+                                position: relative;
+                                top: 2px;
+                            }
+
+                            span {
+                                width: 100px;
+                                display: inline-block;
+                                vertical-align: top;
+                            }
+                        }
+
+                        .offer_lifestyle {
+                            &:before {
+                                @include noddifont($shoes, $secondary, 2);
+                            }
+                        }
+                        .offer_personnality {
+                            &:before {
+                                @include noddifont($face, $secondary, 2);
+                            }
+                        }
+                        .offer_exchange {
+                            &:before {
+                                @include noddifont($hands, $secondary, 2);
+                            }
                         }
                     }
 
