@@ -993,7 +993,7 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.memberType .content .citation blockquote.quote {
 	background-color: rgba(95, 198, 206, 0.9);
-	padding: 15px;
+	padding: 30px 40px;
 	margin-bottom: 0px;
 }
 
@@ -1016,20 +1016,20 @@ header.headerPage .previousStepMenu a:before {
 	font-weight: normal;
 	text-decoration: none;
 	text-transform: none;
-	font-size: 70px;
-	font-size: 7rem;
+	font-size: 50px;
+	font-size: 5rem;
 	display: inline-block;
 	position: absolute;
 }
 
 .page_index section.memberType .content .citation blockquote.quote p:after {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
 	margin-top: -5px;
 }
 
 .page_index section.memberType .content .citation blockquote.quote p:before {
-	margin: -50px 0 0 -20px;
-	-webkit-transform: rotateY(180deg);
-	transform: rotateY(180deg);
+	margin: -40px 0 0 -20px;
 }
 
 .page_index section.memberType .content .description {
@@ -2173,6 +2173,81 @@ footer .socials ul li.snapchat a:before {
 
 footer .socials ul li.pinterest a:before {
 	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+footer .socials ul li.emptyFacebook {
+	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+footer .socials ul li.emptyInstagram {
+	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+footer .socials ul li.emptyPinterest {
+	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+footer .socials ul li.emptySnapchat {
+	content: "";
+	color: #5fc6ce;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+footer .socials ul li.emptySnapchat {
+	content: "";
 	color: #5fc6ce;
 	font-size: 20px;
 	font-size: 2rem;
