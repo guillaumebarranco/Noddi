@@ -48,11 +48,14 @@ $(document).ready(function() {
 	*	OFFERS
 	*/
 
-	$('#upload_offer').uploadify({
+	$('.show_upload2').hide();
+	$('.show_upload3').hide();
+
+	$('#upload_offer1').uploadify({
         'fileSizeLimit' : '2MB',
         'fileTypeExts'  : '*.gif; *.jpg; *.png',
         'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
-        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer'+$('.counter').val()+'.php',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer1.php',
         'method'        : 'post',
         'buttonText' : "Télécharger des images de l'offre",
         'formData' : {'path': $('input[name=uniquid]').val()},
@@ -68,17 +71,63 @@ $(document).ready(function() {
             //console.log(file);
             
             console.log(the_data);
-            //console.log(response);
 
-            $(".offer_picture_"+$('.counter').val()).attr('src', WEB_URL+'/'+the_data);
-            $('input[name=picture]').val(WEB_URL+'/'+the_data);
+            $(".offer_picture_1").attr('src', WEB_URL+'/'+the_data);
+            $('.show_upload1').hide();
+            $('.show_upload2').show();
+        }
+    });
 
-            if(parseInt($('.counter').val()) < 3) {
-            	$('.counter').val(parseInt($('.counter').val()) + 1);
-            	console.log($('.counter').val());
-            }
+$('#upload_offer2').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer2.php',
+        'method'        : 'post',
+        'buttonText' : "Télécharger des images de l'offre",
+        'formData' : {'path': $('input[name=uniquid]').val()},
 
+        'width' : 300,
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            //alert('The file was saved to: ' + file);
+            console.log(file);
+            console.log(response);
             
+            console.log(the_data);
+
+            $(".offer_picture_2").attr('src', WEB_URL+'/'+the_data);
+            $('.show_upload2').hide();
+            $('.show_upload3').show();
+        }
+    });
+
+$('#upload_offer3').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer3.php',
+        'method'        : 'post',
+        'buttonText' : "Télécharger des images de l'offre",
+        'formData' : {'path': $('input[name=uniquid]').val()},
+
+        'width' : 300,
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            //alert('The file was saved to: ' + file);
+            //console.log(file);
+            
+            console.log(the_data);
+
+            $(".offer_picture_3").attr('src', WEB_URL+'/'+the_data);
         }
     });
 
