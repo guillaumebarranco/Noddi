@@ -68,7 +68,6 @@
         <input type="hidden" class="counter" value="1" />
             
         <input type="file" id="upload_offer" class="button reversed small dark" data-number="1" />
-        <p>Télécharger des images de l'offre</p>
 
         <img src="" width="100" class="offer_picture offer_picture_1" />
         <img src="" width="100" class="offer_picture offer_picture_2" />

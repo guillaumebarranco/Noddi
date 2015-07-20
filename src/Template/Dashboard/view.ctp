@@ -60,7 +60,7 @@
 			<img src="<?=$this->request->base?>/img/offers/<?=$offer->uniquid?>/1.png" alt="" />
 			<div class="proposition_content">
 				<b><?=$offer->type->name?></b>
-				<p><?=$offer->exchange?></p>
+				<p><?= str_replace("_", " ", $offer->exchange)?></p>
 				<p class="borderTop">EN ATTENTE</p>
 			</div>
 			<!--<footer class="proposition_buttons">

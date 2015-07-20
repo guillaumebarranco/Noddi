@@ -67,8 +67,8 @@ $(document).ready(function() {
 								'<p class="modeuseName">'+name+'</p>' +
 								'<ul class="modeuseStats">' +
 									'<li class="stat facebook">'+_this.response.modeuses[modeuse].facebook_followers+'</li>' +
-									'<li class="stat twitter">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
-									'<li class="stat instagram">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
+									'<li class="stat twitter">'+_this.response.modeuses[modeuse].twitter_followers+'</li>' +
+									'<li class="stat instagram">'+_this.response.modeuses[modeuse].insta_followers+'</li>' +
 								'</ul>'
 					;
 
