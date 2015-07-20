@@ -1500,6 +1500,11 @@ header.headerPage .previousStepMenu a:before {
 	color: #ffffff;
 }
 
+.page_signin .createFacebookAccount .content .fb_button {
+	max-width: 260px;
+	margin: auto;
+}
+
 .page_signin .inscriptionVisu {
 	background: url("../img/pictures/login/lunettesGal.jpg") center center;
 	background-size: cover;
@@ -1507,7 +1512,7 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_signin .inscriptionVisu.inscriptionBrand {
-	background: url("../img/pictures/login/inscriptionMarque.jpg") center center;
+	background: url("../img/pictures/login/signInBrand.png") center center;
 }
 
 .page_signin .inscriptionType {
@@ -2581,6 +2586,7 @@ footer.footerLinks {
 
 .page_offers .formCreateOffer .flexInput {
 	width: 100%;
+	max-width: initial;
 }
 
 .page_offers .regularCheckbox {
@@ -2632,6 +2638,92 @@ footer.footerLinks {
 	width: 100%;
 	height: 40px;
 	border-radius: 12px;
+}
+
+.page_viewOffer .content {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin: 10px;
+}
+
+.page_viewOffer .content article.offer {
+	background-color: #ffffff;
+	border-radius: 12px;
+	margin: auto;
+	max-width: 400px;
+	box-shadow: 0px 0px 12px #ECECEC;
+}
+
+.page_viewOffer .content article.offer header {
+	min-height: 200px;
+	background-size: cover;
+	background-position: center;
+	border-radius: 12px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.page_viewOffer .content article.offer .contentArticle {
+	padding: 15px;
+}
+
+.page_viewOffer .content article.offer .contentArticle h3 {
+	font-size: 18px;
+	font-size: 1.8rem;
+	font-weight: normal;
+}
+
+.page_viewOffer .content article.offer .contentArticle .infoBrand {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_viewOffer .content article.offer .contentArticle .infoBrand img {
+	height: 100px;
+	margin-right: 15px;
+}
+
+.page_viewOffer .content article.offer .contentArticle .infoBrand .infoBranText {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.page_viewOffer .content article.offer .contentArticle .infoBrand .infoBranText h4 {
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin: 0 0 10px 0;
+}
+
+.page_viewOffer .content article.offer .contentArticle .infoBrand .infoBranText p {
+	margin: 5px 0;
+}
+
+.page_viewOffer .content article.offer footer {
+	border-top: solid 1px #c8c7cc;
+	text-align: left;
+	padding: 15px;
+	background: none !important;
+}
+
+.page_viewOffer .content article.offer footer h3 {
+	font-size: 18px;
+	font-size: 1.8rem;
+	font-weight: normal;
+	margin-top: 0;
+}
+
+.page_viewOffer .content article.offer footer h3 small {
+	font-weight: bold;
+	color: #ed7b6e;
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.page_viewOffer .content article.offer footer .apply_offer {
+	margin: 0;
 }
 
 @media (min-width: 500px) {
@@ -2762,12 +2854,13 @@ header.headerPage .previousStepMenu {
 }
 
 header.headerPage .previousStepMenu a {
-	font: inherit;
-	color: inherit;
-	text-shadow: inherit;
 	color: #ffffff;
 	margin-left: 15px;
 	font-weight: bold;
+}
+
+header.headerPage .previousStepMenu a:before {
+	color: #aaaaaa;
 }
 
 .page_index section.servicePresentation {
@@ -2816,6 +2909,10 @@ header.headerPage .previousStepMenu a {
 	-webkit-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
+}
+
+.page_signin .createFacebookAccount .content {
+	max-width: 500px;
 }
 
 footer {

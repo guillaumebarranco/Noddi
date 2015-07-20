@@ -97,6 +97,9 @@
             max-width: 300px;
             margin: auto;
             padding: 0 10px;
+            @media (min-width: $tablet) {
+                max-width: 500px;
+            }
             h3{
                 color: $white;
                 text-transform: uppercase;
@@ -106,14 +109,18 @@
             p{
                 color: $white;
             }
+            .fb_button {
+                max-width: 260px;
+                margin: auto;
+            }
         }
-        }
+    }
     .inscriptionVisu{
         background: url('../img/pictures/login/lunettesGal.jpg') center center;
         background-size: cover;
         min-height: 200px;
         &.inscriptionBrand{
-            background: url('../img/pictures/login/inscriptionMarque.jpg') center center;
+            background: url('../img/pictures/login/signInBrand.png') center center;
         }
 
     }

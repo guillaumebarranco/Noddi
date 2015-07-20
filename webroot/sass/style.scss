@@ -199,6 +199,8 @@ form {
         }
     }
 }
+
+
 #container{
     flex:1;
     width: 100%;
@@ -407,7 +409,7 @@ header.headerPage{
             align-items: center;
             @include hide-text();
             @media (min-width: $tablet) {
-                @include show-text();
+                // @include show-text();
                 color: $white;
                 margin-left: 15px;
                 font-weight: bold;
@@ -418,6 +420,9 @@ header.headerPage{
                 @include noddifont($prev, $grey, 2.6);
                 flex:1;
                 color: $white;
+                @media (min-width: $tablet) {
+                    color: $tertiary;
+                }
             }
         }
     }
