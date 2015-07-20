@@ -21,7 +21,7 @@
 				<img src="<?=$this->request->base?>/img/offers/<?=$offer->uniquid?>/1.png" alt="" />
 				<div class="proposition_content">
 					<p class="type"><?=$offer->type->name?></p>
-					<p class="exchange"><?=$offer->exchange?></p>
+					<p class="exchange"><?= str_replace("_", " ", $offer->exchange)?></p>
 					<p class="status"><?php if($offer->finished == 0) { echo 'En attente'; } else { echo 'Finie'; } ?></p>
 				</div>
 			</div>

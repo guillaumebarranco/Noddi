@@ -27,7 +27,7 @@ $session = $this->request->session(); ?>
 							<h3>Ma demande</h3>
 							<ul>
 								<li class="reminder style"><?=$offer->lifestyle?></li>
-								<li class="reminder whatilike">Maquillage</li>
+								<li class="reminder whatilike"><?= str_replace("_", " ", $offer->exchange)?></li>
 								<li class="reminder myType"><?=$offer->personnality?></li>
 								<li class="reminder whereilive">France</li>
 								<!-- <li class="reminder age">20</li>

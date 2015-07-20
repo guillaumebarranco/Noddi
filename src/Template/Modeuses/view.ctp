@@ -45,11 +45,11 @@
                 </div>  
                 <div class="personality iconsUser">
                     <h4>Personnalité</h4>
-                    <p><?= $modeuse->personality ?></p>
+                    <p><?= str_replace("_", " ", $modeuse->personnality) ?></p>
                 </div>  
                 <div class="style iconsUser">
                     <h4>Style</h4>
-                    <p><?= $modeuse->lifestyle ?></p>
+                    <p><?= str_replace("_", " ", $modeuse->lifestyle) ?></p>
                 </div>          
             </div>
                 
@@ -139,4 +139,4 @@
     <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</button>
 <?php } ?>
 
-  
+<?= $this->Html->script('offers') ?>

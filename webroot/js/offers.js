@@ -54,7 +54,7 @@ $(document).ready(function() {
         'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
         'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer'+$('.counter').val()+'.php',
         'method'        : 'post',
-        'buttonText' : "Uploader le logo de l'entreprise",
+        'buttonText' : "Télécharger des images de l'offre",
         'formData' : {'path': $('input[name=uniquid]').val()},
 
         'width' : 300,
