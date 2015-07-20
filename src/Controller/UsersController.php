@@ -436,6 +436,27 @@ class UsersController extends AppController
 
                 $favori = $this->Favoris->find('all')->where(['brand_id' => $session->read('brand_id'), 'modeuse_id' => $modeuse->id])->toArray();
 
+                // Si trop de followers pour un réseau, on rajoute un "k" pour 1000 ou un "M" pour 1 000 000
+
+                if($modeuse->insta_followers > 1000 && $modeuse->insta_followers < 1000000) {
+                    $modeuse->insta_followers = round($modeuse->insta_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+                } else if($modeuse->insta_followers > 1000000) {
+                    $modeuse->insta_followers = round($modeuse->insta_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+                }
+
+                if($modeuse->twitter_followers > 1000 && $modeuse->twitter_followers < 1000000) {
+                    $modeuse->twitter_followers = round($modeuse->twitter_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+                } else if($modeuse->twitter_followers > 1000000) {
+                    $modeuse->twitter_followers = round($modeuse->twitter_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+                }
+
+                if($modeuse->facebook_followers > 1000 && $modeuse->facebook_followers < 1000000) {
+                    $modeuse->facebook_followers = round($modeuse->facebook_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+                } else if($modeuse->facebook_followers > 1000000) {
+                    $modeuse->facebook_followers = round($modeuse->facebook_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+                }
+            
+
                 if(!empty($favori[0])) {
                     $modeuse['already_favori'] = true;
                     $modeuse['favori_id'] = $favori[0]['id'];
