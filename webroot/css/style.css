@@ -322,6 +322,20 @@ form textarea[type="checkbox"]:checked + label:before {
 	color: #c8c7cc;
 }
 
+.button.uploadify {
+	height: 45px !important;
+	width: 100% !important;
+	border: solid #ed7b6e 3px;
+	background: #ed7b6e;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.button.uploadify:hover {
+	border: solid #aaaaaa 3px;
+	background: #aaaaaa;
+}
+
 #container {
 	-webkit-flex: 1;
 	-ms-flex: 1;
@@ -783,14 +797,16 @@ header.headerPage .previousStepMenu a:before {
 
 .uploadify-button-text {
 	position: relative;
-	top: 15px;
-	left: -15px;
+	top: 21px;
+	left: 50px;
 }
 
 .swfupload {
 	position: relative;
 	left: 0px;
 	top: 0px;
+	height: 40px;
+	cursor: pointer;
 }
 
 .blue_header {

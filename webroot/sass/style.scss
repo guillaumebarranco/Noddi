@@ -206,6 +206,19 @@ form {
             color:$grey;
         }
     }
+
+    &.uploadify {
+        height: 45px !important;
+        width: 100% !important;
+        border:solid $primary $borderDefault;
+        background:$primary;
+        color:$white;
+        cursor: pointer;
+        &:hover {
+            border:solid $tertiary $borderDefault;
+            background:$tertiary;
+        }
+    }
 }
 
 
@@ -605,14 +618,16 @@ header.headerPage{
 }
 .uploadify-button-text {
     position: relative;
-    top: 15px;
-    left: -15px;
+    top: 21px;
+    left: 50px;
 }
 
 .swfupload {
     position: relative;
     left: 0px;
     top: 0px;
+    height: 40px;
+    cursor: pointer;
 }
 
 .blue_header {
