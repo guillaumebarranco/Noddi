@@ -28,7 +28,7 @@ $(document).ready(function() {
 			&& $('input[name=city]').val() != ''
 			&& $('input[name=instagramUsername]').val() != ''
 			&& $('input[name=twitterUsername]').val() != ''
-			// && $('input[name=birthday]').val() != ''
+			&& $('input[name=birthday]').val() != ''
 		) {
 			if(validateEmail($('input[name=email]').val())) {
 
