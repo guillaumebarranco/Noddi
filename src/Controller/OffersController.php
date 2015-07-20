@@ -197,7 +197,7 @@ class OffersController extends AppController
         }
 
         $offer = $this->Offers->get($id, [
-            'contain' => ['Brands', 'Types', 'Brands.Activities']
+            'contain' => ['Brands', 'Types', 'Brands.Activities', 'Brands.Users']
         ]);
         $this->set('offer', $offer);
         $this->set('_serialize', ['offer']);

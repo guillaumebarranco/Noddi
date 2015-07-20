@@ -27,6 +27,28 @@ class FavorisController extends AppController
 
         $favoris = $this->Favoris->find('all')->where(['brand_id' => $session->read('brand_id')])->contain(['Modeuses', 'Modeuses.Users', 'Brands'])->toArray();
 
+        // Si trop de followers pour un réseau, on rajoute un "k" pour 1000 ou un "M" pour 1 000 000
+        foreach ($favoris as $key => $favori) {
+            if($favori->modeus->insta_followers > 1000 && $favori->modeus->insta_followers < 1000000) {
+                $favori->modeus->insta_followers = round($favori->modeus->insta_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+            } else if($favori->modeus->insta_followers > 1000000) {
+                $favori->modeus->insta_followers = round($favori->modeus->insta_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+            }
+
+            if($favori->modeus->twitter_followers > 1000 && $favori->modeus->twitter_followers < 1000000) {
+                $favori->modeus->twitter_followers = round($favori->modeus->twitter_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+            } else if($favori->modeus->twitter_followers > 1000000) {
+                $favori->modeus->twitter_followers = round($favori->modeus->twitter_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+            }
+
+            if($favori->modeus->facebook_followers > 1000 && $favori->modeus->facebook_followers < 1000000) {
+                $favori->modeus->facebook_followers = round($favori->modeus->facebook_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+            } else if($favori->modeus->facebook_followers > 1000000) {
+                $favori->modeus->facebook_followers = round($favori->modeus->facebook_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+            }
+            
+        }
+
         $this->set('favoris', $favoris);
         $this->set('_serialize', ['favoris']);
     }

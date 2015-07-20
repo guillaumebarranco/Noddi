@@ -79,8 +79,72 @@ $session = $this->request->session(); ?>
 				<p>Des modeuses influentes et des marques sérieuses pour des rencontres fiables</p>
 			</div>
 		</section>
-
+		
 		<section class="memberType modeuse">
+			<div class="content">
+				<div class="citation">
+					<blockquote class="quote quoteModeuse">
+						<p>J’aimerais découvrir de nouveaux produits et de nouvelles marques facilement et gratuitement.</p>
+					</blockquote>	
+				</div>
+				<div class="description">
+					<h2>M<small>odeuse</small></h2>
+					<p>Toi, la modeuse en quête de bons plans, tu souhaites collaborer avec de jeunes créateurs et des boutiques trendy ? Ne cherche plus, Noddi est fait pour toi !</p>
+					<ul>
+						<li class="offerPerso">Reçois des offres personnalisées</li>
+						<li class="fav">Choisis tes créateurs et boutiques</li>
+						<li class="phone">Partage ton expérience</li>
+					</ul>
+					<a href="#" class="button reversed">S'inscrire</a>
+				</div>
+			</div>
+		</section>		
+
+		<section class="memberType brand">
+			<div class="content">
+				<div class="citation">
+					<blockquote class="quote quoteModeuse">
+						<p>Pour une petite boutique comme la mienne,il est difficile d’attirer l’attention des modeuses.</p>
+					</blockquote>	
+				</div>
+				<div class="description">
+					<h2>M<small>arque</small></h2>
+					<p>Jeunes créateurs et boutiques trendy, vous êtes à la recherche de visibilité ? Sur Noddi, trouvez la modeuse qui parlera de vous auprès de sa communauté.</p>
+					<ul>
+						<li class="shoes">Choisissez votre modeuse</li>
+						<li class="hands">Collaborez avec elle</li>
+						<li class="star">Gagnez en notoriété</li>
+					</ul>
+					<a href="#" class="button reversed dark">S'inscrire</a>
+				</div>
+			</div>
+		</section>
+    <footer>
+	    <div class="content">
+
+	    	<img src="img/logo2.png" alt="" />
+
+
+			<section class="socials">
+	            <h3 class="showLarge">rejoins vite notre réseau de noddiz :</h3>
+	            <ul id="sectionSocial">
+	                <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+	                <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+	                <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+	                <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+	                <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+	            </ul>
+	        </section>
+	        <ul>
+	            <li><a href="#">Nous contacter</a></li>
+	            <li><a href="#">Plan du site</a></li>
+	            <li><a href="#">Conditions générales d'utilisation</a></li>
+	            <li><a href="#">Mentions légales</a></li>
+	        </ul>
+	        <small>© 2015 Noddi  - Tous droits réservés</small>
+	    </div>
+    </footer>
+<!-- 		<section class="memberType modeuse">
 			<div class="typeDescription">
 				<div class="illustration illu1 showLarge"></div>
 				<div class="description">
@@ -120,7 +184,7 @@ $session = $this->request->session(); ?>
 					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
 				</div>
 			</div>
-		</section>
+		</section> -->
 
 	<?php } ?>
 </section>

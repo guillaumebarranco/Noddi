@@ -60,20 +60,29 @@ $(document).ready(function() {
 	$('#get_form_brand_three').on('click', function(e) {
 		e.preventDefault();
 		var myDescription = $('textarea[name=myDescription]').val(),
-			styleWear = $('input[name=styleWear]:checked').val();
+			styleWear = [];
+
+			$('input[type=checkbox][name=styleWear]:checked').each(function() {
+				styleWear.push($(this).val());
+			});
+
 		if(
 			myDescription != ''
-			&& styleWear != '' 
-			&& styleWear !=  undefined
 		) {
 			if(
 				$('select[name=hobbie-one]').val() != $('select[name=hobbie-two]').val() 
 				&& $('select[name=iAmOne]').val() != $('select[name=iAmTwo]').val() 
 			) {
-				$('#step2').removeClass('active');
-				$('#step3').addClass('active');
-				$('.form_brand_two').hide();
-				$('.form_brand_three').show();
+
+				if(styleWear.length == 2) {
+					$('#step2').removeClass('active');
+					$('#step3').addClass('active');
+					$('.form_brand_two').hide();
+					$('.form_brand_three').show();
+				} else {
+					popError("Vous devez choisir deux styles différents");
+				}
+
 			} else {
 				popError("Deux champs sont identiques");
 			}

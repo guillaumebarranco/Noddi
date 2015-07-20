@@ -29,8 +29,7 @@
 
 .title,
 .page_index section.servicePresentation .presentation h3,
-.page_index section.memberType .typeDescription .description h2,
-.page_index section.memberType .typeDescription.details .description ul li span,
+.page_index section.memberType .content .description h2,
 .page_login .connectSections h2 {
 	font-size: 40px;
 	font-size: 4rem;
@@ -839,6 +838,9 @@ header.headerPage .previousStepMenu a:before {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
 .page_index header.homepage .topMenu .logo {
@@ -887,6 +889,9 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.servicePresentation .presentation {
 	position: relative;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 }
 
 .page_index section.servicePresentation .presentation:before {
@@ -905,13 +910,15 @@ header.headerPage .previousStepMenu a:before {
 	background: #ed7b6e;
 	color: #ffffff;
 	position: absolute;
-	margin-left: 45%;
-	margin-top: 10px;
 	z-index: -5;
+	right: 0;
+	left: 0;
+	margin: auto;
+	margin-top: 10px;
 }
 
 .page_index section.servicePresentation .presentation.free:before {
-	content: "";
+	content: "";
 	color: #ffffff;
 	font-size: 30px;
 	font-size: 3rem;
@@ -926,7 +933,7 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.servicePresentation .presentation.simple:before {
-	content: "";
+	content: "";
 	color: #ffffff;
 	font-size: 30px;
 	font-size: 3rem;
@@ -941,7 +948,7 @@ header.headerPage .previousStepMenu a:before {
 }
 
 .page_index section.servicePresentation .presentation.reliable:before {
-	content: "";
+	content: "";
 	color: #ffffff;
 	font-size: 30px;
 	font-size: 3rem;
@@ -955,119 +962,243 @@ header.headerPage .previousStepMenu a:before {
 	text-transform: none;
 }
 
-.page_index section.memberType .typeDescription {
+.page_index section.memberType {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 600px;
+}
+
+.page_index section.memberType.brand {
+	background-image: url("../img/pictures/home_desktop-visu3.jpg");
+}
+
+.page_index section.memberType.modeuse {
+	background-image: url("../img/pictures/home_desktop-visu2.jpg");
+}
+
+.page_index section.memberType .content {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
+	min-height: 400px;
 	max-width: 1000px;
 	margin: auto;
-	padding: 10px;
+	padding: 20px;
 }
 
-.page_index section.memberType .typeDescription .illustration {
-	background: url("../img/pictures/friends.jpg") center center;
-	background-size: cover;
-	margin-right: 20px;
-	-webkit-flex: 10;
-	-ms-flex: 10;
-	flex: 10;
-	min-height: 530px;
+.page_index section.memberType .content .citation {
+	display: none;
 }
 
-.page_index section.memberType .typeDescription .illustration.illu1 {
-	background: url("../img/pictures/friends.jpg") center center;
+.page_index section.memberType .content .citation blockquote.quote {
+	background-color: rgba(95, 198, 206, 0.9);
+	padding: 15px;
+	margin-bottom: 0px;
 }
 
-.page_index section.memberType .typeDescription .illustration.illu2 {
-	background: url("../img/pictures/intro.jpg") center center;
+.page_index section.memberType .content .citation blockquote.quote p {
+	margin: 0;
+	color: #ffffff;
 }
 
-.page_index section.memberType .typeDescription .illustration.illu3 {
-	background: url("../img/pictures/takeAPic.jpg") center center;
+.page_index section.memberType .content .citation blockquote.quote p:before,
+.page_index section.memberType .content .citation blockquote.quote p:after {
+	content: "";
+	color: #ffffff;
+	font-size: 30px;
+	font-size: 3rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	font-size: 70px;
+	font-size: 7rem;
+	display: inline-block;
+	position: absolute;
 }
 
-.page_index section.memberType .typeDescription .illustration.illu4 {
-	background: url("../img/pictures/echange.jpg") center center;
+.page_index section.memberType .content .citation blockquote.quote p:after {
+	margin-top: -5px;
 }
 
-.page_index section.memberType .typeDescription .description {
-	-webkit-flex: 7;
-	-ms-flex: 7;
-	flex: 7;
+.page_index section.memberType .content .citation blockquote.quote p:before {
+	margin: -50px 0 0 -20px;
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.page_index section.memberType .content .description {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	position: relative;
-	font-size: 20px;
-	font-size: 2rem;
-}
-
-.page_index section.memberType .typeDescription .description h2 {
-	color: #ed7b6e;
-	text-align: center;
-	margin: 0;
-}
-
-.page_index section.memberType .typeDescription.details {
-	-webkit-flex-direction: row-reverse;
-	-ms-flex-direction: row-reverse;
-	flex-direction: row-reverse;
-}
-
-.page_index section.memberType .typeDescription.details .illustration {
-	border: solid 20px #ffffff;
-}
-
-.page_index section.memberType .typeDescription.details .description {
-	-webkit-flex-direction: column !important;
-	-ms-flex-direction: column !important;
-	flex-direction: column !important;
-	-webkit-align-items: baseline;
-	-ms-flex-align: baseline;
-	align-items: baseline;
 	-webkit-justify-content: flex-end;
 	-ms-flex-pack: end;
 	justify-content: flex-end;
+	position: relative;
+	left: 176px;
+}
+
+.page_index section.memberType .content .description h2 {
+	font-size: 70px;
+	font-size: 7rem;
+	color: #ffffff;
+	margin: 0;
+}
+
+.page_index section.memberType .content .description p {
+	color: #ffffff;
+}
+
+.page_index section.memberType .content .description ul {
+	margin: 0 0 15px 30px;
+}
+
+.page_index section.memberType .content .description ul li {
+	padding: 10px 0;
+	color: #ffffff;
+}
+
+.page_index section.memberType .content .description ul li:before {
+	position: absolute;
+	margin-left: -30px;
+}
+
+.page_index section.memberType .content .description ul li.offerPerso:before {
+	content: "";
+	color: #ffffff;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.memberType .content .description ul li.fav:before {
+	content: "";
+	color: #ffffff;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.memberType .content .description ul li.phone:before {
+	content: "";
+	color: #ffffff;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.memberType .content .description ul li.hands:before {
+	content: "";
+	color: #ffffff;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.memberType .content .description ul li.shoes:before {
+	content: "";
+	color: #ffffff;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.memberType .content .description ul li.star:before {
+	content: "";
+	color: #ffffff;
+	font-size: 20px;
+	font-size: 2rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_index section.memberType .content .description .button {
+	margin: auto;
+	width: 100%;
+}
+
+.page_index footer {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	min-height: 500px;
+	background-repeat: no-repeat;
+	background-image: url("../img/pictures/home_desktop-visu4.jpg");
+}
+
+.page_index footer .content {
+	margin: auto;
+}
+
+.page_index footer .socials {
+	background: none;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
 }
 
-.page_index section.memberType .typeDescription.details .description ul {
-	list-style: none;
+.page_index footer .socials h3 {
+	color: #ffffff;
 }
 
-.page_index section.memberType .typeDescription.details .description ul li span {
-	font-size: 50px;
-	font-size: 5rem;
-	color: #ed7b6e;
-	margin-right: 25px;
+.page_index footer ul li a:before {
+	color: #c8c7cc !important;
+	font-size: 2.6rem !important;
+	position: relative;
+	left: -3px;
 }
 
-.page_index section.memberType .typeDescription.details .description .button {
-	-webkit-align-self: center;
-	-ms-flex-item-align: center;
-	align-self: center;
-}
-
-.page_index section.memberType.marque h2 {
-	color: #aaaaaa !important;
-}
-
-.page_index section.memberType.marque ul > li > span {
-	color: #aaaaaa !important;
+.page_index footer small {
+	color: #ffffff;
 }
 
 .page_index section.section_home {
@@ -1109,7 +1240,8 @@ header.headerPage .previousStepMenu a:before {
 	align-items: flex-end;
 	padding: 5px 10px;
 	margin: 5px;
-	background: #5fc6ce;
+	background: #c8c7cc;
+	border-radius: 3px;
 }
 
 .page_index section.section_home .myDemandReminder ul li:before {
@@ -1152,8 +1284,8 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.section_home ul.list_modeuses li.modeuse,
 .page_index section.section_home ul.all_favoris li.modeuse {
-	min-width: 200px;
-	max-width: 200px;
+	max-width: 300px;
+	width: 250px;
 	position: relative;
 	margin: 10px;
 	background: #f6f6f6;
@@ -1164,6 +1296,7 @@ header.headerPage .previousStepMenu a:before {
 	width: 100%;
 	background-color: #5fc6ce;
 	background-size: cover;
+	background-position: center;
 	height: 160px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -1189,13 +1322,16 @@ header.headerPage .previousStepMenu a:before {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse .infoModeuse ul.modeuseStats li.stat,
 .page_index section.section_home ul.all_favoris li.modeuse .infoModeuse ul.modeuseStats li.stat {
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
 	text-align: center;
 }
 
@@ -1647,12 +1783,6 @@ header.headerPage .previousStepMenu a:before {
 .page_signin .formModeuse input#description,
 .page_signin .formModeuse textarea#description {
 	min-height: 100px;
-	border: solid 1px #c8c7cc;
-}
-
-.page_signin .formBrand select,
-.page_signin .formModeuse select {
-	height: 40px;
 	border: solid 1px #c8c7cc;
 }
 
@@ -2644,7 +2774,12 @@ footer.footerLinks {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	margin: 10px;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	max-width: 500px;
+	margin: auto;
+	padding: 10px;
 }
 
 .page_viewOffer .content article.offer {
@@ -2724,6 +2859,19 @@ footer.footerLinks {
 
 .page_viewOffer .content article.offer footer .apply_offer {
 	margin: 0;
+}
+
+.page_viewOffer .content article.offer footer .flexButtons {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.page_viewOffer .content article.offer footer .flexButtons .button {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	margin: 5px;
 }
 
 @media (min-width: 500px) {
@@ -2863,6 +3011,12 @@ header.headerPage .previousStepMenu a:before {
 	color: #aaaaaa;
 }
 
+.page_index header.homepage .topMenu {
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
 .page_index section.servicePresentation {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
@@ -2874,34 +3028,35 @@ header.headerPage .previousStepMenu a:before {
 	margin-top: -20px;
 }
 
-.page_index section.memberType .typeDescription .description {
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
+.page_index section.memberType .content .citation {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: flex-end;
+	-ms-flex-align: end;
+	align-items: flex-end;
 }
 
-.page_index section.memberType .typeDescription .description h2 {
+.page_index section.memberType .content .description h2 {
+	font-size: 120px;
+	font-size: 12rem;
 	position: absolute;
-	font-size: 80px;
-	font-size: 8rem;
+	top: 0;
 	margin-left: -50px;
+	margin-top: -30px;
 }
 
-.page_index section.memberType .typeDescription .description h2:first-letter {
-	font-size: 150px;
-	font-size: 15rem;
+.page_index section.memberType .content .description h2 small {
+	font-size: 70px;
+	font-size: 7rem;
 }
 
-.page_index section.memberType .typeDescription .description p {
-	-webkit-align-self: flex-end;
-	-ms-flex-item-align: end;
-	align-self: flex-end;
-	margin-left: 80px;
-	margin-bottom: 160px;
+.page_index section.memberType .content .description p {
+	padding-top: 100px;
 }
 
-.page_index section.memberType .typeDescription.details {
-	margin-top: -170px;
+.page_index section.memberType .content .description .button {
+	max-width: 200px;
 }
 
 .page_index section.section_home ul.list_modeuses li.modeuse,
