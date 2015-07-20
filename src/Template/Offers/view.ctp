@@ -14,7 +14,7 @@
 			<div class="contentArticle">
 				<h3>Informations générales</h3>
 				<div class="infoBrand">
-					<img src="#" alt="infos">
+					<img src="<?=$offer->brand->user->picture?>" alt="infos">
 					<div class="infoBranText">
 						<h4><?=$offer->brand->name?></h4>
 						<p><?=$offer->brand->activity->name?></p>

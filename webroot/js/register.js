@@ -28,7 +28,7 @@ $(document).ready(function() {
 			&& $('input[name=city]').val() != ''
 			&& $('input[name=instagramUsername]').val() != ''
 			&& $('input[name=twitterUsername]').val() != ''
-			// && $('input[name=birthday]').val() != ''
+			&& $('input[name=birthday]').val() != ''
 		) {
 			if(validateEmail($('input[name=email]').val())) {
 
@@ -127,6 +127,7 @@ $(document).ready(function() {
 			blogAdmin = 		$('input[type=radio][name=blogAdmin]:checked').val(),
 			brandExperience = 	$('input[type=radio][name=brandExperience]:checked').val(),
 			age = 				$('input[name=birthday]').val(),
+			website = 			$('input[name=website]').val(),
 
 			hobbies = 			[hobbieOne,hobbieTwo],
 			iAm = 				[iAmOne,iAmTwo],
@@ -297,10 +298,17 @@ $(document).ready(function() {
 					$('input[name=lastname]').val(data.last_name);
 					$('input[name=email]').val(data.email);
 
-					// Get modeuse age (Birthday to Age)
-					var birthdayTimestamp = new Date(data.birthday).getTime(),
-						myAge = calculateAge(birthdayTimestamp);
-					$('input[name=birthday]').val(myAge);
+					if(data.birthday != null && data.birthday != '' && data.birthday != undefined) {
+						// Get modeuse age (Birthday to Age)
+						var birthdayTimestamp = new Date(data.birthday).getTime(),
+							myAge = calculateAge(birthdayTimestamp);
+						$('input[name=birthday]').val(myAge);
+					} else {
+						$('input[name=birthday]').attr('type', 'number');
+						$('input[name=birthday]').attr('step', '1');
+					}
+
+					
 				});
 			}
 		});
@@ -399,18 +407,13 @@ $(document).ready(function() {
 		e.preventDefault();
 
 		if(
-			$('input[name=website]').val() != ''
-			&& $('textarea[name=bio]').val() != ''
+			$('textarea[name=bio]').val() != ''
 			&& $('input[name=activity_id]:checked').val() != ''
 		) {
-			if(validateWebsite($('input[name=website]').val())) {
-				$('#step2').removeClass('active');
-				$('#step3').addClass('active');
-				$('.form_brand_three').show();
-				$('.form_brand_two').hide();
-			} else {
-				popError("Le site web entré n'est pas correct");
-			}
+			$('#step2').removeClass('active');
+			$('#step3').addClass('active');
+			$('.form_brand_three').show();
+			$('.form_brand_two').hide();
 			
 		} else {
 			popError("Certains champs ne sont pas remplis");
