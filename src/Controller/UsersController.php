@@ -359,7 +359,7 @@ class UsersController extends AppController
             }
 
             return $this->redirect(
-                ['controller' => 'Profil', 'action' => 'index']
+                ['controller' => 'Home', 'action' => 'index']
             );
         }
 

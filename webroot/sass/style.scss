@@ -78,6 +78,14 @@ h4 {
     @extend .subtitleMini;
 }
 
+.reduce_button {
+    text-align: center;
+    .button {
+        max-width: 500px !important;
+        margin: 0 auto;
+    }
+}
+
 .showMobile {
     display: block !important;
     text-align: center;
