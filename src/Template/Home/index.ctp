@@ -79,8 +79,68 @@ $session = $this->request->session(); ?>
 				<p>Des modeuses influentes et des marques sérieuses pour des rencontres fiables</p>
 			</div>
 		</section>
-
+		
 		<section class="memberType modeuse">
+			<div class="content">
+				<div class="citation">
+					<blockquote class="quote quoteModeuse">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore enim quae perferendis ratione ipsam totam, veritatis rerum debitis, soluta culpa ullam deserunt sunt voluptatibus. Atque?</p>
+					</blockquote>	
+				</div>
+				<div class="description">
+					<h2>L<small>orem</small></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aperiam omnis accusantium laudantium minus fuga in natus nam qui, recusandae, repellat dignissimos dolores error ut optio id voluptatibus amet ea eum dolorem?</p>
+					<ul>
+						<li class="offerPerso">Lorem ipsum dolor sit amet.</li>
+						<li class="fav">Loremconsectetur adipisicing.</li>
+						<li class="phone">Consectetur adipisicing elit.</li>
+					</ul>
+					<a href="#" class="button reversed">S'inscrire</a>
+				</div>
+			</div>
+		</section>		
+
+		<section class="memberType brand">
+			<div class="content">
+				<div class="citation">
+					<blockquote class="quote quoteModeuse">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore enim quae perferendis ratione ipsam totam, veritatis rerum debitis, soluta culpa ullam deserunt sunt voluptatibus. Atque?</p>
+					</blockquote>	
+				</div>
+				<div class="description">
+					<h2>I<small>psum</small></h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aperiam omnis accusantium laudantium minus fuga in natus nam qui, recusandae, repellat dignissimos dolores error ut optio id voluptatibus amet ea eum dolorem?</p>
+					<ul>
+						<li class="shoes">Lorem ipsum dolor sit amet.</li>
+						<li class="hands">Loremconsectetur adipisicing.</li>
+						<li class="star">Consectetur adipisicing elit.</li>
+					</ul>
+					<a href="#" class="button reversed dark">S'inscrire</a>
+				</div>
+			</div>
+		</section>
+    <footer>
+	    <div class="content">
+			<section class="socials">
+	            <h3 class="showLarge">rejoins vite notre réseau de noddiz :</h3>
+	            <ul id="sectionSocial">
+	                <li class="facebook"><a target="_blank" href="https://www.facebook.com/noddi.eu">facebook</a></li>
+	                <li class="twitter"><a target="_blank" href="https://twitter.com/theNoddi">twitter</a></li>
+	                <li class="instagram"><a target="_blank" href="https://instagram.com/thenoddi">Instagram</a></li>
+	                <li class="snapchat"><a target="_blank" href="#">Snapchat</a></li>
+	                <li class="pinterest"><a target="_blank" href="https://fr.pinterest.com/noddi0434/">Pinterest</a></li>
+	            </ul>
+	        </section>
+	        <ul>
+	            <li><a href="#">Nous contacter</a></li>
+	            <li><a href="#">Plan du site</a></li>
+	            <li><a href="#">Conditions générales d'utilisation</a></li>
+	            <li><a href="#">Mentions légales</a></li>
+	        </ul>
+	        <small>© 2015 Noddi  - Tous droits réservés</small>
+	    </div>
+    </footer>
+<!-- 		<section class="memberType modeuse">
 			<div class="typeDescription">
 				<div class="illustration illu1 showLarge"></div>
 				<div class="description">
@@ -120,7 +180,7 @@ $session = $this->request->session(); ?>
 					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
 				</div>
 			</div>
-		</section>
+		</section> -->
 
 	<?php } ?>
 </section>

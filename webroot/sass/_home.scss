@@ -11,6 +11,11 @@
             display:flex;
             justify-content:space-between;
             align-items:center;
+            flex-direction: column;
+            @media (min-width: $tablet) {
+                flex-direction: row;
+
+            }
 
             .logo {
                 max-width:200px;
@@ -48,7 +53,7 @@
         }
         .presentation {
             position:relative;
-
+            flex:1;
             h3 {
                 @extend .title;
             }
@@ -62,116 +67,149 @@
                 background:$primary;
                 color:$white;
                 position:absolute;
-                margin-left:45%;
-                margin-top: 10px;
                 z-index: -5;
+                right: 0;
+                left: 0;
+                margin:auto;
+                margin-top: 10px;
                 @media (min-width: $tablet) {
                     z-index: 5;
                         margin-top:-20px;
                 }
             }
             &.free:before {
-                @include noddifont($twitter, $white, 3);
+                @include noddifont($dollar, $white, 3);
             }
             &.simple:before {
-                @include noddifont($twitter, $white, 3);
+                @include noddifont($flash, $white, 3);
             }
             &.reliable:before {
-                @include noddifont($twitter, $white, 3);
+                @include noddifont($verified, $white, 3);
             }
         }
     }
 
     section.memberType {
-        .typeDescription {
-            display:flex;
-            flex-direction:row;
-            justify-content:space-between;
-            max-width:1000px;
-            margin:auto;
-            padding:10px;
-            .illustration {
-                background:url('../img/pictures/friends.jpg') center center;
-                background-size:cover;
-                margin-right:20px;
-                flex:10;
-                min-height:530px;
-                &.illu1{background:url('../img/pictures/friends.jpg') center center;}
-                &.illu2{background:url('../img/pictures/intro.jpg') center center;}
-                &.illu3{background:url('../img/pictures/takeAPic.jpg') center center;}
-                &.illu4{background:url('../img/pictures/echange.jpg') center center;}
-            }
-            .description {
-                flex:7;
-                display:flex;
-                flex-direction:column;
-                position:relative;
-                @include font-size(2);
+        background: salmon;
+        .content{
+        display: flex;
+        min-height: 400px;
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+            .citation{
+                display: none;
                 @media (min-width: $tablet) {
-                    flex-direction:row;
-                }
-                h2 {
-                    @extend .title;
-                    color:$primary;
-                    text-align:center;
-                    margin:0;
-                    @media (min-width: $tablet) {
-                        position:absolute;
-                        @include font-size(8);
-                        margin-left:-50px;
-                        &:first-letter {
-                            @include font-size(15);
-                        }
-                    }
-                }
-                p {
-                    @media (min-width: $tablet) {
-                        align-self:flex-end;
-                        margin-left:80px;
-                        margin-bottom:160px;
-                    }
-                }
-            }
-
-            &.details{  // 1. 2. 3.  2nd image / / details typeDescription
-                flex-direction: row-reverse;
-                @media (min-width: $tablet) {
-                    margin-top: -170px;
-                }
-                .illustration{
-                      border: solid 20px $white;
-                }
-                .description{
-                    flex-direction: column!important;
-                    align-items: baseline;
-                    justify-content: flex-end;
                     display: flex;
-                    flex-direction: column;
-                    ul{
-                        list-style: none;
-                        li{
-                            span{
-                                @extend .title;
-                                @include font-size(5);
-                                color: $primary;
-                                margin-right: 25px;
-                            }
+                    align-items: flex-end;
+                }
+                blockquote.quote{
+                    background: $secondary;
+                    padding: 15px;
+                    margin-bottom: 0px;
+                    p{
+                        margin:0;
+                        color: $white;
+                        &:before,
+                        &:after{
+                            @include noddifont($quote, $white, 3);
+                            @include font-size(7);
+                            display: inline-block;
+                            position: absolute;
+                        }
+                        &:after{
+                            margin-top: -5px;
+                        }
+                        &:before{
+                            margin: -50px 0 0 -20px;
+                            transform: rotateY(180deg);
                         }
                     }
-                    .button{
-                        align-self: center;
+                }
+            }
+            .description{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                position: relative;
+                h2{
+                    @extend .title;
+                    @include font-size(7);
+                    color: $white;
+                    margin: 0;
+                    @media (min-width: $tablet) {
+                        @include font-size(12);
+                        position: absolute;
+                        top: 0;
+                        margin-left: -50px;
+                        margin-top: -30px;
+                        & small{
+                            @include font-size(7);
+                        }
+                    } 
+                }
+                p{
+                    color: $white;
+                    @media (min-width: $tablet) {
+                        padding-top: 100px
+                    }
+                }
+                ul{
+                    margin:0 0 15px 30px;
+                    li{
+                        padding: 10px 0;
+                        color: $white;
+                        &:before{
+                            position: absolute;
+                            margin-left: -30px;
+                        }
+                        &.offerPerso:before{
+                            @include noddifont($face, $white, 2);
+                        }
+                        &.fav:before{
+                            @include noddifont($fav, $white, 2);
+                        }
+                        &.phone:before{
+                            @include noddifont($phone, $white, 2);
+                        }
+                        &.hands:before{
+                            @include noddifont($hands, $white, 2);
+                        }
+                        &.shoes:before{
+                            @include noddifont($shoes, $white, 2);
+                        }
+                        &.star:before{
+                            @include noddifont($star, $white, 2);
+                        }
+                    }
+                }
+                .button{
+                    margin: auto;
+                    width: 100%;
+                    @media (min-width: $tablet) {
+                        max-width: 200px;
                     }
                 }
             }
         }
-        
-        &.marque {
-            h2{
-                color: $tertiary!important ;
+    }
+
+    footer{
+        display: flex;
+        background: $grey;
+        min-height: 500px;
+        .content{
+            margin: auto;   
+        }
+        .socials{
+            background: none;
+            h3{
+                color: $white;
             }
-            ul>li>span {
-                color: $tertiary!important ;
-            }
+            flex-direction: column;
+        }
+        ul li a:before{
+            color: $grey!important;
         }
     }
 
