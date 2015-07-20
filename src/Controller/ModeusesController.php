@@ -10,6 +10,7 @@ class ModeusesController extends AppController {
         
         $this->loadModel('Posts');
         $this->loadModel('Offers');
+        $this->loadModel('Applies');
     }
 
     public function index() {
@@ -37,6 +38,12 @@ class ModeusesController extends AppController {
             );
         }
 
+        if($session->read('user') != 'brand') {
+            return $this->redirect(
+                ['controller' => 'Offers', 'action' => 'index']
+            );
+        }
+
         $session = $this->request->session();
 
         $posts = $this->Posts->find('all')->where(['modeuse_id' => $id]);
@@ -45,21 +52,30 @@ class ModeusesController extends AppController {
             'contain' => ['Users']
         ]);
 
+        
+
         if($session->read('type') == 'brand') {
             $offer = $this->Offers->find('all')
                 ->where(['brand_id' => $session->read('brand_id'), 'modeuse_id IS' => null])
                 ->contain(['Brands'])->toArray();
 
+            $can_apply = true;
+
             if(isset($offer[0])) {
                 $offer = $offer[0];
+                $apply = $this->Applies->find('all')->where(['Applies.offer_id' => $offer->id, 'Applies.modeuse_id' => $modeuse->id])->toArray();
+                if(isset($apply[0])) {
+                    $can_apply = false;
+                }
             }
 
                 $this->set(array(
                 'modeuse'=> $modeuse,
                 'posts' => $posts,
-                'offer' => $offer
+                'offer' => $offer,
+                'can_apply' => $can_apply
             ));
-            $this->set('_serialize', ['modeuse, posts, offer']);
+            $this->set('_serialize', ['modeuse, posts, offer, can_apply']);
         }
 
         
