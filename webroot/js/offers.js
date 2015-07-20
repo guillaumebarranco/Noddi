@@ -48,6 +48,10 @@ $(document).ready(function() {
 	*	OFFERS
 	*/
 
+	$(".offer_picture_1").hide();
+	$(".offer_picture_2").hide();
+	$(".offer_picture_3").hide();
+
 	$('.show_upload2').hide();
 	$('.show_upload3').hide();
 
@@ -72,6 +76,7 @@ $(document).ready(function() {
             
             console.log(the_data);
 
+            $(".offer_picture_1").show();
             $(".offer_picture_1").attr('src', WEB_URL+'/'+the_data);
             $('.show_upload1').hide();
             $('.show_upload2').show();
@@ -100,6 +105,7 @@ $('#upload_offer2').uploadify({
             
             console.log(the_data);
 
+            $(".offer_picture_2").show();
             $(".offer_picture_2").attr('src', WEB_URL+'/'+the_data);
             $('.show_upload2').hide();
             $('.show_upload3').show();
@@ -127,6 +133,7 @@ $('#upload_offer3').uploadify({
             
             console.log(the_data);
 
+            $(".offer_picture_3").show();
             $(".offer_picture_3").attr('src', WEB_URL+'/'+the_data);
         }
     });
