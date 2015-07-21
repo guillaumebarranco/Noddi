@@ -2,31 +2,32 @@
 //MESSAGERIE
 
 .page_messagerie{
-	.content{
 
-		.seeProfil {
-			margin: 33px 0;
-			width: 100%;
-			position: relative;
+	.seeProfil {
+		margin: 33px 0;
+		width: 100%;
+		position: relative;
 
-			.button {
-				width: 250px;
-				margin: 0 auto;
-			}
-
-			@media (min-width: $tablet) {
-                margin-top: 200px;
-            }
+		.button {
+			width: 250px;
+			margin: 0 auto;
 		}
 
 		@media (min-width: $tablet) {
-			.seeProfil {
-				.button {
-					position: absolute;
-					right: 0;
-				}
-			}
+            margin-top: 200px;
         }
+	}
+
+	@media (min-width: $tablet) {
+		.seeProfil {
+			.button {
+				position: absolute;
+				right: 0;
+			}
+		}
+    }
+        
+	.content{
 
 		max-width: 500px;
 		padding: 20px;
