@@ -1232,7 +1232,9 @@ header.headerPage {
   display: flex;
   flex-direction: column; }
   .page_login .headerPage h2.titlePage {
-    color: #ffffff; }
+    color: #ffffff;
+    position: relative;
+    left: -20px; }
   .page_login .logo {
     margin: 10px auto;
     max-width: 200px; }
@@ -1241,7 +1243,9 @@ header.headerPage {
       height: auto; }
   .page_login section.connect {
     flex: 1;
-    margin: auto; }
+    margin: auto;
+    max-width: 500px;
+    width: 100%; }
     .page_login section.connect .signInLink {
       font-size: 18px;
       font-size: 1.8rem;
@@ -1255,8 +1259,10 @@ header.headerPage {
       margin: 0; }
     .page_login .connectSections.modeuse h2 {
       color: #ed7b6e; }
-    .page_login .connectSections.brand h2 {
-      color: #5c5c5c; }
+    .page_login .connectSections.brand {
+      margin-top: 20px; }
+      .page_login .connectSections.brand h2 {
+        color: #5c5c5c; }
     .page_login .connectSections .content {
       padding: 20px;
       background-color: #ffffff; }

@@ -10,6 +10,8 @@
     .headerPage{
         h2.titlePage{
             color: $white;
+        position: relative;
+            left: -20px;
         }
     }
     .logo {
@@ -23,6 +25,9 @@
     section.connect{
         flex:1;
         margin: auto;
+        max-width: 500px;
+        width: 100%;
+
         .signInLink{
              @include font-size(1.8);
              color: $white;
@@ -41,8 +46,12 @@
         &.modeuse h2 {
             color: $primary;
         }
-        &.brand h2 {
-            color: $quaternary;
+        &.brand {
+            margin-top: 20px;
+
+            h2 {
+                color: $quaternary;
+            }
         }
         .content{
             padding: 20px;
