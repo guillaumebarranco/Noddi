@@ -147,8 +147,8 @@ $(document).ready(function() {
 			
 		} else {
 			e.preventDefault();
-			$('.profile_section').hide();
-			$('.'+$(this).attr('data-section')).show();
+			// $('.profile_section').hide();
+			// $('.'+$(this).attr('data-section')).show();
 		}
 	});
 
