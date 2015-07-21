@@ -657,6 +657,19 @@ header.headerPage{
     }
 }
 
+.page_modify_profil {
+    text-align: center;
+
+    li {
+        margin-top: 10px;
+
+        a.noclick {
+            cursor: default;
+        }
+    }
+
+}
+
 
 
 @import '_home';

@@ -143,7 +143,9 @@ $(document).ready(function() {
 	*/
 	$('.menu_profil li a').on('click', function(e) {
 
-		if(!$(this).hasClass('disconnect')) {
+		if($(this).hasClass('disconnect') || $(this).hasClass('contact')) {
+			
+		} else {
 			e.preventDefault();
 			$('.profile_section').hide();
 			$('.'+$(this).attr('data-section')).show();
@@ -151,7 +153,7 @@ $(document).ready(function() {
 	});
 
 	/*
-	*	UPDATE PROFIL
+	*	UPDATE PROFILhref mailto 
 	*/
 
 	$('.update_profil form').on('submit', function(e) {
