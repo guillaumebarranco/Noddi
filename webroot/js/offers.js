@@ -48,11 +48,18 @@ $(document).ready(function() {
 	*	OFFERS
 	*/
 
-	$('#upload_offer').uploadify({
+	$(".offer_picture_1").hide();
+	$(".offer_picture_2").hide();
+	$(".offer_picture_3").hide();
+
+	$('.show_upload2').hide();
+	$('.show_upload3').hide();
+
+	$('#upload_offer1').uploadify({
         'fileSizeLimit' : '2MB',
         'fileTypeExts'  : '*.gif; *.jpg; *.png',
         'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
-        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer'+$('.counter').val()+'.php',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer1.php',
         'method'        : 'post',
         'buttonText' : "Télécharger des images de l'offre",
         'formData' : {'path': $('input[name=uniquid]').val()},
@@ -68,17 +75,66 @@ $(document).ready(function() {
             //console.log(file);
             
             console.log(the_data);
-            //console.log(response);
 
-            $(".offer_picture_"+$('.counter').val()).attr('src', WEB_URL+'/'+the_data);
-            $('input[name=picture]').val(WEB_URL+'/'+the_data);
+            $(".offer_picture_1").show();
+            $(".offer_picture_1").attr('src', WEB_URL+'/'+the_data);
+            $('.show_upload1').hide();
+            $('.show_upload2').show();
+        }
+    });
 
-            if(parseInt($('.counter').val()) < 3) {
-            	$('.counter').val(parseInt($('.counter').val()) + 1);
-            	console.log($('.counter').val());
-            }
+$('#upload_offer2').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer2.php',
+        'method'        : 'post',
+        'buttonText' : "Télécharger des images de l'offre",
+        'formData' : {'path': $('input[name=uniquid]').val()},
 
+        'width' : 300,
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            //alert('The file was saved to: ' + file);
+            console.log(file);
+            console.log(response);
             
+            console.log(the_data);
+
+            $(".offer_picture_2").show();
+            $(".offer_picture_2").attr('src', WEB_URL+'/'+the_data);
+            $('.show_upload2').hide();
+            $('.show_upload3').show();
+        }
+    });
+
+$('#upload_offer3').uploadify({
+        'fileSizeLimit' : '2MB',
+        'fileTypeExts'  : '*.gif; *.jpg; *.png',
+        'swf'           : WEB_URL+'/webroot/uploadify/uploadify.swf',
+        'uploader'      : WEB_URL+'/webroot/uploadify/uploadify_offer3.php',
+        'method'        : 'post',
+        'buttonText' : "Télécharger des images de l'offre",
+        'formData' : {'path': $('input[name=uniquid]').val()},
+
+        'width' : 300,
+        'onSelectError' : function(file, errorCode, errorMsg) {
+            if(errorCode == 'QUEUE_LIMIT_EXCEEDED ')    alert(errorMsg);
+            else if(errorCode == 'INVALID_FILETYPE  ')  alert(errorMsg);
+            else    alert('Erreur inconnue.');
+        },
+        'onUploadSuccess' : function(file, the_data, response) {
+            //alert('The file was saved to: ' + file);
+            //console.log(file);
+            
+            console.log(the_data);
+
+            $(".offer_picture_3").show();
+            $(".offer_picture_3").attr('src', WEB_URL+'/'+the_data);
         }
     });
 
@@ -140,12 +196,21 @@ $(document).ready(function() {
 			if(_this.response.offers[0]) {
 
 				for (offer in _this.response.offers) {
+
 					var li =
-						'<li>'+
-							'<p>'+_this.response.offers[offer].title+'</p>'+
-							'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+						'<li class="modeuse">'+
+							'<div class="modeusePic" style="background-image:url('+WEB_URL+'/img/offers/'+_this.response.offers[offer].uniquid+'/1.png);">'+
+							'</div>' +
+							'<div class="infoModeuse infoOffer">' +
+								'<p class="modeuseName">'+_this.response.offers[offer].title+'</p>' +
+								'<p class="offer_lifestyle offer_icon"><span>'+_this.response.offers[offer].lifestyle+'</span></p>' +
+								'<p class="offer_personnality offer_icon"><span>'+_this.response.offers[offer].personnality+'</span></p>' +
+								'<p class="offer_exchange offer_icon"><span>'+_this.response.offers[offer].exchange+'</span></p>' +
+								'<br /><a class="see_offer button reversed" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+							'</div>' +
 						'</li>'
 					;
+
 					$('.all_offers').append(li);
 				}
 				

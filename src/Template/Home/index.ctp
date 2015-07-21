@@ -22,7 +22,7 @@ $session = $this->request->session(); ?>
 						<!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
 					</header>
 
-					<section class="section_home section_les_noddiz">
+					<section class="section_home section_les_noddiz reduce_button">
 						<div class="myDemandReminder showLarge">
 							<h3>Ma demande</h3>
 							<ul>
@@ -37,8 +37,8 @@ $session = $this->request->session(); ?>
 			
 						<div class="count_modeuse"></div>
 
-						<ul class="list_modeuses">	
-						</ul>
+						<ul class="list_modeuses"></ul>
+						
 
 						<input type="hidden" value="<?=$session->read('brand_id')?>" class="get_brand_id">
 					</section>
@@ -54,7 +54,7 @@ $session = $this->request->session(); ?>
 		<header class="homepage">
 			<div class="topMenu">
 				<div class="logo">
-					<img src="<?=$this->request->base?>/img/logo.svg" alt="Noddi logo"/>
+					<img src="<?=$this->request->base?>/img/logo_white.svg" alt="Noddi logo"/>
 				</div>
 				<?= $this->Html->link(__("Se connecter"), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button']) ?>
 			</div>
@@ -95,7 +95,7 @@ $session = $this->request->session(); ?>
 						<li class="fav">Choisis tes créateurs et boutiques</li>
 						<li class="phone">Partage ton expérience</li>
 					</ul>
-					<a href="#" class="button reversed">S'inscrire</a>
+					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed']) ?>
 				</div>
 			</div>
 		</section>		
@@ -115,14 +115,14 @@ $session = $this->request->session(); ?>
 						<li class="hands">Collaborez avec elle</li>
 						<li class="star">Gagnez en notoriété</li>
 					</ul>
-					<a href="#" class="button reversed dark">S'inscrire</a>
+					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
 				</div>
 			</div>
 		</section>
     <footer>
 	    <div class="content">
 
-	    	<img src="img/logo2.png" alt="" />
+	    	<img src="<?=$this->request->base?>/img/nodd.svg" alt="Noddi logo"/>
 
 
 			<section class="socials">

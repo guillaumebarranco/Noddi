@@ -214,7 +214,7 @@ $(document).ready(function() {
 
 				if(_this.response.check === 'OK') {
 					swal({
-						title: "Added !",
+						title: "Inscription réussite !",
 						type: "success"
 					}, function() {
 						window.location.href = WEB_URL+'/offers';
