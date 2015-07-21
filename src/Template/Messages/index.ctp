@@ -3,7 +3,7 @@
         <h2 class="titlePage">Messagerie</h2>
         <!-- <div class="previousStepMenu previousStepMenuMessage"><a href="#">Précédent</a></div> -->
     </header>
-    <div class="getButton"></div>
+    <div class="seeProfil"></div>
 
 <div class="content">
 
@@ -71,7 +71,6 @@
     <div class="conversation">
         <ul>
         </ul>
-        <div class="seeProfil"></div>
         <form action="" class="formSendMessage">
             <textarea name="" id="" placeholder="Votre message ici"></textarea>
             <button>Envoyer</button>
