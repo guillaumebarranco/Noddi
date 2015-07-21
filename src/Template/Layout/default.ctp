@@ -58,7 +58,7 @@
             <?php if($this->request->session()->read('user')) { ?>
                 <nav id="navigation">
                     <ul class="menu">
-                        <li class="profile_picture showLarge" style="background-image:url(<?=$this->request->session()->read('picture')?>);">
+                        <li class="profile_picture" style="background-image:url(<?=$this->request->session()->read('picture')?>);">
                         </li>
 
                         <li class="profil showDesktop">
