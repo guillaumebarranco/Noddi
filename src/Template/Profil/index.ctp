@@ -3,6 +3,10 @@
 	    <h2 class="titlePage">Mon Compte</h2>
 	    <!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
 	</header>
+	<?php
+		// Get the User Session and his caractéristiques
+		$session = $this->request->session(); ?>
+
 			<ul class="menu_profil page_modify_profil">
 				<li>
 					<a href="#" class="noclick" data-section="profile">Modifier mon profil</a>
