@@ -34,6 +34,8 @@
         }
         .content {
             text-align:center;
+            margin-top: 200px;
+            
             h2 {
                 @include font-size(3.5);
                 color:$white;

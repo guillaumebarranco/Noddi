@@ -886,6 +886,7 @@ header.headerPage .previousStepMenu a:before {
 .page_index header.homepage .content,
 .page_offers header.homepage .content {
 	text-align: center;
+	margin-top: 200px;
 }
 
 .page_index header.homepage .content h2,
