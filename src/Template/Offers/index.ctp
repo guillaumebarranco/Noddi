@@ -62,7 +62,7 @@
                     <footer>
                         <h3>Informations sur l'offre <small><?=$apply->offer->title?></small></h3>
                         <p><?=$apply->offer->description?></p>
-                        <p>En échange de <strong><?=$apply->offer->type->name?></strong> (<strong><?=$apply->offer->exchange?></strong> de <strong><?=$apply->offer->brand->name?></strong> ), tu t'engages à partager le bon plan à ta communauté.</p>
+                        <p>En échange de <strong><?=$apply->offer->type->name?></strong> (<strong><?=str_replace("_", " ", $apply->offer->exchange)?></strong> de <strong><?=$apply->offer->brand->name?></strong> ), tu t'engages à partager le bon plan à ta communauté.</p>
                         <p>Disponibilité : A partir de maintenant</p>
                         <div class="flexButtons">
                             <div class="button acceptApply reversed" data-apply="<?=$apply->id?>" data-offer="<?=$apply->offer->id?>" data-modeuse="<?=$modeuse->id?>">Accepter</div>
@@ -82,6 +82,7 @@
             <p>Tu recevras un nouvel email d'alerte lorsqu'une autre marque sera intéressée par ton profil.</p>
             <p>Néanmoins, il te reste encore une chance de prouver ta motivation auprès d'une marque pour tenter de collaborer avec elle.</p>
             <div class="button get_offers reversed">Voir les propositions</div>
+        </div>
 
             
            <section class="section_home">
@@ -89,7 +90,6 @@
            </section>
 
             
-        </div>
         <?php } else { ?>
 
             <div class="content">

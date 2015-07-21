@@ -108,7 +108,10 @@
 				text-align: left;
 				padding: 15px;
 				background: none!important;
+			  	min-height: initial;
+				display:block;
 				h3{
+					margin: 10px 0;
 					@include font-size(1.8);
 					font-weight: normal;
 					margin-top: 0;

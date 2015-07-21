@@ -143,15 +143,17 @@ $(document).ready(function() {
 	*/
 	$('.menu_profil li a').on('click', function(e) {
 
-		if(!$(this).hasClass('disconnect')) {
+		if($(this).hasClass('disconnect') || $(this).hasClass('contact')) {
+			
+		} else {
 			e.preventDefault();
-			$('.profile_section').hide();
-			$('.'+$(this).attr('data-section')).show();
+			// $('.profile_section').hide();
+			// $('.'+$(this).attr('data-section')).show();
 		}
 	});
 
 	/*
-	*	UPDATE PROFIL
+	*	UPDATE PROFILhref mailto 
 	*/
 
 	$('.update_profil form').on('submit', function(e) {
@@ -209,7 +211,7 @@ $(document).ready(function() {
 			makeAjax('POST', WEB_URL+"/favoris/add", data_user, function() {
 
 				swal({
-					title: "Added !",
+					title: "Favori ajouté !",
 					type: "success"
 				}, function() {
 					that.removeClass('grey');
@@ -327,27 +329,39 @@ $(document).ready(function() {
 				if(type == 'brand') {
 					if(_this.response.messages[message].from_who == 'brand') {
 						name = 'Moi';
+						var li =
+							'<li class="message myself">'
+						;
 					} else {
 						name = _this.response.messages[message].offer.modeus.firstname+' '+_this.response.messages[message].offer.modeus.lastname;
+						var li =
+							'<li class="message receiver">'
+						;
 					}
 				} else {
 					if(_this.response.messages[message].from_who == 'brand') {
 						name = _this.response.messages[message].offer.brand.name;
+						var li =
+							'<li class="message receiver">'
+						;
 					} else {
 						name = 'Moi';
+						var li =
+							'<li class="message myself">'
+						;
 					}
 				}
 
-				var li =
-					'<li class="message">'+ 
-		                '<h3 class="message_sender">'+name+'</h3>'+ 
-		                '<div class="message_time">'+_this.response.messages[message].created+'</div>'+ 
+				li += 
+		                '<h3 class="message_sender">'+name+' <small>'+_this.response.messages[message].created.substr(2, 8)+' '+_this.response.messages[message].created.substr(11, 5)+'</small></h3>'+ 
 		                '<p class="message_content">'+_this.response.messages[message].content+'</p>'+
 		            '</li>'
 				;
 
+				
 				$('.conversation ul').append(li);
 			}
+			
 			$('.conversation ul').attr('data-offer', _this.response.messages[message].offer.id);
 			$('.conversation .seeProfil').append('<a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a>');
 
@@ -389,13 +403,11 @@ $(document).ready(function() {
 			}, function() {
 
 				var li =
-					'<li class="message">' +
-
-						'<h3 class="message_sender">Moi</h3>' +
-	                    
-	                    '<div class="message_time">'+_this.response.message.created+'</div>' +
-	                    '<p class="message_content">'+_this.response.message.content+'</p>' +
-	                '</li>'
+        			'<li class="message myself">'+ 
+                        '<h3 class="message_sender"> Moi <small>'+_this.response.message.created+'</small></h3>'+ 
+                        '<p class="message_content">'+_this.response.message.content+'</p>'+
+                    '</li>'
+	                		;
 				;
 
 				$('.conversation ul').append(li);
@@ -526,20 +538,20 @@ $(document).ready(function() {
 	*	SHOW TERMINATED OFFERS
 	*/
 
-	$('.terminatedOffers').hide();
+	$('#terminatedOffers').hide();
 
-	$('.showTerminatedOffers').on('click', function() {
-		$('.showCurrentOffer').removeClass('reversed');
-		$('.showTerminatedOffers').addClass('reversed');
-		$('.terminatedOffers').show();
-		$('.currentOffer').hide();
+	$('#showTerminatedOffers').on('click', function() {
+		$('#showCurrentOffer').removeClass('active');
+		$('#showTerminatedOffers').addClass('active');
+		$('#terminatedOffers').show();
+		$('#currentOffer').hide();
 	});
 
-	$('.showCurrentOffer').on('click', function() {
-		$('.showCurrentOffer').addClass('reversed');
-		$('.showTerminatedOffers').removeClass('reversed');
-		$('.terminatedOffers').hide();
-		$('.currentOffer').show();
+	$('#showCurrentOffer').on('click', function() {
+		$('#showCurrentOffer').addClass('active');
+		$('#showTerminatedOffers').removeClass('active');
+		$('#terminatedOffers').hide();
+		$('#currentOffer').show();
 	});
 
 });	

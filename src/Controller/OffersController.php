@@ -40,7 +40,15 @@ class OffersController extends AppController
 
         if($session->read('type') == 'brand') {
 
-            $current_offer = $this->getCurrentOffer()[0];
+            $current_offer = $this->getCurrentOffer();
+
+            if(isset($current_offer[0])) {
+                $current_offer = $current_offer[0];
+            } else {
+                return $this->redirect(
+                    ['controller' => 'Home', 'action' => 'index']
+                );
+            }
 
             $finished_offers = $this->Offers->find('all')->where(['brand_id' => $session->read('brand_id'), 'finished' => 1]);
 

@@ -249,9 +249,11 @@ form {
             margin:0;
             padding:0;
             display:flex;
-            background-color: $lightGrey;
+            background-color: $white;
+            border-top: solid 1px $grey;
             flex-direction:row;
             @media (min-width: $tablet) {
+                border: none;
                 flex-direction:column;
                 background-color: transparent;
             }
@@ -264,6 +266,9 @@ form {
                 flex:1;
                 color: $grey;
                 padding: 10px 5px;
+                &.profile_picture {
+                    display: none;
+                }
                 @media (min-width: $tablet) {
                     color: $white;
                     background-color: $secondary;
@@ -318,6 +323,7 @@ form {
                     }
 
                     &.profile_picture {
+                        background-color: transparent;
                         &:hover {
                             background-color: transparent;
                         }
@@ -351,19 +357,16 @@ form {
                         @include noddifont($message, $grey, 2.5);
                     }
                     &.dashboard:before{
-                        @include noddifont($message, $grey, 2.5);
+                        @include noddifont($website, $grey, 2.5);
                     }
                     &.profil:before{
-                        @include noddifont($message, $grey, 2.5);
+                        @include noddifont($face, $grey, 2.5);
                     }
                     &.link_propositions:before{
                         @include noddifont($tag, $grey, 2.5);
                     }
                 }
 
-                &.profile_picture {
-                    display: none;
-                }
                 &.active{
                     color: $secondary;
                     a:before {
@@ -385,7 +388,7 @@ form {
 
 .page {
     flex-grow: 1; //Set the footer a the bottom of the page
-    padding-bottom: 40px;
+    padding-bottom: 70px;
     position: relative;
     @media (min-width: $tablet) {
         padding: 10px;
@@ -486,17 +489,17 @@ header.headerPage{
 *   MESSAGES
 */
 
-.message {
-    width: 300px;
-    margin: 0 auto;
-    border: solid 1px black;
-    padding: 10px;
+// .message {
+//     width: 300px;
+//     margin: 0 auto;
+//     border: solid 1px black;
+//     padding: 10px;
 
-    .message_sender, .message_time {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
+//     .message_sender, .message_time {
+//         display: inline-block;
+//         vertical-align: top;
+//     }
+// }
 
 .blog_selected, .network_selected, .section_selected, .audience_selected {
     background-color: blue;
@@ -655,6 +658,25 @@ header.headerPage{
     }
 }
 
+// .page_modify_profil {
+//     text-align: center;
+//     max-width: 500px;
+//     margin: 0 auto;
+
+//     li {
+//         margin-top: 10px;
+//         box-shadow: 0 0 7px 1px #aaaaaa;
+//         padding: 5px 0;
+
+//         &.noclick {
+//             box-shadow: none;
+//             a {
+//                 cursor: default;
+//             }
+//         }
+//     }
+// }
+
 
 
 @import '_home';
@@ -664,4 +686,6 @@ header.headerPage{
 @import '_dashboard';
 @import '_account';
 @import '_offers';
+@import '_messagerie';
+@import '_account';
 

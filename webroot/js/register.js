@@ -450,6 +450,10 @@ $(document).ready(function() {
 
 	$('.the_picture').hide();
 
+	if($(window).width() < 500) {
+		$('input[name=picture]').val(WEB_URL+'/img/logo2.png');
+	}
+
 	$('#upload').uploadify({
         'fileSizeLimit' : '2MB',
         'fileTypeExts'  : '*.gif; *.jpg; *.png',
@@ -464,7 +468,9 @@ $(document).ready(function() {
             else    alert('Erreur inconnue.');
         },
         'onUploadSuccess' : function(file, the_data, response) {
-            // alert('The file was saved to: ' + data);
+            // console.log('The file was saved to: ' + the_data);
+            // console.log(file);
+            // console.log(response);
             $(".the_picture img").attr('src', WEB_URL+'/'+the_data);
             $('input[name=picture]').val(WEB_URL+'/'+the_data);
             $('.the_picture').show();

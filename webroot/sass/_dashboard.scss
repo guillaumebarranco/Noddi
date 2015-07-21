@@ -36,6 +36,7 @@ article.proposition {
 			 max-height: 150px;
 			p{
 				font-weight: normal;
+				margin: 5px 0;
 				&.type{
 					@include font-size(1.6);
 				}
@@ -43,6 +44,7 @@ article.proposition {
 					padding-top: 20px;
 					justify-content: space-around;
 					border-top: solid 1px $grey;
+					padding: 10px 0;
 					@include font-size(1.4);
 				}
 
@@ -79,6 +81,33 @@ article.proposition {
 		align-items: center;
 	}
 }
+ul.tabsOfferStatus{
+		display: flex;
+		max-width: 500px;
+		margin: auto;
+		padding-top: 20px;
+	li{
+		cursor: pointer;
+		text-align: center;
+		padding: 10px;
+		border: solid 1px $grey;
+		flex:1;
+		transition: background-color $transitionLengthDefault $transitionTimingDefault;
+		&+li{
+			// border: none;
+			border-left: none;
+			border-right: solid 1px $grey;
+		}
+		&:hover{
+			background-color: $white;
+		}
+		&.active{
+			color: $white;
+			background-color: $secondary;
+		}
+	}
+			
+}
 .propositions{
 	display: flex;
 	flex-direction: column;
@@ -106,22 +135,20 @@ article.proposition {
 	display: flex;
 	background: $white;
 	justify-content: center;
+	max-width: 500px;
+	margin: 0 auto;
 
 	.profile_picture {
-		width: 70px;
-		height: 70px;
+		width: 100px;
+		height: 100px;
 	}
 
 	p {
-
+		margin-right: 15px;
+		text-align: center;
 	}
 	footer{
-		.accept{
-			background: $primary;
-		}
-		.decline{
-			background: $secondary;
-		}
+		background: none;
 	}
 }
 
@@ -130,6 +157,9 @@ footer.footerLinks{
 	max-width: 500px;
 	margin: auto;
 	background: none;
+	.button{
+		padding:10px!important;
+	}
 }
 
 .page_dashboard{	

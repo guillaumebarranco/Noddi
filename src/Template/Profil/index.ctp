@@ -5,21 +5,18 @@
 	</header>
 	<?php
 		// Get the User Session and his caractéristiques
-		$session = $this->request->session();
+		$session = $this->request->session(); ?>
 
-		if($session->read('type') == 'modeuse') {
-			$user = $modeuse['user']; ?>
-
-			<ul class="menu_profil">
-				<li>
+			<ul class="menu_profil page_modify_profil">
+				<li class="disabled">
 					<a href="#" data-section="profile">Modifier mon profil</a>
 				</li>
 
-				<li>
+				<li class="disabled">
 					<a href="#" data-section="notifications">Notifications par email</a>
 				</li>
 
-				<li>
+				<li class="disabled">
 					<a href="#" data-section="preferences">Préférences</a>
 				</li>
 
@@ -31,7 +28,7 @@
 					<a href="#" data-section="mentions">Mentions légales</a>
 				</li>
 
-				<li>
+				<li class="disabled">
 					<a href="#" data-section="notifications">FAQ</a>
 				</li>
 
@@ -39,37 +36,15 @@
 					<?= $this->Html->link(__('Déconnexion'), ['controller' => 'Users', 'action' => 'disconnect'], ['class' => 'disconnect']) ?>
 				</li>
 
-				<br><br>
-
-				<li>
+				<li class="disabled"> 
 					<a href="#" data-section="maj">Mise à jour 1.0</a>
 				</li>
 
 				<li>
-					<a href="#" data-section="contact">Nous contacter</a>
+					<a href="mailto:contact@noddi.eu" class="contact" data-section="contact">Nous contacter</a>
 				</li>
 
 			</ul>
-
-		<?php } elseif($session->read('type') == 'brand') {
-			$user = $brand['user']; ?>
-
-			<ul class="menu_profil">
-				<li>
-					<a href="#" data-section="profile">Profil</a>
-				</li>
-
-				<li>
-					<a href="#" data-section="offers">Offres</a>
-				</li>
-
-				<li>
-					<?= $this->Html->link(__('Déconnexion'), ['controller' => 'Users', 'action' => 'disconnect'], ['class' => 'disconnect']) ?>
-				</li>
-			</ul>
-		<?php }
-	?>
-
 
 
 	<div class="profile_section profile">

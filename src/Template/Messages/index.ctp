@@ -1,32 +1,31 @@
 <section class="page page_messagerie">
     <header class="headerPage">
         <h2 class="titlePage">Messagerie</h2>
-        <div class="previousStepMenu previousStepMenuMessage"><a href="#">Précédent</a></div>
+        <!-- <div class="previousStepMenu previousStepMenuMessage"><a href="#">Précédent</a></div> -->
     </header>
+
+<div class="content">
+
+
+
+
 
     <div class="all_messages">
 
         <?php 
         if(!empty($tab_offers)) {
             foreach ($tab_offers as $message) { ?>
-
-                <div class="message">
-                    
+               
+                <article class="conversations seeConversation" data-offer="<?=$message['id']?>">
                     <?php if($this->request->session()->read('type') == 'modeuse') { ?>
-                        <h3 class="message_sender"><?=$message['name']?></h3>
+                        <h3><?=$message['name']?> <small><?=$message['created'] ?></small></h3>
                     <?php } else { ?>
-                        <h3 class="message_sender"><?=$message['firstname']?> <?=$message['lastname']?></h3>
+                        <h3><?=$message['firstname']?> <?=$message['lastname']?> <small><?=$message['created'] ?></small></h3>
                     <?php } ?>
-        
-                    <input type="hidden" class="get_the_type" value="<?=$this->request->session()->read('type')?>">
-                    
-                    <div class="message_time"><?=$message['created'] ?></div>
-                    <p class="message_content"><?=$message['message']?></p>
-
-                    <button class="button seeConversation" data-offer="<?=$message['id']?>">Voir la conversation</button>
-
-                </div>
-
+                        <p><?=$message['message']?></p>
+                        <p class="seeMore">Voir la conversation...</p>
+                        <input type="hidden" class="get_the_type" value="<?=$this->request->session()->read('type')?>">
+                </article>
             <?php } 
         } else {
 
@@ -69,12 +68,15 @@
     </div>
 
     <div class="conversation">
-        <ul></ul>
+        <ul>
+        </ul>
         <div class="seeProfil"></div>
         <form action="" class="formSendMessage">
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-            <button class="button">Envoyer</button>
+            <textarea name="" id="" placeholder="Votre message ici"></textarea>
+            <button>Envoyer</button>
         </form>
     </div>
-    
+
+
+</div>
 </section>
