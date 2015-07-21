@@ -1734,6 +1734,7 @@ header.headerPage .previousStepMenu a:before {
 
 .page_login .headerPage h2.titlePage {
 	color: #ffffff;
+	position: relative;
 }
 
 .page_login .logo {
@@ -1751,6 +1752,8 @@ header.headerPage .previousStepMenu a:before {
 	-ms-flex: 1;
 	flex: 1;
 	margin: auto;
+	max-width: 500px;
+	width: 100%;
 }
 
 .page_login section.connect .signInLink {
@@ -1774,6 +1777,10 @@ header.headerPage .previousStepMenu a:before {
 
 .page_login .connectSections.modeuse h2 {
 	color: #ed7b6e;
+}
+
+.page_login .connectSections.brand {
+	margin-top: 20px;
 }
 
 .page_login .connectSections.brand h2 {
@@ -3531,6 +3538,10 @@ body {
 	background-color: #5fc6ce;
 }
 
+.headerApp nav#navigation ul.menu li.profile_picture {
+	background-color: transparent;
+}
+
 .headerApp nav#navigation ul.menu li.profile_picture:hover {
 	background-color: transparent;
 }
@@ -3630,6 +3641,10 @@ header.headerPage .previousStepMenu a:before {
 .page_index section.memberType .content .description .button,
 .page_offers section.memberType .content .description .button {
 	max-width: 200px;
+}
+
+.page_login .headerPage h2.titlePage {
+	left: -20px;
 }
 
 .page_signin .createFacebookAccount .content {
