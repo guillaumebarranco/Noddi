@@ -1233,8 +1233,10 @@ header.headerPage {
   flex-direction: column; }
   .page_login .headerPage h2.titlePage {
     color: #ffffff;
-    position: relative;
-    left: -20px; }
+    position: relative; }
+    @media (min-width: 500px) {
+      .page_login .headerPage h2.titlePage {
+        left: -20px; } }
   .page_login .logo {
     margin: 10px auto;
     max-width: 200px; }

@@ -10,8 +10,10 @@
     .headerPage{
         h2.titlePage{
             color: $white;
-        position: relative;
-            left: -20px;
+            position: relative;
+            @media (min-width: $tablet) {
+                left: -20px;
+            }
         }
     }
     .logo {
