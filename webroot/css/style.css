@@ -936,6 +936,9 @@ header.headerPage .previousStepMenu a:before {
 	text-align: center;
 	padding: 0 20px;
 	width: 100%;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 }
 
 .page_index section.servicePresentation .presentation,
@@ -949,7 +952,7 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.servicePresentation .presentation h3,
 .page_offers section.servicePresentation .presentation h3 {
-	color: #ed7b6e;
+	color: #000000;
 	margin-bottom: 0;
 }
 
@@ -967,7 +970,7 @@ header.headerPage .previousStepMenu a:before {
 	width: 50px;
 	height: 50px;
 	border-radius: 25px;
-	background: #5fc6ce;
+	background: #ed7b6e;
 	color: #ffffff;
 	position: absolute;
 	z-index: -5;
@@ -3494,10 +3497,16 @@ header.headerPage .previousStepMenu a:before {
 	flex-direction: row;
 }
 
+.page_index section.servicePresentation .presentation h3,
+.page_offers section.servicePresentation .presentation h3 {
+	color: #ed7b6e;
+}
+
 .page_index section.servicePresentation .presentation:before,
 .page_offers section.servicePresentation .presentation:before {
 	z-index: 5;
 	margin-top: -20px;
+	background: #5fc6ce;
 }
 
 .page_index section.memberType .content .citation,
