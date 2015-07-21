@@ -538,20 +538,20 @@ $(document).ready(function() {
 	*	SHOW TERMINATED OFFERS
 	*/
 
-	$('.terminatedOffers').hide();
+	$('#terminatedOffers').hide();
 
-	$('.showTerminatedOffers').on('click', function() {
-		$('.showCurrentOffer').removeClass('reversed');
-		$('.showTerminatedOffers').addClass('reversed');
-		$('.terminatedOffers').show();
-		$('.currentOffer').hide();
+	$('#showTerminatedOffers').on('click', function() {
+		$('#showCurrentOffer').removeClass('active');
+		$('#showTerminatedOffers').addClass('active');
+		$('#terminatedOffers').show();
+		$('#currentOffer').hide();
 	});
 
-	$('.showCurrentOffer').on('click', function() {
-		$('.showCurrentOffer').addClass('reversed');
-		$('.showTerminatedOffers').removeClass('reversed');
-		$('.terminatedOffers').hide();
-		$('.currentOffer').show();
+	$('#showCurrentOffer').on('click', function() {
+		$('#showCurrentOffer').addClass('active');
+		$('#showTerminatedOffers').removeClass('active');
+		$('#terminatedOffers').hide();
+		$('#currentOffer').show();
 	});
 
 });	

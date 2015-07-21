@@ -833,26 +833,6 @@ header.headerPage .previousStepMenu a:before {
 	display: inline-block;
 }
 
-.page_modify_profil {
-	text-align: center;
-	max-width: 500px;
-	margin: 0 auto;
-}
-
-.page_modify_profil li {
-	margin-top: 10px;
-	box-shadow: 0 0 7px 1px #aaaaaa;
-	padding: 5px 0;
-}
-
-.page_modify_profil li.noclick {
-	box-shadow: none;
-}
-
-.page_modify_profil li.noclick a {
-	cursor: default;
-}
-
 .page_index,
 .page_offers {
 	display: -webkit-flex;
@@ -2948,6 +2928,7 @@ article.proposition .content .proposition_content {
 
 article.proposition .content .proposition_content p {
 	font-weight: normal;
+	margin: 5px 0;
 }
 
 article.proposition .content .proposition_content p.type {
@@ -2961,6 +2942,7 @@ article.proposition .content .proposition_content p.status {
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
 	border-top: solid 1px #c8c7cc;
+	padding: 10px 0;
 	font-size: 14px;
 	font-size: 1.4rem;
 }
@@ -2985,6 +2967,40 @@ article.proposition .notifOffer {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
+}
+
+ul.tabsOfferStatus {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	max-width: 500px;
+	margin: auto;
+	padding-top: 20px;
+}
+
+ul.tabsOfferStatus li {
+	cursor: pointer;
+	text-align: center;
+	padding: 10px;
+	border: solid 1px #c8c7cc;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	transition: background-color 0.2s ease-in-out;
+}
+
+ul.tabsOfferStatus li + li {
+	border-left: none;
+	border-right: solid 1px #c8c7cc;
+}
+
+ul.tabsOfferStatus li:hover {
+	background-color: #ffffff;
+}
+
+ul.tabsOfferStatus li.active {
+	color: #ffffff;
+	background-color: #5fc6ce;
 }
 
 .propositions {
@@ -3051,6 +3067,42 @@ footer.footerLinks {
 	max-width: 500px;
 	margin: auto;
 	background: none;
+}
+
+footer.footerLinks .button {
+	padding: 10px !important;
+}
+
+.page_account ul.menu_profil li {
+	background: #f6f6f6;
+	border-bottom: solid 1px white;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.page_account ul.menu_profil li a {
+	display: block;
+	padding: 15px;
+	margin: 0;
+}
+
+.page_account ul.menu_profil li + li {
+	border-top: solid 1px #e9e9e9;
+}
+
+.page_account ul.menu_profil li:hover {
+	background-color: #ffffff;
+}
+
+.page_account ul.menu_profil li.disabled {
+	opacity: 0.5;
+}
+
+.page_account ul.menu_profil li.disabled a {
+	cursor: not-allowed;
+}
+
+.page_account ul.menu_profil li.disabled:hover {
+	background-color: #f6f6f6;
 }
 
 .page_offers .formCreateOffer {
@@ -3343,6 +3395,38 @@ footer.footerLinks {
 	border-bottom-left-radius: 12px;
 	border: none;
 	color: #ffffff;
+}
+
+.page_account ul.menu_profil li {
+	background: #f6f6f6;
+	border-bottom: solid 1px white;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.page_account ul.menu_profil li a {
+	display: block;
+	padding: 15px;
+	margin: 0;
+}
+
+.page_account ul.menu_profil li + li {
+	border-top: solid 1px #e9e9e9;
+}
+
+.page_account ul.menu_profil li:hover {
+	background-color: #ffffff;
+}
+
+.page_account ul.menu_profil li.disabled {
+	opacity: 0.5;
+}
+
+.page_account ul.menu_profil li.disabled a {
+	cursor: not-allowed;
+}
+
+.page_account ul.menu_profil li.disabled:hover {
+	background-color: #f6f6f6;
 }
 
 @media (min-width: 500px) {
