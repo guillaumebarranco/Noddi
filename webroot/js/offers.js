@@ -48,6 +48,10 @@ $(document).ready(function() {
 	*	OFFERS
 	*/
 
+	$(".offer_picture_1").hide();
+	$(".offer_picture_2").hide();
+	$(".offer_picture_3").hide();
+
 	$('.show_upload2').hide();
 	$('.show_upload3').hide();
 
@@ -72,6 +76,7 @@ $(document).ready(function() {
             
             console.log(the_data);
 
+            $(".offer_picture_1").show();
             $(".offer_picture_1").attr('src', WEB_URL+'/'+the_data);
             $('.show_upload1').hide();
             $('.show_upload2').show();
@@ -100,6 +105,7 @@ $('#upload_offer2').uploadify({
             
             console.log(the_data);
 
+            $(".offer_picture_2").show();
             $(".offer_picture_2").attr('src', WEB_URL+'/'+the_data);
             $('.show_upload2').hide();
             $('.show_upload3').show();
@@ -127,6 +133,7 @@ $('#upload_offer3').uploadify({
             
             console.log(the_data);
 
+            $(".offer_picture_3").show();
             $(".offer_picture_3").attr('src', WEB_URL+'/'+the_data);
         }
     });
@@ -189,12 +196,21 @@ $('#upload_offer3').uploadify({
 			if(_this.response.offers[0]) {
 
 				for (offer in _this.response.offers) {
+
 					var li =
-						'<li>'+
-							'<p>'+_this.response.offers[offer].title+'</p>'+
-							'<a class="see_offer button" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+						'<li class="modeuse">'+
+							'<div class="modeusePic" style="background-image:url('+WEB_URL+'/img/offers/'+_this.response.offers[offer].uniquid+'/1.png);">'+
+							'</div>' +
+							'<div class="infoModeuse infoOffer">' +
+								'<p class="modeuseName">'+_this.response.offers[offer].title+'</p>' +
+								'<p class="offer_lifestyle offer_icon"><span>'+_this.response.offers[offer].lifestyle+'</span></p>' +
+								'<p class="offer_personnality offer_icon"><span>'+_this.response.offers[offer].personnality+'</span></p>' +
+								'<p class="offer_exchange offer_icon"><span>'+_this.response.offers[offer].exchange+'</span></p>' +
+								'<br /><a class="see_offer button reversed" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+							'</div>' +
 						'</li>'
 					;
+
 					$('.all_offers').append(li);
 				}
 				
