@@ -55,6 +55,7 @@
         text-align:center;
         padding:0 20px;
         width: 100%;
+        margin-bottom: 20px;
         align-items: center;
         @media (min-width: $tablet) {
             flex-direction:row;
@@ -190,6 +191,7 @@
                     margin:0 0 15px 30px;
                     li{
                         padding: 10px 0;
+                        margin-top: 10px;
                         color: $white;
                         &:before{
                             position: absolute;
@@ -216,7 +218,6 @@
                     }
                 }
                 .button{
-                    margin: auto;
                     width: 100%;
                     @media (min-width: $tablet) {
                         max-width: 200px;
@@ -235,19 +236,24 @@
         .content{
             margin: auto;   
         }
+
+        ul {
+            li a:before{
+                color: $grey !important;
+                font-size: 2.6rem !important;
+                position: relative;
+                left: -3px;
+            }
+        }
+
         .socials{
-            background: none;
+            background: none;margin-bottom: 70px;
             h3{
                 color: $white;
             }
             flex-direction: column;
         }
-        ul li a:before{
-            color: $grey !important;
-            font-size: 2.6rem !important;
-            position: relative;
-            left: -3px;
-        }
+        
         small {
             color: $white;
         }

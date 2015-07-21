@@ -916,6 +916,7 @@ header.headerPage .previousStepMenu a:before {
 	text-align: center;
 	padding: 0 20px;
 	width: 100%;
+	margin-bottom: 20px;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -1130,6 +1131,7 @@ header.headerPage .previousStepMenu a:before {
 .page_index section.memberType .content .description ul li,
 .page_offers section.memberType .content .description ul li {
 	padding: 10px 0;
+	margin-top: 10px;
 	color: #ffffff;
 }
 
@@ -1237,7 +1239,6 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.memberType .content .description .button,
 .page_offers section.memberType .content .description .button {
-	margin: auto;
 	width: 100%;
 }
 
@@ -1257,9 +1258,18 @@ header.headerPage .previousStepMenu a:before {
 	margin: auto;
 }
 
+.page_index footer ul li a:before,
+.page_offers footer ul li a:before {
+	color: #c8c7cc !important;
+	font-size: 2.6rem !important;
+	position: relative;
+	left: -3px;
+}
+
 .page_index footer .socials,
 .page_offers footer .socials {
 	background: none;
+	margin-bottom: 70px;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
@@ -1268,14 +1278,6 @@ header.headerPage .previousStepMenu a:before {
 .page_index footer .socials h3,
 .page_offers footer .socials h3 {
 	color: #ffffff;
-}
-
-.page_index footer ul li a:before,
-.page_offers footer ul li a:before {
-	color: #c8c7cc !important;
-	font-size: 2.6rem !important;
-	position: relative;
-	left: -3px;
 }
 
 .page_index footer small,
