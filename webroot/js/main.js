@@ -363,7 +363,7 @@ $(document).ready(function() {
 			}
 			
 			$('.conversation ul').attr('data-offer', _this.response.messages[message].offer.id);
-			$('.conversation .seeProfil').append('<a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a>');
+			$('.getButton .seeProfil').append('<a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a>');
 
 			$('.all_messages').hide();
 

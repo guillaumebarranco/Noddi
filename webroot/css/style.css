@@ -3297,6 +3297,11 @@ footer.footerLinks .button {
 	margin: auto;
 }
 
+.page_messagerie .content .seeProfil {
+	margin: 33px 0;
+	width: 100%;
+}
+
 .page_messagerie .content .conversations,
 .page_messagerie .content .conversation ul li {
 	padding: 20px;

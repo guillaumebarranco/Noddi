@@ -1,6 +1,7 @@
 <section class="page page_messagerie">
     <header class="headerPage">
         <h2 class="titlePage">Messagerie</h2>
+        <div class="getButton"></div>
         <!-- <div class="previousStepMenu previousStepMenuMessage"><a href="#">Précédent</a></div> -->
     </header>
 
