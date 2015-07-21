@@ -203,7 +203,7 @@ $('#upload_offer3').uploadify({
 							'</div>' +
 							'<div class="infoModeuse infoOffer">' +
 								'<p class="modeuseName">'+_this.response.offers[offer].title+'</p>' +
-								'<br /><a class="see_offer button reversed" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
+								'<a class="see_offer button reversed" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
 							'</div>' +
 						'</li>'
 					;
