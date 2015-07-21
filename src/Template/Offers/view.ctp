@@ -37,3 +37,5 @@
 
 
 <?php } ?>
+
+<?= $this->Html->script('offers') ?>
