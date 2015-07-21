@@ -3578,6 +3578,11 @@ header.headerPage .previousStepMenu a:before {
 	color: #aaaaaa;
 }
 
+.page_index header.homepage,
+.page_offers header.homepage {
+	min-height: 600px;
+}
+
 .page_index header.homepage .topMenu,
 .page_offers header.homepage .topMenu {
 	-webkit-flex-direction: row;

@@ -7,6 +7,9 @@
         background:url('../img/pictures/home_desktop-visu1.jpg') center center;
         background-size:cover;
         padding:40px;
+        @media (min-width: $tablet) {
+            min-height: 600px;
+        }
         .topMenu {
             display:flex;
             justify-content:space-between;
