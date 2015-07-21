@@ -426,8 +426,6 @@ form {
             font-weight: normal;
             text-decoration: none;
             text-transform: none; }
-        .headerApp nav#navigation ul.menu li.profile_picture {
-          display: none; }
         .headerApp nav#navigation ul.menu li.active {
           color: #5fc6ce; }
           .headerApp nav#navigation ul.menu li.active a:before {
