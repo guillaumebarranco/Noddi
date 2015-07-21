@@ -8,15 +8,15 @@
 		$session = $this->request->session(); ?>
 
 			<ul class="menu_profil page_modify_profil">
-				<li>
+				<li class="noclick">
 					<a href="#" class="noclick" data-section="profile">Modifier mon profil</a>
 				</li>
 
-				<li>
+				<li class="noclick">
 					<a href="#" class="noclick" data-section="notifications">Notifications par email</a>
 				</li>
 
-				<li>
+				<li class="noclick">
 					<a href="#" class="noclick" data-section="preferences">Préférences</a>
 				</li>
 
@@ -28,7 +28,7 @@
 					<a href="#" data-section="mentions">Mentions légales</a>
 				</li>
 
-				<li>
+				<li class="noclick">
 					<a href="#" class="noclick" data-section="notifications">FAQ</a>
 				</li>
 
@@ -38,7 +38,7 @@
 
 				<br><br>
 
-				<li>
+				<li class="noclick"> 
 					<a href="#" class="noclick" data-section="maj">Mise à jour 1.0</a>
 				</li>
 
