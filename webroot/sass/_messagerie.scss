@@ -66,10 +66,10 @@
 							}
 							&.receiver{
 								margin-right: 40px;
-								background-color: lighten($primary,8%);
+								background-color: lighten($secondary,8%);
 								&:after{
 								left: 0;
-								border-right:20px solid $primary; 
+								border-right:20px solid $secondary; 
 
 								}
 							}
