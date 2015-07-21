@@ -10,17 +10,17 @@
 		if($session->read('type') == 'modeuse') {
 			$user = $modeuse['user']; ?>
 
-			<ul class="menu_profil">
+			<ul class="menu_profil page_modify_profil">
 				<li>
-					<a href="#" data-section="profile">Modifier mon profil</a>
+					<a href="#" class="noclick" data-section="profile">Modifier mon profil</a>
 				</li>
 
 				<li>
-					<a href="#" data-section="notifications">Notifications par email</a>
+					<a href="#" class="noclick" data-section="notifications">Notifications par email</a>
 				</li>
 
 				<li>
-					<a href="#" data-section="preferences">Préférences</a>
+					<a href="#" class="noclick" data-section="preferences">Préférences</a>
 				</li>
 
 				<li>
@@ -32,7 +32,7 @@
 				</li>
 
 				<li>
-					<a href="#" data-section="notifications">FAQ</a>
+					<a href="#" class="noclick" data-section="notifications">FAQ</a>
 				</li>
 
 				<li>
@@ -42,11 +42,11 @@
 				<br><br>
 
 				<li>
-					<a href="#" data-section="maj">Mise à jour 1.0</a>
+					<a href="#" class="noclick" data-section="maj">Mise à jour 1.0</a>
 				</li>
 
 				<li>
-					<a href="#" data-section="contact">Nous contacter</a>
+					<a href="mailto:contact@noddi.eu" class="contact" data-section="contact">Nous contacter</a>
 				</li>
 
 			</ul>
