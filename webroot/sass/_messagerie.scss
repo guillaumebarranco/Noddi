@@ -12,21 +12,18 @@
 			width: 250px;
 			margin: 0 auto;
 		}
-
-		@media (min-width: $tablet) {
-            margin-top: 200px;
-        }
 	}
 
 	@media (min-width: $tablet) {
 		.seeProfil {
+			height: 70px;
 			.button {
 				position: absolute;
-				right: 0;
+				right: 50px;
 			}
 		}
     }
-        
+
 	.content{
 
 		max-width: 500px;
