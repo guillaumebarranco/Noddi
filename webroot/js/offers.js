@@ -203,9 +203,9 @@ $('#upload_offer3').uploadify({
 							'</div>' +
 							'<div class="infoModeuse infoOffer">' +
 								'<p class="modeuseName">'+_this.response.offers[offer].title+'</p>' +
-								'<p class="offer_lifestyle offer_icon"><span>'+_this.response.offers[offer].lifestyle+'</span></p>' +
-								'<p class="offer_personnality offer_icon"><span>'+_this.response.offers[offer].personnality+'</span></p>' +
-								'<p class="offer_exchange offer_icon"><span>'+_this.response.offers[offer].exchange+'</span></p>' +
+								'<p class="offer_lifestyle offer_icon"><span>'+_this.response.offers[offer].lifestyle.replace("_", " ")+'</span></p>' +
+								'<p class="offer_personnality offer_icon"><span>'+_this.response.offers[offer].personnality.replace("_", " ")+'</span></p>' +
+								'<p class="offer_exchange offer_icon"><span>'+_this.response.offers[offer].exchange.replace("_", " ")+'</span></p>' +
 								'<a class="see_offer button reversed" href="/Noddi/offers/view/'+_this.response.offers[offer].id+'">Postuler</a>'+
 							'</div>' +
 						'</li>'
