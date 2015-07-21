@@ -143,15 +143,17 @@ $(document).ready(function() {
 	*/
 	$('.menu_profil li a').on('click', function(e) {
 
-		if(!$(this).hasClass('disconnect')) {
+		if($(this).hasClass('disconnect') || $(this).hasClass('contact')) {
+			
+		} else {
 			e.preventDefault();
-			$('.profile_section').hide();
-			$('.'+$(this).attr('data-section')).show();
+			// $('.profile_section').hide();
+			// $('.'+$(this).attr('data-section')).show();
 		}
 	});
 
 	/*
-	*	UPDATE PROFIL
+	*	UPDATE PROFILhref mailto 
 	*/
 
 	$('.update_profil form').on('submit', function(e) {
@@ -209,7 +211,7 @@ $(document).ready(function() {
 			makeAjax('POST', WEB_URL+"/favoris/add", data_user, function() {
 
 				swal({
-					title: "Added !",
+					title: "Favori ajouté !",
 					type: "success"
 				}, function() {
 					that.removeClass('grey');

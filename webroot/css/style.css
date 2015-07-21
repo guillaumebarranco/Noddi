@@ -833,6 +833,26 @@ header.headerPage .previousStepMenu a:before {
 	display: inline-block;
 }
 
+.page_modify_profil {
+	text-align: center;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.page_modify_profil li {
+	margin-top: 10px;
+	box-shadow: 0 0 7px 1px #aaaaaa;
+	padding: 5px 0;
+}
+
+.page_modify_profil li.noclick {
+	box-shadow: none;
+}
+
+.page_modify_profil li.noclick a {
+	cursor: default;
+}
+
 .page_index,
 .page_offers {
 	display: -webkit-flex;
