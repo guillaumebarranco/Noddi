@@ -329,37 +329,39 @@ $(document).ready(function() {
 				if(type == 'brand') {
 					if(_this.response.messages[message].from_who == 'brand') {
 						name = 'Moi';
+						var li =
+							'<li class="message myself">'
+						;
 					} else {
 						name = _this.response.messages[message].offer.modeus.firstname+' '+_this.response.messages[message].offer.modeus.lastname;
+						var li =
+							'<li class="message receiver">'
+						;
 					}
 				} else {
 					if(_this.response.messages[message].from_who == 'brand') {
 						name = _this.response.messages[message].offer.brand.name;
+						var li =
+							'<li class="message receiver">'
+						;
 					} else {
 						name = 'Moi';
+						var li =
+							'<li class="message myself">'
+						;
 					}
 				}
 
-				var li =
-					'<li class="message">'+ 
-		                '<h3 class="message_sender">'+name+' <small>'+_this.response.messages[message].created+'</small></h3>'+ 
+				li += 
+		                '<h3 class="message_sender">'+name+' <small>'+_this.response.messages[message].created.substr(2, 8)+' '+_this.response.messages[message].created.substr(11, 5)+'</small></h3>'+ 
 		                '<p class="message_content">'+_this.response.messages[message].content+'</p>'+
 		            '</li>'
 				;
 
 				
-				if(name=='Moi'){
-					$('.conversation ul').append(li);
-					$('.conversation ul li').addClass('myself');
-					console.log('name' + name);
-				} else {
-					$('.conversation ul').append(li);
-					$('.conversation ul li').addClass('receiver');
-					console.log('name' + name);
-				}
-				name = undefined;
-				li = undefined;
+				$('.conversation ul').append(li);
 			}
+			
 			$('.conversation ul').attr('data-offer', _this.response.messages[message].offer.id);
 			$('.conversation .seeProfil').append('<a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a>');
 

@@ -45,7 +45,7 @@ class MessagesController extends AppController {
                         $tab_offers[$message->offer->id]['name'] = $message->offer->brand->name;
                         $tab_offers[$message->offer->id]['id'] = $message->offer->id;
                     } else {
-                        if($message->created > $tab_offers[$message->offer->id]) {
+                        if($message->created > $tab_offers[$message->offer->id]['created']) {
                             $tab_offers[$message->offer->id]['created'] = $message->created;
                             $tab_offers[$message->offer->id]['message'] = $message->content;
                             $tab_offers[$message->offer->id]['firstname'] = $message->offer->modeus->firstname;
