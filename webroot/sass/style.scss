@@ -249,9 +249,11 @@ form {
             margin:0;
             padding:0;
             display:flex;
-            background-color: $lightGrey;
+            background-color: $white;
+            border-top: solid 1px $grey;
             flex-direction:row;
             @media (min-width: $tablet) {
+                border: none;
                 flex-direction:column;
                 background-color: transparent;
             }
@@ -264,6 +266,9 @@ form {
                 flex:1;
                 color: $grey;
                 padding: 10px 5px;
+                &.profile_picture {
+                    display: none;
+                }
                 @media (min-width: $tablet) {
                     color: $white;
                     background-color: $secondary;
@@ -351,10 +356,10 @@ form {
                         @include noddifont($message, $grey, 2.5);
                     }
                     &.dashboard:before{
-                        @include noddifont($message, $grey, 2.5);
+                        @include noddifont($website, $grey, 2.5);
                     }
                     &.profil:before{
-                        @include noddifont($message, $grey, 2.5);
+                        @include noddifont($face, $grey, 2.5);
                     }
                     &.link_propositions:before{
                         @include noddifont($tag, $grey, 2.5);
@@ -382,7 +387,7 @@ form {
 
 .page {
     flex-grow: 1; //Set the footer a the bottom of the page
-    padding-bottom: 40px;
+    padding-bottom: 70px;
     position: relative;
     @media (min-width: $tablet) {
         padding: 10px;
