@@ -85,11 +85,20 @@
 			}
 			form.formSendMessage{
 				textarea{
-					margin:0 40px;
+					@media (min-width: $tablet) {margin:0 40px;}
+					margin-bottom: 0;
+					border-top-right-radius: $radiusDefault;
+					border-top-left-radius: $radiusDefault;
+					min-height: 80px;
+				}
+				button{
+					@media (min-width: $tablet) {margin:0 40px;}
+					min-height: 50px;
+					background: $primary;
+					border-bottom-right-radius: $radiusDefault;
+					border-bottom-left-radius: $radiusDefault;
+					border: none;
 					color: $white;
-					&[placeholder]{
-						color: $white;
-					}
 				}
 			}
 		}
