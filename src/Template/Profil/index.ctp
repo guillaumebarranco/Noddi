@@ -3,13 +3,6 @@
 	    <h2 class="titlePage">Mon Compte</h2>
 	    <!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
 	</header>
-	<?php
-		// Get the User Session and his caractéristiques
-		$session = $this->request->session();
-
-		if($session->read('type') == 'modeuse') {
-			$user = $modeuse['user']; ?>
-
 			<ul class="menu_profil page_modify_profil">
 				<li>
 					<a href="#" class="noclick" data-section="profile">Modifier mon profil</a>
@@ -50,26 +43,6 @@
 				</li>
 
 			</ul>
-
-		<?php } elseif($session->read('type') == 'brand') {
-			$user = $brand['user']; ?>
-
-			<ul class="menu_profil">
-				<li>
-					<a href="#" data-section="profile">Profil</a>
-				</li>
-
-				<li>
-					<a href="#" data-section="offers">Offres</a>
-				</li>
-
-				<li>
-					<?= $this->Html->link(__('Déconnexion'), ['controller' => 'Users', 'action' => 'disconnect'], ['class' => 'disconnect']) ?>
-				</li>
-			</ul>
-		<?php }
-	?>
-
 
 
 	<div class="profile_section profile">
