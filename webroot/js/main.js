@@ -209,7 +209,7 @@ $(document).ready(function() {
 			makeAjax('POST', WEB_URL+"/favoris/add", data_user, function() {
 
 				swal({
-					title: "Added !",
+					title: "Favori ajouté !",
 					type: "success"
 				}, function() {
 					that.removeClass('grey');
