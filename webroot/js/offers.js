@@ -262,7 +262,7 @@ $('#upload_offer3').uploadify({
 			makeAjax('POST', WEB_URL+"/offers/applyOffer", data_apply, function() {
 
 				swal({
-					title: 'Success',
+					title: 'Félicitations, vous avez postulé à cette offre !',
 					type : 'success'
 				}, function() {
 					if(data_apply.from_who == 'brand') {

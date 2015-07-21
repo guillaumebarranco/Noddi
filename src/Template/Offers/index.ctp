@@ -62,7 +62,7 @@
                     <footer>
                         <h3>Informations sur l'offre <small><?=$apply->offer->title?></small></h3>
                         <p><?=$apply->offer->description?></p>
-                        <p>En échange de <strong><?=$apply->offer->type->name?></strong> (<strong><?=$apply->offer->exchange?></strong> de <strong><?=$apply->offer->brand->name?></strong> ), tu t'engages à partager le bon plan à ta communauté.</p>
+                        <p>En échange de <strong><?=$apply->offer->type->name?></strong> (<strong><?=str_replace("_", " ", $apply->offer->exchange)?></strong> de <strong><?=$apply->offer->brand->name?></strong> ), tu t'engages à partager le bon plan à ta communauté.</p>
                         <p>Disponibilité : A partir de maintenant</p>
                         <div class="flexButtons">
                             <div class="button acceptApply reversed" data-apply="<?=$apply->id?>" data-offer="<?=$apply->offer->id?>" data-modeuse="<?=$modeuse->id?>">Accepter</div>

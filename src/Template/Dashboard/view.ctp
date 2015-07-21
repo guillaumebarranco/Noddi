@@ -10,7 +10,7 @@
 		<button class="button">Proposition en cours</button>
 	<?php } ?>
 
-	<div class="timeline"> <?=$offer->created->format('j-m -  H:i') ?></div>
+	<!-- <div class="timeline"> <?=$offer->created->format('j-m -  H:i') ?></div> -->
 
 	<?php if(!empty($applies_brand[0])) { ?>
 
@@ -37,12 +37,11 @@
 			if($apply_modeuse->accepted != 2) { ?>
 
 			<div class="proposition_received">
-				<div></div>
 				<div class="profile_picture" style="background-image: url(<?=$apply_modeuse->modeus->user->picture?>);"></div>
-				<p>Demande reçue de <?=$apply_modeuse->modeus->firstname?></p>
+				<p>Demande reçue de <?=$apply_modeuse->modeus->firstname?> <br />le <?=$apply_modeuse->created->format('j-m') ?> à <?=$apply_modeuse->created->format('H:i') ?></p>
 
 				<footer>
-					<div class="button accept acceptApply" data-offer="<?=$offer->id?>" data-apply="<?=$apply_modeuse->id?>" data-modeuse="<?=$apply_modeuse->modeus->id?>">Accepter</div>
+					<div class="button accept reversed acceptApply" data-offer="<?=$offer->id?>" data-apply="<?=$apply_modeuse->id?>" data-modeuse="<?=$apply_modeuse->modeus->id?>">Accepter</div>
 					<div class="button decline removeApply" data-apply="<?=$apply_modeuse->id?>">Décliner</div>
 				</footer>
 			</div>

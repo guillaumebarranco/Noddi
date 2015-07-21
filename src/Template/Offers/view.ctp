@@ -25,7 +25,7 @@
 			<footer>
 				<h3>Informations sur l'offre <small><?=$offer->title?></small></h3>
 				<p><?=$offer->description?></p>
-				<p>En échange de <strong><?=$offer->type->name?></strong> (<strong><?=$offer->exchange?></strong> de <strong><?=$offer->brand->name?></strong> ), tu t'engages à partager le bon plan à ta communauté.</p>
+				<p>En échange de <strong><?=$offer->type->name?></strong> (<strong><?=str_replace("_", " ", $offer->exchange)?></strong> de <strong><?=$offer->brand->name?></strong> ), tu t'engages à partager le bon plan à ta communauté.</p>
 				<p>Disponibilité : A partir de maintenant</p>
 				<div class="apply_offer button reversed" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$this->request->session()->read('modeuse_id')?>">Utiliser mon boost</div>
 			</footer>
