@@ -2,5 +2,31 @@
 //ACCOUNT
 
 .page_account{
-	
+	ul.menu_profil{
+		li {
+			background: $lightGrey;
+			border-bottom: solid 1px lighten($lightGrey,5%);
+			transition: background-color $transitionLengthDefault $transitionTimingDefault;
+			a{
+				display: block;
+				padding: 15px;
+				margin: 0;
+			}
+			&+li{
+				border-top: solid 1px darken($lightGrey,5%);
+			}
+			&:hover{
+				background-color: $white;
+			}
+			&.disabled{
+				opacity: 0.5;
+				a{
+					cursor: not-allowed	;
+				}
+				&:hover{
+					background-color: $lightGrey;
+				}
+			}
+		}
+	}
 }
