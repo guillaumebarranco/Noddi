@@ -95,7 +95,7 @@ $session = $this->request->session(); ?>
 						<li class="fav">Choisis tes créateurs et boutiques</li>
 						<li class="phone">Partage ton expérience</li>
 					</ul>
-					<a href="#" class="button reversed">S'inscrire</a>
+					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed']) ?>
 				</div>
 			</div>
 		</section>		
@@ -115,7 +115,7 @@ $session = $this->request->session(); ?>
 						<li class="hands">Collaborez avec elle</li>
 						<li class="star">Gagnez en notoriété</li>
 					</ul>
-					<a href="#" class="button reversed dark">S'inscrire</a>
+					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
 				</div>
 			</div>
 		</section>

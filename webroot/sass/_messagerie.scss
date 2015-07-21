@@ -2,5 +2,87 @@
 //MESSAGERIE
 
 .page_messagerie{
-	
+	.content{
+		max-width: 500px;
+		padding: 20px;
+		margin:auto;
+		.conversations{
+			padding: 20px;
+			background-color: $white;
+			border-radius: $borderDefault;
+			box-shadow: 0 0 0 10px rgba(256,256,256,0.3); 
+			transition: box-shadow $transitionLengthDefault $transitionTimingDefault;
+			cursor: pointer;
+			h3{
+				@include font-size(2);
+				color: $primary;
+				margin:0;
+				& small{
+					@include font-size(1.2);
+					color: $quaternary;
+				}
+			}
+			p{
+				margin:0;
+				&.seeMore{
+					text-align: right;
+					
+				}
+			}
+			small{
+			}
+			&:hover{
+				box-shadow: 0 0 15px 3px rgba(237, 123, 110, 0.1);
+			}
+		}
+
+		.conversation{ //discution
+			ul{
+				li{
+					position: relative;
+					@extend .conversations;
+					&{
+						box-shadow: none;
+						margin-bottom: 30px;
+						&:after{
+							position: absolute;
+							content: " ";
+							bottom: 0;
+							width: 0; 
+							height: 0; 
+							margin-bottom: -20px;
+							border-top: 20px solid transparent;
+							border-bottom: 20px solid transparent;
+							z-index: -5; 
+						}
+						&.myself{
+							margin-left: 40px;
+							background-color: $primary;
+							&:after{
+							right: 0;
+							border-left:20px solid darken($primary, 10%); 
+
+							}
+						}
+						&.receiver{
+							margin-right: 40px;
+							background-color: lighten($primary,8%);
+							&:after{
+							left: 0;
+							border-right:20px solid $primary; 
+
+							}
+						}
+					h3{
+						color:$white;
+						& small{color:$white;}
+					}
+					p{
+						color: $white;
+					}
+				}
+				}
+			}
+		}
+	}
 }
