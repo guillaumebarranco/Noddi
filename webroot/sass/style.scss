@@ -658,25 +658,24 @@ header.headerPage{
     }
 }
 
-.page_modify_profil {
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
+// .page_modify_profil {
+//     text-align: center;
+//     max-width: 500px;
+//     margin: 0 auto;
 
-    li {
-        margin-top: 10px;
-        box-shadow: 0 0 7px 1px #aaaaaa;
-        padding: 5px 0;
+//     li {
+//         margin-top: 10px;
+//         box-shadow: 0 0 7px 1px #aaaaaa;
+//         padding: 5px 0;
 
-        &.noclick {
-            box-shadow: none;
-            a {
-                cursor: default;
-            }
-        }
-    }
-
-}
+//         &.noclick {
+//             box-shadow: none;
+//             a {
+//                 cursor: default;
+//             }
+//         }
+//     }
+// }
 
 
 
@@ -688,4 +687,5 @@ header.headerPage{
 @import '_account';
 @import '_offers';
 @import '_messagerie';
+@import '_account';
 

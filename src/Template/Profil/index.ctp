@@ -8,16 +8,16 @@
 		$session = $this->request->session(); ?>
 
 			<ul class="menu_profil page_modify_profil">
-				<li class="noclick">
-					<a href="#" class="noclick" data-section="profile">Modifier mon profil</a>
+				<li class="disabled">
+					<a href="#" data-section="profile">Modifier mon profil</a>
 				</li>
 
-				<li class="noclick">
-					<a href="#" class="noclick" data-section="notifications">Notifications par email</a>
+				<li class="disabled">
+					<a href="#" data-section="notifications">Notifications par email</a>
 				</li>
 
-				<li class="noclick">
-					<a href="#" class="noclick" data-section="preferences">Préférences</a>
+				<li class="disabled">
+					<a href="#" data-section="preferences">Préférences</a>
 				</li>
 
 				<li>
@@ -28,18 +28,16 @@
 					<a href="#" data-section="mentions">Mentions légales</a>
 				</li>
 
-				<li class="noclick">
-					<a href="#" class="noclick" data-section="notifications">FAQ</a>
+				<li class="disabled">
+					<a href="#" data-section="notifications">FAQ</a>
 				</li>
 
 				<li>
 					<?= $this->Html->link(__('Déconnexion'), ['controller' => 'Users', 'action' => 'disconnect'], ['class' => 'disconnect']) ?>
 				</li>
 
-				<br><br>
-
-				<li class="noclick"> 
-					<a href="#" class="noclick" data-section="maj">Mise à jour 1.0</a>
+				<li class="disabled"> 
+					<a href="#" data-section="maj">Mise à jour 1.0</a>
 				</li>
 
 				<li>

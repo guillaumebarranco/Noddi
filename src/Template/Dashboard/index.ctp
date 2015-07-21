@@ -1,15 +1,22 @@
 <section class="page page_dashboard">
 	<header class="headerPage">
-	    <h2 class="titlePage">Dashboard</h2>
-	    <!-- <div class="previousStepMenu"><a href="#">Précédent</a></div> -->
+	    <h2 class="titlePage">DashBoard</h2>
+	    <div class="previousStepMenu">
+	    	<a href="<?=$this->request->base?>">
+	    		Précédent
+	    	</a>
+	    </div>
 	</header>
 	
 	<?php if(!empty($finished_offers[0])) { ?>
-		<button class="button showCurrentOffer reversed">Proposition en cours</button>
-		<button class="button showTerminatedOffers">Propositions terminées</button> 
+	<ul id="tabsOfferStatus" class="tabsOfferStatus">
+	   	
+	    <li id="showCurrentOffer" class="active">Proposition en cours</li>
+	    <li id="showTerminatedOffers">Propositions terminées</li>
+	</ul>		
 	<?php } ?>
 	
-	<div class="propositions currentOffer">
+	<div class="propositions" id="currentOffer">
 		<article class="proposition">
 
 			<div class="blue_header">
@@ -40,7 +47,7 @@
 		</footer>
 	</div>
 
-	<div class="propositions terminatedOffers">
+	<div class="propositions" id="terminatedOffers">
 
 		<?php if(!empty($finished_offers[0])) {
 			foreach ($finished_offers as $key => $offer) { ?>
