@@ -82,6 +82,7 @@
             <p>Tu recevras un nouvel email d'alerte lorsqu'une autre marque sera intéressée par ton profil.</p>
             <p>Néanmoins, il te reste encore une chance de prouver ta motivation auprès d'une marque pour tenter de collaborer avec elle.</p>
             <div class="button get_offers reversed">Voir les propositions</div>
+        </div>
 
             
            <section class="section_home">
@@ -89,7 +90,6 @@
            </section>
 
             
-        </div>
         <?php } else { ?>
 
             <div class="content">
