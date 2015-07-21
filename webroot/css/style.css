@@ -3300,6 +3300,12 @@ footer.footerLinks .button {
 .page_messagerie .content .seeProfil {
 	margin: 33px 0;
 	width: 100%;
+	position: relative;
+}
+
+.page_messagerie .content .seeProfil button {
+	width: 250px;
+	margin: 0 auto;
 }
 
 .page_messagerie .content .conversations,
@@ -3713,6 +3719,15 @@ footer .socials ul li.pinterest:hover {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
+}
+
+.page_messagerie .content .seeProfil {
+	margin-top: 200px;
+}
+
+.page_messagerie .content .seeProfil button {
+	position: absolute;
+	right: 0;
 }
 
 .page_messagerie .content .conversation form.formSendMessage textarea {
