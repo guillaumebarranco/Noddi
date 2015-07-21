@@ -3721,13 +3721,10 @@ footer .socials ul li.pinterest:hover {
 	flex-direction: row;
 }
 
-.page_messagerie .seeProfil {
-	height: 70px;
-}
-
 .page_messagerie .seeProfil .button {
 	position: absolute;
 	right: 50px;
+	top: -65px;
 }
 
 .page_messagerie .content .conversation form.formSendMessage textarea {
