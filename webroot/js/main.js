@@ -345,14 +345,18 @@ $(document).ready(function() {
 		            '</li>'
 				;
 
-				$('.conversation ul').append(li);
-				if(name==='Moi'){
+				
+				if(name=='Moi'){
+					$('.conversation ul').append(li);
 					$('.conversation ul li').addClass('myself');
 					console.log('name' + name);
 				} else {
+					$('.conversation ul').append(li);
 					$('.conversation ul li').addClass('receiver');
 					console.log('name' + name);
 				}
+				name = undefined;
+				li = undefined;
 			}
 			$('.conversation ul').attr('data-offer', _this.response.messages[message].offer.id);
 			$('.conversation .seeProfil').append('<a class="button" href="'+WEB_URL+'/Modeuses/view/'+_this.response.messages[0].offer.modeus.id+'" >Voir le profil</a>');
