@@ -486,17 +486,17 @@ header.headerPage{
 *   MESSAGES
 */
 
-.message {
-    width: 300px;
-    margin: 0 auto;
-    border: solid 1px black;
-    padding: 10px;
+// .message {
+//     width: 300px;
+//     margin: 0 auto;
+//     border: solid 1px black;
+//     padding: 10px;
 
-    .message_sender, .message_time {
-        display: inline-block;
-        vertical-align: top;
-    }
-}
+//     .message_sender, .message_time {
+//         display: inline-block;
+//         vertical-align: top;
+//     }
+// }
 
 .blog_selected, .network_selected, .section_selected, .audience_selected {
     background-color: blue;
@@ -664,4 +664,5 @@ header.headerPage{
 @import '_dashboard';
 @import '_account';
 @import '_offers';
+@import '_messagerie';
 

@@ -106,22 +106,20 @@ article.proposition {
 	display: flex;
 	background: $white;
 	justify-content: center;
+	max-width: 500px;
+	margin: 0 auto;
 
 	.profile_picture {
-		width: 70px;
-		height: 70px;
+		width: 100px;
+		height: 100px;
 	}
 
 	p {
-
+		margin-right: 15px;
+		text-align: center;
 	}
 	footer{
-		.accept{
-			background: $primary;
-		}
-		.decline{
-			background: $secondary;
-		}
+		background: none;
 	}
 }
 
