@@ -2688,6 +2688,7 @@ footer ul > li a:hover {
 .page_viewProfile .content .viewTab#viewUserReputation .socialStats {
 	margin: 0;
 	margin-bottom: 35px;
+	margin-left: 50px;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation .socialStats li:before {
@@ -2747,7 +2748,7 @@ footer ul > li a:hover {
 }
 
 .page_viewProfile .content .viewTab .iconsUser.style:before {
-	content: "";
+	content: "";
 	color: #ed7b6e;
 	font-size: 17px;
 	font-size: 1.7rem;
@@ -2777,9 +2778,7 @@ footer ul > li a:hover {
 	-webkit-justify-content: space-around;
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
+	margin-left: 50px;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats li {
@@ -3812,6 +3811,14 @@ footer .socials ul li.pinterest:hover {
 	display: none;
 }
 
+.page_viewProfile .content .specialDesktop {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	max-width: 800px;
+	margin: auto;
+}
+
 .page_viewProfile .content .viewTab {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -3820,6 +3827,13 @@ footer .socials ul li.pinterest:hover {
 	-webkit-justify-content: space-around;
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
+}
+
+.page_viewProfile .content .viewTab#viewUserDescription {
+	margin: 0;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation ul {
@@ -3844,6 +3858,10 @@ footer .socials ul li.pinterest:hover {
 	-ms-flex-direction: row;
 	flex-direction: row;
 	width: 100%;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	margin-left: 0;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats li {
