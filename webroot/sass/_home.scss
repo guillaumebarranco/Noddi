@@ -74,6 +74,9 @@
             }
             .button{
                 border-radius: 4px;
+                @media (min-width: $tablet) {
+                    border-radius: 11px;
+                }
                 width: 100%;
                 max-width: 240px;
                 display: inline-block;

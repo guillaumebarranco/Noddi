@@ -3983,6 +3983,11 @@ header.headerPage .previousStepMenu a:before {
 	margin-top: 200px;
 }
 
+.page_index header.homepage .content .button,
+.page_offers header.homepage .content .button {
+	border-radius: 11px;
+}
+
 .page_index header.homepage .content .button + .button,
 .page_offers header.homepage .content .button + .button {
 	margin-top: 0;
