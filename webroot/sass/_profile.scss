@@ -364,6 +364,9 @@
 					&.pinterest:before{
 						@include noddifont($pinterest, $white, 1.7);
 					}
+					&.snapchat:before{
+						@include noddifont($snapchat, $white, 1.7);
+					}
 				}
 			}
 			.backReach{
