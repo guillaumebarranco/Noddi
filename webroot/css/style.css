@@ -2682,7 +2682,7 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .viewTab#viewUserReputation .backReach {
 	width: 100%;
-	margin: 20px 0;
+	margin: 0 0 20px 0;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation .socialStats {
@@ -2778,18 +2778,49 @@ footer ul > li a:hover {
 	-webkit-justify-content: space-around;
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
-	margin-left: 50px;
+	padding: 20px;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	width: 100%;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	margin-left: 0;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats li {
 	padding: 10px 0;
+	min-width: 140px;
 	font-size: 20px;
 	font-size: 2rem;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li p {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	margin: 5px 0;
+	font-weight: bold;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats li small {
 	font-size: 14px;
 	font-size: 1.4rem;
+	text-transform: uppercase;
+	font-weight: normal;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats li:before {
@@ -2835,6 +2866,66 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .viewTab ul.socialStats li.instagram:before {
 	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.tumblr:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.youtube:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.vine:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li.flickr:before {
+	content: "";
 	color: #ffffff;
 	font-size: 17px;
 	font-size: 1.7rem;
@@ -3815,7 +3906,6 @@ footer .socials ul li.pinterest:hover {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	max-width: 800px;
 	margin: auto;
 }
 
@@ -3836,17 +3926,14 @@ footer .socials ul li.pinterest:hover {
 	justify-content: center;
 }
 
-<<<<<<< HEAD
-=======
 .page_viewProfile .content .viewTab#viewUserDescription p.checkDescription {
 	width: 300px;
 }
 
->>>>>>> 2c25b0ffba1aa92563399bfc4cb6b5a657f74fe6
 .page_viewProfile .content .viewTab#viewUserReputation ul {
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	flex-direction: column;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation h2 {
@@ -3855,32 +3942,35 @@ footer .socials ul li.pinterest:hover {
 	width: 100%;
 }
 
+.page_viewProfile .content .viewTab#viewUserReputation .socialStats {
+	margin-left: 0px;
+}
+
 .page_viewProfile .content .viewTab h2 {
 	margin-top: 0;
 }
 
-.page_viewProfile .content .viewTab ul.socialStats {
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	width: 100%;
-	-webkit-align-items: flex-start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	margin-left: 0;
-}
-
 .page_viewProfile .content .viewTab ul.socialStats li {
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin: 0 40px;
+	min-width: 30px;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats li:before {
+	position: absolute;
 	margin: 0;
-	margin-top: 0px;
-	position: relative;
-	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	margin-left: -50px;
+	margin-top: 5px;
 }
 
 .page_viewProfile .content .viewTab article.post {
