@@ -41,10 +41,12 @@
                 <li id="UserPosts">Publication</li>
             </ul>
 
-            <div class="viewTab"><p><?= $modeuse->user->bio ?></p></div>
-
             <div class="specialDesktop">
                 <div class="viewTab" id="viewUserDescription">
+                    <h2>Description</h2>
+
+                    <p class="checkDescription"><?= $modeuse->user->bio ?></p>
+
                     <div class="hobbies iconsUser">
                         <h4>Centres d'intérêt</h4>
                         <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->hobbies)) ?></p>
