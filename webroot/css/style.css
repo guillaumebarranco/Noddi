@@ -2639,7 +2639,6 @@ footer ul > li a:hover {
 	display: inline-block;
 	margin-left: 20px;
 	margin-bottom: 20px;
-	box-shadow: 0 0 6px 5px #ed7b6e;
 	background-color: #ed7b6e;
 	color: white;
 	font-weight: bold;
@@ -2650,6 +2649,9 @@ footer ul > li a:hover {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	margin-bottom: 30px;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
 .page_viewProfile .content .viewTab#viewUserDescription p {
@@ -2773,7 +2775,6 @@ footer ul > li a:hover {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
-	margin-left: 50px;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats li {
@@ -3814,6 +3815,23 @@ footer .socials ul li.pinterest:hover {
 	-webkit-justify-content: space-around;
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation ul {
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation h2 {
+	margin-top: 50px;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.page_viewProfile .content .viewTab h2 {
+	margin-top: 0;
 }
 
 .page_viewProfile .content .viewTab ul.socialStats {

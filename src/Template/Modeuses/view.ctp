@@ -40,8 +40,13 @@
                 <li id="UserReputation">Notoriété</li>
                 <li id="UserPosts">Publication</li>
             </ul>
+
+            <div class="viewTab"><p><?= $modeuse->user->bio ?></p></div>
+
+            
+
             <div class="viewTab" id="viewUserDescription">
-                <p><?= $modeuse->user->bio ?></p>  
+               
                 <div class="hobbies iconsUser">
                     <h4>Centres d'intérêt</h4>
                     <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->hobbies)) ?></p>
@@ -75,7 +80,7 @@
                     } ?>
                 </ul>
                 
-                <h2>Moyenne de portée des publications :</h2>
+                <h2>Moyenne de portée des publications</h2>
                 <div class="backReach">
                     <div class="reach" style="width:<?= $modeuse->noddi_rank ?>%;">
                         <small><?= $modeuse->noddi_rank ?>%</small>

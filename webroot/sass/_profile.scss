@@ -99,7 +99,6 @@
 					display: inline-block;
 					margin-left: 20px;
 					margin-bottom: 20px;
-					box-shadow: 0 0 6px 5px $primary;
 					background-color: $primary;
 					color: white;
 					font-weight: bold;
@@ -109,6 +108,7 @@
 			&#viewUserDescription{
 				flex-wrap: wrap;
 				margin-bottom: 30px;
+				flex-direction: column;
 				p{
 					width: 100%;
 				}
@@ -118,9 +118,22 @@
 				max-width: 550px;
 				width: 100%;
 				margin-bottom: 20px;
+				@media (min-width: $tablet) {
+					ul {
+						flex-direction: column;
+					}
+				}
 				h2{
 					display: none;
+
+					@media (min-width: $tablet) {
+						margin-top: 50px;
+						display: block;
+						text-align: center;
+						width: 100%;
+					}
 				}
+
 				p{width: 100%;}
 				.backReach{width: 100%; margin: 20px 0;}
 				.socialStats{
@@ -166,6 +179,9 @@
 
 			h2{
 				margin-top: 40px;
+				@media (min-width: $tablet) {
+					margin-top: 0;
+				}
 				@extend .subtitleSmall;
 				@include font-size(1.8);
 			}
@@ -174,7 +190,6 @@
 				flex-direction: column;
 				justify-content: space-around;
 				align-items: center;
-				margin-left: 50px;
 				@media (min-width: $tablet) {
 					flex-direction: row;
 					width: 100%;
