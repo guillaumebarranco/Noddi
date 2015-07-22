@@ -2587,7 +2587,9 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .button {
 	max-width: 300px;
-	margin: auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .page_viewProfile .content ul.tabsProfile {
@@ -2632,10 +2634,22 @@ footer ul > li a:hover {
 	flex: 1;
 }
 
+.page_viewProfile .content .viewTab .all_socials li {
+	padding: 9px 19px;
+	display: inline-block;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 0 6px 5px #ed7b6e;
+	background-color: #ed7b6e;
+	color: white;
+	font-weight: bold;
+}
+
 .page_viewProfile .content .viewTab#viewUserDescription {
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	margin-bottom: 30px;
 }
 
 .page_viewProfile .content .viewTab#viewUserDescription p {
@@ -2646,6 +2660,9 @@ footer ul > li a:hover {
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	max-width: 550px;
+	width: 100%;
+	margin-bottom: 20px;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation h2 {
@@ -2658,15 +2675,23 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .viewTab#viewUserReputation .backReach {
 	width: 100%;
+	margin: 20px 0;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation .socialStats {
 	margin: 0;
+	margin-bottom: 35px;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation .socialStats li:before {
+	margin-right: 10px;
 }
 
 .page_viewProfile .content .viewTab .iconsUser {
 	max-width: 500px;
 	margin-bottom: 15px;
+	margin-left: 20px;
+	margin-top: 20px;
 }
 
 .page_viewProfile .content .viewTab .iconsUser h4 {
@@ -3809,6 +3834,13 @@ footer .socials ul li.pinterest:hover {
 	margin-top: 0px;
 	position: relative;
 	margin-right: 10px;
+}
+
+.page_viewProfile .content .viewTab article.post {
+	width: 350px;
+	display: inline-block;
+	margin-left: 30px;
+	vertical-align: top;
 }
 
 .page_messagerie .seeProfil .button {
