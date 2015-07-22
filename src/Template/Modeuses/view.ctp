@@ -14,7 +14,7 @@
 
                 <h3><?= h($modeuse->firstname) ?>  <?= h($modeuse->lastname) ?></h3>
 
-                <p class="user"><?= h($modeuse->age) ?> - <?= h($modeuse->city) ?></p>
+                <p class="user"><?= h($modeuse->age) ?> ans - <?= h($modeuse->city) ?></p>
                 <p class="bio">
                     <?php 
                         if($modeuse->has_blog == 1 && $modeuse->brandExperience == 1){
@@ -129,21 +129,23 @@
                     
                 </section>
             </div>
+
+            <?php if(!empty($offer)) { 
+
+            if($can_apply) { ?>
+                <div class="apply_offer button reversed" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</div>
+            <?php } else {
+                echo "<p style='text-align:center;'>Vous avez déjà proposé votre offre à cette modeuse !</p>";
+            }
+
+            ?>
         </div>
         
     </section>
     
 </section>
 
-<?php if(!empty($offer)) { 
 
-    if($can_apply) { ?>
-        <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</button>
-    <?php } else {
-        echo "<p style='text-align:center;'>Vous avez déjà proposé votre offre à cette modeuse !</p>";
-    }
-
-    ?>
 
 <?php } ?>
 

@@ -16,9 +16,16 @@
 		display: flex;
 		max-width: 500px;
 		margin: auto;
+		@media (min-width: $tablet) {
+			max-width: 800px;
+		}
 		.profile_picture{
 			background-color: $grey;
 			margin-right: 20px;
+			@media (min-width: $tablet) {
+				width: 160px;
+				height: 160px;
+			}
 		}
 		.contentInfos{
 			flex: 4;
@@ -36,10 +43,21 @@
 	}
 	.content{
 		margin: 0 15px;
+		@media (min-width: $tablet) {
+			display: flex;
+			flex-direction: column;
+		}
+		.button{
+			max-width: 300px;
+			margin:auto;
+		}
 		ul.tabsProfile{
 				display: flex;
 				max-width: 500px;
 				margin: auto;
+				@media (min-width: $tablet) {
+					display: none;
+				}
 			li{
 				cursor: pointer;
 				text-align: center;
@@ -64,6 +82,31 @@
 		.viewTab{
 			max-width: 500px;
 			margin: auto;
+			display: none;
+			flex:1;
+			@media (min-width: $tablet) {
+				display: flex;
+				max-width: 800px;
+				justify-content: space-around;
+			}
+			&#viewUserDescription{
+				flex-wrap: wrap;
+				p{
+					width: 100%;
+				}
+			}
+			&#viewUserReputation{
+				flex-wrap: wrap;
+				h2{
+					display: none;
+				}
+				p{width: 100%;}
+				.backReach{width: 100%;}
+				.socialStats{margin:0;}
+			}
+			&#viewUserPosts{
+
+			}
 			.iconsUser{
 				max-width: 500px;
 				margin-bottom: 15px;
@@ -99,13 +142,18 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-around;
+				align-items: center;
 				margin-left: 50px;
 				@media (min-width: $tablet) {
 					flex-direction: row;
+					width: 100%;
 				}
 				li{
 					padding: 10px 0;
 					@include font-size(2);
+					@media (min-width: $tablet) {
+						flex:1;
+					}
 					small{
 						@include font-size(1.4);
 					}
@@ -118,6 +166,11 @@
 						padding: 10px;
 						margin-left: -40px;
 						margin-top: -10px;
+						@media (min-width: $tablet) {
+					  		margin: 0;
+					  		margin-top: 0px;
+					  		position: relative;
+						}
 					}
 					&.facebook:before{
 						@include noddifont($facebook, $white, 1.7);

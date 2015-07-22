@@ -522,7 +522,7 @@ $(document).ready(function() {
 		$(this).hide();
 	});
 
-	$('.viewTab').hide();
+	// $('.viewTab').hide();
 	$('#viewUserDescription').show();
 	$('#UserDescription').addClass('active');
 	$('#tabsProfile li').on('click', function() {
