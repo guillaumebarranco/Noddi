@@ -3033,6 +3033,21 @@ footer ul > li a:hover {
 	text-transform: none;
 }
 
+.page_viewProfile .content .viewTab ul.socialStats li.pinterest:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
 .page_viewProfile .content .viewTab .backReach {
 	max-width: 500%;
 	background-color: #ffffff;
@@ -4089,7 +4104,7 @@ footer .socials ul li.pinterest:hover {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-	margin: 0 40px;
+	margin: 0 0 0 60px;
 	min-width: 30px;
 }
 
