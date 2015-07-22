@@ -154,6 +154,9 @@ form {
                 }
             }
         }
+        &:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0px 300px white inset;
+        }
     }
 }
 
@@ -349,7 +352,7 @@ form {
                     }
 
                     &.home:before{
-                        @include noddifont($home, $grey, 2.5);
+                        @include noddifont($search, $grey, 2.5);
                     }
                     &.offers:before{
                         @include noddifont($tag, $grey, 2.5);
