@@ -8,16 +8,38 @@
         background-size:cover;
         padding:40px;
         @media (min-width: $tablet) {
-            min-height: 600px;
+            min-height: 500px;
         }
+
+        .arrow_bottom {
+            display: block;
+            margin-top: 70px;
+
+            &:before {
+                content: '';
+                display: block;
+                width: 75px;
+                height: 41px;
+                background-image: url('../img/arrow.png');
+                background-repeat: no-repeat;
+                margin: 0 auto;
+            }            
+
+            @media (min-width: $tablet) {
+                display: none;
+            }
+        }
+
         .topMenu {
             display:flex;
             justify-content:space-between;
             align-items:center;
             flex-direction: column;
+            margin: 116px 0 0 0;
+
             @media (min-width: $tablet) {
                 flex-direction: row;
-
+                margin: 0;
             }
 
             .logo {
@@ -30,6 +52,15 @@
             .button {
                 border-color:$white;
                 color:$white;
+                position: absolute;
+                top: 15px;
+                right: 12px;
+                
+                @media (min-width: $tablet) {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                }
             }
         }
         .content {
@@ -42,12 +73,25 @@
                 color:$white;
             }
             .button{
+                border-radius: 4px;
+                width: 100%;
+                max-width: 240px;
                 display: inline-block;
+
+                &+.button {
+                    margin-top: 20px;
+                }
+
+                @media (min-width: $tablet) {
+                    &+.button {
+                        margin-top: 0;
+                    }
+                }
             }
         }
     }
     section.servicePresentation {
-        display:flex;
+        display:none;
         flex-direction:column;
         justify-content:space-around;
         max-width:1000px;
@@ -59,6 +103,7 @@
         align-items: center;
         @media (min-width: $tablet) {
             flex-direction:row;
+            display: flex;
         }
         .presentation {
             position:relative;
@@ -94,13 +139,13 @@
                 }
             }
             &.free:before {
-                @include noddifont($dollar, $white, 3);
+                @include noddifont($pieces, $white, 4);
             }
             &.simple:before {
                 @include noddifont($flash, $white, 3);
             }
             &.reliable:before {
-                @include noddifont($verified, $white, 3);
+                @include noddifont($thumb, $white, 4);
             }
         }
     }
@@ -113,10 +158,18 @@
 
         &.brand {
             background-image: url('../img/pictures/home_desktop-visu3.jpg');
+            background-position: 35% 50%;
+            @media (min-width: $tablet) {
+                background-position: 50% 50%;
+            }
         }
 
         &.modeuse {
             background-image: url('../img/pictures/home_desktop-visu2.jpg');
+            background-position: 1% 50%;
+            @media (min-width: $tablet) {
+                background-position: 50% 50%;
+            }
         }
 
         .content{
@@ -165,11 +218,22 @@
                 flex-direction: column;
                 justify-content: flex-end;
                 position: relative;
+
+                margin-top: 150px;
+
+                @media (min-width: $tablet) {
+                    margin-top: 0;
+                }
+
                 h2{
                     @extend .title;
-                    @include font-size(7);
+                    @include font-size(15);
+                    & small {
+                        @include font-size(7);
+                    }
                     color: $white;
                     margin: 0;
+                    margin-left: 15px;
                     @media (min-width: $tablet) {
                         @include font-size(12);
                         position: absolute;
@@ -188,6 +252,10 @@
                     }
                 }
                 ul{
+                    display: none;
+                    @media (min-width: $tablet) {
+                        display: block
+                    }
                     margin:0 0 15px 30px;
                     li{
                         padding: 10px 0;
@@ -219,8 +287,11 @@
                 }
                 .button{
                     width: 100%;
+                    max-width: 280px;
+                    border-radius: 4px;
                     @media (min-width: $tablet) {
                         max-width: 200px;
+                        border-radius: 10px;
                     }
                 }
             }
