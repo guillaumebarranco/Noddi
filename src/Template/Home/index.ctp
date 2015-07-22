@@ -61,7 +61,7 @@ $session = $this->request->session(); ?>
 			<div class="content">
 				<h2>mettre sa notoriété à profit n’a jamais été aussi simple.</h2>
 				<?= $this->Html->link(__("Inscription Marque"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
-				<?= $this->Html->link(__("Inscription Modeuse"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed']) ?>
+				<?= $this->Html->link(__("Inscription Modeuse"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed homeSpecial']) ?>
 			</div>
 		</header>
 
@@ -95,7 +95,7 @@ $session = $this->request->session(); ?>
 						<li class="fav">Choisis tes créateurs et boutiques</li>
 						<li class="phone">Partage ton expérience</li>
 					</ul>
-					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed']) ?>
+					<?= $this->Html->link(__("S'inscrire"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed homeSpecial']) ?>
 				</div>
 			</div>
 		</section>		

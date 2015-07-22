@@ -189,8 +189,12 @@ form {
         background:$primary;
         color:$white;
         &:hover {
-        	border:solid $tertiary $borderDefault;
+            border:solid $tertiary $borderDefault;
             background:$tertiary;
+        }
+        &.homeSpecial:hover{
+            background: none;
+        	border:solid $primary $borderDefault;
         }
     }
     &.small {
