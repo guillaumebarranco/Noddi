@@ -550,6 +550,10 @@ form textarea[type="checkbox"]:checked + label:before {
 	padding-bottom: 0;
 }
 
+.all_favoris {
+	margin-top: 50px;
+}
+
 header.headerPage {
 	display: -webkit-flex;
 	display: -ms-flexbox;
