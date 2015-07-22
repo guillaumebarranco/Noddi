@@ -122,6 +122,11 @@
 				}
 				p{
 					width: 100%;
+					&.checkDescription {
+						@media (min-width: $tablet) {
+							width: 300px;
+						}
+					}
 				}
 			}
 			&#viewUserReputation{
@@ -140,7 +145,6 @@
 					@media (min-width: $tablet) {
 						margin-top: 50px;
 						display: block;
-						text-align: center;
 						width: 100%;
 					}
 				}

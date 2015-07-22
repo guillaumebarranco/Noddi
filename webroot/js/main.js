@@ -51,6 +51,9 @@ $(document).ready(function() {
 				}
 
 				for(modeuse in _this.response.modeuses) {
+					if(_this.response.modeuses[modeuse].user.picture.substr(0,4) != 'http') {
+						_this.response.modeuses[modeuse].user.picture = WEB_URL+'/'+_this.response.modeuses[modeuse].user.picture;
+					}
 
 					var div_picture = '<div class="modeusePic" style="background-image:url('+_this.response.modeuses[modeuse].user.picture+');">'+
 					'</div>'
@@ -60,7 +63,7 @@ $(document).ready(function() {
 
 					var new_li = 
 						'<li class="modeuse">'+
-							'<a href="/Noddi/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
+							'<a href="'+WEB_URL+'/Modeuses/view/'+_this.response.modeuses[modeuse].id+'">'+
 								div_picture +
 							'</a>' +
 							'<div class="infoModeuse">' +
@@ -93,7 +96,7 @@ $(document).ready(function() {
 			} else {
 
 				var link =
-					'<p>Aucune Noddie ne matche votre offre ! Attendez ou modifiez votre offre !</p>'+
+					'<p>Aucune Noddiz ne matche votre offre ! Attendez ou modifiez votre offre !</p>'+
 					'<br />'+
 					'<a class="button" href="'+WEB_URL+'/dashboard/">Aller sur le dashboard</a>'
 				;
@@ -200,7 +203,7 @@ $(document).ready(function() {
 
 			makeAjax('POST', WEB_URL+"/favoris/delete/"+favori_id, '', function() {
 				swal({
-					title: "Deleted !",
+					title: "Favori supprimé !",
 					type: "success"
 				}, function() {
 					that.addClass('grey');

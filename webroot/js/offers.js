@@ -258,8 +258,14 @@ $('#upload_offer3').uploadify({
 
 			makeAjax('POST', WEB_URL+"/offers/applyOffer", data_apply, function() {
 
+				if(data_apply.from_who == 'brand') {
+					var the_title = 'Votre proposition a bien été envoyée !';
+				} else {
+					var the_title = 'Félicitations, vous avez postulé à cette offre !';
+				}
+
 				swal({
-					title: 'Félicitations, vous avez postulé à cette offre !',
+					title: the_title,
 					type : 'success'
 				}, function() {
 					if(data_apply.from_who == 'brand') {
