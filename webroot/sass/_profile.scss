@@ -195,6 +195,7 @@
 				margin-bottom: 20px;
 				@media (min-width: $tablet) {
 					justify-content: flex-start;
+					margin-top: 0;
 					ul {
 						flex-direction: row;
 					}
@@ -218,6 +219,7 @@
 					margin-bottom: 35px;
 					margin-left: 50px;
 					@media (min-width: $tablet) {
+						padding-left: 0;
 						margin-left: 0px;
 					}
 					li {
@@ -267,7 +269,7 @@
 					@include noddifont($user, $primary, 2.7);
 				}
 				&.style:before{
-					@include noddifont($shoes, $primary, 1.7);
+					@include noddifont($shoes, $primary, 2.7);
 				}
 			}
 

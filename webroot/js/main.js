@@ -449,7 +449,7 @@ $(document).ready(function() {
 				return false;
 			}
 
-			data.from_who = 'brand';
+			data.from_who = 'modeuse';
 			data.viewed = 0;
 			data.answered = 0;
 
@@ -556,5 +556,12 @@ $(document).ready(function() {
 		$('#terminatedOffers').hide();
 		$('#currentOffer').show();
 	});
+
+	if($(window).width() < 600) {
+		$('.homepage').height($(window).height() - 60);
+		$('.memberType.modeuse').height($(window).height());
+		$('.memberType.brand').height($(window).height());
+		
+	}
 
 });	

@@ -861,6 +861,23 @@ header.headerPage .previousStepMenu a:before {
 	padding: 40px;
 }
 
+.page_index header.homepage .arrow_bottom,
+.page_offers header.homepage .arrow_bottom {
+	display: block;
+	margin-top: 70px;
+}
+
+.page_index header.homepage .arrow_bottom:before,
+.page_offers header.homepage .arrow_bottom:before {
+	content: '';
+	display: block;
+	width: 75px;
+	height: 41px;
+	background-image: url("../img/arrow.png");
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}
+
 .page_index header.homepage .topMenu,
 .page_offers header.homepage .topMenu {
 	display: -webkit-flex;
@@ -875,6 +892,7 @@ header.headerPage .previousStepMenu a:before {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
+	margin: 116px 0 0 0;
 }
 
 .page_index header.homepage .topMenu .logo,
@@ -892,6 +910,9 @@ header.headerPage .previousStepMenu a:before {
 .page_offers header.homepage .topMenu .button {
 	border-color: #ffffff;
 	color: #ffffff;
+	position: absolute;
+	top: 15px;
+	right: 12px;
 }
 
 .page_index header.homepage .content,
@@ -908,14 +929,20 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index header.homepage .content .button,
 .page_offers header.homepage .content .button {
+	border-radius: 4px;
+	width: 100%;
+	max-width: 240px;
 	display: inline-block;
+}
+
+.page_index header.homepage .content .button + .button,
+.page_offers header.homepage .content .button + .button {
+	margin-top: 20px;
 }
 
 .page_index section.servicePresentation,
 .page_offers section.servicePresentation {
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
+	display: none;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
@@ -974,10 +1001,10 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.servicePresentation .presentation.free:before,
 .page_offers section.servicePresentation .presentation.free:before {
-	content: "";
+	content: "";
 	color: #ffffff;
-	font-size: 30px;
-	font-size: 3rem;
+	font-size: 40px;
+	font-size: 4rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -1006,10 +1033,10 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.servicePresentation .presentation.reliable:before,
 .page_offers section.servicePresentation .presentation.reliable:before {
-	content: "";
+	content: "";
 	color: #ffffff;
-	font-size: 30px;
-	font-size: 3rem;
+	font-size: 40px;
+	font-size: 4rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -1031,11 +1058,13 @@ header.headerPage .previousStepMenu a:before {
 .page_index section.memberType.brand,
 .page_offers section.memberType.brand {
 	background-image: url("../img/pictures/home_desktop-visu3.jpg");
+	background-position: 35% 50%;
 }
 
 .page_index section.memberType.modeuse,
 .page_offers section.memberType.modeuse {
 	background-image: url("../img/pictures/home_desktop-visu2.jpg");
+	background-position: 1% 50%;
 }
 
 .page_index section.memberType .content,
@@ -1119,14 +1148,22 @@ header.headerPage .previousStepMenu a:before {
 	-ms-flex-pack: end;
 	justify-content: flex-end;
 	position: relative;
+	margin-top: 150px;
 }
 
 .page_index section.memberType .content .description h2,
 .page_offers section.memberType .content .description h2 {
-	font-size: 70px;
-	font-size: 7rem;
+	font-size: 150px;
+	font-size: 15rem;
 	color: #ffffff;
 	margin: 0;
+	margin-left: 15px;
+}
+
+.page_index section.memberType .content .description h2 small,
+.page_offers section.memberType .content .description h2 small {
+	font-size: 70px;
+	font-size: 7rem;
 }
 
 .page_index section.memberType .content .description p,
@@ -1136,6 +1173,7 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index section.memberType .content .description ul,
 .page_offers section.memberType .content .description ul {
+	display: none;
 	margin: 0 0 15px 30px;
 }
 
@@ -1251,6 +1289,8 @@ header.headerPage .previousStepMenu a:before {
 .page_index section.memberType .content .description .button,
 .page_offers section.memberType .content .description .button {
 	width: 100%;
+	max-width: 280px;
+	border-radius: 4px;
 }
 
 .page_index footer,
@@ -2844,8 +2884,8 @@ footer ul > li a:hover {
 .page_viewProfile .content .viewTab .iconsUser.style:before {
 	content: "";
 	color: #ed7b6e;
-	font-size: 17px;
-	font-size: 1.7rem;
+	font-size: 27px;
+	font-size: 2.7rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -3867,7 +3907,12 @@ header.headerPage .previousStepMenu a:before {
 
 .page_index header.homepage,
 .page_offers header.homepage {
-	min-height: 600px;
+	min-height: 500px;
+}
+
+.page_index header.homepage .arrow_bottom,
+.page_offers header.homepage .arrow_bottom {
+	display: none;
 }
 
 .page_index header.homepage .topMenu,
@@ -3875,6 +3920,14 @@ header.headerPage .previousStepMenu a:before {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
+	margin: 0;
+}
+
+.page_index header.homepage .topMenu .button,
+.page_offers header.homepage .topMenu .button {
+	position: relative;
+	top: 0;
+	left: 0;
 }
 
 .page_index header.homepage .content,
@@ -3882,11 +3935,19 @@ header.headerPage .previousStepMenu a:before {
 	margin-top: 200px;
 }
 
+.page_index header.homepage .content .button + .button,
+.page_offers header.homepage .content .button + .button {
+	margin-top: 0;
+}
+
 .page_index section.servicePresentation,
 .page_offers section.servicePresentation {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
 }
 
 .page_index section.servicePresentation .presentation h3,
@@ -3901,6 +3962,16 @@ header.headerPage .previousStepMenu a:before {
 	background: #5fc6ce;
 }
 
+.page_index section.memberType.brand,
+.page_offers section.memberType.brand {
+	background-position: 50% 50%;
+}
+
+.page_index section.memberType.modeuse,
+.page_offers section.memberType.modeuse {
+	background-position: 50% 50%;
+}
+
 .page_index section.memberType .content .citation,
 .page_offers section.memberType .content .citation {
 	display: -webkit-flex;
@@ -3912,6 +3983,11 @@ header.headerPage .previousStepMenu a:before {
 	-webkit-flex: 5;
 	-ms-flex: 5;
 	flex: 5;
+}
+
+.page_index section.memberType .content .description,
+.page_offers section.memberType .content .description {
+	margin-top: 0;
 }
 
 .page_index section.memberType .content .description h2,
@@ -3935,9 +4011,15 @@ header.headerPage .previousStepMenu a:before {
 	padding-top: 100px;
 }
 
+.page_index section.memberType .content .description ul,
+.page_offers section.memberType .content .description ul {
+	display: block;
+}
+
 .page_index section.memberType .content .description .button,
 .page_offers section.memberType .content .description .button {
 	max-width: 200px;
+	border-radius: 10px;
 }
 
 .page_login .headerPage h2.titlePage {
@@ -4061,6 +4143,7 @@ footer .socials ul li.pinterest:hover {
 	-webkit-justify-content: flex-start;
 	-ms-flex-pack: start;
 	justify-content: flex-start;
+	margin-top: 0;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation ul {
@@ -4075,6 +4158,7 @@ footer .socials ul li.pinterest:hover {
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation .socialStats {
+	padding-left: 0;
 	margin-left: 0px;
 }
 

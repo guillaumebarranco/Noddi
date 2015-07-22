@@ -56,13 +56,15 @@ $session = $this->request->session(); ?>
 				<div class="logo">
 					<img src="<?=$this->request->base?>/img/logo_white.svg" alt="Noddi logo"/>
 				</div>
-				<?= $this->Html->link(__("Se connecter"), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button']) ?>
+				<?= $this->Html->link(__("Se connecter"), ['controller' => 'Users', 'action' => 'login'], ['class' => 'button button_connect']) ?>
 			</div>
 			<div class="content">
 				<h2>mettre sa notoriété à profit n’a jamais été aussi simple.</h2>
 				<?= $this->Html->link(__("Inscription Marque"), ['controller' => 'Users', 'action' => 'sign_in_brand'], ['class' => 'button reversed dark']) ?>
 				<?= $this->Html->link(__("Inscription Modeuse"), ['controller' => 'Users', 'action' => 'sign_in_modeuse'], ['class' => 'button reversed homeSpecial']) ?>
 			</div>
+
+			<div class="arrow_bottom"></div>
 		</header>
 
 		<section class="servicePresentation">

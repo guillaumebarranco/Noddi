@@ -28,9 +28,6 @@
                 <option value="maintenant">maintenant</option>
             </select>
 
-            
-
-
         </div>
 
         <div class="titleOffer">
@@ -39,7 +36,7 @@
         
         <div class="regularCheckbox">
             <input type="checkbox" name="is_public" id="allowContact" class="singlecheckbox" checked>
-            <label for="allowContact" class="allowContact">J'autorise les Noddiz à me contater</label>
+            <label for="allowContact" class="allowContact">J'autorise les Noddiz à me contacter</label>
         </div>
         
         <div class="flexInput">
