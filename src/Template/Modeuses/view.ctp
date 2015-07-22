@@ -9,6 +9,9 @@
     <section class="page_modeuse modeuse_infos">
 
         <header class="globalInfo">
+            <?php if(substr($modeuse->user->picture, 0, 4) != 'http') {
+                $modeuse->user->picture = $this->request->base.'/'.$modeuse->user->picture;
+            } ?>
             <div class="profile_picture" style="background-image:url('<?=$modeuse->user->picture?>');"></div>
             <div class="contentInfos">
 
