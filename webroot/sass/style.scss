@@ -405,6 +405,10 @@ form {
 
 }
 
+.all_favoris {
+    margin-top: 50px;
+}
+
 header.headerPage{
     display: flex;
     flex-direction: row-reverse;
@@ -420,8 +424,9 @@ header.headerPage{
         color: $white;
         @include font-size(1.8);
         @media (min-width: $tablet) {
-            color: $black;
-            background: none;
+            margin-top: -5px;
+            //color: $black;
+            //background: none;
 
         }
     }

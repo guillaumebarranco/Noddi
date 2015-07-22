@@ -1,4 +1,4 @@
-<div class="page_index">
+<div class="page_index page">
 	<section class="section_home">
 	
 		<header class="headerPage">

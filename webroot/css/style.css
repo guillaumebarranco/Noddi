@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 @font-face {
 	font-family: 'Satisfy-Regular';
 	src: url("font/Satisfy-Regular.eot");
@@ -546,6 +548,10 @@ form textarea[type="checkbox"]:checked + label:before {
 .page.page_noConnect {
 	padding: 0;
 	padding-bottom: 0;
+}
+
+.all_favoris {
+	margin-top: 50px;
 }
 
 header.headerPage {
@@ -2545,6 +2551,75 @@ footer ul > li a:hover {
 	text-decoration: underline;
 }
 
+.hr {
+	background-color: #d5d5d5;
+	height: 1px;
+	margin-bottom: 20px;
+}
+
+.mySquad {
+	position: relative;
+	background-color: #ed7b6e;
+	display: block;
+	border-radius: 50%;
+	padding: 6px;
+	width: 30px;
+	height: 30px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.mySquad:before {
+	position: relative;
+	left: 1px;
+}
+
+.mySquad.mySquad_facebook:before {
+	content: "";
+	color: white;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.mySquad.mySquad_twitter:before {
+	content: "";
+	color: white;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.mySquad.mySquad_instagram:before {
+	content: "";
+	color: white;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
 .page_viewProfile {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -2558,6 +2633,9 @@ footer ul > li a:hover {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 	max-width: 500px;
 	margin: auto;
 }
@@ -2565,12 +2643,16 @@ footer ul > li a:hover {
 .page_viewProfile header.globalInfo .profile_picture {
 	background-color: #c8c7cc;
 	margin-right: 20px;
+	width: 110px;
+	height: 110px;
+	margin: 10px;
 }
 
 .page_viewProfile header.globalInfo .contentInfos {
 	-webkit-flex: 4;
 	-ms-flex: 4;
 	flex: 4;
+	margin-left: 15px;
 }
 
 .page_viewProfile header.globalInfo .contentInfos h3 {
@@ -2580,6 +2662,14 @@ footer ul > li a:hover {
 	font-weight: normal;
 }
 
+.page_viewProfile header.globalInfo .contentInfos .user {
+	margin-top: -20px;
+}
+
+.page_viewProfile header.globalInfo .contentInfos .has_blog {
+	font-size: .8em;
+}
+
 .page_viewProfile header.globalInfo .notifications {
 	-webkit-flex: 1;
 	-ms-flex: 1;
@@ -2587,7 +2677,7 @@ footer ul > li a:hover {
 }
 
 .page_viewProfile .content {
-	margin: 0 15px;
+	margin: 20px 15px 0 15px;
 }
 
 .page_viewProfile .content .button {
@@ -2700,12 +2790,14 @@ footer ul > li a:hover {
 	margin-bottom: 15px;
 	margin-left: 20px;
 	margin-top: 20px;
+	position: relative;
 }
 
 .page_viewProfile .content .viewTab .iconsUser h4 {
 	color: #ed7b6e;
 	margin: 0;
 	margin-left: 25px;
+	font-family: "Open Sans";
 }
 
 .page_viewProfile .content .viewTab .iconsUser p {
@@ -2715,13 +2807,15 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .viewTab .iconsUser:before {
 	position: absolute;
+	top: 10px;
+	left: -5px;
 }
 
 .page_viewProfile .content .viewTab .iconsUser.hobbies:before {
 	content: "";
 	color: #ed7b6e;
-	font-size: 17px;
-	font-size: 1.7rem;
+	font-size: 27px;
+	font-size: 2.7rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -2735,8 +2829,8 @@ footer ul > li a:hover {
 .page_viewProfile .content .viewTab .iconsUser.personality:before {
 	content: "";
 	color: #ed7b6e;
-	font-size: 17px;
-	font-size: 1.7rem;
+	font-size: 27px;
+	font-size: 2.7rem;
 	font-family: "noddifont";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -2980,6 +3074,7 @@ footer ul > li a:hover {
 
 .page_viewProfile .content .viewTab article.post {
 	border-radius: 12px;
+	border: 1px #d5d5d5 solid;
 	background-color: #ffffff;
 	margin-bottom: 20px;
 }
@@ -3753,8 +3848,7 @@ body {
 }
 
 header.headerPage h2.titlePage {
-	color: #000000;
-	background: none;
+	margin-top: -5px;
 }
 
 header.headerPage .previousStepMenu {
@@ -3895,6 +3989,23 @@ footer .socials ul li.pinterest:hover {
 	background: #cc2127;
 }
 
+.mySquad {
+	margin: 0;
+	display: inline-block;
+}
+
+.mySquad.mySquad_facebook {
+	top: 28px;
+}
+
+.mySquad.mySquad_twitter {
+	top: 28px;
+}
+
+.mySquad.mySquad_instagram {
+	top: 111px;
+}
+
 .page_viewProfile header.globalInfo {
 	max-width: 800px;
 }
@@ -3936,13 +4047,20 @@ footer .socials ul li.pinterest:hover {
 
 .page_viewProfile .content .viewTab#viewUserDescription {
 	margin: 0;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
 }
 
 .page_viewProfile .content .viewTab#viewUserDescription p.checkDescription {
+	margin: 0;
 	width: 300px;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation {
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation ul {
@@ -3952,13 +4070,24 @@ footer .socials ul li.pinterest:hover {
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation h2 {
-	margin-top: 50px;
 	display: block;
 	width: 100%;
 }
 
 .page_viewProfile .content .viewTab#viewUserReputation .socialStats {
 	margin-left: 0px;
+}
+
+.page_viewProfile .content .viewTab .iconsUser {
+	margin-left: 0;
+}
+
+.page_viewProfile .content .viewTab .iconsUser h4 {
+	margin-left: 34px;
+}
+
+.page_viewProfile .content .viewTab .iconsUser p {
+	margin-left: 34px;
 }
 
 .page_viewProfile .content .viewTab h2 {

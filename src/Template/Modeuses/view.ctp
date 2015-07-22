@@ -18,7 +18,7 @@
                 <h3><?= h($modeuse->firstname) ?>  <?= h($modeuse->lastname) ?></h3>
 
                 <p class="user"><?= h($modeuse->age) ?> ans - <?= h($modeuse->city) ?></p>
-                <p class="bio">
+                <p class="bio has_blog">
                     <?php 
                         if($modeuse->has_blog == 1 && $modeuse->brandExperience == 1){
                             echo 'Possède un blog et a déjà collaboré avec des marques';
@@ -64,6 +64,26 @@
                 <div class="viewTab" id="viewUserReputation">
                     <h2>Audience</h2>
                     <ul class="socialStats">
+
+                    <?php if($modeuse->insta_followers > 1000 && $modeuse->insta_followers < 1000000) {
+                                $modeuse->insta_followers = round($modeuse->insta_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+                            } else if($modeuse->insta_followers > 1000000) {
+                                $modeuse->insta_followers = round($modeuse->insta_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+                            }
+
+                            if($modeuse->twitter_followers > 1000 && $modeuse->twitter_followers < 1000000) {
+                                $modeuse->twitter_followers = round($modeuse->twitter_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+                            } else if($modeuse->twitter_followers > 1000000) {
+                                $modeuse->twitter_followers = round($modeuse->twitter_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+                            }
+
+                            if($modeuse->facebook_followers > 1000 && $modeuse->facebook_followers < 1000000) {
+                                $modeuse->facebook_followers = round($modeuse->facebook_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
+                            } else if($modeuse->facebook_followers > 1000000) {
+                                $modeuse->facebook_followers = round($modeuse->facebook_followers/1000000, 0, PHP_ROUND_HALF_UP).'M';
+                            }
+
+                    ?>
                         <li class="facebook">
                             <p ><?=$modeuse->facebook_followers?><small>Amis</small></p>
                         </li>
@@ -111,11 +131,12 @@
                         $tab_socials[1] = 'twitter';
                         $tab_socials[2] = 'facebook';
 
-                        for ($i=0; $i < 3; $i++) { 
-                           
-                            echo '<h2>Dernières publications '.ucfirst($tab_socials[$i]).'</h2>';
+                        for ($i=0; $i < 3; $i++) { ?>
+                            
+                            <div class="hr"></div>
+                            <div class="mySquad mySquad_<?=$tab_socials[$i]?>"></div>
 
-                            foreach ($posts as $key => $post) { 
+                            <?php foreach ($posts as $key => $post) { 
 
                                 if($post->social == $tab_socials[$i]) { ?>
                                     

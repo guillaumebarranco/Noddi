@@ -9,12 +9,66 @@
 .page_account{
 }
 
+.hr {
+	background-color: #d5d5d5;
+	height: 1px;
+	margin-bottom: 20px;
+}
+.mySquad {
+	position: relative;
+	background-color: #ed7b6e;
+	display: block;
+	border-radius: 50%;
+	padding: 6px;
+	width: 30px;
+	height: 30px;
+	box-sizing: border-box;
+	margin: 0 auto;
+	margin-bottom: 20px;
+
+	@media (min-width: $tablet) {
+		margin: 0;
+		display: inline-block;
+	}
+
+
+	&:before  {
+		position: relative;
+		left: 1px;
+	}
+
+	&.mySquad_facebook {
+		@media (min-width: $tablet) {
+			top: 28px;
+		}		&:before {
+			@include noddifont($facebook, white, 1.7);
+		}
+	}
+	&.mySquad_twitter {
+		@media (min-width: $tablet) {
+			top: 28px;
+		}
+			&:before {
+			@include noddifont($twitter, white, 1.7);
+		}
+	}
+	&.mySquad_instagram {
+		@media (min-width: $tablet) {
+			top: 111px;
+		}
+		&:before {
+			@include noddifont($instagram, white, 1.7);
+		}
+	}
+
+}
 
 .page_viewProfile{
 	display: flex;
 	flex-direction: column;
 	header.globalInfo{
 		display: flex;
+		align-items: center;
 		max-width: 500px;
 		margin: auto;
 		@media (min-width: $tablet) {
@@ -23,6 +77,9 @@
 		.profile_picture{
 			background-color: $grey;
 			margin-right: 20px;
+			width: 110px;
+			height: 110px;
+			margin: 10px;
 			@media (min-width: $tablet) {
 				width: 160px;
 				height: 160px;
@@ -30,20 +87,21 @@
 		}
 		.contentInfos{
 			flex: 4;
+			margin-left: 15px;
 			h3{
 				color: $primary;
 				@include font-size(1.8);
 				font-weight: normal;
 			}
-			.user{}
-			.bio{}
+			.user{margin-top: -20px;}
+			.has_blog{font-size: .8em;}
 		}
 		.notifications{
 			flex: 1;
 		}
 	}
 	.content{
-		margin: 0 15px;
+		margin: 20px 15px 0 15px;
 		@media (min-width: $tablet) {
 			display: flex;
 			flex-direction: column;
@@ -118,12 +176,13 @@
 				flex-direction: column;
 				@media (min-width: $tablet) {
 					margin: 0;
-					justify-content: center;
+					justify-content: flex-start;
 				}
 				p{
 					width: 100%;
 					&.checkDescription {
 						@media (min-width: $tablet) {
+							margin: 0;
 							width: 300px;
 						}
 					}
@@ -135,6 +194,7 @@
 				width: 100%;
 				margin-bottom: 20px;
 				@media (min-width: $tablet) {
+					justify-content: flex-start;
 					ul {
 						flex-direction: row;
 					}
@@ -143,7 +203,6 @@
 					display: none;
 
 					@media (min-width: $tablet) {
-						margin-top: 50px;
 						display: block;
 						width: 100%;
 					}
@@ -175,24 +234,37 @@
 				max-width: 500px;
 				margin-bottom: 15px;
 				margin-left: 20px;
+				@media (min-width: $tablet) {
+					margin-left: 0;
+				}
 				margin-top: 20px;
+				position: relative;
 				h4{
 					color: $primary;
 					margin: 0;
 					margin-left:25px;
+					font-family: "Open Sans";
+					@media (min-width: $tablet) {
+						margin-left: 34px;
+					}
 				}
 				p{
 					margin: 0;
 					margin-left:25px;
+					@media (min-width: $tablet) {
+						margin-left: 34px;
+					}
 				}
 				&:before{
 					position: absolute;
+					top: 10px;
+					left: -5px;
 				}
 				&.hobbies:before{
-					@include noddifont($fav, $primary, 1.7);
+					@include noddifont($fav, $primary, 2.7);
 				}
 				&.personality:before{
-					@include noddifont($user, $primary, 1.7);
+					@include noddifont($user, $primary, 2.7);
 				}
 				&.style:before{
 					@include noddifont($shoes, $primary, 1.7);
@@ -320,6 +392,7 @@
 
 				// max-width: 200px;
 				border-radius: $radiusDefault;
+				border: 1px #d5d5d5 solid;
 				background-color: $white;
 				margin-bottom: 20px;
 				header.post_picture{
