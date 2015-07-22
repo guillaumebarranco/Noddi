@@ -2,7 +2,30 @@
 //MESSAGERIE
 
 .page_messagerie{
+
+	.seeProfil {
+		margin: 33px 0;
+		width: 100%;
+		position: relative;
+
+		.button {
+			width: 250px;
+			margin: 0 auto;
+		}
+	}
+
+	@media (min-width: $tablet) {
+		.seeProfil {
+			.button {
+				position: absolute;
+				right: 50px;
+				top: -65px;
+			}
+		}
+    }
+
 	.content{
+
 		max-width: 500px;
 		padding: 20px;
 		margin:auto;
@@ -66,10 +89,10 @@
 							}
 							&.receiver{
 								margin-right: 40px;
-								background-color: lighten($primary,8%);
+								background-color: lighten($secondary,8%);
 								&:after{
 								left: 0;
-								border-right:20px solid $primary; 
+								border-right:20px solid $secondary; 
 
 								}
 							}

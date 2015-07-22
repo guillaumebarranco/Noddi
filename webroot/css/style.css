@@ -3335,6 +3335,17 @@ footer.footerLinks .button {
 	margin: 5px;
 }
 
+.page_messagerie .seeProfil {
+	margin: 33px 0;
+	width: 100%;
+	position: relative;
+}
+
+.page_messagerie .seeProfil .button {
+	width: 250px;
+	margin: 0 auto;
+}
+
 .page_messagerie .content {
 	max-width: 500px;
 	padding: 20px;
@@ -3414,12 +3425,12 @@ footer.footerLinks .button {
 
 .page_messagerie .content .conversation ul li.receiver {
 	margin-right: 40px;
-	background-color: #f29c92;
+	background-color: #7ed1d8;
 }
 
 .page_messagerie .content .conversation ul li.receiver:after {
 	left: 0;
-	border-right: 20px solid #ed7b6e;
+	border-right: 20px solid #5fc6ce;
 }
 
 .page_messagerie .content .conversation ul li h3 {
@@ -3797,6 +3808,12 @@ footer .socials ul li.pinterest:hover {
 	margin: 0;
 	margin-top: 0px;
 	position: relative;
+}
+
+.page_messagerie .seeProfil .button {
+	position: absolute;
+	right: 50px;
+	top: -65px;
 }
 
 .page_messagerie .content .conversation form.formSendMessage textarea {
