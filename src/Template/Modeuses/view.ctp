@@ -71,11 +71,14 @@
                     <ul class="all_socials">
                         <?php if(isset($modeuse->socialPresence)){
                             $tab_networks = explode(',', $modeuse->socialPresence);
-                            foreach ($tab_networks as $key => $net) { ?>
-                                <li>
-                                    <?=$net?>
-                                </li>
+                            foreach ($tab_networks as $key => $net) { 
+                                if($net != 'instagram' && $net != 'twitter' && $net != 'facebook') ?>
+
+                                    <li>
+                                        <?=$net?>
+                                    </li>
                             <?php }
+                            }
                         } ?>
                     </ul>
                     

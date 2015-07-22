@@ -203,7 +203,7 @@ $(document).ready(function() {
 
 			makeAjax('POST', WEB_URL+"/favoris/delete/"+favori_id, '', function() {
 				swal({
-					title: "Deleted !",
+					title: "Favori supprimé !",
 					type: "success"
 				}, function() {
 					that.addClass('grey');
