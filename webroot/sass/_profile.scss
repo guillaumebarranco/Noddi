@@ -143,7 +143,7 @@
 		@media (min-width: $tablet) {
 			.specialDesktop{
 				display: flex;
-				max-width: 800px;
+				// max-width: 800px;
 				margin: auto;
 			}
 		}
@@ -196,7 +196,7 @@
 				@media (min-width: $tablet) {
 					justify-content: flex-start;
 					ul {
-						flex-direction: column;
+						flex-direction: row;
 					}
 				}
 				h2{
@@ -210,11 +210,17 @@
 				}
 
 				p{width: 100%;}
-				.backReach{width: 100%; margin: 20px 0;}
+				.backReach{
+					width: 100%; 
+					margin: 0 0 20px 0;
+				}
 				.socialStats{
 					margin:0;
 					margin-bottom: 35px;
 					margin-left: 50px;
+					@media (min-width: $tablet) {
+						margin-left: 0px;
+					}
 					li {
 						&:before {
 							margin-right: 10px;
@@ -262,7 +268,7 @@
 					@include noddifont($user, $primary, 2.7);
 				}
 				&.style:before{
-					@include noddifont($user, $primary, 2.7);
+					@include noddifont($shoes, $primary, 1.7);
 				}
 			}
 
@@ -279,21 +285,39 @@
 				flex-direction: column;
 				justify-content: space-around;
 				// align-items: center;
-				margin-left: 50px;
-				@media (min-width: $tablet) {
+				// margin-left: 50px;
+				padding: 20px;
+				
 					flex-direction: row;
 					width: 100%;
 					align-items: flex-start;
 					margin-left: 0;
-				}
+					align-items: stretch;
+					justify-content: flex-start;
+					flex-wrap: wrap;
+				
 				li{
 					padding: 10px 0;
+					min-width: 140px;
 					@include font-size(2);
 					@media (min-width: $tablet) {
-						flex:1;
+						// flex:1;
+						align-items: center;
+						justify-content: center;
+						display: flex;
+						margin: 0 40px;
+						min-width: 30px;
+					}
+					p{
+						display: flex;
+						flex-direction: column;
+						margin: 5px 0;
+						font-weight: bold;
 					}
 					small{
 						@include font-size(1.4);
+						text-transform: uppercase;
+						font-weight: normal;
 					}
 					&:before{
 						position: absolute;
@@ -305,10 +329,16 @@
 						margin-left: -40px;
 						margin-top: -10px;
 						@media (min-width: $tablet) {
+							position: absolute;
 					  		margin: 0;
-					  		margin-top: 0px;
-					  		position: relative;
-					  		margin-right: 10px;
+					  		// margin-top: 0px;
+					  		// margin-right: 10px;
+					  		width: 20px;
+					  		height: 20px;
+					  		// margin-top: -20px;
+					  		// margin-top: 20px;
+					  		margin-left: -50px;
+					  		margin-top: 5px;
 						}
 					}
 					&.facebook:before{
@@ -319,6 +349,18 @@
 					}
 					&.instagram:before{
 						@include noddifont($instagram, $white, 1.7);
+					}
+					&.tumblr:before{
+						@include noddifont($tumblr, $white, 1.7);
+					}
+					&.youtube:before{
+						@include noddifont($youtube, $white, 1.7);
+					}
+					&.vine:before{
+						@include noddifont($vine, $white, 1.7);
+					}
+					&.flickr:before{
+						@include noddifont($flickr, $white, 1.7);
 					}
 				}
 			}

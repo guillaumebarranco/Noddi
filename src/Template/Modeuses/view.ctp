@@ -64,6 +64,7 @@
                 <div class="viewTab" id="viewUserReputation">
                     <h2>Audience</h2>
                     <ul class="socialStats">
+
                     <?php if($modeuse->insta_followers > 1000 && $modeuse->insta_followers < 1000000) {
                                 $modeuse->insta_followers = round($modeuse->insta_followers/1000, 0, PHP_ROUND_HALF_UP).'k';
                             } else if($modeuse->insta_followers > 1000000) {
@@ -83,22 +84,29 @@
                             }
 
                     ?>
-                        <li class="facebook"><?=$modeuse->facebook_followers?> <small>Amis</small></li>
-                        <li class="twitter"><?=$modeuse->twitter_followers?> <small>followers</small></li>
-                        <li class="instagram"><?=$modeuse->insta_followers?> <small>followers</small></li>
-                    </ul>
-                    <ul class="all_socials">
+                        <li class="facebook">
+                            <p ><?=$modeuse->facebook_followers?><small>Amis</small></p>
+                        </li>
+                        <li class="twitter">
+                            <p> <?=$modeuse->twitter_followers?><small>followers</small></p>
+                        </li>
+                        <li class="instagram">
+                            <p ><?=$modeuse->insta_followers?> <small>followers</small></p>
+                        </li>
                         <?php if(isset($modeuse->socialPresence)){
                             $tab_networks = explode(',', $modeuse->socialPresence);
                             foreach ($tab_networks as $key => $net) { 
-                                if($net != 'instagram' && $net != 'twitter' && $net != 'facebook') { ?>
+                                if($net != 'instagram' && $net != 'twitter' && $net != 'facebook'){ ?>
 
-                                    <li>
-                                        <?=$net?>
+                                    <li class="<?=$net?>">
+                                        <p class="<?=$net?>"></p>
                                     </li>
                             <?php }
                             }
                         } ?>
+                    </ul>
+                    <ul class="all_socials">
+                        
                     </ul>
                     
                     <h2>Moyenne de portée des publications</h2>
