@@ -542,6 +542,44 @@ form textarea:-webkit-autofill {
 	padding: 0;
 }
 
+.popup_mail {
+	position: relative;
+	text-align: right;
+	margin-right: 20px;
+	top: 50px;
+	margin-top: -45px;
+}
+
+.popup_mail:before {
+	content: "";
+	color: #c8c7cc;
+	font-size: 40px;
+	font-size: 4rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.popup_mail:after {
+	content: '1';
+	background-color: red;
+	border-radius: 50%;
+	color: white;
+	padding: 3px 9px;
+	width: 26px;
+	height: 26px;
+	display: block;
+	box-sizing: border-box;
+	position: absolute;
+	top: -14px;
+	right: -14px;
+}
+
 .page {
 	-webkit-flex-grow: 1;
 	-ms-flex-positive: 1;
@@ -3093,6 +3131,21 @@ footer ul > li a:hover {
 	text-transform: none;
 }
 
+.page_viewProfile .content .viewTab ul.socialStats li.snapchat:before {
+	content: "";
+	color: #ffffff;
+	font-size: 17px;
+	font-size: 1.7rem;
+	font-family: "noddifont";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+}
+
 .page_viewProfile .content .viewTab .backReach {
 	max-width: 500%;
 	background-color: #ffffff;
@@ -3675,38 +3728,27 @@ footer.footerLinks .button {
 .page_messagerie .content .conversation ul li {
 	box-shadow: none;
 	margin-bottom: 30px;
-}
-
-.page_messagerie .content .conversation ul li:after {
-	position: absolute;
-	content: " ";
-	bottom: 0;
-	width: 0;
-	height: 0;
-	margin-bottom: -20px;
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	z-index: -5;
-}
-
-.page_messagerie .content .conversation ul li.myself {
-	margin-left: 40px;
-	background-color: #ed7b6e;
-}
-
-.page_messagerie .content .conversation ul li.myself:after {
-	right: 0;
-	border-left: 20px solid #e75241;
+	border-radius: 10px;
+	border: solid #c8c7cc 1px;
 }
 
 .page_messagerie .content .conversation ul li.receiver {
-	margin-right: 40px;
-	background-color: #7ed1d8;
+	margin-left: 40px;
+	background-color: white;
 }
 
-.page_messagerie .content .conversation ul li.receiver:after {
-	left: 0;
-	border-right: 20px solid #5fc6ce;
+.page_messagerie .content .conversation ul li.receiver h3 {
+	color: black;
+}
+
+.page_messagerie .content .conversation ul li.receiver h3 small,
+.page_messagerie .content .conversation ul li.receiver p {
+	color: #555;
+}
+
+.page_messagerie .content .conversation ul li.myself {
+	margin-right: 40px;
+	background-color: #7ed1d8;
 }
 
 .page_messagerie .content .conversation ul li h3 {

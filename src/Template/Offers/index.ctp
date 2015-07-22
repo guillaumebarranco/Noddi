@@ -49,6 +49,9 @@
                 <article class="offer">
                     <header style="background-image:url('<?=$this->request->base?>/img/offers/<?=$apply->offer->uniquid?>/1.png');"></header>
                     <div class="contentArticle">
+
+                        <div class="popup_mail" data-description="<?=$apply->message?>"></div>
+
                         <h3>Informations générales</h3>
                         <div class="infoBrand">
                             <img src="<?=$apply->offer->brand->user->picture?>" alt="Brand">

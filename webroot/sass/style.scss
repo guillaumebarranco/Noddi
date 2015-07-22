@@ -393,6 +393,32 @@ form {
     }
 }
 
+.popup_mail {
+    position: relative;
+    text-align: right;
+    margin-right: 20px;
+    top: 50px;
+    margin-top: -45px;
+
+    &:before {
+        @include noddifont($email, $grey, 4);
+    }
+    &:after {
+        content: '1';
+        background-color: red;
+        border-radius: 50%;
+        color: white;
+        padding: 3px 9px;
+        width: 26px;
+        height: 26px;
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        top: -14px;
+        right: -14px;
+    }
+}
+
 .page {
     flex-grow: 1; //Set the footer a the bottom of the page
     padding-bottom: 70px;

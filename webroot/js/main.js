@@ -564,4 +564,14 @@ $(document).ready(function() {
 		
 	}
 
+	$('.popup_mail').on('click', function() {
+
+		var description = $(this).attr('data-description');
+
+		swal({
+			title: 'Message',
+			text: description
+		});
+	});
+
 });	
