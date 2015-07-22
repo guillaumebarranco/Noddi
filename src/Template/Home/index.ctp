@@ -136,10 +136,8 @@ $session = $this->request->session(); ?>
 	            </ul>
 	        </section>
 	        <ul>
-	            <li><a href="#">Nous contacter</a></li>
-	            <li><a href="#">Plan du site</a></li>
-	            <li><a href="#">Conditions générales d'utilisation</a></li>
-	            <li><a href="#">Mentions légales</a></li>
+	            <li><a href="cgu.pdf" target="_blank">Conditions générales d'utilisation</a></li>
+	            <li><a href="mentions.pdf" target="_blank">Mentions légales</a></li>
 	        </ul>
 	        <small>© 2015 Noddi  - Tous droits réservés</small>
 	    </div>
