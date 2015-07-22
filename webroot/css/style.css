@@ -2585,6 +2585,13 @@ footer ul > li a:hover {
 	margin: 0 15px;
 }
 
+.page_viewProfile .content .button {
+	max-width: 300px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .page_viewProfile .content ul.tabsProfile {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -2621,11 +2628,70 @@ footer ul > li a:hover {
 .page_viewProfile .content .viewTab {
 	max-width: 500px;
 	margin: auto;
+	display: none;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.page_viewProfile .content .viewTab .all_socials li {
+	padding: 9px 19px;
+	display: inline-block;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 0 6px 5px #ed7b6e;
+	background-color: #ed7b6e;
+	color: white;
+	font-weight: bold;
+}
+
+.page_viewProfile .content .viewTab#viewUserDescription {
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+.page_viewProfile .content .viewTab#viewUserDescription p {
+	width: 100%;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation {
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	max-width: 550px;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation h2 {
+	display: none;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation p {
+	width: 100%;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation .backReach {
+	width: 100%;
+	margin: 20px 0;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation .socialStats {
+	margin: 0;
+	margin-bottom: 35px;
+}
+
+.page_viewProfile .content .viewTab#viewUserReputation .socialStats li:before {
+	margin-right: 10px;
 }
 
 .page_viewProfile .content .viewTab .iconsUser {
 	max-width: 500px;
 	margin-bottom: 15px;
+	margin-left: 20px;
+	margin-top: 20px;
 }
 
 .page_viewProfile .content .viewTab .iconsUser h4 {
@@ -2704,6 +2770,9 @@ footer ul > li a:hover {
 	-webkit-justify-content: space-around;
 	-ms-flex-pack: distribute;
 	justify-content: space-around;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
 	margin-left: 50px;
 }
 
@@ -3715,10 +3784,62 @@ footer .socials ul li.pinterest:hover {
 	background: #cc2127;
 }
 
+.page_viewProfile header.globalInfo {
+	max-width: 800px;
+}
+
+.page_viewProfile header.globalInfo .profile_picture {
+	width: 160px;
+	height: 160px;
+}
+
+.page_viewProfile .content {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.page_viewProfile .content ul.tabsProfile {
+	display: none;
+}
+
+.page_viewProfile .content .viewTab {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	max-width: 800px;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
 .page_viewProfile .content .viewTab ul.socialStats {
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 	flex-direction: row;
+	width: 100%;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li {
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.page_viewProfile .content .viewTab ul.socialStats li:before {
+	margin: 0;
+	margin-top: 0px;
+	position: relative;
+}
+
+.page_viewProfile .content .viewTab article.post {
+	width: 350px;
+	display: inline-block;
+	margin-left: 30px;
+	vertical-align: top;
 }
 
 .page_messagerie .seeProfil .button {

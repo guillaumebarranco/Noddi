@@ -10,14 +10,14 @@
 
         <header class="globalInfo">
             <?php if(substr($modeuse->user->picture, 0, 4) != 'http') {
-                $modeuse->user->picture = $this->request->base.''.$modeuse->user->picture;
+                $modeuse->user->picture = $this->request->base.'/'.$modeuse->user->picture;
             } ?>
             <div class="profile_picture" style="background-image:url('<?=$modeuse->user->picture?>');"></div>
             <div class="contentInfos">
 
                 <h3><?= h($modeuse->firstname) ?>  <?= h($modeuse->lastname) ?></h3>
 
-                <p class="user"><?= h($modeuse->age) ?> - <?= h($modeuse->city) ?></p>
+                <p class="user"><?= h($modeuse->age) ?> ans - <?= h($modeuse->city) ?></p>
                 <p class="bio">
                     <?php 
                         if($modeuse->has_blog == 1 && $modeuse->brandExperience == 1){
@@ -44,15 +44,15 @@
                 <p><?= $modeuse->user->bio ?></p>  
                 <div class="hobbies iconsUser">
                     <h4>Centres d'intérêt</h4>
-                    <p><?= str_replace("_", " ", $modeuse->hobbies) ?></p>
+                    <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->hobbies)) ?></p>
                 </div>  
                 <div class="personality iconsUser">
                     <h4>Personnalité</h4>
-                    <p><?= str_replace("_", " ", $modeuse->personnality) ?></p>
+                    <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->personnality)) ?></p>
                 </div>  
                 <div class="style iconsUser">
                     <h4>Style</h4>
-                    <p><?= str_replace("_", " ", $modeuse->lifestyle) ?></p>
+                    <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->lifestyle)) ?></p>
                 </div>          
             </div>
                 
@@ -64,11 +64,16 @@
                     <li class="twitter"><?=$modeuse->twitter_followers?> <small>followers</small></li>
                     <li class="instagram"><?=$modeuse->insta_followers?> <small>followers</small></li>
                 </ul>
-                <p>également présente sur
+                <ul class="all_socials">
                     <?php if(isset($modeuse->socialPresence)){
-                        echo $modeuse->socialPresence;
+                        $tab_networks = explode(',', $modeuse->socialPresence);
+                        foreach ($tab_networks as $key => $net) { ?>
+                            <li>
+                                <?=$net?>
+                            </li>
+                        <?php }
                     } ?>
-                </p>
+                </ul>
                 
                 <h2>Moyenne de portée des publications :</h2>
                 <div class="backReach">
@@ -132,21 +137,23 @@
                     
                 </section>
             </div>
+
+            <?php if(!empty($offer)) { 
+
+            if($can_apply) { ?>
+                <div class="apply_offer button reversed" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</div>
+            <?php } else {
+                echo "<p style='text-align:center;'>Vous avez déjà proposé votre offre à cette modeuse !</p>";
+            }
+
+            ?>
         </div>
         
     </section>
     
 </section>
 
-<?php if(!empty($offer)) { 
 
-    if($can_apply) { ?>
-        <button class="apply_offer button" data-offer="<?=$offer->id?>" data-fromwho="<?=$this->request->session()->read('type')?>" data-modeuse="<?=$modeuse->id?>">Proposer mon offre</button>
-    <?php } else {
-        echo "<p style='text-align:center;'>Vous avez déjà proposé votre offre à cette modeuse !</p>";
-    }
-
-    ?>
 
 <?php } ?>
 
