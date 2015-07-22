@@ -82,6 +82,13 @@
 				}
 			}
 		}
+		@media (min-width: $tablet) {
+			.specialDesktop{
+				display: flex;
+				max-width: 800px;
+				margin: auto;
+			}
+		}
 		.viewTab{
 			max-width: 500px;
 			margin: auto;
@@ -109,6 +116,10 @@
 				flex-wrap: wrap;
 				margin-bottom: 30px;
 				flex-direction: column;
+				@media (min-width: $tablet) {
+					margin: 0;
+					justify-content: center;
+				}
 				p{
 					width: 100%;
 				}
@@ -139,6 +150,7 @@
 				.socialStats{
 					margin:0;
 					margin-bottom: 35px;
+					margin-left: 50px;
 					li {
 						&:before {
 							margin-right: 10px;
@@ -189,10 +201,13 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-around;
-				align-items: center;
+				// align-items: center;
+				margin-left: 50px;
 				@media (min-width: $tablet) {
 					flex-direction: row;
 					width: 100%;
+					align-items: flex-start;
+					margin-left: 0;
 				}
 				li{
 					padding: 10px 0;

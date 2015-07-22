@@ -43,50 +43,52 @@
 
             <div class="viewTab"><p><?= $modeuse->user->bio ?></p></div>
 
-            
-
-            <div class="viewTab" id="viewUserDescription">
-               
-                <div class="hobbies iconsUser">
-                    <h4>Centres d'intérêt</h4>
-                    <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->hobbies)) ?></p>
-                </div>  
-                <div class="personality iconsUser">
-                    <h4>Personnalité</h4>
-                    <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->personnality)) ?></p>
-                </div>  
-                <div class="style iconsUser">
-                    <h4>Style</h4>
-                    <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->lifestyle)) ?></p>
-                </div>          
-            </div>
-                
-            <div class="viewTab" id="viewUserReputation">
-                
-                <h2>Audience</h2>
-                <ul class="socialStats">
-                    <li class="facebook"><?=$modeuse->facebook_followers?> <small>Amis</small></li>
-                    <li class="twitter"><?=$modeuse->twitter_followers?> <small>followers</small></li>
-                    <li class="instagram"><?=$modeuse->insta_followers?> <small>followers</small></li>
-                </ul>
-                <ul class="all_socials">
-                    <?php if(isset($modeuse->socialPresence)){
-                        $tab_networks = explode(',', $modeuse->socialPresence);
-                        foreach ($tab_networks as $key => $net) { ?>
-                            <li>
-                                <?=$net?>
-                            </li>
-                        <?php }
-                    } ?>
-                </ul>
-                
-                <h2>Moyenne de portée des publications</h2>
-                <div class="backReach">
-                    <div class="reach" style="width:<?= $modeuse->noddi_rank ?>%;">
-                        <small><?= $modeuse->noddi_rank ?>%</small>
+            <div class="specialDesktop">
+                <div class="viewTab" id="viewUserDescription">
+                    <div class="hobbies iconsUser">
+                        <h4>Centres d'intérêt</h4>
+                        <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->hobbies)) ?></p>
+                    </div>  
+                    <div class="personality iconsUser">
+                        <h4>Personnalité</h4>
+                        <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->personnality)) ?></p>
+                    </div>  
+                    <div class="style iconsUser">
+                        <h4>Style</h4>
+                        <p><?= str_replace(",", ", ", str_replace("_", " ", $modeuse->lifestyle)) ?></p>
+                    </div>          
+                </div>
+                    
+                <div class="viewTab" id="viewUserReputation">
+                    <h2>Audience</h2>
+                    <ul class="socialStats">
+                        <li class="facebook"><?=$modeuse->facebook_followers?> <small>Amis</small></li>
+                        <li class="twitter"><?=$modeuse->twitter_followers?> <small>followers</small></li>
+                        <li class="instagram"><?=$modeuse->insta_followers?> <small>followers</small></li>
+                    </ul>
+                    <ul class="all_socials">
+                        <?php if(isset($modeuse->socialPresence)){
+                            $tab_networks = explode(',', $modeuse->socialPresence);
+                            foreach ($tab_networks as $key => $net) { ?>
+                                <li>
+                                    <?=$net?>
+                                </li>
+                            <?php }
+                        } ?>
+                    </ul>
+                    
+                    <h2>Moyenne de portée des publications</h2>
+                    <div class="backReach">
+                        <div class="reach" style="width:<?= $modeuse->noddi_rank ?>%;">
+                            <small><?= $modeuse->noddi_rank ?>%</small>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            
+
+
 
             <div class="viewTab" id="viewUserPosts">
                 <section class="page_modeuse modeuse_socials">
