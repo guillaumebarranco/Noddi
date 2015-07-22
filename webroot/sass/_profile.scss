@@ -9,7 +9,6 @@
 .page_account{
 }
 
-
 .page_viewProfile{
 	display: flex;
 	flex-direction: column;
@@ -50,9 +49,7 @@
 		}
 		.button{
 			max-width: 300px;
-			margin:0 auto;
-			margin-top: 20px;
-			margin-bottom: 20px;
+			margin:auto;
 		}
 		ul.tabsProfile{
 				display: flex;
@@ -92,46 +89,21 @@
 				max-width: 800px;
 				justify-content: space-around;
 			}
-
-			.all_socials {
-				li {
-  					padding: 9px 19px;
-					display: inline-block;
-					margin-left: 20px;
-					margin-bottom: 20px;
-					box-shadow: 0 0 6px 5px $primary;
-					background-color: $primary;
-					color: white;
-					font-weight: bold;
-				}
-			}
-
 			&#viewUserDescription{
 				flex-wrap: wrap;
-				margin-bottom: 30px;
 				p{
 					width: 100%;
 				}
 			}
 			&#viewUserReputation{
 				flex-wrap: wrap;
-				max-width: 550px;
-				width: 100%;
-				margin-bottom: 20px;
 				h2{
-					display: none;
+					width: 100%;
+					text-align: left;
 				}
 				p{width: 100%;}
-				.backReach{width: 100%; margin: 20px 0;}
-				.socialStats{
-					margin:0;
-					margin-bottom: 35px;
-					li {
-						&:before {
-							margin-right: 10px;
-						}
-					}
-				}
+				.backReach{width: 100%;}
+				.socialStats{margin:0;}
 			}
 			&#viewUserPosts{
 
@@ -139,8 +111,6 @@
 			.iconsUser{
 				max-width: 500px;
 				margin-bottom: 15px;
-				margin-left: 20px;
-				margin-top: 20px;
 				h4{
 					color: $primary;
 					margin: 0;
@@ -178,6 +148,9 @@
 				@media (min-width: $tablet) {
 					flex-direction: row;
 					width: 100%;
+					padding: 10px;
+					background-color: white;
+					border-radius: 10px;
 				}
 				li{
 					padding: 10px 0;
@@ -278,13 +251,6 @@
 						}
 					}
 				}
-
-				@media (min-width: $tablet) {
-					width: 350px;
-					display: inline-block;
-					margin-left: 30px;
-					vertical-align: top;
-		        }
 			}
 		}
 	}
