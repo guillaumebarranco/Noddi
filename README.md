@@ -1,7 +1,7 @@
 # Noddi
 Noddi est une plateforme permettant de mettre à profit sa notoriété pour échanger des bons plans entre marques et modeuses.
 
-Lien du site : [http://noddi.eu](http://noddi.eu)
+Lien du site : [http://lab.webarranco.fr/noddi/](http://lab.webarranco.fr/noddi/)
 
 Clone repository
 
